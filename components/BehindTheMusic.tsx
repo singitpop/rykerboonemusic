@@ -26,7 +26,7 @@ export default function BehindTheMusic() {
       <div className="split-layout">
         <div style={{ order: 2 }}>
           <div className="reveal-img" style={{ 
-            aspectRatio: '1', 
+            aspectRatio: '2/3', 
             borderRadius: '12px',
             boxShadow: '0 40px 80px rgba(0,0,0,0.5)',
             position: 'relative',
@@ -36,7 +36,7 @@ export default function BehindTheMusic() {
               src="/images/boots-promo-full.jpg" 
               alt="Boots in the Autumn Dust Full Promo" 
               fill 
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'cover', objectPosition: 'top' }}
             />
             <div style={{
               position: 'absolute',

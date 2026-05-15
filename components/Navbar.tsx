@@ -51,7 +51,7 @@ export default function Navbar() {
           </Link>
           <Link href="/music" className="nav-link">Music</Link>
           <Link href="/about" className="nav-link">Our Story</Link>
-          <Link href="/store" className="nav-link">Store</Link>
+          <Link href="https://shop.rykerboonemusic.website" className="nav-link" target="_blank">Store</Link>
           <Link href="/club">
             <button style={{
               background: 'var(--accent-gold)',

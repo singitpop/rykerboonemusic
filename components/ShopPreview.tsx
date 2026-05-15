@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const products = [
   {
@@ -31,17 +32,19 @@ export default function ShopPreview() {
           <span className="subtitle">Official Collection</span>
           <h2 className="section-title">THE ARTIST <br /> <span style={{ color: 'var(--accent-gold)' }}>LIBRARY</span></h2>
         </div>
-        <button style={{
-          border: '1px solid rgba(226, 179, 90, 0.3)',
-          color: 'var(--accent-gold)',
-          padding: '0.8rem 2rem',
-          fontSize: '0.7rem',
-          fontWeight: '900',
-          letterSpacing: '0.2em',
-          transition: 'all 0.3s ease'
-        }}>
-          VIEW ALL PRODUCTS
-        </button>
+        <Link href="https://shop.rykerboonemusic.website" target="_blank">
+          <button style={{
+            border: '1px solid rgba(226, 179, 90, 0.3)',
+            color: 'var(--accent-gold)',
+            padding: '0.8rem 2rem',
+            fontSize: '0.7rem',
+            fontWeight: '900',
+            letterSpacing: '0.2em',
+            transition: 'all 0.3s ease'
+          }}>
+            VIEW ALL PRODUCTS
+          </button>
+        </Link>
       </div>
 
       <div style={{ 
@@ -84,20 +87,22 @@ export default function ShopPreview() {
             <h3 style={{ fontSize: '1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: 'white' }}>{product.name}</h3>
             <div style={{ color: 'var(--accent-gold)', fontWeight: '900', fontSize: '0.9rem' }}>{product.price}</div>
             
-            <button style={{
-              width: '100%',
-              marginTop: '1.5rem',
-              background: 'transparent',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: 'white',
-              padding: '0.8rem',
-              fontSize: '0.7rem',
-              fontWeight: '700',
-              letterSpacing: '0.1em',
-              transition: 'all 0.3s ease'
-            }}>
-              ADD TO BAG
-            </button>
+            <Link href="https://shop.rykerboonemusic.website" target="_blank">
+              <button style={{
+                width: '100%',
+                marginTop: '1.5rem',
+                background: 'transparent',
+                border: '1px solid rgba(255,255,255,0.1)',
+                color: 'white',
+                padding: '0.8rem',
+                fontSize: '0.7rem',
+                fontWeight: '700',
+                letterSpacing: '0.1em',
+                transition: 'all 0.3s ease'
+              }}>
+                PURCHASE NOW
+              </button>
+            </Link>
           </div>
         ))}
       </div>
@@ -125,7 +130,9 @@ export default function ShopPreview() {
            <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '2.5rem' }}>
              The definitive collection. Includes high-fidelity vinyl, signed art prints, and exclusive digital commentary from the Nashville sessions.
            </p>
-           <button className="btn-primary">PRE-ORDER NOW</button>
+            <Link href="https://shop.rykerboonemusic.website" target="_blank">
+              <button className="btn-primary">PRE-ORDER NOW</button>
+            </Link>
         </div>
       </div>
     </section>

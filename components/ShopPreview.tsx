@@ -5,12 +5,6 @@ import Link from "next/link";
 
 const products = [
   {
-    name: "Boots in the Autumn Dust: Collector's Vinyl",
-    price: "£29.99",
-    image: "/images/boots-cover-v3.jpg",
-    category: "VINYL"
-  },
-  {
     name: "Nashville Sessions: Official Digital Artbook",
     price: "£14.99",
     image: "/images/artist-fence.png",
@@ -128,7 +122,7 @@ export default function ShopPreview() {
              Southern Steel: <br /> The Limited Edition
            </h3>
            <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '2.5rem' }}>
-             The definitive collection. Includes high-fidelity vinyl, signed art prints, and exclusive digital commentary from the Nashville sessions.
+             The definitive collection. Includes signed art prints and exclusive digital commentary from the Nashville sessions.
            </p>
             <Link href="https://shop.rykerboonemusic.website" target="_blank">
               <button className="btn-primary">PRE-ORDER NOW</button>

@@ -42,12 +42,12 @@ export default function Hero() {
           <span className="subtitle" style={{ letterSpacing: '0.6em', fontSize: '0.7rem' }}>Modern Country Artist</span>
           <h1 className="section-title" style={{ 
             fontSize: 'clamp(5rem, 12vw, 10rem)', 
-            color: 'var(--text-primary)',
+            color: 'white',
             margin: '2rem 0',
-            lineHeight: '0.85'
+            lineHeight: '0.85',
+            letterSpacing: '0.1em'
           }}>
-            RYKER <br />
-            <span style={{ color: 'var(--accent-gold)' }}>BOONE</span>
+            BOONE<span style={{ color: 'var(--accent-gold)', fontSize: '0.3em', verticalAlign: 'middle', marginLeft: '1rem', letterSpacing: '0.4em' }}>EST. 2024</span>
           </h1>
           
           <p className="tagline" style={{ 

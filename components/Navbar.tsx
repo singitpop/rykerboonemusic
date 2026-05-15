@@ -38,8 +38,8 @@ export default function Navbar() {
         alignItems: 'center',
         width: '100%'
       }}>
-        <div>
-          RYKER <span style={{ color: 'var(--accent-gold)' }}>BOONE</span>
+        <div className="boone-logo">
+          BOONE<span>EST. 2024</span>
         </div>
 
         <div style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>

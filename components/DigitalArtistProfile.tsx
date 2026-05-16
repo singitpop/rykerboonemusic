@@ -42,16 +42,15 @@ export default function DigitalArtistProfile() {
         </div>
         
         <div style={{ padding: '4rem 3rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <h2 style={{ 
-            fontSize: 'clamp(3rem, 6vw, 5rem)', 
-            fontFamily: 'var(--font-playfair)', 
-            fontWeight: '900', 
-            lineHeight: '0.85',
-            margin: '0 0 1rem',
-            textTransform: 'uppercase'
-          }}>
-            RYKER <br /> <span style={{ color: 'var(--accent-gold)' }}>BOONE</span>
-          </h2>
+          <div className="boone-logo-container" style={{ alignItems: 'flex-start', margin: '0 0 2rem' }}>
+            <Image 
+              src="/images/boone-master-logo.png" 
+              alt="Ryker Boone Master Logo" 
+              width={300} 
+              height={150} 
+              style={{ objectFit: 'contain', mixBlendMode: 'screen', marginLeft: '-15px' }}
+            />
+          </div>
           <div style={{ color: 'var(--accent-gold)', fontSize: '0.7rem', letterSpacing: '0.4em', fontWeight: '900', marginBottom: '3rem' }}>
             COUNTRY. AMERICANA. REAL STORIES.
           </div>

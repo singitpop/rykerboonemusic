@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,9 +39,18 @@ export default function Navbar() {
         alignItems: 'center',
         width: '100%'
       }}>
-        <div className="boone-logo">
-          BOONE<span>EST. 2024</span>
-        </div>
+        <Link href="/" className="boone-logo-container">
+          <Image 
+            src="/images/boone-master-logo.png" 
+            alt="Ryker Boone Logo" 
+            width={160} 
+            height={80} 
+            style={{ 
+              objectFit: 'contain',
+              mixBlendMode: 'screen'
+            }}
+          />
+        </Link>
 
         <div style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
           <Link href="/" className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

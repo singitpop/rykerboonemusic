@@ -27,7 +27,7 @@ export default function Hero() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #0a0a0a 0%, #151515 100%)',
+        background: '#000000',
         position: 'relative',
         zIndex: 2
       }}>
@@ -36,24 +36,53 @@ export default function Hero() {
           style={{ 
             opacity: mounted ? 1 : 0, 
             transition: 'opacity 1s ease',
-            width: '100%'
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center'
           }}
         >
-          <span className="subtitle" style={{ letterSpacing: '0.6em', fontSize: '0.7rem' }}>Modern Country Artist</span>
-          <h1 className="section-title" style={{ 
-            fontSize: 'clamp(5rem, 12vw, 10rem)', 
-            color: 'white',
-            margin: '2rem 0',
-            lineHeight: '0.85',
-            letterSpacing: '0.1em'
+          <span className="subtitle" style={{ 
+            letterSpacing: '0.6em', 
+            fontSize: '0.8rem',
+            color: 'var(--accent-gold)',
+            marginBottom: '2rem' 
+          }}>MODERN COUNTRY MUSIC</span>
+          
+          <div className="boone-logo-container" style={{ 
+            margin: '-10rem 0',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            position: 'relative',
+            zIndex: 1
           }}>
-            BOONE<span style={{ color: 'var(--accent-gold)', fontSize: '0.3em', verticalAlign: 'middle', marginLeft: '1rem', letterSpacing: '0.4em' }}>EST. 2024</span>
-          </h1>
+            <Image 
+              src="/images/boone-master-logo.png" 
+              alt="Ryker Boone Master Logo" 
+              width={1000} 
+              height={1000} 
+              priority
+              style={{ 
+                objectFit: 'contain', 
+                width: '100%',
+                height: 'auto',
+                maxWidth: '900px',
+                mixBlendMode: 'screen',
+                filter: 'contrast(1.3) brightness(1.1)',
+                maskImage: 'radial-gradient(circle, black 60%, transparent 90%)',
+                WebkitMaskImage: 'radial-gradient(circle, black 60%, transparent 90%)'
+              }} 
+            />
+          </div>
           
           <p className="tagline" style={{ 
-            marginTop: '2rem', 
-            fontSize: '1.8rem',
-            opacity: 0.8 
+            marginTop: '-8rem', 
+            fontSize: '1.6rem',
+            opacity: 0.9,
+            fontStyle: 'italic',
+            color: 'var(--text-secondary)'
           }}>
             Real Songs. Real Stories. Real Life.
           </p>

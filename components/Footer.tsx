@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer style={{ 
@@ -16,14 +18,18 @@ export default function Footer() {
         marginBottom: '6rem'
       }}>
         <div>
-          <div style={{ 
-            fontFamily: 'var(--font-playfair)', 
-            fontSize: '1.8rem', 
-            fontWeight: '900', 
-            color: 'white',
-            marginBottom: '2rem'
-          }}>
-            RYKER <span style={{ color: 'var(--accent-gold)' }}>BOONE</span>
+          <div className="boone-logo-container" style={{ alignItems: 'flex-start', marginBottom: '2rem' }}>
+            <Image 
+              src="/images/boone-master-logo.png" 
+              alt="Ryker Boone Logo" 
+              width={200} 
+              height={100} 
+              style={{ 
+                objectFit: 'contain',
+                mixBlendMode: 'screen',
+                marginLeft: '-10px' 
+              }}
+            />
           </div>
           <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', fontSize: '0.9rem' }}>
             Real Songs. Real Stories. <br />
@@ -76,9 +82,16 @@ export default function Footer() {
         borderTop: '1px solid rgba(255,255,255,0.03)',
         color: 'var(--text-secondary)',
         fontSize: '0.75rem',
-        letterSpacing: '0.1em'
+        letterSpacing: '0.1em',
+        flexWrap: 'wrap',
+        gap: '2rem'
       }}>
         <span>© 2026 RYKER BOONE MUSIC. ALL RIGHTS RESERVED.</span>
+        <div style={{ display: 'flex', gap: '2rem' }}>
+          <Link href="/legal/privacy">PRIVACY POLICY</Link>
+          <Link href="/legal/cookies">COOKIE POLICY</Link>
+          <Link href="/legal/terms">TERMS OF SERVICE</Link>
+        </div>
         <span>DESIGNED BY SINGIT POP</span>
       </div>
     </footer>

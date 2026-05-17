@@ -51,7 +51,7 @@ export default function Hero() {
           }}>MODERN COUNTRY MUSIC</span>
           
           <div className="boone-logo-container" style={{ 
-            margin: '-10rem 0',
+            margin: '0',
             width: '100%',
             display: 'flex',
             justifyContent: 'center',
@@ -78,12 +78,13 @@ export default function Hero() {
           </div>
           
           <p className="tagline" style={{ 
-            marginTop: '-8rem', 
+            marginTop: '0', 
             fontSize: '1.6rem',
             opacity: 0.9,
             fontStyle: 'italic',
             color: 'var(--text-secondary)'
           }}>
+
             Real Songs. Real Stories. Real Life.
           </p>
 

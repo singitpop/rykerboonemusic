@@ -43,15 +43,8 @@ export default function Hero() {
             textAlign: 'center'
           }}
         >
-          <span className="subtitle" style={{ 
-            letterSpacing: '0.6em', 
-            fontSize: '0.8rem',
-            color: 'var(--accent-gold)',
-            marginBottom: '2rem' 
-          }}>MODERN COUNTRY MUSIC</span>
-          
           <div className="boone-logo-container" style={{ 
-            margin: '0',
+            margin: '-10rem 0',
             width: '100%',
             display: 'flex',
             justifyContent: 'center',
@@ -77,16 +70,22 @@ export default function Hero() {
             />
           </div>
           
-          <p className="tagline" style={{ 
-            marginTop: '0', 
-            fontSize: '1.6rem',
-            opacity: 0.9,
-            fontStyle: 'italic',
-            color: 'var(--text-secondary)'
-          }}>
-
-            Real Songs. Real Stories. Real Life.
-          </p>
+          <div style={{ marginTop: '-8rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+            <span className="subtitle" style={{ 
+              letterSpacing: '0.6em', 
+              fontSize: '0.8rem',
+              color: 'var(--accent-gold)'
+            }}>MODERN COUNTRY MUSIC</span>
+            
+            <p className="tagline" style={{ 
+              fontSize: '1.6rem',
+              opacity: 0.9,
+              fontStyle: 'italic',
+              color: 'var(--text-secondary)'
+            }}>
+              Real Songs. Real Stories. Real Life.
+            </p>
+          </div>
 
           <div style={{ 
             display: 'flex', 

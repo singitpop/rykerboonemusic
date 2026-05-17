@@ -70,7 +70,7 @@ export default function Hero() {
             />
           </div>
           
-          <div style={{ marginTop: '-8rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ marginTop: '-4rem', position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
             <span className="subtitle" style={{ 
               letterSpacing: '0.6em', 
               fontSize: '0.8rem',

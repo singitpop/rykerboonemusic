@@ -210,3 +210,71 @@ button {
 ::-webkit-scrollbar-thumb {
   background: var(--accent-gold);
 }
+
+.hero-logo-wrapper {
+  margin: -10rem 0;
+}
+
+.hero-text-wrapper {
+  margin-top: -4rem;
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 1024px) {
+  .hero-section {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    min-height: 100vh;
+  }
+  .hero-left {
+    padding: 10rem 5% 4rem !important;
+  }
+  .hero-right {
+    min-height: 50vh !important;
+  }
+  
+  .hero-logo-wrapper {
+    margin: -2rem 0 !important;
+  }
+  
+  .hero-text-wrapper {
+    margin-top: 0 !important;
+  }
+
+  .nav-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem;
+    padding: 1rem !important;
+  }
+  .nav-links {
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  .nav-spacer {
+    display: none;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .split-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .boone-logo-container img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .tagline {
+    font-size: 1.2rem !important;
+  }
+}

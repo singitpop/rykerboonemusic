@@ -11,7 +11,7 @@ export default function Footer() {
       background: '#050505', 
       borderTop: '1px solid rgba(226, 179, 90, 0.05)' 
     }}>
-      <div style={{ 
+      <div className="footer-grid" style={{ 
         display: 'grid', 
         gridTemplateColumns: '1.5fr 1fr 1fr 1fr', 
         gap: '4rem',

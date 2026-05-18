@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -11,7 +12,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section style={{
+    <section className="hero-section" style={{
       height: '100vh',
       width: '100%',
       position: 'relative',
@@ -22,7 +23,7 @@ export default function Hero() {
       alignItems: 'stretch'
     }}>
       {/* Left Content Column */}
-      <div style={{
+      <div className="hero-left" style={{
         padding: '0 10%',
         display: 'flex',
         flexDirection: 'column',
@@ -43,8 +44,7 @@ export default function Hero() {
             textAlign: 'center'
           }}
         >
-          <div className="boone-logo-container" style={{ 
-            margin: '-10rem 0',
+          <div className="hero-logo-wrapper" style={{ 
             width: '100%',
             display: 'flex',
             justifyContent: 'center',
@@ -70,7 +70,7 @@ export default function Hero() {
             />
           </div>
           
-          <div style={{ marginTop: '-4rem', position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+          <div className="hero-text-wrapper" style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
             <span className="subtitle" style={{ 
               letterSpacing: '0.6em', 
               fontSize: '0.8rem',
@@ -92,25 +92,27 @@ export default function Hero() {
             gap: '2rem', 
             marginTop: '4rem'
           }}>
-            <button style={{
-              background: 'var(--accent-gold)',
-              color: 'black',
-              padding: '1.2rem 3rem',
-              fontWeight: '900',
-              letterSpacing: '0.2em',
-              fontSize: '0.8rem',
-              boxShadow: '0 20px 40px rgba(226, 179, 90, 0.15)',
-              transition: 'var(--transition-smooth)'
-            }}>
-              LATEST RELEASES
-            </button>
+            <Link href="/music">
+              <button style={{
+                background: 'var(--accent-gold)',
+                color: 'black',
+                padding: '1.2rem 3rem',
+                fontWeight: '900',
+                letterSpacing: '0.2em',
+                fontSize: '0.8rem',
+                boxShadow: '0 20px 40px rgba(226, 179, 90, 0.15)',
+                transition: 'var(--transition-smooth)'
+              }}>
+                LATEST RELEASES
+              </button>
+            </Link>
           </div>
         </div>
 
       </div>
 
       {/* Right Image Column */}
-      <div style={{ position: 'relative', overflow: 'hidden' }}>
+      <div className="hero-right" style={{ position: 'relative', overflow: 'hidden' }}>
         <Image
           src="/images/ryker-hero-v2.png"
           alt="Ryker Boone Portrait"

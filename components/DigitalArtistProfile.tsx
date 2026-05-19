@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export default function DigitalArtistProfile() {
   const highlights = [
-    { year: '2010', event: 'Begins performing in local bars across Tennessee.' },
+    { year: '2010', event: 'Begins performing acoustic sets in local bars across Columbia, Tennessee.' },
     { year: '2012', event: 'Moves to Nashville to pursue songwriting full-time.' },
-    { year: '2013', event: 'Working in the steel industry.' },
+    { year: '2013', event: 'Works in the steel industry to support his young family.' },
     { year: '2014', event: 'Starts writing again with attention to his new songs.' },
     { year: '2016', event: 'First Nashville gig; noticed by future wife, Joyce.' },
     { year: '2018', event: 'Ryker and Joyce Get Married.' },
@@ -33,7 +33,7 @@ export default function DigitalArtistProfile() {
       <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', minHeight: '600px' }}>
         <div style={{ position: 'relative' }}>
           <Image 
-            src="/images/ryker-profile-hero-final.jpg" 
+            src="/images/ryker_facing_right.png" 
             alt="Ryker Boone Portrait" 
             fill 
             style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
@@ -58,7 +58,7 @@ export default function DigitalArtistProfile() {
           <div style={{ marginBottom: '3rem' }}>
             <h3 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem' }}>THE STORY</h3>
             <p style={{ fontSize: '0.9rem', lineHeight: '1.8', color: 'rgba(255,255,255,0.7)' }}>
-              Ryker Boone is an upcoming country singer-songwriter exploring modern country music stardom through heartland storytelling and Americana authenticity. Born and raised in the heartland, his music tells the stories of hard work, loyalty, and the relentless pursuit of something more.
+              Originally from Columbia, Tennessee, Ryker Boone is an upcoming country singer-songwriter exploring modern country music stardom through heartland storytelling and Americana authenticity. Born and raised in the heartland, his music tells the stories of hard work, loyalty, and the relentless pursuit of something more.
             </p>
           </div>
 
@@ -87,7 +87,7 @@ export default function DigitalArtistProfile() {
         borderTop: '1px solid rgba(255,255,255,0.05)',
         borderBottom: '1px solid rgba(255,255,255,0.05)'
       }}>
-        {['montage-1.jpg', 'montage-2.jpg', 'montage-3.jpg', 'montage-4.jpg'].map((img, i) => (
+        {['ryker_writing_lyrics.png', 'ryker_playing_campfire.png', 'ryker_singing_grit.png', 'ryker_joyce_bettie_porch.png'].map((img, i) => (
           <div key={i} style={{ aspectRatio: '1', position: 'relative', overflow: 'hidden' }}>
             <Image src={`/images/${img}`} alt={`Ryker Gallery ${i}`} fill style={{ objectFit: 'cover' }} />
           </div>
@@ -100,7 +100,7 @@ export default function DigitalArtistProfile() {
           <div style={{ marginBottom: '4rem' }}>
             <h3 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>CHARACTER BACKGROUND</h3>
             <p style={{ fontSize: '0.9rem', lineHeight: '1.8', color: 'rgba(255,255,255,0.6)' }}>
-              Typically portrayed as a working-class dreamer, Ryker's songs reflect blue-collar pride, lost love, and the tension between fame and home. His backstory includes a humble upbringing and breaking into Nashville through grit and lyrical sincerity.
+              Typically portrayed as a working-class dreamer, Ryker's songs reflect blue-collar pride, lost love, and the tension between fame and home. His backstory includes a humble upbringing in Columbia, Tennessee and breaking into Nashville through grit and lyrical sincerity.
             </p>
           </div>
           <div>
@@ -174,12 +174,12 @@ export default function DigitalArtistProfile() {
 
         <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
           <div style={{ width: '120px', height: '120px', borderRadius: '50%', overflow: 'hidden', position: 'relative', flexShrink: 0, border: '2px solid var(--accent-gold)', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-            <Image src="/images/family-porch-portrait.jpg" alt="Ryker's Family" fill style={{ objectFit: 'cover' }} />
+            <Image src="/images/ryker_family_quiet_time.png" alt="Ryker's Family" fill style={{ objectFit: 'cover' }} />
           </div>
           <div>
             <h4 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>HIS FAMILY</h4>
             <p style={{ fontSize: '0.75rem', lineHeight: '1.6', color: 'rgba(255,255,255,0.6)' }}>
-              Ryker's wife, Joyce, is his rock. Together they're raising their son, Graham, in a home rooted in love and music.
+              Ryker's wife, Joyce, is his rock. Together they're raising their son, Graham, in Columbia, Tennessee in a home rooted in love and music.
             </p>
           </div>
         </div>
@@ -188,7 +188,7 @@ export default function DigitalArtistProfile() {
           <h4 style={{ fontSize: '0.7rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem' }}>CONNECT</h4>
           <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem', opacity: 0.7 }}>
              {['FB', 'IG', 'X', 'YT', 'TK'].map(social => (
-               <div key={social} style={{ width: '36px', height: '36px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 'bold', cursor: 'pointer' }}>{social}</div>
+                <div key={social} style={{ width: '36px', height: '36px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 'bold', cursor: 'pointer' }}>{social}</div>
              ))}
           </div>
         </div>

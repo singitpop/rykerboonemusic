@@ -63,6 +63,26 @@ export default function ArtistLibrary() {
       src: "/images/ryker_on_the_road_hat.png",
       title: "The Open Road",
       desc: "Heading to the next show with Bettie and his signature guitar case."
+    },
+    {
+      src: "/images/family_chapel_singing.png",
+      title: "Chapel Harmony",
+      desc: "Singing together around the upright piano in a local rural Tennessee chapel."
+    },
+    {
+      src: "/images/family_chopping_wood.png",
+      title: "Autumn Harvest",
+      desc: "Ryker and Graham stacking firewood outside their cabin in late autumn."
+    },
+    {
+      src: "/images/ryker_recording_studio.png",
+      title: "Nashville Echoes",
+      desc: "Recording his debut tracks in a professional Nashville studio."
+    },
+    {
+      src: "/images/ryker_homecoming_concert.png",
+      title: "Homecoming Lights",
+      desc: "Performing an acoustic set for local friends and family in Columbia."
     }
   ];
 

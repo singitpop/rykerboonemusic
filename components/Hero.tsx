@@ -90,9 +90,11 @@ export default function Hero() {
           <div style={{ 
             display: 'flex', 
             gap: '2rem', 
-            marginTop: '4rem'
+            marginTop: '5.5rem',
+            position: 'relative',
+            zIndex: 50
           }}>
-            <Link href="/music">
+            <Link href="/music" style={{ display: 'inline-block', position: 'relative', zIndex: 60 }}>
               <button style={{
                 background: 'var(--accent-gold)',
                 color: 'black',
@@ -101,7 +103,8 @@ export default function Hero() {
                 letterSpacing: '0.2em',
                 fontSize: '0.8rem',
                 boxShadow: '0 20px 40px rgba(226, 179, 90, 0.15)',
-                transition: 'var(--transition-smooth)'
+                transition: 'var(--transition-smooth)',
+                cursor: 'pointer'
               }}>
                 LATEST RELEASES
               </button>
@@ -114,7 +117,7 @@ export default function Hero() {
       {/* Right Image Column */}
       <div className="hero-right" style={{ position: 'relative', overflow: 'hidden' }}>
         <Image
-          src="/images/ryker-hero-v2.png"
+          src="/images/ryker_looking_left.png"
           alt="Ryker Boone Portrait"
           fill
           priority

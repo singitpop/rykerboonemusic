@@ -3,15 +3,21 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isHomeActive = pathname === "/";
+  const isMusicActive = pathname === "/music" || pathname.startsWith("/music/");
+  const isStoryActive = pathname === "/about";
 
   return (
     <nav className="nav-container" style={{
@@ -51,16 +57,36 @@ export default function Navbar() {
             }}
           />
         </Link>
-
         <div className="nav-links" style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
-          <Link href="/" className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Link 
+            href="/" 
+            className="nav-link" 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.5rem',
+              color: isHomeActive ? 'var(--accent-gold)' : 'var(--text-secondary)'
+            }}
+          >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
             </svg>
             Home
           </Link>
-          <Link href="/music" className="nav-link">Music</Link>
-          <Link href="/about" className="nav-link">Our Story</Link>
+          <Link 
+            href="/music" 
+            className="nav-link"
+            style={{ color: isMusicActive ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
+          >
+            Music
+          </Link>
+          <Link 
+            href="/about" 
+            className="nav-link"
+            style={{ color: isStoryActive ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
+          >
+            Our Story
+          </Link>
           <Link href="https://shop.rykerboonemusic.website" className="nav-link" target="_blank">Store</Link>
           <Link href="/club">
             <button style={{

@@ -26,30 +26,19 @@ export default function BehindTheMusic() {
       <div className="split-layout">
         <div style={{ order: 2 }}>
           <div className="reveal-img" style={{ 
-            aspectRatio: '2/3', 
+            aspectRatio: '1/1', 
             borderRadius: '12px',
             boxShadow: '0 40px 80px rgba(0,0,0,0.5)',
             position: 'relative',
             overflow: 'hidden'
           }}>
             <Image 
-              src="/images/boots-promo-full.jpg" 
-              alt="Boots in the Autumn Dust Full Promo" 
+              src="/images/boots-facebook-ad.png" 
+              alt="Boots in the Autumn Dust Promo" 
               fill 
-              style={{ objectFit: 'cover', objectPosition: 'top' }}
+              style={{ objectFit: 'cover' }}
+              priority
             />
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to top, rgba(10,10,10,0.8), transparent)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              padding: '3rem'
-            }}>
-              <span style={{ color: 'var(--accent-gold)', fontSize: '0.7rem', fontWeight: '900', letterSpacing: '0.3em', marginBottom: '1rem' }}>OFFICIAL RELEASE</span>
-              <h3 style={{ fontSize: '2rem', fontWeight: 'bold', color: 'white', fontFamily: 'var(--font-playfair)' }}>Boots in the Autumn Dust</h3>
-            </div>
           </div>
         </div>
 
@@ -74,7 +63,12 @@ export default function BehindTheMusic() {
                   gap: '1.5rem', 
                   padding: '1rem 1.5rem', 
                   borderBottom: '1px solid rgba(255,255,255,0.03)',
-                  background: activeTrack === track.id ? 'rgba(226, 179, 90, 0.05)' : 'transparent',
+                  borderLeft: track.badge ? '3px solid var(--accent-gold)' : '3px solid transparent',
+                  background: activeTrack === track.id 
+                    ? 'rgba(226, 179, 90, 0.08)' 
+                    : track.badge 
+                      ? 'rgba(226, 179, 90, 0.03)' 
+                      : 'transparent',
                   borderRadius: '4px',
                   transition: 'all 0.3s ease',
                   cursor: 'pointer'
@@ -84,12 +78,13 @@ export default function BehindTheMusic() {
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
-                  border: '1px solid rgba(226, 179, 90, 0.3)',
+                  border: track.badge ? '1px solid var(--accent-gold)' : '1px solid rgba(226, 179, 90, 0.3)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'var(--accent-gold)',
-                  fontSize: '0.6rem'
+                  fontSize: '0.6rem',
+                  background: track.badge ? 'rgba(226, 179, 90, 0.1)' : 'transparent'
                 }}>
                   {activeTrack === track.id ? (
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -97,7 +92,11 @@ export default function BehindTheMusic() {
                     </svg>
                   ) : track.id}
                 </div>
-                <span style={{ color: activeTrack === track.id ? 'var(--accent-gold)' : 'white', fontWeight: '500', transition: 'color 0.3s ease' }}>
+                <span style={{ 
+                  color: activeTrack === track.id ? 'var(--accent-gold)' : 'white', 
+                  fontWeight: track.badge ? '700' : '500', 
+                  transition: 'color 0.3s ease' 
+                }}>
                   {track.title}
                 </span>
                 {track.badge && (

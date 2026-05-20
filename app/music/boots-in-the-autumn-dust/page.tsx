@@ -209,7 +209,12 @@ export default function BootsAlbumPage() {
                     gap: '1.5rem',
                     padding: '0.9rem 1.5rem',
                     borderBottom: '1px solid rgba(255,255,255,0.02)',
-                    background: activeTrack === track.id ? 'rgba(226, 179, 90, 0.04)' : 'transparent',
+                    borderLeft: track.badge ? '3px solid var(--accent-gold)' : '3px solid transparent',
+                    background: activeTrack === track.id 
+                      ? 'rgba(226, 179, 90, 0.08)' 
+                      : track.badge 
+                        ? 'rgba(226, 179, 90, 0.03)' 
+                        : 'transparent',
                     borderRadius: '6px',
                     transition: 'all 0.3s ease',
                     cursor: 'pointer'
@@ -219,12 +224,13 @@ export default function BootsAlbumPage() {
                     width: '30px',
                     height: '30px',
                     borderRadius: '50%',
-                    border: '1px solid rgba(226, 179, 90, 0.3)',
+                    border: track.badge ? '1px solid var(--accent-gold)' : '1px solid rgba(226, 179, 90, 0.3)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'var(--accent-gold)',
-                    fontSize: '0.65rem'
+                    fontSize: '0.65rem',
+                    background: track.badge ? 'rgba(226, 179, 90, 0.1)' : 'transparent'
                   }}>
                     {activeTrack === track.id ? (
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
@@ -234,7 +240,7 @@ export default function BootsAlbumPage() {
                   </div>
                   <span style={{ 
                     color: activeTrack === track.id ? 'var(--accent-gold)' : 'white', 
-                    fontWeight: '500',
+                    fontWeight: track.badge ? '700' : '500',
                     fontSize: '0.95rem',
                     transition: 'color 0.3s ease' 
                   }}>

@@ -150,8 +150,8 @@ export default function ArtistLibrary() {
   ];
 
   const albums = [
-    { src: "/images/boots-cover-v3.jpg", title: "Boots in the Autumn Dust" },
-    { src: "/images/september-cover-v2.jpg", title: "September Turns Gold" }
+    { src: "/images/boots in the autumn dust - album.jpg", title: "Boots in the Autumn Dust" },
+    { src: "/images/september turns gold - album.png", title: "September Turns Gold" }
   ];
 
   return (

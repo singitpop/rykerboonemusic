@@ -27,19 +27,19 @@ export default function BootsAlbumPage() {
   const singles = [
     {
       title: "Honky Tonk Sundown",
-      image: "/images/boots_single_1.png",
+      image: "/images/Honky Tonk Sundown - single.jpg",
       tagline: "Lead Single",
       description: "A high-energy honky-tonk anthem featuring Ryker's signature grit and classic twin fiddle hooks."
     },
     {
       title: "Dust Kicking Rhythm",
-      image: "/images/boots_single_2.png",
+      image: "/images/dust kicking rhythm - single.jpg",
       tagline: "Second Single",
       description: "Driving percussion and a dirty telecaster riff that keeps the boots moving and dust flying."
     },
     {
       title: "Sunburnt Memories",
-      image: "/images/boots_single_3.png",
+      image: "/images/sunburnt memories - single.jpg",
       tagline: "Summer Single",
       description: "A nostalgic, acoustic-led mid-tempo track looking back at summer nights on the Duck River."
     }
@@ -85,7 +85,7 @@ export default function BootsAlbumPage() {
             border: '1px solid rgba(226, 179, 90, 0.2)'
           }}>
             <Image 
-              src="/images/boots-cover-v3.png" 
+              src="/images/boots in the autumn dust - album.jpg" 
               alt="Boots in the Autumn Dust Cover" 
               fill 
               style={{ objectFit: 'cover' }}

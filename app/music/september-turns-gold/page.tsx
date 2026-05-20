@@ -27,19 +27,19 @@ export default function SeptemberAlbumPage() {
   const singles = [
     {
       title: "September Turns Gold",
-      image: "/images/september_single_1.png",
+      image: "/images/september turns gold - single.jpg",
       tagline: "Title Track Single",
       description: "A sweeping, acoustic-driven track describing the bittersweet transition of seasons and lost love in rural Tennessee."
     },
     {
       title: "Highway On Fire",
-      image: "/images/september_single_2.png",
+      image: "/images/highway on fire - single.jpg",
       tagline: "Second Single",
       description: "A fast-paced, high-octane road anthem featuring blazing electric guitars and a driving rhythm section."
     },
     {
       title: "Southern Steel",
-      image: "/images/september_single_3.png",
+      image: "/images/southern steel - single.jpg",
       tagline: "Latest Single",
       description: "A beautiful, steel guitar-drenched ballad celebrating Southern heritage, blue-collar pride, and resilience."
     }
@@ -85,7 +85,7 @@ export default function SeptemberAlbumPage() {
             border: '1px solid rgba(226, 179, 90, 0.2)'
           }}>
             <Image 
-              src="/images/september-cover-v2.png" 
+              src="/images/september turns gold - album.png" 
               alt="September Turns Gold Cover" 
               fill 
               style={{ objectFit: 'cover' }}

@@ -7,14 +7,14 @@ const albums = [
   {
     title: "Boots in the Autumn Dust",
     tagline: "The Full Length Album",
-    image: "/images/boots-cover-v3.png",
+    image: "/images/boots in the autumn dust - album.jpg",
     description: "Deep, authentic Nashville soul rooted in blue-collar pride and lost love.",
     link: "/music/boots-in-the-autumn-dust"
   },
   {
     title: "September Turns Gold",
     tagline: "The Nashville Studio Sessions",
-    image: "/images/september-cover-v2.png",
+    image: "/images/september turns gold - album.png",
     description: "A cinematic journey through heartland storytelling and modern country grit.",
     link: "/music/september-turns-gold",
     status: "COMING SOON"

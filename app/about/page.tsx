@@ -83,6 +83,26 @@ export default function ArtistLibrary() {
       src: "/images/ryker_homecoming_concert.png",
       title: "Homecoming Lights",
       desc: "Performing an acoustic set for local friends and family in Columbia."
+    },
+    {
+      src: "/images/ryker_joyce_morning_coffee.png",
+      title: "Morning Deck Coffee",
+      desc: "Quiet early hours talking and laughing with Joyce over warm mugs of coffee."
+    },
+    {
+      src: "/images/ryker_teaching_graham.png",
+      title: "Teaching Graham",
+      desc: "Teaching his son Graham how to form chords on his first junior acoustic guitar."
+    },
+    {
+      src: "/images/ryker_grooming_horse.png",
+      title: "Ranch Horse Grooming",
+      desc: "Working side by side with Graham brushing down their chestnut horse, Poppy, in the stables."
+    },
+    {
+      src: "/images/family_campfire_jam.png",
+      title: "Campfire Jam",
+      desc: "Gathered around the warm fire pit at twilight, sharing stories and songs under the stars."
     }
   ];
 

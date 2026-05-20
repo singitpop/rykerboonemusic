@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import AlbumShowcase from "@/components/AlbumShowcase";
-import BehindTheMusic from "@/components/BehindTheMusic";
 import Footer from "@/components/Footer";
 
 export default function MusicPage() {
@@ -9,7 +8,6 @@ export default function MusicPage() {
       <Navbar />
       <div style={{ paddingTop: '80px' }}>
         <AlbumShowcase />
-        <BehindTheMusic />
       </div>
       <Footer />
     </main>

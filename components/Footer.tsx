@@ -92,7 +92,7 @@ export default function Footer() {
           <Link href="/legal/cookies">COOKIE POLICY</Link>
           <Link href="/legal/terms">TERMS OF SERVICE</Link>
         </div>
-        <span>DESIGNED BY SINGIT POP</span>
+        <span>DESIGNED BY <a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGIT POP</a></span>
       </div>
     </footer>
   );

@@ -5,17 +5,17 @@ import DigitalArtistProfile from "@/components/DigitalArtistProfile";
 export default function ArtistLibrary() {
   const backstoryImages = [
     {
-      src: "/images/ryker_as_boy.png",
+      src: "/images/consistent/ryker_as_boy.png",
       title: "Heartland Roots",
       desc: "Young Ryker practicing on a small acoustic guitar in Columbia, Tennessee."
     },
     {
-      src: "/images/ryker_writing_lyrics.png",
+      src: "/images/consistent/ryker_writing_lyrics.png",
       title: "Cabin Sessions",
       desc: "Writing early song lyrics at a rustic wooden table by natural window light."
     },
     {
-      src: "/images/ryker_playing_bar.png",
+      src: "/images/consistent/ryker_playing_bar.png",
       title: "Local Stage Days",
       desc: "Honing his voice in intimate country bars around Nashville."
     },
@@ -25,82 +25,82 @@ export default function ArtistLibrary() {
       desc: "Quiet twilight moments on the cabin porch with Joyce and their dog Bettie."
     },
     {
-      src: "/images/ryker_family_quiet_time.png",
+      src: "/images/consistent/ryker_family_quiet_time.png",
       title: "Cabin Quiet Time",
       desc: "Unwinding together in the family log cabin living room."
     },
     {
-      src: "/images/ryker_riding_poppy.png",
+      src: "/images/consistent/ryker_riding_poppy.png",
       title: "Riding Poppy",
       desc: "Ryker and his son Graham riding their chestnut horse Poppy."
     },
     {
-      src: "/images/family_ranch_garden.png",
+      src: "/images/consistent/family_ranch_garden.png",
       title: "Harvesting the Garden",
       desc: "Ryker, Joyce, and Graham picking fresh vegetables on their ranch."
     },
     {
-      src: "/images/family_ranch_picnic.png",
+      src: "/images/consistent/family_ranch_picnic.png",
       title: "Family Sunday Picnic",
       desc: "Relaxing under a giant oak tree in the open ranch fields."
     },
     {
-      src: "/images/family_fishing_grandpas_lake.png",
+      src: "/images/consistent/family_fishing_grandpas_lake.png",
       title: "Sunset Fishing",
       desc: "Sitting on the wooden dock fishing at Grandpa's lake."
     },
     {
-      src: "/images/tailgate_singing.png",
+      src: "/images/consistent/tailgate_singing.png",
       title: "Tailgate Songs",
       desc: "Singing acoustic favorites from the open tailgate of the vintage truck."
     },
     {
-      src: "/images/ryker_singing_grit.png",
+      src: "/images/consistent/ryker_singing_grit.png",
       title: "Live With Grit",
       desc: "Performing with raw emotion and power under the festival spotlights."
     },
     {
-      src: "/images/ryker_on_the_road_hat.png",
+      src: "/images/consistent/ryker_on_the_road_hat.png",
       title: "The Open Road",
       desc: "Heading to the next show with Bettie and his signature guitar case."
     },
     {
-      src: "/images/family_chapel_singing.png",
+      src: "/images/consistent/family_chapel_singing.png",
       title: "Chapel Harmony",
       desc: "Singing together around the upright piano in a local rural Tennessee chapel."
     },
     {
-      src: "/images/family_chopping_wood.png",
+      src: "/images/consistent/family_chopping_wood.png",
       title: "Autumn Harvest",
       desc: "Ryker and Graham stacking firewood outside their cabin in late autumn."
     },
     {
-      src: "/images/ryker_recording_studio.png",
+      src: "/images/consistent/ryker_recording_studio.png",
       title: "Nashville Echoes",
       desc: "Recording his debut tracks in a professional Nashville studio."
     },
     {
-      src: "/images/ryker_homecoming_concert.png",
+      src: "/images/consistent/ryker_homecoming_concert.png",
       title: "Homecoming Lights",
       desc: "Performing an acoustic set for local friends and family in Columbia."
     },
     {
-      src: "/images/ryker_joyce_morning_coffee.png",
+      src: "/images/consistent/ryker_joyce_morning_coffee.png",
       title: "Morning Deck Coffee",
       desc: "Quiet early hours talking and laughing with Joyce over warm mugs of coffee."
     },
     {
-      src: "/images/ryker_teaching_graham.png",
+      src: "/images/consistent/ryker_teaching_graham.png",
       title: "Teaching Graham",
       desc: "Teaching his son Graham how to form chords on his first junior acoustic guitar."
     },
     {
-      src: "/images/ryker_grooming_horse.png",
+      src: "/images/consistent/ryker_grooming_horse.png",
       title: "Ranch Horse Grooming",
       desc: "Working side by side with Graham brushing down their chestnut horse, Poppy, in the stables."
     },
     {
-      src: "/images/family_campfire_jam.png",
+      src: "/images/consistent/family_campfire_jam.png",
       title: "Campfire Jam",
       desc: "Gathered around the warm fire pit at twilight, sharing stories and songs under the stars."
     }
@@ -108,44 +108,44 @@ export default function ArtistLibrary() {
 
   const merchImages = [
     {
-      src: "/images/batch2_ryker_leather_jacket_1779118415106.png",
+      src: "/images/consistent/merch_ryker_trucker_hat.png",
       model: "Ryker Boone",
-      product: "Signature Leather Jacket"
+      product: "Signature Trucker Hat"
     },
     {
-      src: "/images/batch2_ryker_stage_tshirt_1779118354686.png",
+      src: "/images/consistent/merch_ryker_guitar_strap.png",
       model: "Ryker Boone",
-      product: "Gold Logo Stage Tee"
+      product: "Premium Leather Guitar Strap"
     },
     {
-      src: "/images/batch2_joyce_tote_coffee_1779118374787.png",
+      src: "/images/consistent/merch_joyce_beanie.png",
+      model: "Joyce Boone",
+      product: "Cozy Logo Knit Beanie"
+    },
+    {
+      src: "/images/consistent/merch_joyce_tote.png",
       model: "Joyce Boone",
       product: "Canvas Logo Tote Bag"
     },
     {
-      src: "/images/batch2_joyce_beanie_winter_1779118458699.png",
-      model: "Joyce Boone",
-      product: "Winter Knitted Beanie"
-    },
-    {
-      src: "/images/desktop_batch1_graham_cap_1779116175883.png",
+      src: "/images/consistent/merch_graham_hoodie.png",
       model: "Graham Boone",
-      product: "Gold Logo Youth Cap"
+      product: "Youth Brand Hoodie"
     },
     {
-      src: "/images/batch2_graham_dog_bandana_1779118396108.png",
-      model: "Graham & Bettie",
-      product: "Gold Interlocking Bandana"
+      src: "/images/consistent/merch_graham_tee.png",
+      model: "Graham Boone",
+      product: "Youth Gold Logo Tee"
     },
     {
-      src: "/images/batch2_family_guitar_case_1779116194704.png",
+      src: "/images/consistent/merch_family_group.png",
       model: "The Boone Family",
-      product: "Premium Leather Travel Bag"
+      product: "Coordinated Family Hoodies"
     },
     {
-      src: "/images/batch2_family_camp_chairs_1779118437525.png",
+      src: "/images/consistent/merch_family_blanket.png",
       model: "The Boone Family",
-      product: "Signature Canvas Camp Chairs"
+      product: "Embroidered Camp Blanket"
     }
   ];
 

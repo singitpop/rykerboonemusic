@@ -6,43 +6,39 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function SeptemberAlbumPage() {
+export default function WhenTheLightsGoGoldPage() {
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
 
   const tracks = [
-    { id: "01", title: "Whiskey In The Headlights", duration: "3:38" },
-    { id: "02", title: "Dust On The Blacktop", duration: "3:47" },
-    { id: "03", title: "Neon County Line", duration: "4:02" },
-    { id: "04", title: "Midnight Gravel", duration: "3:25" },
-    { id: "05", title: "September Turns Gold", duration: "3:58", badge: "SINGLE" },
-    { id: "06", title: "One More Round", duration: "3:15" },
-    { id: "07", title: "Backroad Heartbeat", duration: "3:50" },
-    { id: "08", title: "Highway On Fire", duration: "4:10", badge: "SINGLE" },
-    { id: "09", title: "Southern Steel", duration: "4:32", badge: "SINGLE" },
-    { id: "10", title: "Last Call Eyes", duration: "3:44" },
-    { id: "11", title: "Bootleg Midnight", duration: "4:15" },
-    { id: "12", title: "Back To Gold", duration: "4:50" },
-    { id: "13", title: "Autumn Lights (Live)", duration: "5:12", badge: "LIVE" }
+    { id: "01", title: "Friday Again", duration: "3:34", badge: "SINGLE" },
+    { id: "02", title: "Midnight Motion", duration: "3:42" },
+    { id: "03", title: "Cold Smoke", duration: "3:50" },
+    { id: "04", title: "Blue Flame", duration: "3:28" },
+    { id: "05", title: "When The Lights Go Gold", duration: "4:05", badge: "SINGLE" },
+    { id: "06", title: "Kiss Me Like That", duration: "3:15" },
+    { id: "07", title: "Midnight Static", duration: "3:58" },
+    { id: "08", title: "White Line Weather", duration: "3:44" },
+    { id: "09", title: "Too Close To Midnight", duration: "3:52", badge: "SINGLE" },
+    { id: "10", title: "What We Were", duration: "4:12" },
+    { id: "11", title: "Stay Till Sunday", duration: "3:22" },
+    { id: "12", title: "One More Summer", duration: "4:18", badge: "SINGLE" }
   ];
 
-  const singles = [
+  const creativePillars = [
     {
-      title: "September Turns Gold",
-      image: "/images/september turns gold - single.jpg",
-      tagline: "Title Track Single",
-      description: "A sweeping, acoustic-driven track describing the bittersweet transition of seasons and lost love in rural Tennessee."
+      title: "Night-Drive Atmosphere",
+      description: "Built for cold-night drives, empty highways, dashboard glow, and fading relationships. The project lives between modern country and atmospheric pop.",
+      tags: ["Empty Highways", "Dashboard Glow", "Midnight Romance", "Small-Town Escape"]
     },
     {
-      title: "Highway On Fire",
-      image: "/images/highway on fire - single.jpg",
-      tagline: "Second Single",
-      description: "A fast-paced, high-octane road anthem featuring blazing electric guitars and a driving rhythm section."
+      title: "Musical Palette",
+      description: "A commercial country-pop foundation balancing 128–132 BPM energy, rhythmic acoustic pulse, subtle pedal steel textures, and shimmering synth ambience.",
+      tags: ["128-132 BPM", "Pedal Steel", "Synth Ambience", "Guitar Hooks"]
     },
     {
-      title: "Southern Steel",
-      image: "/images/southern steel - single.jpg",
-      tagline: "Latest Single",
-      description: "A beautiful, steel guitar-drenched ballad celebrating Southern heritage, blue-collar pride, and resilience."
+      title: "Songwriting Ethos",
+      description: "Inspired by the emotional accessibility of crossover country while avoiding traditional clichés. Clean melodic repetition and emotionally addictive choruses.",
+      tags: ["Hook-driven", "Intimate Studio", "Addictive Choruses", "Nighttime Imagery"]
     }
   ];
 
@@ -86,8 +82,8 @@ export default function SeptemberAlbumPage() {
             border: '1px solid rgba(226, 179, 90, 0.2)'
           }}>
             <Image 
-              src="/images/september turns gold - album.png" 
-              alt="September Turns Gold Cover" 
+              src="/images/when the lights go gold - album.png" 
+              alt="When The Lights Go Gold Album Cover" 
               fill 
               style={{ objectFit: 'cover' }}
               priority
@@ -106,7 +102,7 @@ export default function SeptemberAlbumPage() {
               zIndex: 10,
               boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
             }}>
-              COMING SOON
+              IN THE STUDIO
             </div>
           </div>
 
@@ -121,7 +117,7 @@ export default function SeptemberAlbumPage() {
               display: 'block',
               marginBottom: '1rem'
             }}>
-              The Barn & Festival Sessions
+              Modern Country Pop
             </span>
             <h1 style={{ 
               fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
@@ -130,7 +126,7 @@ export default function SeptemberAlbumPage() {
               lineHeight: '1.1',
               marginBottom: '1.5rem'
             }}>
-              SEPTEMBER TURNS <span style={{ color: 'var(--accent-gold)' }}>GOLD</span>
+              WHEN THE LIGHTS <span style={{ color: 'var(--accent-gold)' }}>GO GOLD</span>
             </h1>
             
             <div style={{ 
@@ -142,9 +138,9 @@ export default function SeptemberAlbumPage() {
               borderBottom: '1px solid rgba(255,255,255,0.05)',
               paddingBottom: '1rem'
             }}>
-              <div>RELEASE DATE: <strong style={{ color: 'white' }}>AUGUST 2026</strong></div>
+              <div>RELEASE DATE: <strong style={{ color: 'white' }}>OCTOBER 2026</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGIT POP</a></strong></div>
-              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>PRE-SAVE</strong></div>
+              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>IN THE STUDIO</strong></div>
             </div>
 
             <p style={{ 
@@ -153,7 +149,7 @@ export default function SeptemberAlbumPage() {
               fontSize: '0.95rem',
               marginBottom: '2.5rem'
             }}>
-              'September Turns Gold' is a cinematic journey through heartland storytelling and modern country grit. The highly anticipated sophomore album represents a massive step forward in Ryker's evolution as a songwriter. The first 12 tracks were recorded in his barn studio with his backing group, capturing the raw energy of his band and the sweet cry of Southern steel. Track 13 was recorded Live at the Autumn Lights Country Music Festival.
+              A cinematic modern country pop album built for cold-night drives, neon reflections, winter romance, and emotional late-night memories. Blending polished studio production with catchy crossover hooks, When The Lights Go Gold lives between modern country and atmospheric pop — combining rhythmic acoustic guitars, smooth electric textures, deep low-end movement, layered harmonies, and emotionally controlled vocals into a sleek radio-ready sound.
             </p>
 
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
@@ -202,7 +198,7 @@ export default function SeptemberAlbumPage() {
         </div>
       </section>
 
-      {/* Tracklist & Singles Showcase */}
+      {/* Tracklist & Creative Pillars Showcase */}
       <section style={{ padding: '6rem 8% 8rem', background: '#050505' }}>
         <div style={{
           display: 'grid',
@@ -285,56 +281,40 @@ export default function SeptemberAlbumPage() {
             </div>
           </div>
 
-          {/* Right: Featured Singles */}
+          {/* Right: Creative Directions */}
           <div>
-            <span className="subtitle">Promotional Singles</span>
-            <h2 className="section-title" style={{ marginBottom: '3rem' }}>RELEASED <span style={{ color: 'var(--accent-gold)' }}>SINGLES</span></h2>
+            <span className="subtitle">Creative Vision</span>
+            <h2 className="section-title" style={{ marginBottom: '3rem' }}>PROJECT <span style={{ color: 'var(--accent-gold)' }}>PILLARS</span></h2>
             
-            <div style={{ display: 'grid', gap: '3rem' }}>
-              {singles.map((single, index) => (
+            <div style={{ display: 'grid', gap: '2.5rem' }}>
+              {creativePillars.map((pillar, index) => (
                 <div key={index} style={{
-                  display: 'flex',
-                  gap: '1.5rem',
-                  alignItems: 'center',
                   background: 'rgba(255,255,255,0.01)',
-                  padding: '1.5rem',
+                  padding: '2rem',
                   borderRadius: '8px',
                   border: '1px solid rgba(255,255,255,0.03)'
                 }}>
-                  <div style={{
-                    position: 'relative',
-                    width: '100px',
-                    height: '100px',
-                    borderRadius: '6px',
-                    overflow: 'hidden',
-                    flexShrink: 0,
-                    border: '1px solid rgba(226, 179, 90, 0.1)'
-                  }}>
-                    <Image 
-                      src={single.image} 
-                      alt={single.title} 
-                      fill 
-                      style={{ objectFit: 'cover' }}
-                    />
-                  </div>
-                  <div>
-                    <span style={{ 
-                      color: 'var(--accent-gold)', 
-                      fontSize: '0.65rem', 
-                      fontWeight: '900', 
-                      letterSpacing: '0.15em', 
-                      textTransform: 'uppercase',
-                      display: 'block',
-                      marginBottom: '0.25rem'
-                    }}>
-                      {single.tagline}
-                    </span>
-                    <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', fontFamily: 'var(--font-playfair)' }}>
-                      {single.title}
-                    </h4>
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', lineHeight: '1.5' }}>
-                      {single.description}
-                    </p>
+                  <h4 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', fontFamily: 'var(--font-playfair)' }}>
+                    {pillar.title}
+                  </h4>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+                    {pillar.description}
+                  </p>
+                  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    {pillar.tags.map((tag, tIdx) => (
+                      <span key={tIdx} style={{
+                        fontSize: '0.6rem',
+                        border: '1px solid rgba(226, 179, 90, 0.3)',
+                        color: 'var(--accent-gold)',
+                        padding: '0.3rem 0.7rem',
+                        fontWeight: '700',
+                        borderRadius: '30px',
+                        letterSpacing: '0.05em',
+                        background: 'rgba(226, 179, 90, 0.02)'
+                      }}>
+                        {tag.toUpperCase()}
+                      </span>
+                    ))}
                   </div>
                 </div>
               ))}

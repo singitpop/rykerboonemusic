@@ -151,7 +151,8 @@ export default function ArtistLibrary() {
 
   const albums = [
     { src: "/images/boots in the autumn dust - album.jpg", title: "Boots in the Autumn Dust" },
-    { src: "/images/september turns gold - album.png", title: "September Turns Gold" }
+    { src: "/images/september turns gold - album.png", title: "September Turns Gold" },
+    { src: "/images/when the lights go gold - album.png", title: "When The Lights Go Gold" }
   ];
 
   return (

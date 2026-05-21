@@ -13,11 +13,19 @@ const albums = [
   },
   {
     title: "September Turns Gold",
-    tagline: "The Nashville Studio Sessions",
+    tagline: "The Barn & Festival Sessions",
     image: "/images/september turns gold - album.png",
     description: "A cinematic journey through heartland storytelling and modern country grit.",
     link: "/music/september-turns-gold",
     status: "COMING SOON"
+  },
+  {
+    title: "When The Lights Go Gold",
+    tagline: "Modern Country Pop",
+    image: "/images/when the lights go gold - album.png",
+    description: "A cinematic modern country pop album built for cold-night drives and neon reflections.",
+    link: "/music/when-the-lights-go-gold",
+    status: "IN THE STUDIO"
   }
 ];
 
@@ -52,7 +60,7 @@ export default function AlbumShowcase() {
                   fill 
                   style={{ objectFit: 'cover' }}
                 />
-                {album.status === 'COMING SOON' && (
+                {album.status && (
                   <div style={{
                     position: 'absolute',
                     top: '1rem',
@@ -66,7 +74,7 @@ export default function AlbumShowcase() {
                     borderRadius: '4px',
                     zIndex: 10
                   }}>
-                    COMING SOON
+                    {album.status}
                   </div>
                 )}
                  <div style={{
@@ -79,7 +87,7 @@ export default function AlbumShowcase() {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }} className="hover-overlay">
-                   {album.status !== 'COMING SOON' ? (
+                   {!album.status ? (
                      <button style={{
                         background: 'var(--accent-gold)',
                         color: 'black',

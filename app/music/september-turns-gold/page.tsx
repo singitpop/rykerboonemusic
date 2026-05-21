@@ -21,7 +21,8 @@ export default function SeptemberAlbumPage() {
     { id: "09", title: "Southern Steel", duration: "4:32", badge: "SINGLE" },
     { id: "10", title: "Last Call Eyes", duration: "3:44" },
     { id: "11", title: "Bootleg Midnight", duration: "4:15" },
-    { id: "12", title: "Back To Gold", duration: "4:50" }
+    { id: "12", title: "Back To Gold", duration: "4:50" },
+    { id: "13", title: "Autumn Lights (Live)", duration: "5:12", badge: "LIVE" }
   ];
 
   const singles = [
@@ -120,7 +121,7 @@ export default function SeptemberAlbumPage() {
               display: 'block',
               marginBottom: '1rem'
             }}>
-              The Nashville Studio Sessions
+              The Barn & Festival Sessions
             </span>
             <h1 style={{ 
               fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
@@ -152,7 +153,7 @@ export default function SeptemberAlbumPage() {
               fontSize: '0.95rem',
               marginBottom: '2.5rem'
             }}>
-              'September Turns Gold' is a cinematic journey through heartland storytelling and modern country grit. The highly anticipated sophomore album represents a massive step forward in Ryker's evolution as a songwriter. Recording sessions took place live at RCA Studio B in Nashville, TN, capturing the raw energy of his full touring band and the sweet cry of Southern steel.
+              'September Turns Gold' is a cinematic journey through heartland storytelling and modern country grit. The highly anticipated sophomore album represents a massive step forward in Ryker's evolution as a songwriter. The first 12 tracks were recorded in his barn studio with his backing group, capturing the raw energy of his live band and the sweet cry of Southern steel. Track 13 was recorded Live at the Autumn Lights Country Music Festival.
             </p>
 
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>

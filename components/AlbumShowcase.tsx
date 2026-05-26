@@ -26,6 +26,14 @@ const albums = [
     description: "A cinematic modern country pop album built for cold-night drives and neon reflections.",
     link: "/music/when-the-lights-go-gold",
     status: "IN THE STUDIO"
+  },
+  {
+    title: "Our Love Our Forever",
+    tagline: "Country Wedding & Love Album",
+    image: "/images/our love our forever - album.png",
+    description: "A heartfelt collection of romantic country love songs, acoustic vows, and wedding remixes.",
+    link: "/music/our-love-our-forever",
+    status: "COMING SOON"
   }
 ];
 

@@ -5,15 +5,45 @@ import Link from "next/link";
 
 const products = [
   {
-    name: "Nashville Sessions: Official Digital Artbook",
-    price: "£14.99",
-    image: "/images/artist-fence.png",
-    category: "DIGITAL"
+    name: "Ryker Boone - Premium Leather Guitar Strap",
+    price: "£34.99",
+    image: "/images/consistent/merch_ryker_guitar_strap.png",
+    category: "ACCESSORIES"
   },
   {
-    name: "The Story: Signature Collection Tee",
-    price: "£24.99",
-    image: "/images/ryker-profile-hero-final.jpg",
+    name: "Joyce Boone - Canvas Logo Tote Bag",
+    price: "£18.67",
+    image: "/images/consistent/merch_joyce_tote.png",
+    category: "ACCESSORIES"
+  },
+  {
+    name: "Graham Boone - Youth Gold Logo Tee",
+    price: "£14.99",
+    image: "/images/consistent/merch_graham_tee.png",
+    category: "APPAREL"
+  },
+  {
+    name: "The Boone Family - Embroidered Camp Blanket",
+    price: "£39.99",
+    image: "/images/consistent/merch_family_blanket.png",
+    category: "ACCESSORIES"
+  },
+  {
+    name: "Ryker Boone - Trucker Hat",
+    price: "£18.67",
+    image: "/images/consistent/merch_ryker_trucker_hat.png",
+    category: "ACCESSORIES"
+  },
+  {
+    name: "Graham Boone - Youth Gold Logo Hoodie",
+    price: "£29.99",
+    image: "/images/consistent/merch_graham_hoodie.png",
+    category: "APPAREL"
+  },
+  {
+    name: "Joyce Boone - Studio Beanie",
+    price: "£18.67",
+    image: "/images/consistent/merch_joyce_beanie.png",
     category: "APPAREL"
   }
 ];

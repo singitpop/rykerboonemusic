@@ -8,11 +8,24 @@ import { useState } from "react";
 
 export default function BootsAlbumPage() {
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
-  const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string } | null>(null);
+  const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean } | null>(null);
+
+  const RELEASE_DATE = new Date("2026-06-01T00:00:00");
 
   const handleTrackClick = (track: { id: string; title: string; duration: string; badge?: string }) => {
-    const lyrics = lyricsData[track.title] || "Lyrics not found.";
-    setSelectedTrackLyrics({ title: track.title, lyrics });
+    const isReleased = new Date() >= RELEASE_DATE;
+    const isSingle = track.badge === "SINGLE";
+
+    if (!isReleased && !isSingle) {
+      setSelectedTrackLyrics({
+        title: track.title,
+        lyrics: "Lyrics for this track will be released when the album drops on June 1, 2026.",
+        isLocked: true
+      });
+    } else {
+      const lyrics = lyricsData[track.title] || "Lyrics not found.";
+      setSelectedTrackLyrics({ title: track.title, lyrics, isLocked: false });
+    }
   };
 
   const tracks = [
@@ -432,18 +445,57 @@ export default function BootsAlbumPage() {
               {selectedTrackLyrics.title}
             </h3>
 
-            <div style={{ 
-              width: '100%',
-              color: 'rgba(255, 255, 255, 0.9)', 
-              fontSize: '1.05rem', 
-              lineHeight: '1.8', 
-              textAlign: 'center',
-              whiteSpace: 'pre-line',
-              fontFamily: 'inherit',
-              paddingRight: '0.5rem'
-            }}>
-              {selectedTrackLyrics.lyrics}
-            </div>
+            {selectedTrackLyrics.isLocked ? (
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '1.5rem',
+                margin: '2rem 0'
+              }}>
+                <div style={{
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '50%',
+                  background: 'rgba(226, 179, 90, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--accent-gold)'
+                }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <h4 style={{ color: 'var(--accent-gold)', fontSize: '1.2rem', fontWeight: 'bold', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Pre-Release Lock
+                </h4>
+                <p style={{
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  fontSize: '0.95rem',
+                  lineHeight: '1.6',
+                  textAlign: 'center',
+                  maxWidth: '380px',
+                  margin: 0
+                }}>
+                  {selectedTrackLyrics.lyrics}
+                </p>
+              </div>
+            ) : (
+              <div style={{ 
+                width: '100%',
+                color: 'rgba(255, 255, 255, 0.9)', 
+                fontSize: '1.05rem', 
+                lineHeight: '1.8', 
+                textAlign: 'center',
+                whiteSpace: 'pre-line',
+                fontFamily: 'inherit',
+                paddingRight: '0.5rem'
+              }}>
+                {selectedTrackLyrics.lyrics}
+              </div>
+            )}
 
             <div style={{ 
               marginTop: '2.5rem', 

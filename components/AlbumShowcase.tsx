@@ -28,10 +28,10 @@ const albums = [
     status: "IN THE STUDIO"
   },
   {
-    title: "Our Love Our Forever",
-    tagline: "Country Wedding & Love Album",
+    title: "Our Love Our Forever – Country Wedding Edition",
+    tagline: "Country Wedding Edition",
     image: "/images/our love our forever - album.png",
-    description: "A heartfelt collection of romantic country love songs, acoustic vows, and wedding remixes.",
+    description: "A high-energy, modern Nashville pop-country wedding album driven by polished 130 BPM country-pop production, upbeat rhythms, and celebratory wedding energy.",
     link: "/music/our-love-our-forever",
     status: "COMING FEB 12 2027"
   }

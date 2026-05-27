@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useUser } from "@clerk/nextjs";
 
+const PLATFORM_URL = process.env.NEXT_PUBLIC_PLATFORM_URL || "https://singitpop.club";
+
 interface Track {
   id: string;
   title: string;
@@ -546,7 +548,7 @@ export default function FanPortal() {
 
                   {!isVip && (
                     <Link 
-                      href={clerkUser ? "https://singitpop.club/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC" : "https://singitpop.club/sign-in?redirect_url=https://singitpop.club/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC"} 
+                      href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC`} 
                       target="_blank"
                     >
                       <button style={{
@@ -595,7 +597,7 @@ export default function FanPortal() {
               </p>
             </div>
             <Link 
-              href={clerkUser ? "https://singitpop.club/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC" : "https://singitpop.club/sign-in?redirect_url=https://singitpop.club/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC"} 
+              href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC`} 
               target="_blank"
             >
               <button style={{

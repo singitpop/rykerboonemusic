@@ -33,7 +33,7 @@ const albums = [
     image: "/images/our love our forever - album.png",
     description: "A heartfelt collection of romantic country love songs, acoustic vows, and wedding remixes.",
     link: "/music/our-love-our-forever",
-    status: "COMING SOON"
+    status: "COMING FEB 12 2027"
   }
 ];
 

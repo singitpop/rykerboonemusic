@@ -113,7 +113,7 @@ export default function OurLoveOurForeverPage() {
               zIndex: 10,
               boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
             }}>
-              UPCOMING
+              COMING FEB 12 2027
             </div>
           </div>
 
@@ -153,6 +153,7 @@ export default function OurLoveOurForeverPage() {
               <div>RELEASE DATE: <strong style={{ color: 'white' }}>12 FEBRUARY 2027</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGIT POP</a></strong></div>
               <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>PRE-SAVE</strong></div>
+              <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL</strong></div>
             </div>
 
             <p style={{ 
@@ -224,6 +225,26 @@ export default function OurLoveOurForeverPage() {
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '2.5rem', letterSpacing: '0.05em' }}>
               CLICK ANY TRACK TO VIEW LYRICS
             </p>
+            
+            <div style={{
+              background: 'linear-gradient(to right, rgba(226, 179, 90, 0.1), rgba(0, 0, 0, 0))',
+              borderLeft: '4px solid var(--accent-gold)',
+              padding: '1.25rem 1.5rem',
+              borderRadius: '0 8px 8px 0',
+              marginBottom: '2rem',
+              fontSize: '0.9rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem'
+            }}>
+              <span style={{ fontSize: '1.2rem' }}>🎵</span>
+              <span style={{ color: 'var(--text-primary)', lineHeight: '1.5' }}>
+                Want to listen? 30-second previews and high-res VIP downloads are available.{' '}
+                <Link href="/club" style={{ color: 'var(--accent-gold)', fontWeight: 'bold', textDecoration: 'underline' }}>
+                  Play 30s Preview in Vault
+                </Link>
+              </span>
+            </div>
             
             <div style={{ display: 'grid', gap: '0.25rem' }}>
               {tracks.map((track) => (

@@ -5,42 +5,49 @@ import Link from "next/link";
 
 const products = [
   {
+    id: "guitar-strap",
     name: "Ryker Boone - Premium Leather Guitar Strap",
     price: "£34.99",
     image: "/images/consistent/merch_ryker_guitar_strap.png",
     category: "ACCESSORIES"
   },
   {
+    id: "tote-bag",
     name: "Joyce Boone - Canvas Logo Tote Bag",
     price: "£18.67",
     image: "/images/consistent/merch_joyce_tote.png",
     category: "ACCESSORIES"
   },
   {
+    id: "youth-tee",
     name: "Graham Boone - Youth Gold Logo Tee",
     price: "£14.99",
     image: "/images/consistent/merch_graham_tee.png",
     category: "APPAREL"
   },
   {
+    id: "camp-blanket",
     name: "The Boone Family - Embroidered Camp Blanket",
     price: "£39.99",
     image: "/images/consistent/merch_family_blanket.png",
     category: "ACCESSORIES"
   },
   {
+    id: "trucker-hat",
     name: "Ryker Boone - Trucker Hat",
     price: "£18.67",
     image: "/images/consistent/merch_ryker_trucker_hat.png",
     category: "ACCESSORIES"
   },
   {
+    id: "youth-hoodie",
     name: "Graham Boone - Youth Gold Logo Hoodie",
     price: "£29.99",
     image: "/images/consistent/merch_graham_hoodie.png",
     category: "APPAREL"
   },
   {
+    id: "studio-beanie",
     name: "Joyce Boone - Studio Beanie",
     price: "£18.67",
     image: "/images/consistent/merch_joyce_beanie.png",
@@ -56,7 +63,7 @@ export default function ShopPreview() {
           <span className="subtitle">Official Collection</span>
           <h2 className="section-title">THE ARTIST <br /> <span style={{ color: 'var(--accent-gold)' }}>LIBRARY</span></h2>
         </div>
-        <Link href="https://shop.rykerboonemusic.website" target="_blank">
+        <Link href="/store">
           <button style={{
             border: '1px solid rgba(226, 179, 90, 0.3)',
             color: 'var(--accent-gold)',
@@ -111,7 +118,7 @@ export default function ShopPreview() {
             <h3 style={{ fontSize: '1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: 'white' }}>{product.name}</h3>
             <div style={{ color: 'var(--accent-gold)', fontWeight: '900', fontSize: '0.9rem' }}>{product.price}</div>
             
-            <Link href="https://shop.rykerboonemusic.website" target="_blank">
+            <Link href={`/store?product=${product.id}`}>
               <button style={{
                 width: '100%',
                 marginTop: '1.5rem',
@@ -154,7 +161,7 @@ export default function ShopPreview() {
            <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '2.5rem' }}>
              The definitive collection. Includes signed art prints and exclusive digital commentary from the Nashville sessions.
            </p>
-            <Link href="https://shop.rykerboonemusic.website" target="_blank">
+            <Link href="/store">
               <button className="btn-primary">PRE-ORDER NOW</button>
             </Link>
         </div>

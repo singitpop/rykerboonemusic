@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { useUser } from "@clerk/nextjs";
 
 interface Track {
   id: string;
@@ -109,7 +110,21 @@ const albumsData: Album[] = [
 ];
 
 export default function FanPortal() {
-  const [isVip, setIsVip] = useState<boolean>(false);
+  const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
+  const [mounted, setMounted] = useState<boolean>(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isBanned = clerkLoaded && clerkUser && clerkUser.publicMetadata?.rykerBanned === true;
+  const isVip = clerkLoaded && clerkUser && (
+    clerkUser.publicMetadata?.rykerTier === 'VIP' ||
+    clerkUser.publicMetadata?.tier === 'LABEL' ||
+    clerkUser.publicMetadata?.tier === 'ADMIN' ||
+    clerkUser.publicMetadata?.tier === 'LIFETIME'
+  );
+
   const [selectedAlbum, setSelectedAlbum] = useState<Album>(albumsData[0]);
   const [currentTrack, setCurrentTrack] = useState<Track>(albumsData[0].tracks[0]);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -162,7 +177,7 @@ export default function FanPortal() {
 
   // Switch source whenever currentTrack or selectedAlbum changes
   useEffect(() => {
-    if (audioRef.current) {
+    if (mounted && audioRef.current) {
       audioRef.current.pause();
       setIsPlaying(false);
       setProgress(0);
@@ -173,10 +188,10 @@ export default function FanPortal() {
       audioRef.current.src = streamUrl;
       audioRef.current.load();
     }
-  }, [currentTrack, selectedAlbum]);
+  }, [currentTrack, selectedAlbum, mounted]);
 
   const handlePlayPause = () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current || isBanned) return;
 
     if (isPlaying) {
       audioRef.current.pause();
@@ -226,52 +241,60 @@ export default function FanPortal() {
     <section style={{ padding: "4rem 8% 8rem", background: "#050505", position: "relative" }}>
       <audio
         ref={audioRef}
+        src={`/api/vault/stream?album=${selectedAlbum.id}&track=${currentTrack.id}&format=mp3`}
         style={{ display: "none" }}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={handleEnded}
       />
       
-      {/* Dev Mode Role Toggle Badge */}
-      <div style={{
-        position: "fixed",
-        top: "100px",
-        right: "20px",
-        background: "rgba(226, 179, 90, 0.15)",
-        border: "1px solid var(--accent-gold)",
-        borderRadius: "30px",
-        padding: "0.5rem 1.25rem",
-        zIndex: 1000,
-        display: "flex",
-        alignItems: "center",
-        gap: "0.75rem",
-        backdropFilter: "blur(10px)",
-        boxShadow: "0 10px 30px rgba(0,0,0,0.5)"
-      }}>
-        <span style={{ fontSize: "0.6rem", fontWeight: "900", color: "var(--accent-gold)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-          Test Role:
-        </span>
-        <button
-          onClick={() => {
-            setIsVip(!isVip);
-            setLockedModal(false);
-          }}
-          style={{
-            background: isVip ? "var(--accent-gold)" : "rgba(255,255,255,0.05)",
-            color: isVip ? "black" : "white",
-            border: "none",
-            borderRadius: "20px",
-            padding: "0.3rem 0.8rem",
-            fontSize: "0.65rem",
-            fontWeight: "900",
-            cursor: "pointer",
-            letterSpacing: "0.05em",
-            transition: "all 0.3s"
-          }}
-        >
-          {isVip ? "VIP MEMBER" : "FREE FAN"}
-        </button>
-      </div>
+      {/* Clerk Account Status Badge */}
+      {clerkLoaded && (
+        <div style={{
+          position: "fixed",
+          top: "100px",
+          right: "20px",
+          background: "rgba(10, 10, 10, 0.8)",
+          border: isBanned 
+            ? "1px solid #ef4444" 
+            : isVip 
+              ? "1px solid var(--accent-gold)" 
+              : "1px solid rgba(255,255,255,0.1)",
+          borderRadius: "30px",
+          padding: "0.5rem 1.25rem",
+          zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          gap: "0.75rem",
+          backdropFilter: "blur(10px)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.5)"
+        }}>
+          <span style={{ fontSize: "0.6rem", fontWeight: "900", color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            Role:
+          </span>
+          <span
+            style={{
+              background: isBanned 
+                ? "rgba(239, 68, 68, 0.15)" 
+                : isVip 
+                  ? "rgba(226, 179, 90, 0.15)" 
+                  : "rgba(255,255,255,0.05)",
+              color: isBanned 
+                ? "#ef4444" 
+                : isVip 
+                  ? "var(--accent-gold)" 
+                  : "white",
+              borderRadius: "20px",
+              padding: "0.3rem 0.8rem",
+              fontSize: "0.65rem",
+              fontWeight: "900",
+              letterSpacing: "0.05em",
+            }}
+          >
+            {!clerkUser ? "GUEST" : isBanned ? "BANNED" : isVip ? "VIP MEMBER" : "FREE FAN"}
+          </span>
+        </div>
+      )}
 
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         
@@ -368,163 +391,185 @@ export default function FanPortal() {
             </div>
           </div>
 
-          {/* Right Column: Custom Interactive Waveform Player */}
-          <div style={{
-            background: "rgba(255,255,255,0.01)",
-            border: "1px solid rgba(255,255,255,0.03)",
-            borderRadius: "24px",
-            padding: "3rem",
-            boxShadow: "0 30px 60px rgba(0,0,0,0.5)"
-          }}>
-            
-            {/* Player Cover and Title */}
-            <div style={{ display: "flex", gap: "2.5rem", alignItems: "center", marginBottom: "3rem" }}>
-              <div style={{ position: "relative", width: "140px", height: "140px", borderRadius: "12px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)", boxShadow: "0 15px 30px rgba(0,0,0,0.6)" }}>
-                <Image src={selectedAlbum.cover} alt={selectedAlbum.title} fill style={{ objectFit: "cover" }} />
-              </div>
-              <div>
-                <span style={{ color: "var(--accent-gold)", fontSize: "0.6rem", fontWeight: "900", letterSpacing: "0.2em", textTransform: "uppercase", background: "rgba(226,179,90,0.08)", padding: "0.3rem 0.7rem", borderRadius: "4px" }}>
-                  {isVip ? "VIP Vault Unlocked" : "30s Preview Mode"}
-                </span>
-                <h3 style={{ fontSize: "1.6rem", fontWeight: "bold", fontFamily: "var(--font-playfair)", marginTop: "1rem", marginBottom: "0.5rem" }}>
-                  {currentTrack.title}
-                </h3>
-                <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
-                  {selectedAlbum.title} ({selectedAlbum.year})
-                </span>
-              </div>
+          {/* Right Column: Custom Interactive Waveform Player / Banned overlay */}
+          {isBanned ? (
+            <div style={{
+              background: "rgba(239, 68, 68, 0.03)",
+              border: "1px solid rgba(239, 68, 68, 0.2)",
+              borderRadius: "24px",
+              padding: "4rem 3rem",
+              textAlign: "center",
+              boxShadow: "0 30px 60px rgba(0,0,0,0.6)"
+            }}>
+              <span style={{ fontSize: "3rem", display: "block", marginBottom: "1.5rem" }}>⚠️</span>
+              <h3 style={{ fontSize: "1.6rem", fontWeight: "bold", fontFamily: "var(--font-playfair)", color: "#ef4444", marginBottom: "1rem" }}>
+                ACCESS SUSPENDED
+              </h3>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: "1.8", maxWidth: "450px", margin: "0 auto 2rem" }}>
+                Your access to the Club Ryker Listening Vault has been suspended by administration. If you believe this is an error, please contact support.
+              </p>
             </div>
-
-            {/* Custom Fake Animated Waveform Visualizer */}
-            <div style={{ height: "80px", background: "rgba(0,0,0,0.2)", borderRadius: "12px", display: "flex", alignItems: "center", gap: "3px", padding: "0 1.5rem", marginBottom: "2rem", overflow: "hidden" }}>
-              {Array.from({ length: 45 }).map((_, idx) => {
-                const heightPercentage = 20 + Math.abs(Math.sin(idx * 0.4)) * 60;
-                const isActive = (idx / 45) * 100 <= progress;
-                
-                // Add animated jitter if playing
-                const animationStyle = isPlaying 
-                  ? { animation: `jitter 1.2s ease-in-out infinite alternate`, animationDelay: `${idx * 0.05}s` } 
-                  : {};
-
-                return (
-                  <div
-                    key={idx}
-                    style={{
-                      flex: 1,
-                      height: `${heightPercentage}%`,
-                      background: isActive 
-                        ? "var(--accent-gold)" 
-                        : "rgba(255,255,255,0.08)",
-                      borderRadius: "2px",
-                      transition: "background 0.3s ease",
-                      ...animationStyle
-                    }}
-                  />
-                );
-              })}
-            </div>
-            
-            <style jsx global>{`
-              @keyframes jitter {
-                0% { transform: scaleY(1); }
-                100% { transform: scaleY(0.6); }
-              }
-            `}</style>
-
-            {/* Play Timeline */}
-            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--text-secondary)", marginBottom: "3rem" }}>
-              <span>{formatTime(currentTimeSec)}</span>
-              <span style={{ color: !isVip ? "var(--accent-gold)" : "var(--text-secondary)" }}>
-                {isVip ? formatTime(durationSec) : "Locked at 0:30"}
-              </span>
-            </div>
-
-            {/* Player Controls Panel */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "2rem" }}>
+          ) : (
+            <div style={{
+              background: "rgba(255,255,255,0.01)",
+              border: "1px solid rgba(255,255,255,0.03)",
+              borderRadius: "24px",
+              padding: "3rem",
+              boxShadow: "0 30px 60px rgba(0,0,0,0.5)"
+            }}>
               
-              {/* Playback Controls */}
-              <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
-                <button
-                  onClick={handlePlayPause}
-                  style={{
-                    width: "64px",
-                    height: "64px",
-                    borderRadius: "50%",
-                    background: "var(--accent-gold)",
-                    color: "black",
-                    border: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                    boxShadow: "0 10px 25px rgba(226,179,90,0.3)",
-                    transition: "transform 0.2s"
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
-                  onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
-                >
-                  {isPlaying ? (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                    </svg>
-                  ) : (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "4px" }}>
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  )}
-                </button>
+              {/* Player Cover and Title */}
+              <div style={{ display: "flex", gap: "2.5rem", alignItems: "center", marginBottom: "3rem" }}>
+                <div style={{ position: "relative", width: "140px", height: "140px", borderRadius: "12px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)", boxShadow: "0 15px 30px rgba(0,0,0,0.6)" }}>
+                  <Image src={selectedAlbum.cover} alt={selectedAlbum.title} fill style={{ objectFit: "cover" }} />
+                </div>
+                <div>
+                  <span style={{ color: "var(--accent-gold)", fontSize: "0.6rem", fontWeight: "900", letterSpacing: "0.2em", textTransform: "uppercase", background: "rgba(226, 179, 90, 0.08)", padding: "0.3rem 0.7rem", borderRadius: "4px" }}>
+                    {isVip ? "VIP Vault Unlocked" : "30s Preview Mode"}
+                  </span>
+                  <h3 style={{ fontSize: "1.6rem", fontWeight: "bold", fontFamily: "var(--font-playfair)", marginTop: "1rem", marginBottom: "0.5rem" }}>
+                    {currentTrack.title}
+                  </h3>
+                  <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
+                    {selectedAlbum.title} ({selectedAlbum.year})
+                  </span>
+                </div>
               </div>
 
-              {/* Action Buttons: Download WAV / Upgrade */}
-              <div style={{ display: "flex", gap: "1rem" }}>
-                <button
-                  onClick={() => triggerDownload(currentTrack.title)}
-                  style={{
-                    border: isVip ? "1px solid var(--accent-gold)" : "1px solid rgba(255,255,255,0.1)",
-                    background: isVip ? "rgba(226,179,90,0.08)" : "transparent",
-                    color: isVip ? "var(--accent-gold)" : "rgba(255,255,255,0.3)",
-                    padding: "0.8rem 1.5rem",
-                    borderRadius: "8px",
-                    fontSize: "0.75rem",
-                    fontWeight: "900",
-                    letterSpacing: "0.1em",
-                    cursor: isVip ? "pointer" : "not-allowed",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    transition: "all 0.3s"
-                  }}
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                  </svg>
-                  DOWNLOAD WAV
-                </button>
+              {/* Custom Fake Animated Waveform Visualizer */}
+              <div style={{ height: "80px", background: "rgba(0,0,0,0.2)", borderRadius: "12px", display: "flex", alignItems: "center", gap: "3px", padding: "0 1.5rem", marginBottom: "2rem", overflow: "hidden" }}>
+                {Array.from({ length: 45 }).map((_, idx) => {
+                  const heightPercentage = 20 + Math.abs(Math.sin(idx * 0.4)) * 60;
+                  const isActive = (idx / 45) * 100 <= progress;
+                  
+                  // Add animated jitter if playing
+                  const animationStyle = isPlaying 
+                    ? { animation: `jitter 1.2s ease-in-out infinite alternate`, animationDelay: `${idx * 0.05}s` } 
+                    : {};
 
-                {!isVip && (
-                  <Link href="https://shop.rykerboonemusic.website/membership" target="_blank">
-                    <button style={{
+                  return (
+                    <div
+                      key={idx}
+                      style={{
+                        flex: 1,
+                        height: `${heightPercentage}%`,
+                        background: isActive 
+                          ? "var(--accent-gold)" 
+                          : "rgba(255,255,255,0.08)",
+                        borderRadius: "2px",
+                        transition: "background 0.3s ease",
+                        ...animationStyle
+                      }}
+                    />
+                  );
+                })}
+              </div>
+              
+              <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes jitter {
+                  0% { transform: scaleY(1); }
+                  100% { transform: scaleY(0.6); }
+                }
+              `}} />
+
+              {/* Play Timeline */}
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--text-secondary)", marginBottom: "3rem" }}>
+                <span>{formatTime(currentTimeSec)}</span>
+                <span style={{ color: !isVip ? "var(--accent-gold)" : "var(--text-secondary)" }}>
+                  {isVip ? formatTime(durationSec) : "Locked at 0:30"}
+                </span>
+              </div>
+
+              {/* Player Controls Panel */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "2rem" }}>
+                
+                {/* Playback Controls */}
+                <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+                  <button
+                    onClick={handlePlayPause}
+                    style={{
+                      width: "64px",
+                      height: "64px",
+                      borderRadius: "50%",
                       background: "var(--accent-gold)",
                       color: "black",
                       border: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      cursor: "pointer",
+                      boxShadow: "0 10px 25px rgba(226,179,90,0.3)",
+                      transition: "transform 0.2s"
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+                  >
+                    {isPlaying ? (
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                      </svg>
+                    ) : (
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "4px" }}>
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
+
+                {/* Action Buttons: Download WAV / Upgrade */}
+                <div style={{ display: "flex", gap: "1rem" }}>
+                  <button
+                    onClick={() => triggerDownload(currentTrack.title)}
+                    style={{
+                      border: isVip ? "1px solid var(--accent-gold)" : "1px solid rgba(255,255,255,0.1)",
+                      background: isVip ? "rgba(226,179,90,0.08)" : "transparent",
+                      color: isVip ? "var(--accent-gold)" : "rgba(255,255,255,0.3)",
                       padding: "0.8rem 1.5rem",
                       borderRadius: "8px",
                       fontSize: "0.75rem",
                       fontWeight: "900",
                       letterSpacing: "0.1em",
-                      cursor: "pointer",
-                      boxShadow: "0 10px 20px rgba(226,179,90,0.2)"
-                    }}>
-                      UPGRADE TO VIP
-                    </button>
-                  </Link>
-                )}
-              </div>
+                      cursor: isVip ? "pointer" : "not-allowed",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      transition: "all 0.3s"
+                    }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    DOWNLOAD WAV
+                  </button>
 
+                  {!isVip && (
+                    <Link 
+                      href={clerkUser ? "https://singitpop.club/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC" : "https://singitpop.club/sign-in?redirect_url=https://singitpop.club/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC"} 
+                      target="_blank"
+                    >
+                      <button style={{
+                        background: "var(--accent-gold)",
+                        color: "black",
+                        border: "none",
+                        padding: "0.8rem 1.5rem",
+                        borderRadius: "8px",
+                        fontSize: "0.75rem",
+                        fontWeight: "900",
+                        letterSpacing: "0.1em",
+                        cursor: "pointer",
+                        boxShadow: "0 10px 20px rgba(226,179,90,0.2)"
+                      }}>
+                        UPGRADE TO VIP
+                      </button>
+                    </Link>
+                  )}
+                </div>
+
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Upgrade Callout Popup Panel */}
@@ -546,10 +591,13 @@ export default function FanPortal() {
                 Preview Time Expired
               </h4>
               <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", margin: 0 }}>
-                You've listened to the 30-second preview of this unreleased track. Upgrade to VIP Club today for £6.99/mo to unlock full streaming.
+                You've listened to the 30-second preview of this unreleased track. Upgrade to VIP Club today for £2.99/mo to unlock full streaming.
               </p>
             </div>
-            <Link href="https://shop.rykerboonemusic.website/membership" target="_blank">
+            <Link 
+              href={clerkUser ? "https://singitpop.club/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC" : "https://singitpop.club/sign-in?redirect_url=https://singitpop.club/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC"} 
+              target="_blank"
+            >
               <button style={{
                 background: "var(--accent-gold)",
                 color: "black",

@@ -4,10 +4,20 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useUser, useClerk } from "@clerk/nextjs";
 
 export default function Navbar() {
+  const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
+  const { signOut } = useClerk();
   const [scrolled, setScrolled] = useState(false);
+  const [currentOrigin, setCurrentOrigin] = useState("http://localhost:3001");
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setCurrentOrigin(window.location.origin);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -87,21 +97,84 @@ export default function Navbar() {
           >
             Our Story
           </Link>
-          <Link href="https://shop.rykerboonemusic.website" className="nav-link" target="_blank">Store</Link>
-          <Link href="/club">
-            <button style={{
-              background: 'var(--accent-gold)',
-              color: 'black',
-              padding: '0.7rem 1.5rem',
-              fontSize: '0.65rem',
-              fontWeight: '900',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              transition: 'var(--transition-smooth)'
-            }}>
-              Join Club Ryker
-            </button>
-          </Link>
+          <Link href="/store" className="nav-link">Store</Link>
+          {clerkLoaded && clerkUser ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', fontWeight: 'bold' }}>
+                Hi, {clerkUser.firstName || 'Member'}
+              </span>
+              <button 
+                onClick={() => signOut({ redirectUrl: '/' })}
+                style={{
+                  background: 'transparent',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  color: 'white',
+                  padding: '0.7rem 1.5rem',
+                  fontSize: '0.65rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'var(--transition-smooth)'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.borderColor = 'white'}
+                onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'}
+              >
+                Sign Out
+              </button>
+              <Link href="/club">
+                <button style={{
+                  background: 'var(--accent-gold)',
+                  color: 'black',
+                  padding: '0.7rem 1.5rem',
+                  border: 'none',
+                  fontSize: '0.65rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'var(--transition-smooth)'
+                }}>
+                  Lounge
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <a href={`https://singitpop.club/sign-in?redirect_url=${currentOrigin}/club`}>
+                <button style={{
+                  background: 'transparent',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  color: 'white',
+                  padding: '0.7rem 1.5rem',
+                  fontSize: '0.65rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'var(--transition-smooth)'
+                }}>
+                  Sign In
+                </button>
+              </a>
+              <Link href="/club">
+                <button style={{
+                  background: 'var(--accent-gold)',
+                  color: 'black',
+                  padding: '0.7rem 1.5rem',
+                  border: 'none',
+                  fontSize: '0.65rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'var(--transition-smooth)'
+                }}>
+                  Join Club Ryker
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
       <div className="nav-spacer">{/* Empty column to keep links away from the face */}</div>

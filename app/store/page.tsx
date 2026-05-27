@@ -4,7 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
 interface Product {
   id: string;
@@ -15,6 +16,7 @@ interface Product {
   description: string;
   details: string[];
   sizes?: string[];
+  link?: string;
 }
 
 const products: Product[] = [
@@ -25,7 +27,8 @@ const products: Product[] = [
     image: "/images/consistent/merch_ryker_guitar_strap.png",
     category: "ACCESSORIES",
     description: "Hand-crafted premium distressed leather guitar strap, adjusted for durability and comfort during long stage sets.",
-    details: ["100% genuine full-grain distressed leather", "Adjustable length (42\" to 56\")", "Debossed interlocking gold BOONE logo", "Hand-finished stitching"]
+    details: ["100% genuine full-grain distressed leather", "Adjustable length (42\" to 56\")", "Debossed interlocking gold BOONE logo", "Hand-finished stitching"],
+    link: "https://shop.rykerboonemusic.website/products/premium-leather-guitar-strap"
   },
   {
     id: "tote-bag",
@@ -34,7 +37,8 @@ const products: Product[] = [
     image: "/images/consistent/merch_joyce_tote.png",
     category: "ACCESSORIES",
     description: "Heavyweight organic canvas tote featuring the classic gold interlocking Boone logo. Perfect for daily essentials.",
-    details: ["100% organic cotton canvas", "Reinforced shoulder straps", "Gold screen-printed logo", "Interior accessories pocket"]
+    details: ["100% organic cotton canvas", "Reinforced shoulder straps", "Gold screen-printed logo", "Interior accessories pocket"],
+    link: "https://shop.rykerboonemusic.website/products/canvas-logo-tote-bag"
   },
   {
     id: "youth-tee",
@@ -44,7 +48,8 @@ const products: Product[] = [
     category: "APPAREL",
     description: "Super-soft youth crewneck tee in rich gold, featuring the iconic Boone stamp logo on the chest.",
     details: ["100% ring-spun combed cotton", "Lightweight and breathable (150 GSM)", "Unisex youth fit", "Gold-on-black logo stamp"],
-    sizes: ["S (Y8-10)", "M (Y10-12)", "L (Y12-14)", "XL (Y14-16)"]
+    sizes: ["S (Y8-10)", "M (Y10-12)", "L (Y12-14)", "XL (Y14-16)"],
+    link: "https://shop.rykerboonemusic.website/products/youth-gold-logo-tee"
   },
   {
     id: "camp-blanket",
@@ -53,7 +58,8 @@ const products: Product[] = [
     image: "/images/consistent/merch_family_blanket.png",
     category: "ACCESSORIES",
     description: "Cozy wool-blend outdoor camp blanket with hand-finished embroidered borders. Ideal for chilly nights.",
-    details: ["50% wool, 50% soft acrylic blend", "Generous size (60\" x 70\")", "Heavy cuffed stitching", "Interlocking BOONE embroidery in corner"]
+    details: ["50% wool, 50% soft acrylic blend", "Generous size (60\" x 70\")", "Heavy cuffed stitching", "Interlocking BOONE embroidery in corner"],
+    link: "https://shop.rykerboonemusic.website/products/embroidered-camp-blanket"
   },
   {
     id: "trucker-hat",
@@ -62,7 +68,8 @@ const products: Product[] = [
     image: "/images/consistent/merch_ryker_trucker_hat.png",
     category: "ACCESSORIES",
     description: "Classic retro trucker style cap with mesh backing and gold Boone logo patch.",
-    details: ["Premium mesh back panels for ventilation", "Adjustable snapback closure", "Embroidered front gold logo patch", "Structured low-profile front"]
+    details: ["Premium mesh back panels for ventilation", "Adjustable snapback closure", "Embroidered front gold logo patch", "Structured low-profile front"],
+    link: "https://shop.rykerboonemusic.website/products/trucker-hat"
   },
   {
     id: "youth-hoodie",
@@ -72,7 +79,8 @@ const products: Product[] = [
     category: "APPAREL",
     description: "Warm, fleece-lined pullover youth hoodie with gold interlocking logo print. Extremely durable.",
     details: ["80% cotton, 20% polyester blend fleece", "Front pouch pocket", "Double-needle hood stitching", "Ribbed cuffs and waistband"],
-    sizes: ["S (Y8-10)", "M (Y10-12)", "L (Y12-14)", "XL (Y14-16)"]
+    sizes: ["S (Y8-10)", "M (Y10-12)", "L (Y12-14)", "XL (Y14-16)"],
+    link: "https://shop.rykerboonemusic.website/products/youth-gold-logo-hoodie"
   },
   {
     id: "studio-beanie",
@@ -81,14 +89,27 @@ const products: Product[] = [
     image: "/images/consistent/merch_joyce_beanie.png",
     category: "APPAREL",
     description: "Premium ribbed cuffed beanie in matching signature grey. Est. 2024 detailing.",
-    details: ["100% soft-touch acrylic knit", "Warm dual-layer ribbed cuff", "Corrected 'EST. 2024' black woven label", "One size fits most"]
+    details: ["100% soft-touch acrylic knit", "Warm dual-layer ribbed cuff", "Corrected 'EST. 2024' black woven label", "One size fits most"],
+    link: "https://shop.rykerboonemusic.website/products/studio-beanie"
   }
 ];
 
-export default function StorePage() {
+function StoreContent() {
+  const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<"ALL" | "APPAREL" | "ACCESSORIES">("ALL");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedSize, setSelectedSize] = useState<string>("");
+
+  useEffect(() => {
+    const productId = searchParams?.get("product");
+    if (productId) {
+      const found = products.find(p => p.id === productId);
+      if (found) {
+        setSelectedProduct(found);
+        setSelectedSize(found.sizes ? found.sizes[0] : "");
+      }
+    }
+  }, [searchParams]);
 
   const filteredProducts = selectedCategory === "ALL" 
     ? products 
@@ -332,10 +353,9 @@ export default function StorePage() {
                 ))}
               </ul>
             </div>
-
             {/* Buy Action */}
             <div style={{ marginTop: 'auto' }}>
-              <Link href="https://shop.rykerboonemusic.website" target="_blank">
+              <Link href={selectedProduct.link || "https://shop.rykerboonemusic.website"} target="_blank">
                 <button style={{
                   width: '100%',
                   background: 'var(--accent-gold)',
@@ -366,5 +386,13 @@ export default function StorePage() {
 
       <Footer />
     </main>
+  );
+}
+
+export default function StorePage() {
+  return (
+    <Suspense fallback={<div style={{ background: '#050505', minHeight: '100vh' }} />}>
+      <StoreContent />
+    </Suspense>
   );
 }

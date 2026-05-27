@@ -42,7 +42,7 @@ export default function Footer() {
           <ul style={{ display: 'grid', gap: '1rem', fontSize: '0.9rem' }}>
             <li><Link href="#music" style={{ color: 'var(--text-secondary)' }}>Music</Link></li>
             <li><Link href="#story" style={{ color: 'var(--text-secondary)' }}>Our Story</Link></li>
-            <li><Link href="#shop" style={{ color: 'var(--text-secondary)' }}>Shop</Link></li>
+            <li><Link href="/store" style={{ color: 'var(--text-secondary)' }}>Shop</Link></li>
             <li><Link href="/about" style={{ color: 'var(--text-secondary)' }}>Artist Library</Link></li>
           </ul>
         </div>

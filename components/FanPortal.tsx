@@ -26,18 +26,18 @@ const albumsData: Album[] = [
     year: "2026",
     cover: "/images/when the lights go gold - album.png",
     tracks: [
-      { id: "01", title: "Friday Again", duration: "2:44" },
-      { id: "02", title: "Midnight Motion", duration: "3:03" },
-      { id: "03", title: "Cold Smoke", duration: "3:08" },
-      { id: "04", title: "Blue Flame", duration: "3:23" },
-      { id: "05", title: "When The Lights Go Gold", duration: "2:59" },
-      { id: "06", title: "Kiss Me Like That", duration: "3:14" },
-      { id: "07", title: "Midnight Static", duration: "3:08" },
-      { id: "08", title: "White Line Weather", duration: "3:14" },
-      { id: "09", title: "Too Close To Midnight", duration: "3:04" },
-      { id: "10", title: "What We Were", duration: "3:36" },
-      { id: "11", title: "Stay Till Sunday", duration: "2:59" },
-      { id: "12", title: "One More Summer", duration: "3:03" }
+      { id: "01", title: "Friday Again", duration: "2:44", file: "Friday Again" },
+      { id: "02", title: "Midnight Motion", duration: "3:03", file: "Midnight Motion" },
+      { id: "03", title: "Cold Smoke", duration: "3:08", file: "Cold Smoke" },
+      { id: "04", title: "Blue Flame", duration: "3:23", file: "Blue Flame" },
+      { id: "05", title: "When The Lights Go Gold", duration: "2:59", file: "When The Lights Go Gold" },
+      { id: "06", title: "Kiss Me Like That", duration: "3:14", file: "Kiss Me Like That" },
+      { id: "07", title: "Midnight Static", duration: "3:08", file: "Midnight Static" },
+      { id: "08", title: "White Line Weather", duration: "3:14", file: "White Line Weather" },
+      { id: "09", title: "Too Close To Midnight", duration: "3:04", file: "Too Close To Midnight" },
+      { id: "10", title: "What We Were", duration: "3:36", file: "What We Were" },
+      { id: "11", title: "Stay Till Sunday", duration: "2:59", file: "Stay Till Sunday" },
+      { id: "12", title: "One More Summer", duration: "3:03", file: "One More Summer" }
     ]
   },
   {
@@ -46,18 +46,18 @@ const albumsData: Album[] = [
     year: "2026",
     cover: "/images/boots in the autumn dust - album.jpg",
     tracks: [
-      { id: "01", title: "Honky Tonk Sundown", duration: "3:42" },
-      { id: "02", title: "August Heatwave", duration: "4:05" },
-      { id: "03", title: "Barefoot on the Backroad", duration: "3:18" },
-      { id: "04", title: "Neon Barn Nights", duration: "3:55" },
-      { id: "05", title: "Sweet Tea and Blue Jeans", duration: "3:29" },
-      { id: "06", title: "Dust Kicking Rhythm", duration: "3:12" },
-      { id: "07", title: "Sunburnt Memories", duration: "4:21" },
-      { id: "08", title: "Tailgate Turn Up", duration: "3:34" },
-      { id: "09", title: "Riverbank Two Step", duration: "2:58" },
-      { id: "10", title: "Fireflies and Front Porches", duration: "3:50" },
-      { id: "11", title: "Whiskey Weather", duration: "4:12" },
-      { id: "12", title: "Last Dance in the Dirt", duration: "4:45" }
+      { id: "01", title: "Honky Tonk Sundown", duration: "3:42", file: "Honky Tonk Sundown" },
+      { id: "02", title: "August Heatwave", duration: "4:05", file: "August Heatwave" },
+      { id: "03", title: "Barefoot on the Backroad", duration: "3:18", file: "Barefoot on the Backroad" },
+      { id: "04", title: "Neon Barn Nights", duration: "3:55", file: "Neon Barn Nights" },
+      { id: "05", title: "Sweet Tea and Blue Jeans", duration: "3:29", file: "Sweet Tea and Blue Jeans" },
+      { id: "06", title: "Dust Kicking Rhythm", duration: "3:12", file: "Dust Kicking Rhythm" },
+      { id: "07", title: "Sunburnt Memories", duration: "4:21", file: "Sunburnt Memories" },
+      { id: "08", title: "Tailgate Turn Up", duration: "3:34", file: "Tailgate Turn Up" },
+      { id: "09", title: "Riverbank Two Step", duration: "2:58", file: "Riverbank Two Step" },
+      { id: "10", title: "Fireflies and Front Porches", duration: "3:50", file: "Fireflies and Front Porches" },
+      { id: "11", title: "Whiskey Weather", duration: "4:12", file: "Whiskey Weather" },
+      { id: "12", title: "Last Dance in the Dirt", duration: "4:45", file: "Last Dance in the Dirt" }
     ]
   },
   {
@@ -66,19 +66,19 @@ const albumsData: Album[] = [
     year: "2026",
     cover: "/images/september turns gold - album.png",
     tracks: [
-      { id: "01", title: "Whiskey In The Headlights", duration: "3:38" },
-      { id: "02", title: "Dust On The Blacktop", duration: "3:47" },
-      { id: "03", title: "Neon County Line", duration: "4:02" },
-      { id: "04", title: "Midnight Gravel", duration: "3:25" },
-      { id: "05", title: "September Turns Gold", duration: "3:58" },
-      { id: "06", title: "One More Round", duration: "3:15" },
-      { id: "07", title: "Backroad Heartbeat", duration: "3:50" },
-      { id: "08", title: "Highway On Fire", duration: "4:10" },
-      { id: "09", title: "Southern Steel", duration: "4:32" },
-      { id: "10", title: "Last Call Eyes", duration: "3:44" },
-      { id: "11", title: "Bootleg Midnight", duration: "4:15" },
-      { id: "12", title: "Back To Gold", duration: "4:50" },
-      { id: "13", title: "September Turns Gold (Slow Remix Live)", duration: "5:12" }
+      { id: "01", title: "Whiskey In The Headlights", duration: "3:38", file: "Whiskey In The Headlights" },
+      { id: "02", title: "Dust On The Blacktop", duration: "3:47", file: "Dust On The Blacktop" },
+      { id: "03", title: "Neon County Line", duration: "4:02", file: "Neon County Line" },
+      { id: "04", title: "Midnight Gravel", duration: "3:25", file: "Midnight Gravel" },
+      { id: "05", title: "September Turns Gold", duration: "3:58", file: "September Turns Gold" },
+      { id: "06", title: "One More Round", duration: "3:15", file: "One More Round" },
+      { id: "07", title: "Backroad Heartbeat", duration: "3:50", file: "Backroad Heartbeat" },
+      { id: "08", title: "Highway On Fire", duration: "4:10", file: "Highway On Fire" },
+      { id: "09", title: "Southern Steel", duration: "4:32", file: "Southern Steel" },
+      { id: "10", title: "Last Call Eyes", duration: "3:44", file: "Last Call Eyes" },
+      { id: "11", title: "Bootleg Midnight", duration: "4:15", file: "Bootleg Midnight" },
+      { id: "12", title: "Back To Gold", duration: "4:50", file: "Back To Gold" },
+      { id: "13", title: "September Turns Gold (Slow Remix Live)", duration: "5:12", file: "September Turns Gold Remix Live" }
     ]
   },
   {
@@ -87,23 +87,23 @@ const albumsData: Album[] = [
     year: "2027",
     cover: "/images/our love our forever - album.png",
     tracks: [
-      { id: "01", title: "Here Comes the Light", duration: "3:45" },
-      { id: "02", title: "I Choose You", duration: "3:28" },
-      { id: "03", title: "Two Roads One Heart", duration: "4:02" },
-      { id: "04", title: "Bound to You", duration: "3:15" },
-      { id: "05", title: "Now and Always", duration: "3:52" },
-      { id: "06", title: "First and Always", duration: "3:34" },
-      { id: "07", title: "Before I Knew Your Name", duration: "4:10" },
-      { id: "08", title: "Like Home", duration: "3:22" },
-      { id: "09", title: "Forever Starts With You", duration: "3:48" },
-      { id: "10", title: "Hold This Moment", duration: "4:15" },
-      { id: "11", title: "One Lifetime More", duration: "3:55" },
-      { id: "12", title: "The Last Song We’ll Ever Need", duration: "4:28" },
-      { id: "13", title: "Here Comes the Light (Wedding Remix)", duration: "3:58" },
-      { id: "14", title: "I Choose You (Wedding Remix)", duration: "3:35" },
-      { id: "15", title: "Two Roads One Heart (Wedding Remix)", duration: "4:12" },
-      { id: "16", title: "Bound to You (Wedding Remix)", duration: "3:20" },
-      { id: "17", title: "Before I Knew Your Name (Wedding Remix)", duration: "4:24" }
+      { id: "01", title: "Here Comes the Light", duration: "3:45", file: "Here Comes the Light" },
+      { id: "02", title: "I Choose You", duration: "3:28", file: "I Choose You" },
+      { id: "03", title: "Two Roads One Heart", duration: "4:02", file: "Two Roads One Heart" },
+      { id: "04", title: "Bound to You", duration: "3:15", file: "Bound to You" },
+      { id: "05", title: "Now and Always", duration: "3:52", file: "Now and Always" },
+      { id: "06", title: "First and Always", duration: "3:34", file: "First and Always" },
+      { id: "07", title: "Before I Knew Your Name", duration: "4:10", file: "Before I Knew Your Name" },
+      { id: "08", title: "Like Home", duration: "3:22", file: "Like Home" },
+      { id: "09", title: "Forever Starts With You", duration: "3:48", file: "Forever Starts With You" },
+      { id: "10", title: "Hold This Moment", duration: "4:15", file: "Hold This Moment" },
+      { id: "11", title: "One Lifetime More", duration: "3:55", file: "One Lifetime More" },
+      { id: "12", title: "The Last Song We’ll Ever Need", duration: "4:28", file: "The Last Song We’ll Ever Need" },
+      { id: "13", title: "Here Comes the Light (Wedding Remix)", duration: "3:58", file: "Here Comes the Light Wedding Version" },
+      { id: "14", title: "I Choose You (Wedding Remix)", duration: "3:35", file: "I Choose You Wedding Version" },
+      { id: "15", title: "Two Roads One Heart (Wedding Remix)", duration: "4:12", file: "Two Roads One Heart Wedding Version" },
+      { id: "16", title: "Bound to You (Wedding Remix)", duration: "3:20", file: "Bound to You Wedding Version" },
+      { id: "17", title: "Before I Knew Your Name (Wedding Remix)", duration: "4:24", file: "Before I Knew Your Name Wedding Version" }
     ]
   }
 ];
@@ -118,7 +118,7 @@ export default function FanPortal() {
   const [currentTimeSec, setCurrentTimeSec] = useState<number>(0);
   const [lockedModal, setLockedModal] = useState<boolean>(false);
   
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Parse duration string MM:SS to seconds
   const getTrackDurationSeconds = (durStr: string) => {
@@ -126,50 +126,75 @@ export default function FanPortal() {
     return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
   };
 
-  useEffect(() => {
-    // Reset player states when changing track
-    setIsPlaying(false);
-    setProgress(0);
-    setCurrentTimeSec(0);
-    setDurationSec(getTrackDurationSeconds(currentTrack.duration));
-    if (timerRef.current) clearInterval(timerRef.current);
-  }, [currentTrack]);
+  const handleTimeUpdate = () => {
+    if (!audioRef.current) return;
+    const curTime = audioRef.current.currentTime;
+    const limit = isVip ? durationSec : 30;
 
-  useEffect(() => {
-    if (isPlaying) {
-      timerRef.current = setInterval(() => {
-        setCurrentTimeSec((prev) => {
-          const nextVal = prev + 1;
-          const trackLimit = isVip ? durationSec : 30; // 30s limit for non-VIP
-          
-          if (nextVal >= trackLimit) {
-            setIsPlaying(false);
-            if (timerRef.current) clearInterval(timerRef.current);
-            if (!isVip) {
-              setLockedModal(true); // Open upgrade trigger
-            }
-            return trackLimit;
-          }
-          setProgress((nextVal / durationSec) * 100);
-          return nextVal;
-        });
-      }, 1000);
+    if (curTime >= limit) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = limit;
+      setIsPlaying(false);
+      if (!isVip) {
+        setLockedModal(true);
+      }
+      setCurrentTimeSec(limit);
+      setProgress((limit / durationSec) * 100);
     } else {
-      if (timerRef.current) clearInterval(timerRef.current);
+      setCurrentTimeSec(curTime);
+      setProgress((curTime / durationSec) * 100);
     }
+  };
 
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [isPlaying, isVip, durationSec]);
+  const handleLoadedMetadata = () => {
+    if (!audioRef.current) return;
+    const audioDuration = audioRef.current.duration;
+    if (audioDuration && !isNaN(audioDuration)) {
+      setDurationSec(audioDuration);
+    }
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setProgress(100);
+    setCurrentTimeSec(durationSec);
+  };
+
+  // Switch source whenever currentTrack or selectedAlbum changes
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+      setProgress(0);
+      setCurrentTimeSec(0);
+      setDurationSec(getTrackDurationSeconds(currentTrack.duration));
+      
+      const streamUrl = `/api/vault/stream?album=${selectedAlbum.id}&track=${currentTrack.id}&format=mp3`;
+      audioRef.current.src = streamUrl;
+      audioRef.current.load();
+    }
+  }, [currentTrack, selectedAlbum]);
 
   const handlePlayPause = () => {
-    if (currentTimeSec >= (isVip ? durationSec : 30)) {
-      // Replay from start
-      setCurrentTimeSec(0);
-      setProgress(0);
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      const limit = isVip ? durationSec : 30;
+      if (audioRef.current.currentTime >= limit) {
+        audioRef.current.currentTime = 0;
+      }
+      if (audioRef.current.currentTime >= durationSec) {
+        audioRef.current.currentTime = 0;
+      }
+      
+      audioRef.current.play().catch(err => {
+        console.error("Audio playback failed:", err);
+      });
+      setIsPlaying(true);
     }
-    setIsPlaying(!isPlaying);
   };
 
   const handleTrackSelect = (track: Track) => {
@@ -192,18 +217,20 @@ export default function FanPortal() {
       setLockedModal(true);
       return;
     }
-    // Mock high-res download
-    const element = document.createElement("a");
-    const file = new Blob(["mock high-res audio data"], { type: "audio/wav" });
-    element.href = URL.createObjectURL(file);
-    element.download = `${trackTitle} - Ryker Boone (Lossless Studio Master).wav`;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    // Stream endpoint with format=wav and download=true to trigger S3 attachment download
+    const downloadUrl = `/api/vault/stream?album=${selectedAlbum.id}&track=${currentTrack.id}&format=wav&download=true`;
+    window.open(downloadUrl, "_blank");
   };
 
   return (
     <section style={{ padding: "4rem 8% 8rem", background: "#050505", position: "relative" }}>
+      <audio
+        ref={audioRef}
+        style={{ display: "none" }}
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
+        onEnded={handleEnded}
+      />
       
       {/* Dev Mode Role Toggle Badge */}
       <div style={{

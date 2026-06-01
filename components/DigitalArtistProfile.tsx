@@ -57,8 +57,11 @@ export default function DigitalArtistProfile() {
           
           <div style={{ marginBottom: '3rem' }}>
             <h3 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem' }}>THE STORY</h3>
+            <p style={{ fontSize: '0.9rem', lineHeight: '1.8', color: 'rgba(255,255,255,0.7)', marginBottom: '1.5rem' }}>
+              Originally from Columbia, Tennessee, Ryker Boone is a modern country artist with a rugged southern edge and cinematic outlaw charm. He blends the soul of classic country storytelling with polished modern country production, creating music that feels both radio-ready and deeply personal.
+            </p>
             <p style={{ fontSize: '0.9rem', lineHeight: '1.8', color: 'rgba(255,255,255,0.7)' }}>
-              Originally from Columbia, Tennessee, Ryker Boone is an upcoming country singer-songwriter exploring modern country music stardom through heartland storytelling and Americana authenticity. Born and raised in the heartland, his music tells the stories of hard work, loyalty, and the relentless pursuit of something more.
+              Visually, he carries a strong western identity: black cowboy hat, worn denim, leather jackets, dusty roads, autumn sunsets, old trucks, and small-town Americana. His image captures the feeling of a lone traveler caught between nostalgia and freedom.
             </p>
           </div>
 
@@ -100,34 +103,56 @@ export default function DigitalArtistProfile() {
       </div>
 
       {/* 3. INSIGHTS GRID (REBALANCED) */}
-      <div style={{ padding: '6rem 4rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem' }}>
+      <div style={{ padding: '6rem 4rem', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '6rem' }}>
         <div>
           <div style={{ marginBottom: '4rem' }}>
-            <h3 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>CHARACTER BACKGROUND</h3>
+            <h3 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>THE ROOTS & BACKSTORY</h3>
             <p style={{ fontSize: '0.9rem', lineHeight: '1.8', color: 'rgba(255,255,255,0.6)' }}>
-              Typically portrayed as a working-class dreamer, Ryker's songs reflect blue-collar pride, lost love, and the tension between fame and home. His backstory includes a humble upbringing in Columbia, Tennessee and breaking into Nashville through grit and lyrical sincerity.
+              Growing up in Columbia, Tennessee, Ryker's songs reflect blue-collar pride, family loyalty, and the classic struggle of chasing big-city dreams while keeping one foot firmly planted in the soil. His early years playing small bars and working the local industry gave his music the grit and authenticity that defines him today.
             </p>
           </div>
           <div>
             <h3 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>MUSICAL STYLE & THEMES</h3>
             <p style={{ fontSize: '0.9rem', lineHeight: '1.8', color: 'rgba(255,255,255,0.6)' }}>
-              Boone's catalog mixes traditional instrumentation—steel guitars, fiddle, and harmonica—with contemporary Nashville production. Lyrically, he emphasizes emotional vulnerability, family roots, and the fading charm of rural America.
+              Boone's catalog blends traditional country instrumentation—warm steel guitars, fiddle, and acoustic rhythms—with the punchy production dynamics of modern Nashville. Lyrically, he emphasizes emotional vulnerability, real lived experiences, and the nostalgia of rural American life.
             </p>
           </div>
         </div>
 
         <div>
-          <div style={{ marginBottom: '4rem' }}>
-            <h3 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>CULTURAL DEPICTION</h3>
-            <p style={{ fontSize: '0.9rem', lineHeight: '1.8', color: 'rgba(255,255,255,0.6)' }}>
-              Boone represents a new generation of country performers bridging authenticity with modern appeal. Fans see him as a symbol of country music's enduring emotional core amid rapid change.
+          <div style={{
+            background: 'rgba(226, 179, 90, 0.03)',
+            border: '1px solid rgba(226, 179, 90, 0.1)',
+            padding: '2.5rem',
+            borderRadius: '16px'
+          }}>
+            <h3 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>THE SIGNATURE SOUND</h3>
+            <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: 'rgba(255,255,255,0.6)', marginBottom: '1.5rem' }}>
+              At the center of Ryker Boone’s sound is a carefully crafted sonic identity:
             </p>
-          </div>
-          <div>
-            <h3 style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>LEGACY IN FICTION</h3>
-            <p style={{ fontSize: '0.9rem', lineHeight: '1.8', color: 'rgba(255,255,255,0.6)' }}>
-              His career serves as both homage and critique of real-world country culture. His stories celebrate the spirit of songwriting while questioning the cost of chasing fame in today's music industry.
-            </p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {[
+                "Modern country pop hooks",
+                "Groove-driven acoustic rhythm guitar",
+                "Punchy but controlled live drums",
+                "Emotional male vocals with warm grit",
+                "Line-dance inspired rhythms",
+                "Cinematic Americana textures",
+                "Reflective storytelling mixed with summer energy"
+              ].map((item, idx) => (
+                <li key={idx} style={{ 
+                  fontSize: '0.85rem', 
+                  color: 'rgba(255,255,255,0.8)', 
+                  marginBottom: '0.75rem', 
+                  display: 'flex', 
+                  alignItems: 'flex-start', 
+                  gap: '0.75rem' 
+                }}>
+                  <span style={{ color: 'var(--accent-gold)', fontSize: '1.1rem', lineHeight: '1', marginTop: '-2px' }}>•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

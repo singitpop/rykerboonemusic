@@ -5,10 +5,19 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useUser } from "@clerk/nextjs";
 
 export default function WhenTheLightsGoGoldPage() {
+  const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
+  const isLabel = clerkLoaded && clerkUser && (
+    clerkUser.publicMetadata?.tier === 'LABEL' ||
+    clerkUser.publicMetadata?.tier === 'ADMIN' ||
+    clerkUser.publicMetadata?.tier === 'LIFETIME' ||
+    clerkUser.publicMetadata?.rykerTier === 'PREMIUM'
+  );
+
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
-  const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean } | null>(null);
+  const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean; isLabelAccess?: boolean } | null>(null);
 
   const RELEASE_DATE = new Date("2026-10-01T00:00:00");
 
@@ -16,7 +25,11 @@ export default function WhenTheLightsGoGoldPage() {
     const isReleased = new Date() >= RELEASE_DATE;
     const isSingle = track.badge === "SINGLE";
 
-    if (!isReleased && !isSingle) {
+    // Label/admin users bypass the date lock and see all lyrics immediately
+    if (isLabel) {
+      const lyrics = lyricsData[track.title] || "Lyrics not found.";
+      setSelectedTrackLyrics({ title: track.title, lyrics, isLocked: false, isLabelAccess: true });
+    } else if (!isReleased && !isSingle) {
       setSelectedTrackLyrics({
         title: track.title,
         lyrics: "Lyrics for this track will be released when the album drops in October 2026.",
@@ -262,7 +275,7 @@ export default function WhenTheLightsGoGoldPage() {
             }}>
               <span style={{ fontSize: '1.2rem' }}>🎵</span>
               <span style={{ color: 'var(--text-primary)', lineHeight: '1.5' }}>
-                Want to listen? 30-second previews and high-res VIP downloads are available.{' '}
+                Want to listen? 30-second previews and high-res Premium downloads are available.{' '}
                 <Link href="/club" style={{ color: 'var(--accent-gold)', fontWeight: 'bold', textDecoration: 'underline' }}>
                   Play 30s Preview in Vault
                 </Link>
@@ -418,16 +431,16 @@ export default function WhenTheLightsGoGoldPage() {
           <div 
             onClick={(e) => e.stopPropagation()}
             style={{
-              background: 'rgba(15, 15, 15, 0.95)',
-              border: '1px solid rgba(226, 179, 90, 0.3)',
+              background: 'rgba(10, 10, 10, 0.97)',
+              border: '1px solid rgba(226, 179, 90, 0.2)',
               borderRadius: '16px',
-              padding: '3rem 2.5rem',
+              padding: '3.5rem 3rem',
               width: '100%',
-              maxWidth: '550px',
-              maxHeight: '85vh',
+              maxWidth: '680px',
+              maxHeight: '90vh',
               overflowY: 'auto',
               position: 'relative',
-              boxShadow: '0 30px 60px rgba(0,0,0,0.8)',
+              boxShadow: '0 40px 80px rgba(0,0,0,0.9)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center'
@@ -464,13 +477,32 @@ export default function WhenTheLightsGoGoldPage() {
             }}>
               WHEN THE LIGHTS GO GOLD
             </span>
+            {selectedTrackLyrics.isLabelAccess && (
+              <span style={{
+                fontSize: '0.55rem',
+                fontWeight: '900',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                background: 'rgba(226, 179, 90, 0.15)',
+                color: 'var(--accent-gold)',
+                border: '1px solid rgba(226, 179, 90, 0.4)',
+                padding: '0.3rem 0.8rem',
+                borderRadius: '30px',
+                marginBottom: '0.75rem'
+              }}>
+                ◆ Label Access
+              </span>
+            )}
             <h3 style={{ 
-              fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', 
-              fontWeight: 'bold', 
+              fontSize: 'clamp(2rem, 5vw, 3.25rem)', 
+              fontWeight: '900', 
               fontFamily: 'var(--font-playfair)', 
               color: 'white',
               textAlign: 'center',
-              marginBottom: '2rem'
+              textTransform: 'uppercase',
+              lineHeight: '1.1',
+              letterSpacing: '0.02em',
+              marginBottom: '2.5rem'
             }}>
               {selectedTrackLyrics.title}
             </h3>
@@ -515,13 +547,13 @@ export default function WhenTheLightsGoGoldPage() {
             ) : (
               <div style={{ 
                 width: '100%',
-                color: 'rgba(255, 255, 255, 0.9)', 
-                fontSize: '1.05rem', 
-                lineHeight: '1.8', 
+                color: 'rgba(255, 255, 255, 0.88)', 
+                fontSize: '1.1rem', 
+                lineHeight: '2.0', 
                 textAlign: 'center',
                 whiteSpace: 'pre-line',
                 fontFamily: 'inherit',
-                paddingRight: '0.5rem'
+                letterSpacing: '0.01em'
               }}>
                 {selectedTrackLyrics.lyrics}
               </div>

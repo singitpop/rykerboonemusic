@@ -141,7 +141,7 @@ export default function Navbar() {
             </div>
           ) : (
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <a href={`${process.env.NEXT_PUBLIC_PLATFORM_URL || "https://singitpop.club"}/sign-in?redirect_url=${currentOrigin}/club`}>
+              <Link href="/sign-in">
                 <button style={{
                   background: 'transparent',
                   border: '1px solid rgba(255,255,255,0.2)',
@@ -156,7 +156,7 @@ export default function Navbar() {
                 }}>
                   Sign In
                 </button>
-              </a>
+              </Link>
               <Link href="/club">
                 <button style={{
                   background: 'var(--accent-gold)',

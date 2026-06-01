@@ -8,35 +8,35 @@ const products = [
     id: "guitar-strap",
     name: "Ryker Boone - Premium Leather Guitar Strap",
     price: "£34.99",
-    image: "/images/consistent/merch_ryker_guitar_strap.png",
+    image: "/images/promo-guitar-strap.png",
     category: "ACCESSORIES"
   },
   {
     id: "tote-bag",
     name: "Joyce Boone - Canvas Logo Tote Bag",
     price: "£18.67",
-    image: "/images/consistent/merch_joyce_tote.png",
+    image: "/images/promo-joyce-tote.jpg",
     category: "ACCESSORIES"
   },
   {
     id: "youth-tee",
     name: "Graham Boone - Youth Gold Logo Tee",
     price: "£14.99",
-    image: "/images/consistent/merch_graham_tee.png",
+    image: "/images/promo-ryker-tshirt.png",
     category: "APPAREL"
   },
   {
     id: "camp-blanket",
     name: "The Boone Family - Embroidered Camp Blanket",
     price: "£39.99",
-    image: "/images/consistent/merch_family_blanket.png",
+    image: "/images/promo-family-blanket.jpg",
     category: "ACCESSORIES"
   },
   {
     id: "trucker-hat",
     name: "Ryker Boone - Trucker Hat",
     price: "£18.67",
-    image: "/images/consistent/merch_ryker_trucker_hat.png",
+    image: "/images/promo-ryker-trucker-hat.jpg",
     category: "ACCESSORIES"
   },
   {
@@ -50,7 +50,35 @@ const products = [
     id: "studio-beanie",
     name: "Joyce Boone - Studio Beanie",
     price: "£18.67",
-    image: "/images/consistent/merch_joyce_beanie.png",
+    image: "/images/promo-beanie.jpg",
+    category: "APPAREL"
+  },
+  {
+    id: "whiskey-glass",
+    name: "Ryker Boone - Premium Custom Whiskey Glass",
+    price: "£18.67",
+    image: "/images/promo-beverage-glass.jpg",
+    category: "ACCESSORIES"
+  },
+  {
+    id: "leather-journal",
+    name: "Ryker Boone - Leather Songwriting Journal",
+    price: "£24.99",
+    image: "/images/promo-leather-journal.jpg",
+    category: "ACCESSORIES"
+  },
+  {
+    id: "coffee-mug",
+    name: "Ryker Boone - Midnight Coffee Mug",
+    price: "£13.44",
+    image: "/images/promo-camp-mug.png",
+    category: "ACCESSORIES"
+  },
+  {
+    id: "adult-tee",
+    name: "Ryker Boone - Signature Gold Logo Heavy Tee",
+    price: "£20.91",
+    image: "/images/promo-ryker-tshirt.png",
     category: "APPAREL"
   }
 ];

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useUser } from "@clerk/nextjs";
 
-const PLATFORM_URL = process.env.NEXT_PUBLIC_PLATFORM_URL || "https://singitpop.club";
+const PLATFORM_URL = process.env.NEXT_PUBLIC_PLATFORM_URL || "https://singitpop.com";
 
 interface Track {
   id: string;
@@ -120,11 +120,10 @@ export default function FanPortal() {
   }, []);
 
   const isBanned = clerkLoaded && clerkUser && clerkUser.publicMetadata?.rykerBanned === true;
-  const isVip = clerkLoaded && clerkUser && (
-    clerkUser.publicMetadata?.rykerTier === 'VIP' ||
+  const isPremium = clerkLoaded && clerkUser && (
+    clerkUser.publicMetadata?.tier === 'PREMIUM' ||
     clerkUser.publicMetadata?.tier === 'LABEL' ||
-    clerkUser.publicMetadata?.tier === 'ADMIN' ||
-    clerkUser.publicMetadata?.tier === 'LIFETIME'
+    clerkUser.publicMetadata?.tier === 'ADMIN'
   );
 
   const [selectedAlbum, setSelectedAlbum] = useState<Album>(albumsData[0]);
@@ -146,13 +145,13 @@ export default function FanPortal() {
   const handleTimeUpdate = () => {
     if (!audioRef.current) return;
     const curTime = audioRef.current.currentTime;
-    const limit = isVip ? durationSec : 30;
+    const limit = isPremium ? durationSec : 30;
 
     if (curTime >= limit) {
       audioRef.current.pause();
       audioRef.current.currentTime = limit;
       setIsPlaying(false);
-      if (!isVip) {
+      if (!isPremium) {
         setLockedModal(true);
       }
       setCurrentTimeSec(limit);
@@ -199,7 +198,7 @@ export default function FanPortal() {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      const limit = isVip ? durationSec : 30;
+      const limit = isPremium ? durationSec : 30;
       if (audioRef.current.currentTime >= limit) {
         audioRef.current.currentTime = 0;
       }
@@ -230,7 +229,7 @@ export default function FanPortal() {
   };
 
   const triggerDownload = (trackTitle: string) => {
-    if (!isVip) {
+    if (!isPremium) {
       setLockedModal(true);
       return;
     }
@@ -259,7 +258,7 @@ export default function FanPortal() {
           background: "rgba(10, 10, 10, 0.8)",
           border: isBanned 
             ? "1px solid #ef4444" 
-            : isVip 
+            : isPremium 
               ? "1px solid var(--accent-gold)" 
               : "1px solid rgba(255,255,255,0.1)",
           borderRadius: "30px",
@@ -278,12 +277,12 @@ export default function FanPortal() {
             style={{
               background: isBanned 
                 ? "rgba(239, 68, 68, 0.15)" 
-                : isVip 
+                : isPremium 
                   ? "rgba(226, 179, 90, 0.15)" 
                   : "rgba(255,255,255,0.05)",
               color: isBanned 
                 ? "#ef4444" 
-                : isVip 
+                : isPremium 
                   ? "var(--accent-gold)" 
                   : "white",
               borderRadius: "20px",
@@ -293,7 +292,7 @@ export default function FanPortal() {
               letterSpacing: "0.05em",
             }}
           >
-            {!clerkUser ? "GUEST" : isBanned ? "BANNED" : isVip ? "VIP MEMBER" : "FREE FAN"}
+            {!clerkUser ? "GUEST" : isBanned ? "BANNED" : isPremium ? "PREMIUM MEMBER" : "FREE FAN"}
           </span>
         </div>
       )}
@@ -306,12 +305,12 @@ export default function FanPortal() {
             Club Ryker Vault
           </span>
           <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(2rem, 5vw, 3.5rem)", marginTop: "1rem", marginBottom: "1rem" }}>
-            VIP VAULT <span style={{ color: "var(--accent-gold)" }}>LISTENING LOUNGE</span>
+            PREMIUM VAULT <span style={{ color: "var(--accent-gold)" }}>LISTENING LOUNGE</span>
           </h2>
           <p style={{ color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto", fontSize: "0.95rem", lineHeight: "1.8" }}>
-            {isVip 
-              ? "Welcome back VIP! Enjoy unlimited full-length lossless streaming and high-fidelity studio WAV downloads of all unreleased recordings." 
-              : "Get a sneak peek into Ryker's locked vaults. Standard members get 30-second previews. Upgrade to VIP to unlock lossless playback and full downloads."
+            {isPremium 
+              ? "Welcome back! Enjoy unlimited full-length lossless streaming and high-fidelity studio WAV downloads of all unreleased recordings." 
+              : "Get a sneak peek into Ryker's locked vaults. Standard members get 30-second previews. Upgrade to Premium to unlock lossless playback and full downloads."
             }
           </p>
         </div>
@@ -427,7 +426,7 @@ export default function FanPortal() {
                 </div>
                 <div>
                   <span style={{ color: "var(--accent-gold)", fontSize: "0.6rem", fontWeight: "900", letterSpacing: "0.2em", textTransform: "uppercase", background: "rgba(226, 179, 90, 0.08)", padding: "0.3rem 0.7rem", borderRadius: "4px" }}>
-                    {isVip ? "VIP Vault Unlocked" : "30s Preview Mode"}
+                    {isPremium ? "Premium Vault Unlocked" : "30s Preview Mode"}
                   </span>
                   <h3 style={{ fontSize: "1.6rem", fontWeight: "bold", fontFamily: "var(--font-playfair)", marginTop: "1rem", marginBottom: "0.5rem" }}>
                     {currentTrack.title}
@@ -477,8 +476,8 @@ export default function FanPortal() {
               {/* Play Timeline */}
               <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--text-secondary)", marginBottom: "3rem" }}>
                 <span>{formatTime(currentTimeSec)}</span>
-                <span style={{ color: !isVip ? "var(--accent-gold)" : "var(--text-secondary)" }}>
-                  {isVip ? formatTime(durationSec) : "Locked at 0:30"}
+                <span style={{ color: !isPremium ? "var(--accent-gold)" : "var(--text-secondary)" }}>
+                  {isPremium ? formatTime(durationSec) : "Locked at 0:30"}
                 </span>
               </div>
 
@@ -523,15 +522,15 @@ export default function FanPortal() {
                   <button
                     onClick={() => triggerDownload(currentTrack.title)}
                     style={{
-                      border: isVip ? "1px solid var(--accent-gold)" : "1px solid rgba(255,255,255,0.1)",
-                      background: isVip ? "rgba(226,179,90,0.08)" : "transparent",
-                      color: isVip ? "var(--accent-gold)" : "rgba(255,255,255,0.3)",
+                      border: isPremium ? "1px solid var(--accent-gold)" : "1px solid rgba(255,255,255,0.1)",
+                      background: isPremium ? "rgba(226,179,90,0.08)" : "transparent",
+                      color: isPremium ? "var(--accent-gold)" : "rgba(255,255,255,0.3)",
                       padding: "0.8rem 1.5rem",
                       borderRadius: "8px",
                       fontSize: "0.75rem",
                       fontWeight: "900",
                       letterSpacing: "0.1em",
-                      cursor: isVip ? "pointer" : "not-allowed",
+                      cursor: isPremium ? "pointer" : "not-allowed",
                       display: "flex",
                       alignItems: "center",
                       gap: "0.5rem",
@@ -546,7 +545,7 @@ export default function FanPortal() {
                     DOWNLOAD WAV
                   </button>
 
-                  {!isVip && (
+                  {!isPremium && (
                     <Link 
                       href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC`} 
                       target="_blank"
@@ -563,7 +562,7 @@ export default function FanPortal() {
                         cursor: "pointer",
                         boxShadow: "0 10px 20px rgba(226,179,90,0.2)"
                       }}>
-                        UPGRADE TO VIP
+                        UPGRADE TO PREMIUM
                       </button>
                     </Link>
                   )}
@@ -593,7 +592,7 @@ export default function FanPortal() {
                 Preview Time Expired
               </h4>
               <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", margin: 0 }}>
-                You've listened to the 30-second preview of this unreleased track. Upgrade to VIP Club today for £2.99/mo to unlock full streaming.
+                You've listened to the 30-second preview of this unreleased track. Upgrade to Premium Club today for £2.99/mo to unlock full streaming.
               </p>
             </div>
             <Link 

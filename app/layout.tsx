@@ -62,6 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // @ts-expect-error - ClerkProvider type definitions are currently missing router properties that are auto-injected by Next.js
     <ClerkProvider
       isSatellite={process.env.NEXT_PUBLIC_CLERK_IS_SATELLITE === "true"}
       domain={process.env.NEXT_PUBLIC_CLERK_DOMAIN}

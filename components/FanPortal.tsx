@@ -547,7 +547,7 @@ export default function FanPortal() {
 
                   {!isPremium && (
                     <Link 
-                      href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC`} 
+                      href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TbfXKGBBlYIBJlogbRoAboC'}` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TbfXKGBBlYIBJlogbRoAboC'}`} 
                       target="_blank"
                     >
                       <button style={{
@@ -596,7 +596,7 @@ export default function FanPortal() {
               </p>
             </div>
             <Link 
-              href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=price_1TbfXKGBBlYIBJlogbRoAboC`} 
+              href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TbfXKGBBlYIBJlogbRoAboC'}` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TbfXKGBBlYIBJlogbRoAboC'}`} 
               target="_blank"
             >
               <button style={{

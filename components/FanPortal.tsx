@@ -710,7 +710,7 @@ export default function FanPortal() {
                     <li>✓ <strong>Includes all Club Ryker features</strong></li>
                     <li>✓ Unlocked vaults for <strong>all Singitpop artists</strong></li>
                     <li>✓ Unlimited high-fidelity WAV downloads</li>
-                    <li>✓ Priority access to tickets & merch</li>
+                    <li>✓ Exclusive access to limited edition merch</li>
                   </ul>
                   <Link 
                     href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}`}
@@ -729,6 +729,18 @@ export default function FanPortal() {
                   </Link>
                 </div>
               </div>
+
+              {/* Sign In Link for existing Singitpop Members */}
+              {!clerkUser && (
+                <div style={{ textAlign: "center", marginTop: "2rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                  <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
+                    Already have a Singitpop account?{" "}
+                    <Link href={`${PLATFORM_URL}/sign-in?redirect_url=${typeof window !== 'undefined' ? window.location.href : PLATFORM_URL}`} style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline" }}>
+                      Sign in here
+                    </Link>
+                  </p>
+                </div>
+              )}
 
             </div>
           </div>

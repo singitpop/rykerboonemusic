@@ -670,8 +670,7 @@ export default function FanPortal() {
                     <li>✓ Unreleased Ryker Vault tracks</li>
                   </ul>
                   <Link 
-                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}`}
-                    target="_blank"
+                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}` : `/sign-in?redirect_url=${typeof window !== 'undefined' ? window.location.pathname : '/club'}`}
                     style={{ width: "100%" }}
                   >
                     <button style={{
@@ -713,8 +712,7 @@ export default function FanPortal() {
                     <li>✓ Exclusive access to limited edition merch</li>
                   </ul>
                   <Link 
-                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}`}
-                    target="_blank"
+                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}` : `/sign-in?redirect_url=${typeof window !== 'undefined' ? window.location.pathname : '/club'}`}
                     style={{ width: "100%" }}
                   >
                     <button style={{
@@ -735,7 +733,7 @@ export default function FanPortal() {
                 <div style={{ textAlign: "center", marginTop: "2rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                   <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                     Already have a Singitpop account?{" "}
-                    <Link href={`${PLATFORM_URL}/sign-in?redirect_url=${typeof window !== 'undefined' ? window.location.href : PLATFORM_URL}`} style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline" }}>
+                    <Link href={`/sign-in?redirect_url=${typeof window !== 'undefined' ? window.location.pathname : '/club'}`} style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline" }}>
                       Sign in here
                     </Link>
                   </p>

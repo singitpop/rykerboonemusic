@@ -671,7 +671,7 @@ export default function FanPortal() {
                     <li>✓ Unreleased Ryker Vault tracks</li>
                   </ul>
                   <Link 
-                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}` : `/sign-in?redirect_url=${typeof window !== 'undefined' ? window.location.pathname : '/club'}`}
+                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}` : `${PLATFORM_URL}/sign-in?redirect_url=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
                     style={{ width: "100%" }}
                   >
                     <button style={{
@@ -713,7 +713,7 @@ export default function FanPortal() {
                     <li>✓ Exclusive access to limited edition merch</li>
                   </ul>
                   <Link 
-                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}` : `/sign-in?redirect_url=${typeof window !== 'undefined' ? window.location.pathname : '/club'}`}
+                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}` : `${PLATFORM_URL}/sign-in?redirect_url=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
                     style={{ width: "100%" }}
                   >
                     <button style={{

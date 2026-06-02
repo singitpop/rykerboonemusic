@@ -4,7 +4,9 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useUser, useClerk, SignInButton } from "@clerk/nextjs";
+import { useUser, useClerk } from "@clerk/nextjs";
+
+const PLATFORM_URL = process.env.NEXT_PUBLIC_APP_URL || "https://club.singitpop.com";
 
 export default function Navbar() {
   const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
@@ -141,7 +143,7 @@ export default function Navbar() {
             </div>
           ) : (
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+              <a href={`${PLATFORM_URL}/sign-in?redirect_url=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}>
                 <button style={{
                   background: 'transparent',
                   border: '1px solid rgba(255,255,255,0.2)',
@@ -156,7 +158,7 @@ export default function Navbar() {
                 }}>
                   Sign In
                 </button>
-              </SignInButton>
+              </a>
               <Link href="/club">
                 <button style={{
                   background: 'var(--accent-gold)',

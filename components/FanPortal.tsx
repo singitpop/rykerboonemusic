@@ -734,11 +734,11 @@ export default function FanPortal() {
                 <div style={{ textAlign: "center", marginTop: "2rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                   <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                     Already have a Singitpop account?{" "}
-                    <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+                    <a href={`${PLATFORM_URL}/sign-in?redirect_url=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}>
                       <span style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>
                         Sign in here
                       </span>
-                    </SignInButton>
+                    </a>
                   </p>
                 </div>
               )}

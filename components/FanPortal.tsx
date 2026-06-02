@@ -121,9 +121,9 @@ export default function FanPortal() {
 
   const isBanned = clerkLoaded && clerkUser && clerkUser.publicMetadata?.rykerBanned === true;
   const isPremium = clerkLoaded && clerkUser && (
-    clerkUser.publicMetadata?.tier === 'PREMIUM' ||
-    clerkUser.publicMetadata?.tier === 'LABEL' ||
-    clerkUser.publicMetadata?.tier === 'ADMIN'
+    clerkUser.publicMetadata?.rykerTier === 'PREMIUM' ||
+    clerkUser.publicMetadata?.rykerTier === 'VIP' ||
+    ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes(clerkUser.publicMetadata?.tier as string)
   );
 
   const [selectedAlbum, setSelectedAlbum] = useState<Album>(albumsData[0]);
@@ -133,6 +133,7 @@ export default function FanPortal() {
   const [durationSec, setDurationSec] = useState<number>(180);
   const [currentTimeSec, setCurrentTimeSec] = useState<number>(0);
   const [lockedModal, setLockedModal] = useState<boolean>(false);
+  const [showUpgradeModal, setShowUpgradeModal] = useState<boolean>(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -546,11 +547,9 @@ export default function FanPortal() {
                   </button>
 
                   {!isPremium && (
-                    <Link 
-                      href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}`} 
-                      target="_blank"
-                    >
-                      <button style={{
+                    <button 
+                      onClick={() => setShowUpgradeModal(true)}
+                      style={{
                         background: "var(--accent-gold)",
                         color: "black",
                         border: "none",
@@ -562,9 +561,8 @@ export default function FanPortal() {
                         cursor: "pointer",
                         boxShadow: "0 10px 20px rgba(226,179,90,0.2)"
                       }}>
-                        UPGRADE TO PREMIUM
-                      </button>
-                    </Link>
+                      UPGRADE TO PREMIUM
+                    </button>
                   )}
                 </div>
 
@@ -595,11 +593,9 @@ export default function FanPortal() {
                 You've listened to the 30-second preview of this unreleased track. Upgrade to Premium Club today for £2.99/mo to unlock full streaming.
               </p>
             </div>
-            <Link 
-              href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}`} 
-              target="_blank"
-            >
-              <button style={{
+            <button 
+              onClick={() => setShowUpgradeModal(true)}
+              style={{
                 background: "var(--accent-gold)",
                 color: "black",
                 border: "none",
@@ -611,11 +607,133 @@ export default function FanPortal() {
                 textTransform: "uppercase",
                 cursor: "pointer"
               }}>
-                UNLOCK ALL VAULTS NOW
-              </button>
-            </Link>
+              UNLOCK ALL VAULTS NOW
+            </button>
           </div>
         )}
+
+        {/* Global Upsell Modal */}
+        {showUpgradeModal && (
+          <div style={{
+            position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+            background: "rgba(0,0,0,0.9)",
+            zIndex: 9999,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "1rem",
+            backdropFilter: "blur(10px)"
+          }}>
+            <div style={{
+              background: "#111",
+              border: "1px solid rgba(226, 179, 90, 0.3)",
+              borderRadius: "24px",
+              padding: "3rem",
+              maxWidth: "800px",
+              width: "100%",
+              position: "relative",
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)"
+            }}>
+              <button 
+                onClick={() => setShowUpgradeModal(false)}
+                style={{
+                  position: "absolute", top: "1.5rem", right: "1.5rem",
+                  background: "transparent", border: "none",
+                  color: "white", fontSize: "1.5rem", cursor: "pointer"
+                }}
+              >
+                ✕
+              </button>
+              
+              <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+                <h3 style={{ fontSize: "2rem", fontFamily: "var(--font-playfair)", marginBottom: "1rem" }}>
+                  Unlock Your Premium Experience
+                </h3>
+                <p style={{ color: "var(--text-secondary)", maxWidth: "500px", margin: "0 auto" }}>
+                  Choose the plan that's right for you. Get access to the Ryker Boone Vault, or unlock everything across the entire Singitpop label.
+                </p>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+                {/* Option 1: Ryker Only */}
+                <div style={{
+                  background: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.05)",
+                  borderRadius: "16px", padding: "2rem",
+                  display: "flex", flexDirection: "column"
+                }}>
+                  <h4 style={{ fontSize: "1.2rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Club Ryker Premium</h4>
+                  <span style={{ fontSize: "2rem", fontWeight: "bold", color: "white", marginBottom: "1.5rem" }}>
+                    £2.99 <span style={{ fontSize: "1rem", color: "var(--text-secondary)" }}>/mo</span>
+                  </span>
+                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem 0", color: "var(--text-secondary)", fontSize: "0.9rem", flex: 1, display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+                    <li>✓ Full-length lossless streaming</li>
+                    <li>✓ Unlimited high-fidelity WAV downloads</li>
+                    <li>✓ Unreleased Ryker Vault tracks</li>
+                  </ul>
+                  <Link 
+                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}`}
+                    target="_blank"
+                    style={{ width: "100%" }}
+                  >
+                    <button style={{
+                      width: "100%", padding: "1rem", borderRadius: "8px",
+                      background: "rgba(255,255,255,0.1)", color: "white",
+                      border: "none", fontWeight: "bold", cursor: "pointer",
+                      transition: "background 0.2s"
+                    }} onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}>
+                      Select Ryker Premium
+                    </button>
+                  </Link>
+                </div>
+
+                {/* Option 2: Singitpop (Upsell) */}
+                <div style={{
+                  background: "rgba(226,179,90,0.05)",
+                  border: "1px solid var(--accent-gold)",
+                  borderRadius: "16px", padding: "2rem",
+                  display: "flex", flexDirection: "column",
+                  position: "relative",
+                  boxShadow: "0 10px 30px rgba(226,179,90,0.1)"
+                }}>
+                  <div style={{
+                    position: "absolute", top: "-12px", right: "2rem",
+                    background: "var(--accent-gold)", color: "black",
+                    padding: "4px 12px", borderRadius: "12px",
+                    fontSize: "0.7rem", fontWeight: "900", letterSpacing: "0.05em"
+                  }}>
+                    BEST VALUE
+                  </div>
+                  <h4 style={{ fontSize: "1.2rem", fontWeight: "bold", color: "var(--accent-gold)", marginBottom: "0.5rem" }}>Singitpop Premium</h4>
+                  <span style={{ fontSize: "2rem", fontWeight: "bold", color: "var(--accent-gold)", marginBottom: "1.5rem" }}>
+                    £3.99 <span style={{ fontSize: "1rem", color: "rgba(226,179,90,0.6)" }}>/mo</span>
+                  </span>
+                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem 0", color: "white", fontSize: "0.9rem", flex: 1, display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+                    <li>✓ <strong>Includes all Club Ryker features</strong></li>
+                    <li>✓ Unlocked vaults for <strong>all Singitpop artists</strong></li>
+                    <li>✓ Unlimited high-fidelity WAV downloads</li>
+                    <li>✓ Priority access to tickets & merch</li>
+                  </ul>
+                  <Link 
+                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}` : `${PLATFORM_URL}/sign-in?redirect_url=${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}`}
+                    target="_blank"
+                    style={{ width: "100%" }}
+                  >
+                    <button style={{
+                      width: "100%", padding: "1rem", borderRadius: "8px",
+                      background: "var(--accent-gold)", color: "black",
+                      border: "none", fontWeight: "bold", cursor: "pointer",
+                      boxShadow: "0 5px 15px rgba(226,179,90,0.3)",
+                      transition: "transform 0.2s"
+                    }} onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
+                      Select Singitpop Premium
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        )}
+
       </div>
     </section>
   );

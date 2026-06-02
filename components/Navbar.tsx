@@ -141,7 +141,7 @@ export default function Navbar() {
             </div>
           ) : (
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <SignInButton mode="modal" forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+              <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
                 <button style={{
                   background: 'transparent',
                   border: '1px solid rgba(255,255,255,0.2)',

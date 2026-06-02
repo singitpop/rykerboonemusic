@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { SignInButton } from "@clerk/nextjs";
 import { useState, useEffect, useRef } from "react";
 import { useUser } from "@clerk/nextjs";
 
@@ -733,9 +734,11 @@ export default function FanPortal() {
                 <div style={{ textAlign: "center", marginTop: "2rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                   <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                     Already have a Singitpop account?{" "}
-                    <Link href={`/sign-in?redirect_url=${typeof window !== 'undefined' ? window.location.pathname : '/club'}`} style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline" }}>
-                      Sign in here
-                    </Link>
+                    <SignInButton mode="modal" forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+                      <span style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>
+                        Sign in here
+                      </span>
+                    </SignInButton>
                   </p>
                 </div>
               )}

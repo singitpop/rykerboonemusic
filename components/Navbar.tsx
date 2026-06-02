@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useUser, useClerk } from "@clerk/nextjs";
+import { useUser, useClerk, SignInButton } from "@clerk/nextjs";
 
 export default function Navbar() {
   const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
@@ -141,7 +141,7 @@ export default function Navbar() {
             </div>
           ) : (
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <Link href="/sign-in">
+              <SignInButton mode="modal" forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
                 <button style={{
                   background: 'transparent',
                   border: '1px solid rgba(255,255,255,0.2)',
@@ -156,7 +156,7 @@ export default function Navbar() {
                 }}>
                   Sign In
                 </button>
-              </Link>
+              </SignInButton>
               <Link href="/club">
                 <button style={{
                   background: 'var(--accent-gold)',

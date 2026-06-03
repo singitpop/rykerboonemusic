@@ -4,6 +4,7 @@ import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import { AuthProvider } from "@/components/AuthProvider";
 import { getRykerSession } from "@/lib/auth";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -67,10 +68,12 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <AuthProvider session={session}>
-          {children}
-          <CookieConsent />
-        </AuthProvider>
+        <ClerkProvider>
+          <AuthProvider session={session}>
+            {children}
+            <CookieConsent />
+          </AuthProvider>
+        </ClerkProvider>
       </body>
     </html>
   );

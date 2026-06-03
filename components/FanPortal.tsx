@@ -760,11 +760,11 @@ export default function FanPortal() {
                 <div style={{ textAlign: "center", marginTop: "2rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                   <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                     Already have a Singitpop account?{" "}
-                    <a href={`${PLATFORM_URL}/api/auth-bridge?return_url=${typeof window !== 'undefined' ? encodeURIComponent(`${window.location.origin}/api/auth/callback`) : ''}`}>
+                    <Link href="/sign-in">
                       <span style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>
                         Sign in here
                       </span>
-                    </a>
+                    </Link>
                   </p>
                 </div>
               )}

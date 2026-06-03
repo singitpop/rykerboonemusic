@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+import { currentUser } from "@clerk/nextjs/server";
 
 export interface RykerSession {
     userId: string;
@@ -12,17 +12,24 @@ export interface RykerSession {
 }
 
 export async function getRykerSession(): Promise<RykerSession | null> {
-    const cookieStore = await cookies();
-    const sessionCookie = cookieStore.get("ryker_session");
-
-    if (!sessionCookie || !sessionCookie.value) {
-        return null;
-    }
-
     try {
-        const session = JSON.parse(sessionCookie.value) as RykerSession;
-        return session;
-    } catch (e) {
+        const user = await currentUser();
+        if (!user) return null;
+
+        const metadata = user.publicMetadata || {};
+        
+        return {
+            userId: user.id,
+            email: user.emailAddresses[0]?.emailAddress || "",
+            firstName: user.firstName || "",
+            lastName: user.lastName || "",
+            tier: (metadata.tier as string) || "free",
+            rykerTier: (metadata.rykerTier as string) || "free",
+            rykerBanned: !!metadata.rykerBanned,
+            role: (metadata.role as string) || "fan"
+        };
+    } catch (error) {
+        console.error("Error fetching native Clerk session:", error);
         return null;
     }
 }

@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { SignInButton } from "@clerk/nextjs";
 import { useState, useEffect, useRef } from "react";
-import { useUser } from "@clerk/nextjs";
+import { useRykerSession } from "@/components/AuthProvider";
 
 const PLATFORM_URL = process.env.NEXT_PUBLIC_PLATFORM_URL || "https://singitpop.com";
 
@@ -113,18 +112,18 @@ const albumsData: Album[] = [
 ];
 
 export default function FanPortal() {
-  const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
+  const { session, isLoaded } = useRykerSession();
   const [mounted, setMounted] = useState<boolean>(false);
   
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const isBanned = clerkLoaded && clerkUser && clerkUser.publicMetadata?.rykerBanned === true;
-  const isPremium = clerkLoaded && clerkUser && (
-    clerkUser.publicMetadata?.rykerTier === 'PREMIUM' ||
-    clerkUser.publicMetadata?.rykerTier === 'VIP' ||
-    ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes(clerkUser.publicMetadata?.tier as string)
+  const isBanned = isLoaded && session && session.rykerBanned === true;
+  const isPremium = isLoaded && session && (
+    session.rykerTier === 'PREMIUM' ||
+    session.rykerTier === 'VIP' ||
+    ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes(session.tier)
   );
 
   const [selectedAlbum, setSelectedAlbum] = useState<Album>(albumsData[0]);
@@ -252,7 +251,7 @@ export default function FanPortal() {
       />
       
       {/* Clerk Account Status Badge */}
-      {clerkLoaded && (
+      {isLoaded && (
         <div style={{
           position: "fixed",
           top: "100px",
@@ -294,7 +293,7 @@ export default function FanPortal() {
               letterSpacing: "0.05em",
             }}
           >
-            {!clerkUser ? "GUEST" : isBanned ? "BANNED" : isPremium ? "PREMIUM MEMBER" : "FREE FAN"}
+            {!session ? "GUEST" : isBanned ? "BANNED" : isPremium ? "PREMIUM MEMBER" : "FREE FAN"}
           </span>
         </div>
       )}
@@ -670,7 +669,7 @@ export default function FanPortal() {
                     <li>✓ Unlimited high-fidelity WAV downloads</li>
                     <li>✓ Unreleased Ryker Vault tracks</li>
                   </ul>
-                  {clerkUser ? (
+                  {session ? (
                     <Link 
                       href={`${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
                       style={{ width: "100%" }}
@@ -685,7 +684,7 @@ export default function FanPortal() {
                       </button>
                     </Link>
                   ) : (
-                    <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+                    <a href={`${PLATFORM_URL}/api/auth-bridge?return_url=${typeof window !== 'undefined' ? encodeURIComponent(`${window.location.origin}/api/auth/callback`) : ''}`}>
                       <button style={{
                         width: "100%", padding: "1rem", borderRadius: "8px",
                         background: "rgba(255,255,255,0.1)", color: "white",
@@ -694,7 +693,7 @@ export default function FanPortal() {
                       }} onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}>
                         Select Ryker Premium
                       </button>
-                    </SignInButton>
+                    </a>
                   )}
                 </div>
 
@@ -725,7 +724,7 @@ export default function FanPortal() {
                     <li>✓ Unlimited high-fidelity WAV downloads</li>
                     <li>✓ Exclusive access to limited edition merch</li>
                   </ul>
-                  {clerkUser ? (
+                  {session ? (
                     <Link 
                       href={`${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
                       style={{ width: "100%" }}
@@ -741,7 +740,7 @@ export default function FanPortal() {
                       </button>
                     </Link>
                   ) : (
-                    <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+                    <a href={`${PLATFORM_URL}/api/auth-bridge?return_url=${typeof window !== 'undefined' ? encodeURIComponent(`${window.location.origin}/api/auth/callback`) : ''}`}>
                       <button style={{
                         width: "100%", padding: "1rem", borderRadius: "8px",
                         background: "var(--accent-gold)", color: "black",
@@ -751,21 +750,21 @@ export default function FanPortal() {
                       }} onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
                         Select Singitpop Premium
                       </button>
-                    </SignInButton>
+                    </a>
                   )}
                 </div>
               </div>
 
               {/* Sign In Link for existing Singitpop Members */}
-              {!clerkUser && (
+              {!session && (
                 <div style={{ textAlign: "center", marginTop: "2rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                   <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                     Already have a Singitpop account?{" "}
-                    <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+                    <a href={`${PLATFORM_URL}/api/auth-bridge?return_url=${typeof window !== 'undefined' ? encodeURIComponent(`${window.location.origin}/api/auth/callback`) : ''}`}>
                       <span style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>
                         Sign in here
                       </span>
-                    </SignInButton>
+                    </a>
                   </p>
                 </div>
               )}

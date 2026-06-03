@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
-import { ClerkProvider } from "@clerk/nextjs";
+import { AuthProvider } from "@/components/AuthProvider";
+import { getRykerSession } from "@/lib/auth";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -61,19 +62,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = getRykerSession();
+
   return (
-    // @ts-expect-error - ClerkProvider type definitions are currently missing router properties that are auto-injected by Next.js
-    <ClerkProvider
-      isSatellite={process.env.NEXT_PUBLIC_CLERK_IS_SATELLITE === "true"}
-      domain={process.env.NEXT_PUBLIC_CLERK_DOMAIN}
-      signInUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}
-    >
-      <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
-        <body suppressHydrationWarning>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <AuthProvider session={session}>
           {children}
           <CookieConsent />
-        </body>
-      </html>
-    </ClerkProvider>
+        </AuthProvider>
+      </body>
+    </html>
   );
 }

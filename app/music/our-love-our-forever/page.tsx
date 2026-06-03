@@ -5,15 +5,14 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useUser } from "@clerk/nextjs";
+import { useRykerSession } from "@/components/AuthProvider";
 
 export default function OurLoveOurForeverPage() {
-  const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
-  const isLabel = clerkLoaded && clerkUser && (
-    clerkUser.publicMetadata?.tier === 'LABEL' ||
-    clerkUser.publicMetadata?.tier === 'ADMIN' ||
-    clerkUser.publicMetadata?.tier === 'LIFETIME' ||
-    clerkUser.publicMetadata?.rykerTier === 'PREMIUM'
+  const { session, isLoaded } = useRykerSession();
+  const isPremium = isLoaded && session && (
+    session.rykerTier === 'PREMIUM' ||
+    session.rykerTier === 'VIP' ||
+    ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes(session.tier)
   );
 
   const [activeTrack, setActiveTrack] = useState<string | null>(null);

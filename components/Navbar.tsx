@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useUser, useClerk, SignInButton } from "@clerk/nextjs";
+import { usePathname, useRouter } from "next/navigation";
+import { useRykerSession } from "@/components/AuthProvider";
 
 const PLATFORM_URL = process.env.NEXT_PUBLIC_APP_URL || "https://club.singitpop.com";
 
 export default function Navbar() {
-  const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
-  const { signOut } = useClerk();
+  const { session, isLoaded } = useRykerSession();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [currentOrigin, setCurrentOrigin] = useState("http://localhost:3001");
   const pathname = usePathname();
@@ -100,30 +100,33 @@ export default function Navbar() {
             Our Story
           </Link>
           <Link href="/store" className="nav-link">Store</Link>
-          {clerkLoaded && clerkUser ? (
+          {isLoaded && session ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
               <span style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', fontWeight: 'bold' }}>
-                Hi, {clerkUser.firstName || 'Member'}
+                Hi, {session.firstName || 'Member'}
               </span>
-              <button 
-                onClick={() => signOut({ redirectUrl: '/' })}
-                style={{
-                  background: 'transparent',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  color: 'white',
-                  padding: '0.7rem 1.5rem',
-                  fontSize: '0.65rem',
-                  fontWeight: '900',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'var(--transition-smooth)'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.borderColor = 'white'}
-                onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'}
-              >
-                Sign Out
-              </button>
+              <form action="/api/auth/signout" method="POST">
+                <input type="hidden" name="redirectUrl" value="/" />
+                <button 
+                  type="submit"
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    color: 'white',
+                    padding: '0.7rem 1.5rem',
+                    fontSize: '0.65rem',
+                    fontWeight: '900',
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    transition: 'var(--transition-smooth)'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.borderColor = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'}
+                >
+                  Sign Out
+                </button>
+              </form>
               <Link href="/club">
                 <button style={{
                   background: 'var(--accent-gold)',
@@ -143,7 +146,7 @@ export default function Navbar() {
             </div>
           ) : (
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+              <a href={`${PLATFORM_URL}/api/auth-bridge?return_url=${typeof window !== 'undefined' ? encodeURIComponent(`${window.location.origin}/api/auth/callback`) : ''}`}>
                 <button style={{
                   background: 'transparent',
                   border: '1px solid rgba(255,255,255,0.2)',
@@ -158,7 +161,7 @@ export default function Navbar() {
                 }}>
                   Sign In
                 </button>
-              </SignInButton>
+              </a>
               <Link href="/club">
                 <button style={{
                   background: 'var(--accent-gold)',

@@ -5,15 +5,15 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useUser } from "@clerk/nextjs";
+import { useRykerSession } from "@/components/AuthProvider";
 
 export default function WhenTheLightsGoGoldPage() {
-  const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
-  const isLabel = clerkLoaded && clerkUser && (
-    clerkUser.publicMetadata?.tier === 'LABEL' ||
-    clerkUser.publicMetadata?.tier === 'ADMIN' ||
-    clerkUser.publicMetadata?.tier === 'LIFETIME' ||
-    clerkUser.publicMetadata?.rykerTier === 'PREMIUM'
+  const { session, isLoaded } = useRykerSession();
+  const isLabel = isLoaded && session && (
+    session.tier === 'LABEL' ||
+    session.tier === 'ADMIN' ||
+    session.tier === 'LIFETIME' ||
+    session.rykerTier === 'PREMIUM'
   );
 
   const [activeTrack, setActiveTrack] = useState<string | null>(null);

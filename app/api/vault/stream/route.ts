@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { getRykerSession } from "@/lib/auth";
 
 // Initialize S3 client with bypass options to avoid checksum calculation
 // which causes signature mismatch errors (403) on some browsers/mobile OS.
@@ -105,6 +106,26 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    const session = getRykerSession();
+    
+    // Check Premium status for WAV files
+    const fileExt = format.toLowerCase() === "wav" ? "wav" : "mp3";
+    
+    if (fileExt === "wav") {
+      const isPremium = session && (
+        session.rykerTier === 'PREMIUM' ||
+        session.rykerTier === 'VIP' ||
+        ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes(session.tier)
+      );
+      
+      if (!isPremium) {
+        return NextResponse.json(
+          { error: "Premium membership required for high-fidelity WAV downloads" },
+          { status: 403 }
+        );
+      }
+    }
+
     const folder = albumFolders[album];
     const trackDict = trackFiles[album];
 
@@ -123,7 +144,6 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const fileExt = format.toLowerCase() === "wav" ? "wav" : "mp3";
     const s3Key = `albums/${folder}/${fileBaseName}.${fileExt}`;
 
     console.log(`[Vault API] Generating signed URL for key: ${s3Key}`);

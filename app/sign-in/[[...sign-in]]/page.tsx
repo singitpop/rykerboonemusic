@@ -1,6 +1,5 @@
 "use client";
 
-import { SignIn } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -69,51 +68,18 @@ export default function SignInPage() {
             /* Override Clerk's default white background */
           }}
         >
-          <SignIn
-            routing="hash"
-            fallbackRedirectUrl="/club"
-            appearance={{
-              variables: {
-                colorPrimary: "#e2b35a",
-                colorBackground: "#0f0f0f",
-                colorText: "#ffffff",
-                colorInputBackground: "#1a1a1a",
-                colorInputText: "#ffffff",
-                borderRadius: "8px",
-              },
-              elements: {
-                card: {
-                  background: "rgba(15,15,15,0.98)",
-                  border: "1px solid rgba(226,179,90,0.2)",
-                  boxShadow: "0 40px 80px rgba(0,0,0,0.8)",
-                },
-                headerTitle: {
-                  color: "#ffffff",
-                  fontFamily: "var(--font-playfair)",
-                },
-                headerSubtitle: {
-                  color: "rgba(255,255,255,0.5)",
-                },
-                socialButtonsBlockButton: {
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  color: "#ffffff",
-                },
-                dividerLine: {
-                  background: "rgba(255,255,255,0.08)",
-                },
-                dividerText: {
-                  color: "rgba(255,255,255,0.3)",
-                },
-                formFieldLabel: {
-                  color: "rgba(255,255,255,0.6)",
-                },
-                footerActionLink: {
-                  color: "#e2b35a",
-                },
-              },
-            }}
-          />
+          <a href={`https://club.singitpop.com/api/auth-bridge?return_url=${typeof window !== 'undefined' ? encodeURIComponent(`${window.location.origin}/api/auth/callback`) : ''}`}>
+            <button style={{
+              width: "100%", padding: "1.5rem", borderRadius: "8px",
+              background: "var(--accent-gold)", color: "black",
+              border: "none", fontWeight: "900", cursor: "pointer",
+              fontSize: "1rem", letterSpacing: "0.1em", textTransform: "uppercase",
+              boxShadow: "0 10px 30px rgba(226,179,90,0.3)",
+              transition: "transform 0.2s"
+            }} onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
+              Sign In via Singitpop
+            </button>
+          </a>
         </div>
 
         <p

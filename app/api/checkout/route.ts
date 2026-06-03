@@ -3,7 +3,7 @@ import Stripe from "stripe";
 import { getRykerSession } from "@/lib/auth";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: "2024-12-18.acacia", // Adjust to the latest or installed version
+  apiVersion: "2026-05-27.dahlia", // Adjust to the latest or installed version
 });
 
 export async function POST(req: Request) {

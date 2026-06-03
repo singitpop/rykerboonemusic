@@ -4,7 +4,7 @@ import { clerkClient } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: "2024-12-18.acacia", // Adjust to the latest or installed version
+  apiVersion: "2026-05-27.dahlia", // Adjust to the latest or installed version
 });
 
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET as string;

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useRykerSession } from "@/components/AuthProvider";
 
-const PLATFORM_URL = process.env.NEXT_PUBLIC_PLATFORM_URL || "https://singitpop.com";
+const PLATFORM_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_PLATFORM_URL || "https://club.singitpop.com";
 
 interface Track {
   id: string;

@@ -15,6 +15,13 @@ export default function OurLoveOurForeverPage() {
     ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes(session.tier)
   );
 
+  const isLabel = isLoaded && session && (
+    session.tier === 'LABEL' ||
+    session.tier === 'ADMIN' ||
+    session.tier === 'LIFETIME' ||
+    session.rykerTier === 'PREMIUM'
+  );
+
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean; isLabelAccess?: boolean } | null>(null);
 

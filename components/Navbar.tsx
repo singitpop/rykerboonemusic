@@ -30,6 +30,7 @@ export default function Navbar() {
   const isHomeActive = pathname === "/";
   const isMusicActive = pathname === "/music" || pathname.startsWith("/music/");
   const isStoryActive = pathname === "/about";
+  const isSupportActive = pathname === "/support";
 
   return (
     <nav className="nav-container" style={{
@@ -98,6 +99,13 @@ export default function Navbar() {
             style={{ color: isStoryActive ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
           >
             Our Story
+          </Link>
+          <Link 
+            href="/support" 
+            className="nav-link"
+            style={{ color: isSupportActive ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
+          >
+            Support
           </Link>
           <Link href="/store" className="nav-link">Store</Link>
           {isLoaded && session ? (

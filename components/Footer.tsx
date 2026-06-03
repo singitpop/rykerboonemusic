@@ -44,6 +44,7 @@ export default function Footer() {
             <li><Link href="#story" style={{ color: 'var(--text-secondary)' }}>Our Story</Link></li>
             <li><Link href="/store" style={{ color: 'var(--text-secondary)' }}>Shop</Link></li>
             <li><Link href="/about" style={{ color: 'var(--text-secondary)' }}>Artist Library</Link></li>
+            <li><Link href="/support" style={{ color: 'var(--accent-gold)' }}>Support the Journey</Link></li>
           </ul>
         </div>
 

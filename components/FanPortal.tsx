@@ -670,19 +670,32 @@ export default function FanPortal() {
                     <li>✓ Unlimited high-fidelity WAV downloads</li>
                     <li>✓ Unreleased Ryker Vault tracks</li>
                   </ul>
-                  <Link 
-                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}` : `${PLATFORM_URL}/sign-in?redirect_url=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
-                    style={{ width: "100%" }}
-                  >
-                    <button style={{
-                      width: "100%", padding: "1rem", borderRadius: "8px",
-                      background: "rgba(255,255,255,0.1)", color: "white",
-                      border: "none", fontWeight: "bold", cursor: "pointer",
-                      transition: "background 0.2s"
-                    }} onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}>
-                      Select Ryker Premium
-                    </button>
-                  </Link>
+                  {clerkUser ? (
+                    <Link 
+                      href={`${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
+                      style={{ width: "100%" }}
+                    >
+                      <button style={{
+                        width: "100%", padding: "1rem", borderRadius: "8px",
+                        background: "rgba(255,255,255,0.1)", color: "white",
+                        border: "none", fontWeight: "bold", cursor: "pointer",
+                        transition: "background 0.2s"
+                      }} onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}>
+                        Select Ryker Premium
+                      </button>
+                    </Link>
+                  ) : (
+                    <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+                      <button style={{
+                        width: "100%", padding: "1rem", borderRadius: "8px",
+                        background: "rgba(255,255,255,0.1)", color: "white",
+                        border: "none", fontWeight: "bold", cursor: "pointer",
+                        transition: "background 0.2s"
+                      }} onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}>
+                        Select Ryker Premium
+                      </button>
+                    </SignInButton>
+                  )}
                 </div>
 
                 {/* Option 2: Singitpop (Upsell) */}
@@ -712,20 +725,34 @@ export default function FanPortal() {
                     <li>✓ Unlimited high-fidelity WAV downloads</li>
                     <li>✓ Exclusive access to limited edition merch</li>
                   </ul>
-                  <Link 
-                    href={clerkUser ? `${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}` : `${PLATFORM_URL}/sign-in?redirect_url=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
-                    style={{ width: "100%" }}
-                  >
-                    <button style={{
-                      width: "100%", padding: "1rem", borderRadius: "8px",
-                      background: "var(--accent-gold)", color: "black",
-                      border: "none", fontWeight: "bold", cursor: "pointer",
-                      boxShadow: "0 5px 15px rgba(226,179,90,0.3)",
-                      transition: "transform 0.2s"
-                    }} onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
-                      Select Singitpop Premium
-                    </button>
-                  </Link>
+                  {clerkUser ? (
+                    <Link 
+                      href={`${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
+                      style={{ width: "100%" }}
+                    >
+                      <button style={{
+                        width: "100%", padding: "1rem", borderRadius: "8px",
+                        background: "var(--accent-gold)", color: "black",
+                        border: "none", fontWeight: "bold", cursor: "pointer",
+                        boxShadow: "0 5px 15px rgba(226,179,90,0.3)",
+                        transition: "transform 0.2s"
+                      }} onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
+                        Select Singitpop Premium
+                      </button>
+                    </Link>
+                  ) : (
+                    <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
+                      <button style={{
+                        width: "100%", padding: "1rem", borderRadius: "8px",
+                        background: "var(--accent-gold)", color: "black",
+                        border: "none", fontWeight: "bold", cursor: "pointer",
+                        boxShadow: "0 5px 15px rgba(226,179,90,0.3)",
+                        transition: "transform 0.2s"
+                      }} onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
+                        Select Singitpop Premium
+                      </button>
+                    </SignInButton>
+                  )}
                 </div>
               </div>
 
@@ -734,11 +761,11 @@ export default function FanPortal() {
                 <div style={{ textAlign: "center", marginTop: "2rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                   <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                     Already have a Singitpop account?{" "}
-                    <a href={`${PLATFORM_URL}/sign-in?redirect_url=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}>
+                    <SignInButton forceRedirectUrl={typeof window !== 'undefined' ? window.location.href : '/club'}>
                       <span style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>
                         Sign in here
                       </span>
-                    </a>
+                    </SignInButton>
                   </p>
                 </div>
               )}

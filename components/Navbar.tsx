@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useRykerSession } from "@/components/AuthProvider";
-import { SignOutButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 
 const PLATFORM_URL = process.env.NEXT_PUBLIC_APP_URL || "https://club.singitpop.com";
 
@@ -122,29 +122,17 @@ export default function Navbar() {
           )}
           {isLoaded && session ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-              <span style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', fontWeight: 'bold' }}>
-                Hi, {session.firstName || 'Member'}
-              </span>
-              <SignOutButton>
-                <button 
-                  style={{
-                    background: 'transparent',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    color: 'white',
-                    padding: '0.7rem 1.5rem',
-                    fontSize: '0.65rem',
-                    fontWeight: '900',
-                    letterSpacing: '0.2em',
-                    textTransform: 'uppercase',
-                    cursor: 'pointer',
-                    transition: 'var(--transition-smooth)'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.borderColor = 'white'}
-                  onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'}
-                >
-                  Sign Out
-                </button>
-              </SignOutButton>
+              <UserButton 
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: {
+                      width: '35px',
+                      height: '35px',
+                      border: '1px solid var(--accent-gold)'
+                    }
+                  }
+                }}
+              />
               <Link href="/club">
                 <button style={{
                   background: 'var(--accent-gold)',
@@ -168,15 +156,25 @@ export default function Navbar() {
                 <button style={{
                   background: 'transparent',
                   border: '1px solid rgba(255,255,255,0.2)',
+                  borderRadius: '24px',
                   color: 'white',
-                  padding: '0.7rem 1.5rem',
+                  padding: '0.6rem 1.2rem',
                   fontSize: '0.65rem',
                   fontWeight: '900',
-                  letterSpacing: '0.2em',
+                  letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   cursor: 'pointer',
                   transition: 'var(--transition-smooth)'
-                }}>
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+                >
                   Sign In
                 </button>
               </Link>
@@ -184,15 +182,19 @@ export default function Navbar() {
                 <button style={{
                   background: 'var(--accent-gold)',
                   color: 'black',
-                  padding: '0.7rem 1.5rem',
+                  padding: '0.6rem 1.2rem',
                   border: 'none',
+                  borderRadius: '24px',
                   fontSize: '0.65rem',
                   fontWeight: '900',
-                  letterSpacing: '0.2em',
+                  letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   cursor: 'pointer',
                   transition: 'var(--transition-smooth)'
-                }}>
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                >
                   Join Club Ryker
                 </button>
               </Link>

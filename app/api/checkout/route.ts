@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       success_url: returnUrl || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/club?checkout=success`,
       cancel_url: returnUrl || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/club?checkout=cancel`,
       client_reference_id: session.userId,
-      customer_email: session.email,
+      ...(session.email ? { customer_email: session.email } : {}),
     });
 
     return NextResponse.json({ url: checkoutSession.url });

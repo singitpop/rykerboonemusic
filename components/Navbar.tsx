@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useRykerSession } from "@/components/AuthProvider";
+import { SignOutButton } from "@clerk/nextjs";
 
 const PLATFORM_URL = process.env.NEXT_PUBLIC_APP_URL || "https://club.singitpop.com";
 
@@ -113,10 +114,8 @@ export default function Navbar() {
               <span style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', fontWeight: 'bold' }}>
                 Hi, {session.firstName || 'Member'}
               </span>
-              <form action="/api/auth/signout" method="POST">
-                <input type="hidden" name="redirectUrl" value="/" />
+              <SignOutButton>
                 <button 
-                  type="submit"
                   style={{
                     background: 'transparent',
                     border: '1px solid rgba(255,255,255,0.2)',
@@ -134,7 +133,7 @@ export default function Navbar() {
                 >
                   Sign Out
                 </button>
-              </form>
+              </SignOutButton>
               <Link href="/club">
                 <button style={{
                   background: 'var(--accent-gold)',

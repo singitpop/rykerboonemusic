@@ -136,9 +136,19 @@ export default function FanPortal() {
   const [lockedModal, setLockedModal] = useState<boolean>(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState<boolean>(false);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState<boolean>(false);
+  const [messages, setMessages] = useState<any[]>([]);
   
   const router = useRouter();
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    fetch("/api/admin/messages")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) setMessages(data);
+      })
+      .catch(console.error);
+  }, []);
 
   const handleCheckout = async () => {
     setIsCheckoutLoading(true);
@@ -343,6 +353,30 @@ export default function FanPortal() {
             }
           </p>
         </div>
+
+          {/* Messages Board */}
+          {messages.length > 0 && (
+            <div style={{
+              background: "rgba(226,179,90,0.05)",
+              border: "1px solid rgba(226,179,90,0.2)",
+              borderRadius: "16px",
+              padding: "2rem",
+              marginBottom: "3rem"
+            }}>
+              <h3 style={{ margin: "0 0 1rem 0", color: "var(--accent-gold)" }}>Latest Updates</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                {messages.slice(0, 3).map((msg) => (
+                  <div key={msg.id} style={{ background: "rgba(0,0,0,0.4)", padding: "1.5rem", borderRadius: "8px" }}>
+                    <p style={{ margin: "0 0 0.5rem 0", whiteSpace: "pre-wrap", lineHeight: 1.5 }}>{msg.content}</p>
+                    <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.4)", display: "flex", justifyContent: "space-between" }}>
+                      <span>By {msg.author}</span>
+                      <span>{new Date(msg.createdAt).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
         {/* Vault Main Grid */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: "4rem", alignItems: "start" }}>

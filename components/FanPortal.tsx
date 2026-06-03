@@ -137,6 +137,7 @@ export default function FanPortal() {
   const [showUpgradeModal, setShowUpgradeModal] = useState<boolean>(false);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState<boolean>(false);
   
+  const router = useRouter();
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleCheckout = async () => {

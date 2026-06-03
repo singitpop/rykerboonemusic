@@ -158,7 +158,7 @@ export default function FanPortal() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng',
+          priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TbfXKGBBlYIBJlogbRoAboC',
           returnUrl: typeof window !== 'undefined' ? window.location.href : '',
         })
       });

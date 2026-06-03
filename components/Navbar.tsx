@@ -32,6 +32,8 @@ export default function Navbar() {
   const isMusicActive = pathname === "/music" || pathname.startsWith("/music/");
   const isStoryActive = pathname === "/about";
   const isSupportActive = pathname === "/support";
+  
+  const isAdmin = isLoaded && session && ['LABEL', 'ADMIN'].includes((session.role || '').toUpperCase());
 
   return (
     <nav className="nav-container" style={{
@@ -109,6 +111,15 @@ export default function Navbar() {
             Support
           </Link>
           <Link href="/store" className="nav-link">Store</Link>
+          {isAdmin && (
+            <Link 
+              href="/admin" 
+              className="nav-link"
+              style={{ color: '#ef4444', fontWeight: 'bold' }}
+            >
+              Admin Portal
+            </Link>
+          )}
           {isLoaded && session ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
               <span style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', fontWeight: 'bold' }}>

@@ -347,12 +347,28 @@ export default function FanPortal() {
           <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(2rem, 5vw, 3.5rem)", marginTop: "1rem", marginBottom: "1rem" }}>
             PREMIUM VAULT <span style={{ color: "var(--accent-gold)" }}>LISTENING LOUNGE</span>
           </h2>
-          <p style={{ color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto", fontSize: "0.95rem", lineHeight: "1.8" }}>
+          <p style={{ color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto", fontSize: "0.95rem", lineHeight: "1.8", marginBottom: "2rem" }}>
             {isPremium 
               ? "Welcome back! Enjoy unlimited full-length lossless streaming and high-fidelity studio WAV downloads of all unreleased recordings." 
               : "Get a sneak peek into Ryker's locked vaults. Standard members get 30-second previews. Upgrade to Premium to unlock lossless playback and full downloads."
             }
           </p>
+          
+          {isPremium && (
+            <button 
+              onClick={() => router.push('/club/radio')}
+              style={{
+                background: "var(--accent-gold)",
+                color: "black", padding: "1rem 2.5rem", borderRadius: "30px",
+                fontWeight: "900", letterSpacing: "0.1em", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "0.8rem",
+                transition: "transform 0.2s", border: "none", boxShadow: "0 10px 20px rgba(226,179,90,0.3)"
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = "scale(1.05)"}
+              onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+            >
+              <span style={{ fontSize: "1.2rem" }}>📻</span> LAUNCH PREMIUM RADIO
+            </button>
+          )}
         </div>
 
           {/* Messages Board */}

@@ -113,9 +113,10 @@ export async function GET(request: NextRequest) {
     
     if (fileExt === "wav") {
       const isPremium = session && (
-        session.rykerTier === 'PREMIUM' ||
-        session.rykerTier === 'VIP' ||
-        ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes(session.tier)
+        (session.rykerTier || '').toUpperCase() === 'PREMIUM' ||
+        (session.rykerTier || '').toUpperCase() === 'VIP' ||
+        ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes((session.tier || '').toUpperCase()) ||
+        ['LABEL', 'ADMIN'].includes((session.role || '').toUpperCase())
       );
       
       if (!isPremium) {

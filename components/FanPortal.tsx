@@ -135,8 +135,34 @@ export default function FanPortal() {
   const [currentTimeSec, setCurrentTimeSec] = useState<number>(0);
   const [lockedModal, setLockedModal] = useState<boolean>(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState<boolean>(false);
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState<boolean>(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const handleCheckout = async () => {
+    setIsCheckoutLoading(true);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng',
+          returnUrl: typeof window !== 'undefined' ? window.location.href : '',
+        })
+      });
+      
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("Checkout error:", data.error);
+        setIsCheckoutLoading(false);
+      }
+    } catch (err) {
+      console.error("Checkout failed:", err);
+      setIsCheckoutLoading(false);
+    }
+  };
 
   // Parse duration string MM:SS to seconds
   const getTrackDurationSeconds = (durStr: string) => {
@@ -671,19 +697,21 @@ export default function FanPortal() {
                     <li>✓ Unreleased Ryker Vault tracks</li>
                   </ul>
                   {session ? (
-                    <Link 
-                      href={`${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_RYKER_PREMIUM || 'price_1TcAjVGBBlYIBJlovmtIAIng'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
-                      style={{ width: "100%" }}
-                    >
-                      <button style={{
+                    <button 
+                      onClick={handleCheckout}
+                      disabled={isCheckoutLoading}
+                      style={{
                         width: "100%", padding: "1rem", borderRadius: "8px",
                         background: "rgba(255,255,255,0.1)", color: "white",
-                        border: "none", fontWeight: "bold", cursor: "pointer",
+                        border: "none", fontWeight: "bold", 
+                        cursor: isCheckoutLoading ? "not-allowed" : "pointer",
                         transition: "background 0.2s"
-                      }} onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}>
-                        Select Ryker Premium
-                      </button>
-                    </Link>
+                      }} 
+                      onMouseEnter={e => { if(!isCheckoutLoading) e.currentTarget.style.background = "rgba(255,255,255,0.15)" }} 
+                      onMouseLeave={e => { if(!isCheckoutLoading) e.currentTarget.style.background = "rgba(255,255,255,0.1)" }}
+                    >
+                      {isCheckoutLoading ? "REDIRECTING..." : "SELECT RYKER PREMIUM"}
+                    </button>
                   ) : (
                     <a href={`${PLATFORM_URL}/api/auth-bridge?return_url=${typeof window !== 'undefined' ? encodeURIComponent(`${window.location.origin}/api/auth/callback`) : ''}`}>
                       <button style={{
@@ -693,63 +721,6 @@ export default function FanPortal() {
                         transition: "background 0.2s"
                       }} onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}>
                         Select Ryker Premium
-                      </button>
-                    </a>
-                  )}
-                </div>
-
-                {/* Option 2: Singitpop (Upsell) */}
-                <div style={{
-                  background: "rgba(226,179,90,0.05)",
-                  border: "1px solid var(--accent-gold)",
-                  borderRadius: "16px", padding: "2rem",
-                  display: "flex", flexDirection: "column",
-                  position: "relative",
-                  boxShadow: "0 10px 30px rgba(226,179,90,0.1)"
-                }}>
-                  <div style={{
-                    position: "absolute", top: "-12px", right: "2rem",
-                    background: "var(--accent-gold)", color: "black",
-                    padding: "4px 12px", borderRadius: "12px",
-                    fontSize: "0.7rem", fontWeight: "900", letterSpacing: "0.05em"
-                  }}>
-                    BEST VALUE
-                  </div>
-                  <h4 style={{ fontSize: "1.2rem", fontWeight: "bold", color: "var(--accent-gold)", marginBottom: "0.5rem" }}>Singitpop Premium</h4>
-                  <span style={{ fontSize: "2rem", fontWeight: "bold", color: "var(--accent-gold)", marginBottom: "1.5rem" }}>
-                    £3.99 <span style={{ fontSize: "1rem", color: "rgba(226,179,90,0.6)" }}>/mo</span>
-                  </span>
-                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem 0", color: "white", fontSize: "0.9rem", flex: 1, display: "flex", flexDirection: "column", gap: "0.8rem" }}>
-                    <li>✓ <strong>Includes all Club Ryker features</strong></li>
-                    <li>✓ Unlocked vaults for <strong>all Singitpop artists</strong></li>
-                    <li>✓ Unlimited high-fidelity WAV downloads</li>
-                    <li>✓ Exclusive access to limited edition merch</li>
-                  </ul>
-                  {session ? (
-                    <Link 
-                      href={`${PLATFORM_URL}/checkout?priceId=${process.env.NEXT_PUBLIC_STRIPE_PRICE_SINGITPOP_PREMIUM || 'price_1Tduh9GBBlYIBJlobC9RRqKV'}&returnUrl=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
-                      style={{ width: "100%" }}
-                    >
-                      <button style={{
-                        width: "100%", padding: "1rem", borderRadius: "8px",
-                        background: "var(--accent-gold)", color: "black",
-                        border: "none", fontWeight: "bold", cursor: "pointer",
-                        boxShadow: "0 5px 15px rgba(226,179,90,0.3)",
-                        transition: "transform 0.2s"
-                      }} onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
-                        Select Singitpop Premium
-                      </button>
-                    </Link>
-                  ) : (
-                    <a href={`${PLATFORM_URL}/api/auth-bridge?return_url=${typeof window !== 'undefined' ? encodeURIComponent(`${window.location.origin}/api/auth/callback`) : ''}`}>
-                      <button style={{
-                        width: "100%", padding: "1rem", borderRadius: "8px",
-                        background: "var(--accent-gold)", color: "black",
-                        border: "none", fontWeight: "bold", cursor: "pointer",
-                        boxShadow: "0 5px 15px rgba(226,179,90,0.3)",
-                        transition: "transform 0.2s"
-                      }} onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
-                        Select Singitpop Premium
                       </button>
                     </a>
                   )}

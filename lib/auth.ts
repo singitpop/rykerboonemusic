@@ -11,8 +11,8 @@ export interface RykerSession {
     role: string;
 }
 
-export function getRykerSession(): RykerSession | null {
-    const cookieStore = cookies();
+export async function getRykerSession(): Promise<RykerSession | null> {
+    const cookieStore = await cookies();
     const sessionCookie = cookieStore.get("ryker_session");
 
     if (!sessionCookie || !sessionCookie.value) {

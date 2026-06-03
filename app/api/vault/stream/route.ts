@@ -106,7 +106,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const session = getRykerSession();
+    const session = await getRykerSession();
     
     // Check Premium status for WAV files
     const fileExt = format.toLowerCase() === "wav" ? "wav" : "mp3";

@@ -3,13 +3,12 @@ import Stripe from "stripe";
 import { clerkClient } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_dummy", {
-  apiVersion: "2026-05-27.dahlia", // Adjust to the latest or installed version
-});
-
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
-
 export async function POST(req: Request) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_dummy", {
+    apiVersion: "2026-05-27.dahlia", // Adjust to the latest or installed version
+  });
+  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
+
   const body = await req.text();
   const headersList = await headers();
   const signature = headersList.get("stripe-signature") as string;

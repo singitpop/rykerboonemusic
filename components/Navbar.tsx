@@ -169,7 +169,7 @@ export default function Navbar() {
                 }}>
                   Sign In
                 </button>
-              </a>
+              </Link>
               <Link href="/club">
                 <button style={{
                   background: 'var(--accent-gold)',

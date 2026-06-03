@@ -121,9 +121,10 @@ export default function FanPortal() {
 
   const isBanned = isLoaded && session && session.rykerBanned === true;
   const isPremium = isLoaded && session && (
-    session.rykerTier === 'PREMIUM' ||
-    session.rykerTier === 'VIP' ||
-    ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes(session.tier)
+    (session.rykerTier || '').toUpperCase() === 'PREMIUM' ||
+    (session.rykerTier || '').toUpperCase() === 'VIP' ||
+    ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes((session.tier || '').toUpperCase()) ||
+    ['LABEL', 'ADMIN'].includes((session.role || '').toUpperCase())
   );
 
   const [selectedAlbum, setSelectedAlbum] = useState<Album>(albumsData[0]);

@@ -163,7 +163,7 @@ export default function RadioPlayer() {
 
       {/* Main View Area */}
       {showLyrics ? (
-        <KaraokeLyrics trackTitle={currentTrack.title} progress={progress} currentTime={currentTime} />
+        <KaraokeLyrics trackTitle={currentTrack.title} />
       ) : (
         <div style={{
           width: "300px",

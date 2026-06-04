@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   images: {
       {
         protocol: "https",
-        hostname: "rykerboonemusic.com",
+        hostname: "www.rykerboonemusic.website",
       },
       {
         protocol: "https",

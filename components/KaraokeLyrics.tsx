@@ -11,9 +11,22 @@ export default function KaraokeLyrics({ trackTitle, progress }: { trackTitle: st
     return rawText.split('\n').filter(line => line.trim().length > 0);
   }, [trackTitle]);
 
-  // Determine active line based on percentage
+  // Assume lyrics happen roughly between 12% and 90% of the song
+  // This compensates for instrumental intros and outros
+  const startOffset = 12;
+  const endOffset = 10;
+  
+  let normalizedProgress = 0;
+  if (progress <= startOffset) {
+    normalizedProgress = 0;
+  } else if (progress >= (100 - endOffset)) {
+    normalizedProgress = 100;
+  } else {
+    normalizedProgress = ((progress - startOffset) / (100 - startOffset - endOffset)) * 100;
+  }
+
   const activeIndex = Math.min(
-    Math.max(0, Math.floor((progress / 100) * lines.length)),
+    Math.max(0, Math.floor((normalizedProgress / 100) * lines.length)),
     lines.length - 1
   );
 

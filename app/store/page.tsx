@@ -83,6 +83,16 @@ const products: Product[] = [
     link: "https://shop.rykerboonemusic.website/products/studio-beanie"
   },
   {
+    id: "whiskey-glass",
+    name: "Ryker Boone - Premium Custom Whiskey Glass",
+    price: "£18.67",
+    image: "/images/promo-beverage-glass.jpg",
+    category: "ACCESSORIES",
+    description: "Premium heavy-based custom whiskey glass engraved with the iconic Ryker Boone logo. Handcrafted and designed in Nashville.",
+    details: ["11 oz heavy-bottom glass", "Engraved 'RYKER BOONE EST. 2024' detailing", "Dishwasher safe", "Made in the USA"],
+    link: "https://shop.rykerboonemusic.website/products/premium-whiskey-glass"
+  },
+  {
     id: "coffee-mug",
     name: "Ryker Boone - Midnight Coffee Mug",
     price: "£13.44",

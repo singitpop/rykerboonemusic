@@ -47,6 +47,13 @@ const products = [
     category: "APPAREL"
   },
   {
+    id: "whiskey-glass",
+    name: "Ryker Boone - Premium Custom Whiskey Glass",
+    price: "£18.67",
+    image: "/images/promo-beverage-glass.jpg",
+    category: "ACCESSORIES"
+  },
+  {
     id: "coffee-mug",
     name: "Ryker Boone - Midnight Coffee Mug",
     price: "£13.44",

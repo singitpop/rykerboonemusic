@@ -47,13 +47,6 @@ const products = [
     category: "APPAREL"
   },
   {
-    id: "leather-journal",
-    name: "Ryker Boone - Leather Songwriting Journal",
-    price: "£24.99",
-    image: "/images/promo-leather-journal.jpg",
-    category: "ACCESSORIES"
-  },
-  {
     id: "coffee-mug",
     name: "Ryker Boone - Midnight Coffee Mug",
     price: "£13.44",

@@ -83,16 +83,6 @@ const products: Product[] = [
     link: "https://shop.rykerboonemusic.website/products/studio-beanie"
   },
   {
-    id: "leather-journal",
-    name: "Ryker Boone - Leather Songwriting Journal",
-    price: "£24.99",
-    image: "/images/promo-leather-journal.jpg",
-    category: "ACCESSORIES",
-    description: "Elegant and rustic refillable leather-bound notebook with thick lined pages. The perfect companion for writing down song lyrics, melodies, or thoughts.",
-    details: ["Premium distressed leather cover", "Refillable lined paper insert", "Debossed logo and signature detail", "Leather wrap closure strap"],
-    link: "https://shop.rykerboonemusic.website/products/leather-songwriting-journal"
-  },
-  {
     id: "coffee-mug",
     name: "Ryker Boone - Midnight Coffee Mug",
     price: "£13.44",

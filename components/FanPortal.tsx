@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useRykerSession } from "@/components/AuthProvider";
+import ringtonesData from "@/data/ringtones.json";
 
 const PLATFORM_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_PLATFORM_URL || "https://club.singitpop.com";
 
@@ -138,6 +139,7 @@ export default function FanPortal() {
   const [showUpgradeModal, setShowUpgradeModal] = useState<boolean>(false);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState<boolean>(false);
   const [messages, setMessages] = useState<any[]>([]);
+  const [activeTab, setActiveTab] = useState<'vault' | 'ringtones' | 'bts'>('vault');
   
   const router = useRouter();
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -395,7 +397,41 @@ export default function FanPortal() {
             </div>
           )}
 
+        {/* Sub-Navigation Menu */}
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "1rem",
+          marginBottom: "4rem",
+          flexWrap: "wrap"
+        }}>
+          {[
+            { id: 'vault', label: 'MUSIC VAULT' },
+            { id: 'ringtones', label: 'RINGTONES' },
+            { id: 'bts', label: 'BEHIND THE SCENES' }
+          ].map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id as any)}
+              style={{
+                background: activeTab === tab.id ? "var(--accent-gold)" : "rgba(255,255,255,0.05)",
+                color: activeTab === tab.id ? "black" : "white",
+                border: activeTab === tab.id ? "1px solid var(--accent-gold)" : "1px solid rgba(255,255,255,0.1)",
+                padding: "0.8rem 2rem",
+                borderRadius: "30px",
+                fontWeight: "900",
+                letterSpacing: "0.1em",
+                cursor: "pointer",
+                transition: "all 0.3s"
+              }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
         {/* Vault Main Grid */}
+        {activeTab === 'vault' && (
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: "4rem", alignItems: "start" }}>
           
           {/* Left Column: Album Selector & Tracklist */}
@@ -460,12 +496,39 @@ export default function FanPortal() {
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                      <span style={{ fontSize: "0.75rem", color: "var(--accent-gold)" }}>{track.id}</span>
-                      <span style={{ fontSize: "0.85rem", fontWeight: "600", color: currentTrack.id === track.id ? "var(--accent-gold)" : "white" }}>
-                        {track.title}
+                      <span style={{ fontSize: "0.75rem", color: currentTrack.id === track.id ? "var(--accent-gold)" : "rgba(255,255,255,0.4)" }}>
+                        {track.id}. {track.title}
                       </span>
+                      
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                        <span style={{ fontSize: "0.75rem", color: currentTrack.id === track.id ? "var(--accent-gold)" : "rgba(255,255,255,0.4)" }}>
+                          {track.duration}
+                        </span>
+                        {isPremium && (
+                          <button
+                            onClick={(e) => { e.stopPropagation(); triggerDownload(track.title); }}
+                            title="Download High-Fidelity WAV"
+                            style={{
+                              background: "transparent",
+                              border: "none",
+                              color: "var(--accent-gold)",
+                              cursor: "pointer",
+                              padding: "0.2rem",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              opacity: currentTrack.id === track.id ? 1 : 0.4
+                            }}
+                          >
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                              <polyline points="7 10 12 15 17 10"></polyline>
+                              <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                          </button>
+                        )}
+                      </div>
                     </div>
-                    <span style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.3)" }}>{track.duration}</span>
                   </div>
                 ))}
               </div>
@@ -649,6 +712,95 @@ export default function FanPortal() {
             </div>
           )}
         </div>
+        )}
+
+        {/* Ringtones Tab */}
+        {activeTab === 'ringtones' && (
+          <div style={{ animation: "fadeIn 0.5s ease" }}>
+            <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+              <h3 style={{ fontSize: "2rem", fontFamily: "var(--font-playfair)", margin: 0 }}>Official Ringtones</h3>
+              <p style={{ color: "var(--text-secondary)", marginTop: "1rem" }}>Download exclusive ringtones directly to your device.</p>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "2rem" }}>
+              {ringtonesData.map((ringtone, idx) => (
+                <div key={idx} style={{
+                  background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "16px", padding: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem"
+                }}>
+                  <div>
+                    <h4 style={{ margin: 0, fontSize: "1.2rem", fontWeight: "bold" }}>{ringtone.title}</h4>
+                    <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>{ringtone.duration}s • {ringtone.genre}</span>
+                  </div>
+                  <div style={{ display: "flex", gap: "1rem", marginTop: "auto" }}>
+                    <a 
+                      href={isPremium ? `/api/vault/stream?key=${ringtone.m4r_key}&download=true` : "#"}
+                      onClick={(e) => { if (!isPremium) { e.preventDefault(); setLockedModal(true); } }}
+                      style={{
+                        flex: 1, textAlign: "center", padding: "0.8rem", background: "rgba(255,255,255,0.1)",
+                        color: "white", borderRadius: "8px", fontSize: "0.8rem", fontWeight: "bold", textDecoration: "none"
+                      }}
+                    >
+                      iPhone (.m4r)
+                    </a>
+                    <a 
+                      href={isPremium ? `/api/vault/stream?key=${ringtone.mp3_key}&download=true` : "#"}
+                      onClick={(e) => { if (!isPremium) { e.preventDefault(); setLockedModal(true); } }}
+                      style={{
+                        flex: 1, textAlign: "center", padding: "0.8rem", background: "rgba(255,255,255,0.1)",
+                        color: "white", borderRadius: "8px", fontSize: "0.8rem", fontWeight: "bold", textDecoration: "none"
+                      }}
+                    >
+                      Android (.mp3)
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Behind The Scenes Tab */}
+        {activeTab === 'bts' && (
+          <div style={{ animation: "fadeIn 0.5s ease" }}>
+            <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+              <h3 style={{ fontSize: "2rem", fontFamily: "var(--font-playfair)", margin: 0 }}>Behind The Scenes</h3>
+              <p style={{ color: "var(--text-secondary)", marginTop: "1rem" }}>Exclusive studio moments and early lyric sketches.</p>
+            </div>
+            
+            <div style={{ 
+              display: "grid", 
+              gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", 
+              gap: "2rem",
+              gridAutoRows: "250px"
+            }}>
+              {[
+                { src: "/images/ryker_in_studio.png", title: "Recording 'When The Lights Go Gold'" },
+                { src: "/images/ryker_recording_studio.png", title: "Late Night Sessions" },
+                { src: "/images/ryker_writing_lyrics.png", title: "Writing 'Friday Again'" },
+                { src: "/images/artist-signing.jpg", title: "First Contract Signing" },
+                { src: "/images/music_studio.jpg", title: "The Board" },
+                { src: "/images/studio-mic.jpg", title: "Vocal Takes" }
+              ].map((img, idx) => (
+                <div key={idx} style={{
+                  position: "relative", borderRadius: "16px", overflow: "hidden", cursor: "pointer",
+                  border: "1px solid rgba(255,255,255,0.1)", transition: "transform 0.3s",
+                }}
+                onMouseEnter={e => e.currentTarget.style.transform = "scale(1.05)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+                >
+                  <Image src={img.src} alt={img.title} fill style={{ objectFit: "cover" }} />
+                  <div style={{
+                    position: "absolute", bottom: 0, left: 0, right: 0, padding: "1rem",
+                    background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
+                    color: "white", fontWeight: "bold", fontSize: "0.9rem"
+                  }}>
+                    {img.title}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Upgrade Callout Popup Panel */}
         {lockedModal && (

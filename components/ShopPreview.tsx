@@ -47,13 +47,6 @@ const products = [
     category: "APPAREL"
   },
   {
-    id: "whiskey-glass",
-    name: "Ryker Boone - Premium Custom Whiskey Glass",
-    price: "£18.67",
-    image: "/images/promo-beverage-glass.jpg",
-    category: "ACCESSORIES"
-  },
-  {
     id: "leather-journal",
     name: "Ryker Boone - Leather Songwriting Journal",
     price: "£24.99",

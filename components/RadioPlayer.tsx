@@ -82,23 +82,26 @@ export default function RadioPlayer() {
   const currentTrack = playlist[currentIndex];
 
   useEffect(() => {
-    if (audioRef.current && currentTrack) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-      setProgress(0);
+    if (audioRef.current && playlist.length > 0) {
+      const currentTrack = playlist[currentIndex];
+      // Force the player to stream the WAV format instead of the default MP3
+      const streamUrl = `/api/vault/stream?album=${currentTrack.album}&track=${currentTrack.track}&format=wav`;
       
-      const streamUrl = `/api/vault/stream?album=${currentTrack.album}&track=${currentTrack.track}&format=mp3`;
-      audioRef.current.src = streamUrl;
-      
-      // Auto-play next track if we were already playing
-      // Except for the very first initialization
-      if (currentIndex > 0 || isPlaying) {
-        audioRef.current.play()
-          .then(() => setIsPlaying(true))
-          .catch(err => console.error("Auto-play failed:", err));
+      // Only set source if it's different to avoid reloading
+      if (!audioRef.current.src.includes(`track=${currentTrack.track}`)) {
+        audioRef.current.src = streamUrl;
+        audioRef.current.load();
+        
+        // Auto-play next track if we were already playing
+        // Except for the very first initialization
+        if (currentIndex > 0 || isPlaying) {
+          audioRef.current.play()
+            .then(() => setIsPlaying(true))
+            .catch(err => console.error("Auto-play failed:", err));
+        }
       }
     }
-  }, [currentIndex, currentTrack]);
+  }, [currentIndex, currentTrack, playlist, isPlaying]);
 
   const togglePlay = () => {
     if (!audioRef.current) return;

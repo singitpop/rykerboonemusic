@@ -69,6 +69,7 @@ export default function RadioPlayer() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
   const [showLyrics, setShowLyrics] = useState(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -127,6 +128,7 @@ export default function RadioPlayer() {
     if (audioRef.current) {
       const p = (audioRef.current.currentTime / audioRef.current.duration) * 100;
       setProgress(p || 0);
+      setCurrentTime(audioRef.current.currentTime);
     }
   };
 
@@ -134,11 +136,14 @@ export default function RadioPlayer() {
     skipNext();
   };
 
-  if (!currentTrack) return null;
+  if (!currentTrack) return <div style={{ color: "var(--accent-gold)", textAlign: "center", padding: "4rem" }}>Loading Premium Radio...</div>;
 
   return (
     <div style={{
-      background: "rgba(255,255,255,0.03)",
+      width: "100%",
+      maxWidth: "500px",
+      margin: "0 auto",
+      background: "linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)",
       border: "1px solid rgba(226,179,90,0.2)",
       borderRadius: "24px",
       padding: "3rem",
@@ -158,7 +163,7 @@ export default function RadioPlayer() {
 
       {/* Main View Area */}
       {showLyrics ? (
-        <KaraokeLyrics trackTitle={currentTrack.title} progress={progress} />
+        <KaraokeLyrics trackTitle={currentTrack.title} progress={progress} currentTime={currentTime} />
       ) : (
         <div style={{
           width: "300px",

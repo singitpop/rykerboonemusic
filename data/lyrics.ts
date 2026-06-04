@@ -1201,29 +1201,28 @@ Still feel your touch in the heat it made
 One more mile before the night moves on
 Blue flame living long after it’s gone`,
 
-  "When The Lights Go Gold": `[00:10.00] Cold night falling on the boulevard
-[00:13.50] Blue lights shining off your parked car
-[00:17.00] Your hand wrapped slow around my sleeve
-[00:20.50] Like you already knew you’d never leave
-[00:24.00] When the lights go gold tonight
-[00:27.50] Everything feels so alive
-[00:31.00] One more kiss in the neon glow
-[00:34.50] Holding onto what we can’t let go
-[00:38.00] ...
-[00:48.00] Lipstick stain on the coffee cup
-[00:51.50] Dashboard dreams while the sun comes up
-[00:55.00] Every mile pulling me closer still
-[00:58.50] Every touch giving me that thrill
-[01:02.00] When the lights go gold again
-[01:05.50] Your blue eyes pull me back in
-[01:09.00] One more dance while the city slows
-[01:12.50] Burning alive in the afterglow
-[01:16.00] Every road led me back to you
-[01:19.50] Like midnight skies always find the moon
-[01:23.00] When the lights go gold tonight
-[01:26.50] Two hearts burning in the satellite sky
-[01:30.00] One last memory before the night unfolds
-[01:33.50] Forever starts when the lights go gold`,
+  "When The Lights Go Gold": `Cold night falling on the boulevard
+Blue lights shining off your parked car
+Your hand wrapped slow around my sleeve
+Like you already knew you’d never leave
+When the lights go gold tonight
+Everything feels so alive
+One more kiss in the neon glow
+Holding onto what we can’t let go
+Lipstick stain on the coffee cup
+Dashboard dreams while the sun comes up
+Every mile pulling me closer still
+Every touch giving me that thrill
+When the lights go gold again
+Your blue eyes pull me back in
+One more dance while the city slows
+Burning alive in the afterglow
+Every road led me back to you
+Like midnight skies always find the moon
+When the lights go gold tonight
+Two hearts burning in the satellite sky
+One last memory before the night unfolds
+Forever starts when the lights go gold`,
 
   "Kiss Me Like That": `Your red lips hit like Tennessee fire
 Blue jean heartbeat taking me higher

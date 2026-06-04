@@ -414,7 +414,7 @@ function StoreContent() {
                 onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
                 onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
                 >
-                  SECURE CHECKOUT VIA STRIPE
+                  PURCHASE ON OFFICIAL STORE
                 </button>
               </Link>
               <div style={{ textAlign: 'center', marginTop: '1rem', fontSize: '0.65rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.05em' }}>

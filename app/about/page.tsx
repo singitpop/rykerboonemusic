@@ -113,11 +113,6 @@ export default function ArtistLibrary() {
       product: "Signature Trucker Hat"
     },
     {
-      src: "/images/consistent/merch_ryker_guitar_strap.png",
-      model: "Ryker Boone",
-      product: "Premium Leather Guitar Strap"
-    },
-    {
       src: "/images/consistent/merch_joyce_beanie.png",
       model: "Joyce Boone",
       product: "Cozy Logo Knit Beanie"

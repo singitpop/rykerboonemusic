@@ -5,13 +5,6 @@ import Link from "next/link";
 
 const products = [
   {
-    id: "guitar-strap",
-    name: "Ryker Boone - Premium Leather Guitar Strap",
-    price: "£34.99",
-    image: "/images/promo-guitar-strap.png",
-    category: "ACCESSORIES"
-  },
-  {
     id: "tote-bag",
     name: "Joyce Boone - Canvas Logo Tote Bag",
     price: "£18.67",

@@ -21,16 +21,6 @@ interface Product {
 
 const products: Product[] = [
   {
-    id: "guitar-strap",
-    name: "Ryker Boone - Premium Leather Guitar Strap",
-    price: "£34.99",
-    image: "/images/promo-guitar-strap.png",
-    category: "ACCESSORIES",
-    description: "Hand-crafted premium distressed leather guitar strap, adjusted for durability and comfort during long stage sets.",
-    details: ["100% genuine full-grain distressed leather", "Adjustable length (42\" to 56\")", "Debossed interlocking gold BOONE logo", "Hand-finished stitching"],
-    link: "https://shop.rykerboonemusic.website/products/premium-leather-guitar-strap"
-  },
-  {
     id: "tote-bag",
     name: "Joyce Boone - Canvas Logo Tote Bag",
     price: "£18.67",

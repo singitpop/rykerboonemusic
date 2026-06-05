@@ -24,6 +24,20 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  async redirects() {
+    return [
+      {
+        source: "/store",
+        destination: "https://ryker-boone-shop.fourthwall.com",
+        permanent: false,
+      },
+      {
+        source: "/store/:path*",
+        destination: "https://ryker-boone-shop.fourthwall.com",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

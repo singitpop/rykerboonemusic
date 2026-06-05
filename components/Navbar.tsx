@@ -110,7 +110,7 @@ export default function Navbar() {
           >
             Support
           </Link>
-          <Link href="/store" className="nav-link">Store</Link>
+          <Link href="https://ryker-boone-shop.fourthwall.com" className="nav-link">Store</Link>
           {isAdmin && (
             <Link 
               href="/admin" 

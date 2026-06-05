@@ -3,81 +3,163 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const products = [
+const lookbookItems = [
   {
-    id: "tote-bag",
-    name: "Joyce Boone - Canvas Logo Tote Bag",
-    price: "£18.67",
-    image: "/images/promo-joyce-tote.jpg",
-    category: "ACCESSORIES"
+    title: "The Gold Record Collection",
+    subtitle: "Stage Aesthetics",
+    description: "Premium black & gold Stage Hoodies, Sherpa blankets, beanies, and custom accessories.",
+    image: "/images/consistent/merch_family_group.png",
+    cta: "SHOP GOLD RECORD",
+    link: "https://ryker-boone-shop.fourthwall.com/collections/the-gold-record-collection"
   },
   {
-    id: "youth-tee",
-    name: "Graham Boone - Youth Gold Logo Tee",
-    price: "£14.99",
-    image: "/images/promo-ryker-tshirt.png",
-    category: "APPAREL"
+    title: "The Backroad Collection",
+    subtitle: "Rugged Vibe",
+    description: "Stealth activewear, sports bras, crop hoodies, beanies, and custom aprons.",
+    image: "/images/consistent/merch_workout.png",
+    cta: "SHOP ACTIVEWEAR",
+    link: "https://ryker-boone-shop.fourthwall.com/collections/the-backroad-collection"
   },
   {
-    id: "camp-blanket",
-    name: "The Boone Family - Embroidered Camp Blanket",
-    price: "£39.99",
-    image: "/images/promo-family-blanket.jpg",
-    category: "ACCESSORIES"
+    title: "The Honky Tonk Collection",
+    subtitle: "Concert Gear",
+    description: "Bella+Canvas supersoft t-shirts, tote bags, snapback trucker hats, and classic merch.",
+    image: "/images/consistent/merch_joyce_shopping.png",
+    cta: "SHOP TEES & TOTES",
+    link: "https://ryker-boone-shop.fourthwall.com/collections/the-honky-tonk-collection"
   },
   {
-    id: "trucker-hat",
-    name: "Ryker Boone - Trucker Hat",
-    price: "£18.67",
-    image: "/images/promo-ryker-trucker-hat.jpg",
-    category: "ACCESSORIES"
+    title: "Home & Kitchen",
+    subtitle: "Graham's Home Collection",
+    description: "Custom rocks glasses, double-sided glossy ceramic mugs, and cozy cabin blankets.",
+    image: "/images/consistent/merch_family_cozy.png",
+    cta: "SHOP HOME & DECOR",
+    link: "https://ryker-boone-shop.fourthwall.com/collections/grahams-youth-home-collection"
   },
   {
-    id: "youth-hoodie",
-    name: "Graham Boone - Youth Gold Logo Hoodie",
-    price: "£29.99",
-    image: "/images/consistent/merch_graham_hoodie.png",
-    category: "APPAREL"
-  },
-  {
-    id: "studio-beanie",
-    name: "Joyce Boone - Studio Beanie",
-    price: "£18.67",
-    image: "/images/promo-beanie.jpg",
-    category: "APPAREL"
-  },
-  {
-    id: "whiskey-glass",
-    name: "Ryker Boone - Premium Custom Whiskey Glass",
-    price: "£18.67",
-    image: "/images/promo-beverage-glass.jpg",
-    category: "ACCESSORIES"
-  },
-  {
-    id: "coffee-mug",
-    name: "Ryker Boone - Midnight Coffee Mug",
-    price: "£13.44",
-    image: "/images/promo-camp-mug.png",
-    category: "ACCESSORIES"
-  },
-  {
-    id: "adult-tee",
-    name: "Ryker Boone - Signature Gold Logo Heavy Tee",
-    price: "£20.91",
-    image: "/images/promo-ryker-tshirt.png",
-    category: "APPAREL"
+    title: "Graham's Kids Collection",
+    subtitle: "Youth Apparel",
+    description: "Bella+Canvas premium youth tees and Gildan heavyweight youth hoodies built child-safe.",
+    image: "/images/consistent/merch_graham_playing.png",
+    cta: "SHOP KIDS APPAREL",
+    link: "https://ryker-boone-shop.fourthwall.com/collections/grahams-youth-home-collection"
   }
 ];
 
 export default function ShopPreview() {
   return (
-    <section id="shop" style={{ padding: '10rem 8%', background: '#0a0a0a' }}>
-      <div style={{ marginBottom: '6rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+    <section id="shop" style={{ padding: '8rem 8%', background: '#0a0a0a' }}>
+      <style dangerouslySetInnerHTML={{__html: `
+        .lookbook-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 3rem;
+        }
+        .lookbook-grid-secondary {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2.5rem;
+          margin-top: 3rem;
+        }
+        .lookbook-card {
+          position: relative;
+          aspect-ratio: 4/5;
+          border-radius: 16px;
+          overflow: hidden;
+          border: 1px solid rgba(226, 179, 90, 0.05);
+          background: #0d0d0d;
+          cursor: pointer;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+          display: block;
+        }
+        .lookbook-image-wrapper {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .lookbook-card:hover .lookbook-image-wrapper {
+          transform: scale(1.05);
+        }
+        .lookbook-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 3rem 2rem 2.5rem;
+          background: linear-gradient(to top, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.5) 60%, transparent 100%);
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          height: 65%;
+        }
+        .lookbook-tag {
+          color: var(--accent-gold);
+          font-size: 0.65rem;
+          font-weight: 900;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          margin-bottom: 0.5rem;
+        }
+        .lookbook-title {
+          font-family: var(--font-serif);
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: white;
+          margin-bottom: 0.5rem;
+          line-height: 1.2;
+          text-transform: uppercase;
+        }
+        .lookbook-desc {
+          color: var(--text-secondary);
+          font-size: 0.85rem;
+          line-height: 1.5;
+          margin-bottom: 1.5rem;
+          max-width: 90%;
+        }
+        .lookbook-btn {
+          border: 1px solid var(--accent-gold);
+          color: var(--accent-gold);
+          padding: 0.8rem 1.5rem;
+          font-size: 0.65rem;
+          font-weight: 900;
+          letter-spacing: 0.2em;
+          background: transparent;
+          transition: all 0.3s ease;
+          align-self: flex-start;
+          text-transform: uppercase;
+        }
+        .lookbook-card:hover .lookbook-btn {
+          background: var(--accent-gold);
+          color: black;
+        }
+        @media (max-width: 992px) {
+          .lookbook-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          .lookbook-grid-secondary {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+          }
+          .lookbook-card {
+            aspect-ratio: 1;
+          }
+          .lookbook-title {
+            font-size: 1.5rem;
+          }
+        }
+      `}} />
+
+      <div style={{ marginBottom: '5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem' }}>
         <div>
-          <span className="subtitle">Official Collection</span>
-          <h2 className="section-title">THE ARTIST <br /> <span style={{ color: 'var(--accent-gold)' }}>LIBRARY</span></h2>
+          <span className="subtitle">Official Catalog</span>
+          <h2 className="section-title">LIFESTYLE <br /> <span style={{ color: 'var(--accent-gold)' }}>LOOKBOOK</span></h2>
         </div>
-        <Link href="/store">
+        <Link href="https://ryker-boone-shop.fourthwall.com" target="_blank" rel="noopener noreferrer">
           <button style={{
             border: '1px solid rgba(226, 179, 90, 0.3)',
             color: 'var(--accent-gold)',
@@ -86,99 +168,53 @@ export default function ShopPreview() {
             fontWeight: '900',
             letterSpacing: '0.2em',
             transition: 'all 0.3s ease'
-          }}>
-            VIEW ALL PRODUCTS
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'var(--accent-gold)';
+            e.currentTarget.style.color = 'black';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'transparent';
+            e.currentTarget.style.color = 'var(--accent-gold)';
+          }}
+          >
+            VISIT FOURTHWALL STORE →
           </button>
         </Link>
       </div>
 
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-        gap: '2.5rem' 
-      }}>
-        {products.map((product, i) => (
-          <div key={i} className="product-card" style={{ 
-            background: 'rgba(255,255,255,0.01)', 
-            border: '1px solid rgba(255,255,255,0.03)',
-            borderRadius: '16px',
-            padding: '1.5rem',
-            transition: 'transform 0.4s ease'
-          }}>
-            <div style={{ 
-              position: 'relative', 
-              aspectRatio: '1', 
-              borderRadius: '8px', 
-              overflow: 'hidden',
-              marginBottom: '1.5rem',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
-            }}>
-              <Image src={product.image} alt={product.name} fill style={{ objectFit: 'cover' }} />
-              <div style={{ 
-                position: 'absolute', 
-                top: '1rem', 
-                left: '1rem', 
-                background: 'rgba(10,10,10,0.8)', 
-                padding: '0.3rem 0.6rem', 
-                fontSize: '0.55rem', 
-                fontWeight: '900', 
-                letterSpacing: '0.1em',
-                color: 'var(--accent-gold)',
-                borderRadius: '2px'
-              }}>
-                {product.category}
-              </div>
+      {/* Main Grid: 2 Premium Collections */}
+      <div className="lookbook-grid">
+        {lookbookItems.slice(0, 2).map((item, i) => (
+          <a key={i} href={item.link} target="_blank" rel="noopener noreferrer" className="lookbook-card">
+            <div className="lookbook-image-wrapper">
+              <Image src={item.image} alt={item.title} fill style={{ objectFit: 'cover' }} />
             </div>
-            <h3 style={{ fontSize: '1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: 'white' }}>{product.name}</h3>
-            <div style={{ color: 'var(--accent-gold)', fontWeight: '900', fontSize: '0.9rem' }}>{product.price}</div>
-            
-            <Link href={`/store?product=${product.id}`}>
-              <button style={{
-                width: '100%',
-                marginTop: '1.5rem',
-                background: 'transparent',
-                border: '1px solid rgba(255,255,255,0.1)',
-                color: 'white',
-                padding: '0.8rem',
-                fontSize: '0.7rem',
-                fontWeight: '700',
-                letterSpacing: '0.1em',
-                transition: 'all 0.3s ease'
-              }}>
-                PURCHASE NOW
-              </button>
-            </Link>
-          </div>
+            <div className="lookbook-overlay">
+              <span className="lookbook-tag">{item.subtitle}</span>
+              <h3 className="lookbook-title">{item.title}</h3>
+              <p className="lookbook-desc">{item.description}</p>
+              <button className="lookbook-btn">{item.cta}</button>
+            </div>
+          </a>
         ))}
       </div>
-      
-      {/* Featured Callout */}
-      <div style={{ 
-        marginTop: '8rem', 
-        display: 'grid', 
-        gridTemplateColumns: '1fr 1fr',
-        gap: '4rem',
-        alignItems: 'center',
-        padding: '5rem',
-        background: 'rgba(226, 179, 90, 0.02)',
-        borderRadius: '24px',
-        border: '1px solid rgba(226, 179, 90, 0.05)'
-      }}>
-        <div style={{ position: 'relative', aspectRatio: '4/3', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }}>
-           <Image src="/images/boots-promo-full.jpg" alt="Artbook Preview" fill style={{ objectFit: 'cover' }} />
-        </div>
-        <div>
-           <span className="subtitle">Coming August 2026</span>
-           <h3 style={{ fontFamily: 'var(--font-playfair)', fontSize: '2.5rem', marginBottom: '1.5rem', color: 'white' }}>
-             Southern Steel: <br /> The Limited Edition
-           </h3>
-           <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '2.5rem' }}>
-             The definitive collection. Includes signed art prints and exclusive digital commentary from the Nashville sessions.
-           </p>
-            <Link href="/store">
-              <button className="btn-primary">PRE-ORDER NOW</button>
-            </Link>
-        </div>
+
+      {/* Secondary Grid: 3 Supporting Collections */}
+      <div className="lookbook-grid-secondary">
+        {lookbookItems.slice(2).map((item, i) => (
+          <a key={i} href={item.link} target="_blank" rel="noopener noreferrer" className="lookbook-card">
+            <div className="lookbook-image-wrapper">
+              <Image src={item.image} alt={item.title} fill style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="lookbook-overlay">
+              <span className="lookbook-tag">{item.subtitle}</span>
+              <h3 className="lookbook-title" style={{ fontSize: '1.4rem' }}>{item.title}</h3>
+              <p className="lookbook-desc" style={{ fontSize: '0.8rem' }}>{item.description}</p>
+              <button className="lookbook-btn" style={{ padding: '0.6rem 1.2rem', fontSize: '0.6rem' }}>{item.cta}</button>
+            </div>
+          </a>
+        ))}
       </div>
     </section>
   );

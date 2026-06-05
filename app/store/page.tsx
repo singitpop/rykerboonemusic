@@ -296,7 +296,7 @@ const products: Product[] = [
     "id": "blanket-september-gold",
     "name": "Ryker Boone \"September Turns Gold\" Embroidered Premium Sherpa Blanket",
     "price": "$46.50",
-    "image": "/images/consistent/merch_family_cozy.png",
+    "image": "/images/consistent/merch_family_blanket.png",
     "category": "APPAREL",
     "description": "Wrap yourself in the cozy warmth of a Tennessee autumn. The official Ryker Boone \"September Turns Gold\" Embroidered Premium Sherpa Blanket is the perfect companion for chilly evenings on the porch, twilight campfire jams, or relaxing in the living room. Emblazoned with his signature branding in a high-quality gold embroidered logo, it features a sleek, sheeny black fleece exterior on one side and an incredibly soft, cream-colored sherpa lining on the other.",
     "details": [
@@ -395,7 +395,7 @@ const products: Product[] = [
     "id": "crop-lights-gold",
     "name": "Ryker Boone \"When The Lights Go Gold\" Women's Crop Top (Gold Logo)",
     "price": "$18.80",
-    "image": "/images/promo-ryker-tshirt.png",
+    "image": "/images/consistent/merch_workout.png",
     "category": "APPAREL",
     "description": "Summer style meets country soul. The official Ryker Boone \"When The Lights Go Gold\" Crop Top features a modern, relaxed silhouette in premium, ultra-soft combed cotton. Emblazoned with a beautiful, high-quality gold logo print, it offers a laid-back crop length with dropped shoulders—perfect for summer concerts, outdoor festivals, and sunny afternoons.",
     "details": [
@@ -420,7 +420,7 @@ const products: Product[] = [
     "id": "crop-barefoot-black",
     "name": "Ryker Boone \"Barefoot on the Backroad\" Women's Crop Top (Black Logo)",
     "price": "$18.80",
-    "image": "/images/promo-ryker-tshirt.png",
+    "image": "/images/consistent/merch_workout.png",
     "category": "APPAREL",
     "description": "Laid-back comfort for warm weather. The Ryker Boone \"Barefoot on the Backroad\" Crop Top features a clean, tone-on-tone black logo on a relaxed-fit combed cotton crop top. A low-profile, chic fan essential designed for outdoor adventures, bonfire nights, and casual summer days.",
     "details": [
@@ -445,7 +445,7 @@ const products: Product[] = [
     "id": "crop-august-white",
     "name": "Ryker Boone \"August Heatwave\" Women's Crop Top (White Logo)",
     "price": "$18.80",
-    "image": "/images/promo-ryker-tshirt.png",
+    "image": "/images/consistent/merch_workout.png",
     "category": "APPAREL",
     "description": "Beat the summer heat in classic style. Emblazoned with a bold, high-contrast white logo, the Ryker Boone \"August Heatwave\" Crop Top brings a clean, striking aesthetic to premium midweight combed cotton. Perfect for throwing on after a swim, hitting backyard tailgates, or two-stepping in the dust.",
     "details": [
@@ -470,7 +470,7 @@ const products: Product[] = [
     "id": "crop-hoodie-august-white",
     "name": "Ryker Boone \"August Heatwave\" Fleece Crop Hoodie (White Logo)",
     "price": "$33.15",
-    "image": "/images/consistent/merch_joyce_shopping.png",
+    "image": "/images/consistent/merch_workout.png",
     "category": "APPAREL",
     "description": "The ultimate cozy layer for cooler nights. The Ryker Boone \"August Heatwave\" Fleece Crop Hoodie features a bold white logo design printed on premium, ultra-soft midweight fleece. With a comfortable regular fit and a raw-edge cropped hem, it's a stylish, high-contrast fan favorite for campfires and late-night drives.",
     "details": [
@@ -495,7 +495,7 @@ const products: Product[] = [
     "id": "crop-hoodie-backroad-black",
     "name": "Ryker Boone \"Backroad Heartbeat\" Fleece Crop Hoodie (Black Logo)",
     "price": "$33.15",
-    "image": "/images/consistent/merch_joyce_shopping.png",
+    "image": "/images/consistent/merch_workout.png",
     "category": "APPAREL",
     "description": "Cozy warmth with an understated, low-profile edge. The Ryker Boone \"Backroad Heartbeat\" Fleece Crop Hoodie combines an incredibly soft cotton-poly fleece fabric with a stealthy, tone-on-tone black logo design. Perfect for early morning porch coffee, warm autumn road trips, or just winding down.",
     "details": [
@@ -520,7 +520,7 @@ const products: Product[] = [
     "id": "crop-hoodie-lights-gold",
     "name": "Ryker Boone \"When The Lights Go Gold\" Fleece Crop Hoodie (Gold Logo)",
     "price": "$33.15",
-    "image": "/images/consistent/merch_joyce_shopping.png",
+    "image": "/images/consistent/merch_workout.png",
     "category": "APPAREL",
     "description": "Cozy meets chic. The official Ryker Boone \"When The Lights Go Gold\" Fleece Crop Hoodie features an ultra-soft fleece lining with a modern cropped, raw-edge hem. Emblazoned with a premium gold logo, it’s the perfect warm layer for wrapping up after an outdoor festival set or relaxing by the cabin fireplace.",
     "details": [
@@ -617,7 +617,7 @@ const products: Product[] = [
     "id": "tee-honky-tonk-black",
     "name": "Ryker Boone \"Honky Tonk Sundown\" Supersoft T-Shirt (White/Black Logo)",
     "price": "$11.75",
-    "image": "/images/promo-ryker-tshirt.png",
+    "image": "/images/consistent/merch_family_group.png",
     "category": "APPAREL",
     "description": "The absolute fan essential. The official Ryker Boone \"Honky Tonk Sundown\" T-Shirt features a clean, high-contrast black logo printed on Bella+Canvas' most iconic white unisex tee. Crafted from 100% premium Airlume combed and ring-spun cotton, this lightweight (4.2 oz) shirt offers exceptional softness and a classic regular fit that feels comfortable from the very first wear.",
     "details": [
@@ -642,7 +642,7 @@ const products: Product[] = [
     "id": "tee-backroad-white",
     "name": "Ryker Boone \"Backroad Heartbeat\" Supersoft T-Shirt (Black/White Logo)",
     "price": "$11.75",
-    "image": "/images/promo-ryker-tshirt.png",
+    "image": "/images/consistent/merch_family_group.png",
     "category": "APPAREL",
     "description": "The classic concert tee, redefined for ultimate comfort. Emblazoned with a bold white logo on a sleek black backdrop, the Ryker Boone \"Backroad Heartbeat\" T-Shirt is printed on Bella+Canvas' most popular, premium-soft unisex tee. Designed for maximum breathability and a comfortable regular fit, it’s a timeless daily classic.",
     "details": [
@@ -667,7 +667,7 @@ const products: Product[] = [
     "id": "tee-lights-gold",
     "name": "Ryker Boone \"When The Lights Go Gold\" Supersoft T-Shirt (Black/Gold Logo)",
     "price": "$11.75",
-    "image": "/images/promo-ryker-tshirt.png",
+    "image": "/images/consistent/merch_family_group.png",
     "category": "APPAREL",
     "description": "Bring a touch of premium style to your daily wardrobe. The Ryker Boone \"When The Lights Go Gold\" T-Shirt features a striking gold logo design printed on a sleek black Bella+Canvas unisex tee. Exceptionally soft and lightweight, it blends rugged country charm with a modern, high-end look that is perfect for concerts, tailgates, and everyday wear.",
     "details": [
@@ -986,7 +986,7 @@ const products: Product[] = [
     "id": "tee-comfort-colors-honky-tonk-white",
     "name": "Ryker Boone \"Honky Tonk Sundown\" Comfort Colors Heavyweight Tee (White/Black Logo)",
     "price": "$15.45",
-    "image": "/images/promo-ryker-tshirt.png",
+    "image": "/images/consistent/merch_family_group.png",
     "category": "APPAREL",
     "description": "The ultimate vintage-style concert tee. The official \"Honky Tonk Sundown\" heavyweight tee is printed on a premium Comfort Colors garment-dyed shirt for a lived-in, soft-washed feel right out of the box. Decorated with Ryker's signature branding in a clean black logo on a crisp white shirt, it offers a relaxed, classic fit that looks and feels like an old favorite.",
     "details": [
@@ -1011,7 +1011,7 @@ const products: Product[] = [
     "id": "tee-comfort-colors-lights-gold",
     "name": "Ryker Boone \"When The Lights Go Gold\" Comfort Colors Heavyweight Tee (Black/Gold Logo)",
     "price": "$15.45",
-    "image": "/images/promo-ryker-tshirt.png",
+    "image": "/images/consistent/merch_family_group.png",
     "category": "APPAREL",
     "description": "Classic comfort meets high-end country style. The \"When The Lights Go Gold\" Comfort Colors heavyweight tee features Ryker's stamp logo in a rich, vibrant gold print against a garment-dyed black background. With a relaxed fit and incredibly soft ring-spun cotton, this heavyweight tee combines rustic charm with a premium, lived-in feel.",
     "details": [
@@ -1036,7 +1036,7 @@ const products: Product[] = [
     "id": "tee-comfort-colors-backroad-white",
     "name": "Ryker Boone \"Backroad Heartbeat\" Comfort Colors Heavyweight Tee (Black/White Logo)",
     "price": "$15.45",
-    "image": "/images/promo-ryker-tshirt.png",
+    "image": "/images/consistent/merch_family_group.png",
     "category": "APPAREL",
     "description": "Low-key, rugged, and incredibly comfortable. Emblazoned with a bold white logo design on a garment-dyed black Comfort Colors shirt, the \"Backroad Heartbeat\" heavyweight tee is the perfect go-to daily essential. Made from soft, ring-spun cotton, it delivers a comfortable, relaxed fit with a stylish, faded vintage look.",
     "details": [

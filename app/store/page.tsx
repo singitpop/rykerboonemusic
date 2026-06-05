@@ -17,6 +17,7 @@ interface Product {
   details: string[];
   sizes?: string[];
   link?: string;
+  collections: ("ALBUM" | "ACTIVE" | "CONCERT" | "YOUTH")[];
 }
 
 const products: Product[] = [
@@ -40,7 +41,10 @@ const products: Product[] = [
       "L",
       "XL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-midnight-motion-recycled-longline-sports-bra"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-midnight-motion-recycled-longline-sports-bra",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "glass-whiskey-weather-white",
@@ -55,7 +59,11 @@ const products: Product[] = [
       "Dishwasher safe",
       "Crafted for high-end feel"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-whiskey-weather-rocks-glass-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-whiskey-weather-rocks-glass-white-logo",
+    "collections": [
+      "CONCERT",
+      "YOUTH"
+    ]
   },
   {
     "id": "glass-september-turns-gold",
@@ -70,7 +78,11 @@ const products: Product[] = [
       "Dishwasher safe",
       "Crafted for high-end feel"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-september-turns-gold-rocks-glass-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-september-turns-gold-rocks-glass-gold-logo",
+    "collections": [
+      "ALBUM",
+      "YOUTH"
+    ]
   },
   {
     "id": "mug-lights-go-gold-gold",
@@ -85,7 +97,11 @@ const products: Product[] = [
       "Double-sided logo print",
       "Microwave and dishwasher safe"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-black-glossy-mug-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-black-glossy-mug-gold-logo",
+    "collections": [
+      "ALBUM",
+      "YOUTH"
+    ]
   },
   {
     "id": "mug-sweet-tea-white",
@@ -100,7 +116,11 @@ const products: Product[] = [
       "Double-sided logo print",
       "Microwave and dishwasher safe"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-sweet-tea-blue-jeans-black-glossy-mug-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-sweet-tea-blue-jeans-black-glossy-mug-white-logo",
+    "collections": [
+      "CONCERT",
+      "YOUTH"
+    ]
   },
   {
     "id": "mug-back-to-gold-gold",
@@ -115,7 +135,11 @@ const products: Product[] = [
       "Double-sided logo print",
       "Microwave and dishwasher safe"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-back-to-gold-white-glossy-mug-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-back-to-gold-white-glossy-mug-gold-logo",
+    "collections": [
+      "ALBUM",
+      "YOUTH"
+    ]
   },
   {
     "id": "mug-honky-tonk-black",
@@ -130,7 +154,11 @@ const products: Product[] = [
       "Double-sided logo print",
       "Microwave and dishwasher safe"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-white-glossy-mug-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-white-glossy-mug-black-logo",
+    "collections": [
+      "CONCERT",
+      "YOUTH"
+    ]
   },
   {
     "id": "apron-sweet-tea-black",
@@ -152,7 +180,11 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-sweet-tea-blue-jeans-embroidered-cooking-apron-white-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-sweet-tea-blue-jeans-embroidered-cooking-apron-white-black-logo",
+    "collections": [
+      "CONCERT",
+      "YOUTH"
+    ]
   },
   {
     "id": "apron-barefoot-white",
@@ -174,7 +206,11 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-barefoot-on-the-backroad-embroidered-cooking-apron-black-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-barefoot-on-the-backroad-embroidered-cooking-apron-black-white-logo",
+    "collections": [
+      "ACTIVE",
+      "YOUTH"
+    ]
   },
   {
     "id": "apron-september-gold",
@@ -196,7 +232,11 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-september-turns-gold-embroidered-cooking-apron-black-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-september-turns-gold-embroidered-cooking-apron-black-gold-logo",
+    "collections": [
+      "ALBUM",
+      "YOUTH"
+    ]
   },
   {
     "id": "hat-backroad-black",
@@ -211,7 +251,10 @@ const products: Product[] = [
       "High-stitch-count embroidered logo",
       "Adjustable snapback closure"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-richardson-trucker-hat-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-richardson-trucker-hat-black-logo",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "hat-lights-go-gold-gold",
@@ -226,7 +269,10 @@ const products: Product[] = [
       "High-stitch-count embroidered logo",
       "Adjustable snapback closure"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-richardson-trucker-hat-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-richardson-trucker-hat-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "hat-honky-tonk-white",
@@ -241,7 +287,10 @@ const products: Product[] = [
       "High-stitch-count embroidered logo",
       "Adjustable snapback closure"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-richardson-trucker-hat-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-richardson-trucker-hat-white-logo",
+    "collections": [
+      "CONCERT"
+    ]
   },
   {
     "id": "blanket-september-gold",
@@ -256,7 +305,11 @@ const products: Product[] = [
       "Generous size (50\" x 60\")",
       "Machine washable on cold cycle"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-september-turns-gold-embroidered-premium-sherpa-blanket"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-september-turns-gold-embroidered-premium-sherpa-blanket",
+    "collections": [
+      "ALBUM",
+      "YOUTH"
+    ]
   },
   {
     "id": "beanie-backroad-black",
@@ -271,7 +324,10 @@ const products: Product[] = [
       "High-stitch-count embroidered logo",
       "One size fits most"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-yupoong-cuffed-beanie-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-yupoong-cuffed-beanie-black-logo",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "beanie-back-to-gold-gold",
@@ -286,7 +342,10 @@ const products: Product[] = [
       "High-stitch-count embroidered logo",
       "One size fits most"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-back-to-gold-yupoong-cuffed-beanie-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-back-to-gold-yupoong-cuffed-beanie-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "beanie-september-white",
@@ -301,7 +360,11 @@ const products: Product[] = [
       "High-stitch-count embroidered logo",
       "One size fits most"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-september-turns-gold-yupoong-cuffed-beanie-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-september-turns-gold-yupoong-cuffed-beanie-white-logo",
+    "collections": [
+      "ALBUM",
+      "CONCERT"
+    ]
   },
   {
     "id": "bra-dust-kicking-black",
@@ -323,7 +386,10 @@ const products: Product[] = [
       "L",
       "XL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-dust-kicking-rhythm-sports-bra"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-dust-kicking-rhythm-sports-bra",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "crop-lights-gold",
@@ -345,7 +411,10 @@ const products: Product[] = [
       "L",
       "XL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-womens-crop-top-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-womens-crop-top-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "crop-barefoot-black",
@@ -367,7 +436,10 @@ const products: Product[] = [
       "L",
       "XL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-barefoot-on-the-backroad-womens-crop-top-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-barefoot-on-the-backroad-womens-crop-top-black-logo",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "crop-august-white",
@@ -389,7 +461,10 @@ const products: Product[] = [
       "L",
       "XL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-august-heatwave-womens-crop-top-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-august-heatwave-womens-crop-top-white-logo",
+    "collections": [
+      "CONCERT"
+    ]
   },
   {
     "id": "crop-hoodie-august-white",
@@ -411,7 +486,10 @@ const products: Product[] = [
       "L",
       "XL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-august-heatwave-fleece-crop-hoodie-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-august-heatwave-fleece-crop-hoodie-white-logo",
+    "collections": [
+      "CONCERT"
+    ]
   },
   {
     "id": "crop-hoodie-backroad-black",
@@ -433,7 +511,10 @@ const products: Product[] = [
       "L",
       "XL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-fleece-crop-hoodie-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-fleece-crop-hoodie-black-logo",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "crop-hoodie-lights-gold",
@@ -455,7 +536,10 @@ const products: Product[] = [
       "L",
       "XL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-fleece-crop-hoodie-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-fleece-crop-hoodie-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "tote-honky-tonk-white",
@@ -470,7 +554,10 @@ const products: Product[] = [
       "Perfect size for books, records, or gear",
       "Reinforced shoulder straps"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-eco-friendly-tote-bag-black-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-eco-friendly-tote-bag-black-white-logo",
+    "collections": [
+      "CONCERT"
+    ]
   },
   {
     "id": "tote-back-to-gold-gold",
@@ -485,7 +572,10 @@ const products: Product[] = [
       "Perfect size for books, records, or gear",
       "Reinforced shoulder straps"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-back-to-gold-eco-friendly-tote-bag-oyster-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-back-to-gold-eco-friendly-tote-bag-oyster-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "tote-lights-gold",
@@ -500,7 +590,10 @@ const products: Product[] = [
       "Perfect size for books, records, or gear",
       "Reinforced shoulder straps"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-eco-friendly-tote-bag-black-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-eco-friendly-tote-bag-black-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "tote-barefoot-black",
@@ -515,7 +608,10 @@ const products: Product[] = [
       "Perfect size for books, records, or gear",
       "Reinforced shoulder straps"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-barefoot-on-the-backroad-eco-friendly-tote-bag-oyster-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-barefoot-on-the-backroad-eco-friendly-tote-bag-oyster-black-logo",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "tee-honky-tonk-black",
@@ -537,7 +633,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-supersoft-t-shirt-white-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-supersoft-t-shirt-white-black-logo",
+    "collections": [
+      "CONCERT"
+    ]
   },
   {
     "id": "tee-backroad-white",
@@ -559,7 +658,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-supersoft-t-shirt-black-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-supersoft-t-shirt-black-white-logo",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "tee-lights-gold",
@@ -581,7 +683,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-supersoft-t-shirt-black-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-supersoft-t-shirt-black-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "tee-youth-gold",
@@ -602,7 +707,10 @@ const products: Product[] = [
       "L (Y12-14)",
       "XL (Y14-16)"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-gold-logo-t-shirt-black-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-gold-logo-t-shirt-black-gold-logo",
+    "collections": [
+      "YOUTH"
+    ]
   },
   {
     "id": "tee-youth-backroad-black",
@@ -623,7 +731,10 @@ const products: Product[] = [
       "L (Y12-14)",
       "XL (Y14-16)"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-backroad-kid-t-shirt-white-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-backroad-kid-t-shirt-white-black-logo",
+    "collections": [
+      "YOUTH"
+    ]
   },
   {
     "id": "tee-youth-honky-tonk-white",
@@ -644,7 +755,10 @@ const products: Product[] = [
       "L (Y12-14)",
       "XL (Y14-16)"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-honky-tonk-kid-t-shirt-black-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-honky-tonk-kid-t-shirt-black-white-logo",
+    "collections": [
+      "YOUTH"
+    ]
   },
   {
     "id": "hoodie-honky-tonk-black",
@@ -666,7 +780,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-premium-hoodie-white-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-premium-hoodie-white-black-logo",
+    "collections": [
+      "CONCERT"
+    ]
   },
   {
     "id": "hoodie-lights-gold",
@@ -688,7 +805,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-premium-hoodie-black-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-premium-hoodie-black-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "hoodie-backroad-white",
@@ -710,7 +830,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-premium-hoodie-black-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-premium-hoodie-black-white-logo",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "hoodie-youth-honky-tonk-black",
@@ -731,7 +854,10 @@ const products: Product[] = [
       "L (Y12-14)",
       "XL (Y14-16)"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-honky-tonk-kid-heavy-blend-hoodie-white-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-honky-tonk-kid-heavy-blend-hoodie-white-black-logo",
+    "collections": [
+      "YOUTH"
+    ]
   },
   {
     "id": "hoodie-youth-gold-gold",
@@ -752,7 +878,10 @@ const products: Product[] = [
       "L (Y12-14)",
       "XL (Y14-16)"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-gold-logo-heavy-blend-hoodie-black-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-gold-logo-heavy-blend-hoodie-black-gold-logo",
+    "collections": [
+      "YOUTH"
+    ]
   },
   {
     "id": "hoodie-youth-backroad-white",
@@ -773,7 +902,10 @@ const products: Product[] = [
       "L (Y12-14)",
       "XL (Y14-16)"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-backroad-kid-heavy-blend-hoodie-black-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-youth-backroad-kid-heavy-blend-hoodie-black-white-logo",
+    "collections": [
+      "YOUTH"
+    ]
   },
   {
     "id": "tee-womens-classic-sweet-tea",
@@ -795,7 +927,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-womens-sweet-tea-blue-jeans-classic-tee-white-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-womens-sweet-tea-blue-jeans-classic-tee-white-black-logo",
+    "collections": [
+      "CONCERT"
+    ]
   },
   {
     "id": "tee-womens-classic-lights-gold",
@@ -817,7 +952,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-womens-when-the-lights-go-gold-classic-tee-black-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-womens-when-the-lights-go-gold-classic-tee-black-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "tee-womens-classic-backroad-white",
@@ -839,7 +977,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-womens-backroad-heartbeat-classic-tee-black-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-womens-backroad-heartbeat-classic-tee-black-white-logo",
+    "collections": [
+      "ACTIVE"
+    ]
   },
   {
     "id": "tee-comfort-colors-honky-tonk-white",
@@ -861,7 +1002,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-comfort-colors-heavyweight-tee-white-black-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-honky-tonk-sundown-comfort-colors-heavyweight-tee-white-black-logo",
+    "collections": [
+      "CONCERT"
+    ]
   },
   {
     "id": "tee-comfort-colors-lights-gold",
@@ -883,7 +1027,10 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-comfort-colors-heavyweight-tee-black-gold-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-when-the-lights-go-gold-comfort-colors-heavyweight-tee-black-gold-logo",
+    "collections": [
+      "ALBUM"
+    ]
   },
   {
     "id": "tee-comfort-colors-backroad-white",
@@ -905,13 +1052,44 @@ const products: Product[] = [
       "XL",
       "XXL"
     ],
-    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-comfort-colors-heavyweight-tee-black-white-logo"
+    "link": "https://shop.rykerboonemusic.website/products/ryker-boone-backroad-heartbeat-comfort-colors-heavyweight-tee-black-white-logo",
+    "collections": [
+      "ACTIVE"
+    ]
   }
 ];
 
+const collectionMeta = {
+  ALL: {
+    title: "THE FAMILY COLLECTION",
+    description: "Premium apparel and accessories designed in Nashville, modeled by the Boone family. Crafted for durability and authentic country lifestyle.",
+    link: "https://shop.rykerboonemusic.website"
+  },
+  ALBUM: {
+    title: "THE GOLD RECORD COLLECTION",
+    description: "Special edition products featuring his signature branding in a striking gold design, inspired by the 'When The Lights Go Gold' and 'September Turns Gold' releases.",
+    link: "https://shop.rykerboonemusic.website/collections/the-gold-record-collection"
+  },
+  ACTIVE: {
+    title: "THE BACKROAD COLLECTION",
+    description: "Technical workout wear, crop top layers, and cozy accessories designed for early morning runs, outdoor cabin workouts, or relaxed weekends.",
+    link: "https://shop.rykerboonemusic.website/collections/the-backroad-collection"
+  },
+  CONCERT: {
+    title: "THE HONKY TONK COLLECTION",
+    description: "Vintage-feel garment-dyed comfort colors tees, organic canvas totes, and classic white/black fan essentials perfect for tailgates, live sets, or backyard get-togethers.",
+    link: "https://shop.rykerboonemusic.website/collections/the-honky-tonk-collection"
+  },
+  YOUTH: {
+    title: "GRAHAM'S YOUTH & HOME COLLECTION",
+    description: "Kids' and youth t-shirts and hoodies modeled on the ranch by Graham, featuring a comfy, safety-first design (no drawcords) and durable build.",
+    link: "https://shop.rykerboonemusic.website/collections/grahams-youth-home-collection"
+  }
+} as const;
+
 function StoreContent() {
   const searchParams = useSearchParams();
-  const [selectedCategory, setSelectedCategory] = useState<"ALL" | "APPAREL" | "ACCESSORIES">("ALL");
+  const [selectedCollection, setSelectedCollection] = useState<"ALL" | "ALBUM" | "ACTIVE" | "CONCERT" | "YOUTH">("ALL");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedSize, setSelectedSize] = useState<string>("");
 
@@ -926,9 +1104,9 @@ function StoreContent() {
     }
   }, [searchParams]);
 
-  const filteredProducts = selectedCategory === "ALL" 
+  const filteredProducts = selectedCollection === "ALL" 
     ? products 
-    : products.filter(p => p.category === selectedCategory);
+    : products.filter(p => p.collections.includes(selectedCollection));
 
   const openDrawer = (product: Product) => {
     setSelectedProduct(product);
@@ -949,24 +1127,60 @@ function StoreContent() {
           <span style={{ color: 'var(--accent-gold)', fontSize: '0.8rem', fontWeight: '900', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
             Ryker Boone Official Store
           </span>
-          <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', marginTop: '1rem', marginBottom: '1.5rem', fontWeight: 'bold' }}>
-            THE FAMILY <span style={{ color: 'var(--accent-gold)' }}>COLLECTION</span>
+          <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.2rem, 5vw, 4rem)', marginTop: '1rem', marginBottom: '1.5rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
+            {selectedCollection === 'ALL' ? 'THE FAMILY' : collectionMeta[selectedCollection].title.replace(' THE', '').replace(' COLLECTION', '')} <span style={{ color: 'var(--accent-gold)' }}>COLLECTION</span>
           </h1>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', lineHeight: '1.8', fontSize: '1rem' }}>
-            Premium apparel and accessories designed in Nashville, modeled by the Boone family. Crafted for durability and authentic country lifestyle.
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2rem' }}>
+            {collectionMeta[selectedCollection].description}
           </p>
+          <Link 
+            href={collectionMeta[selectedCollection].link}
+            target="_blank"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              color: 'var(--accent-gold)',
+              fontSize: '0.75rem',
+              fontWeight: '900',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              border: '1px solid rgba(226, 179, 90, 0.3)',
+              padding: '0.75rem 1.5rem',
+              borderRadius: '30px',
+              transition: 'all 0.3s ease',
+              background: 'rgba(226, 179, 90, 0.02)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(226, 179, 90, 0.1)';
+              e.currentTarget.style.borderColor = 'var(--accent-gold)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(226, 179, 90, 0.02)';
+              e.currentTarget.style.borderColor = 'rgba(226, 179, 90, 0.3)';
+            }}
+          >
+            Shop this Collection on Fourthwall ↗
+          </Link>
         </div>
 
         {/* Filter Tabs */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '1rem' }}>
-          {(["ALL", "APPAREL", "ACCESSORIES"] as const).map((category) => (
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '1rem', flexWrap: 'wrap' }}>
+          {([
+            { id: "ALL", name: "ALL PRODUCTS" },
+            { id: "ALBUM", name: "LIGHTS GO GOLD" },
+            { id: "ACTIVE", name: "MIDNIGHT & BACKROADS" },
+            { id: "CONCERT", name: "HONKY TONK SUNDOWN" },
+            { id: "YOUTH", name: "GRAHAM'S YOUTH PICK" }
+          ] as const).map((col) => (
             <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
+              key={col.id}
+              onClick={() => setSelectedCollection(col.id)}
               style={{
                 background: 'transparent',
                 border: 'none',
-                color: selectedCategory === category ? 'var(--accent-gold)' : 'var(--text-secondary)',
+                color: selectedCollection === col.id ? 'var(--accent-gold)' : 'var(--text-secondary)',
                 fontSize: '0.75rem',
                 fontWeight: '900',
                 letterSpacing: '0.25em',
@@ -976,8 +1190,8 @@ function StoreContent() {
                 transition: 'color 0.3s ease'
               }}
             >
-              {category}
-              {selectedCategory === category && (
+              {col.name}
+              {selectedCollection === col.id && (
                 <div style={{
                   position: 'absolute',
                   bottom: '-1.1rem',
@@ -1114,7 +1328,12 @@ function StoreContent() {
             </div>
 
             <span style={{ color: 'var(--accent-gold)', fontSize: '0.65rem', fontWeight: '900', letterSpacing: '0.2em', textTransform: 'uppercase', display: 'block', marginBottom: '0.5rem' }}>
-              {selectedProduct.category}
+              {selectedProduct.collections.map(col => 
+                col === 'ALBUM' ? 'THE GOLD RECORD' : 
+                col === 'ACTIVE' ? 'THE BACKROAD' : 
+                col === 'CONCERT' ? 'THE HONKY TONK' : 
+                "GRAHAM'S YOUTH & HOME"
+              ).join(' & ')} | {selectedProduct.category}
             </span>
             <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.75rem', fontWeight: 'bold', marginBottom: '1rem', color: 'white', lineHeight: '1.2' }}>
               {selectedProduct.name}

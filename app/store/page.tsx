@@ -24,7 +24,7 @@ const products: Product[] = [
     "id": "bra-midnight-motion",
     "name": "Ryker Boone \"Midnight Motion\" Recycled Longline Sports Bra",
     "price": "$35.19",
-    "image": "/images/consistent/ryker_joyce_morning_coffee.png",
+    "image": "/images/consistent/merch_workout.png",
     "category": "APPAREL",
     "description": "Designed for night runs, early morning workouts, and everything in between. The \"Midnight Motion\" Sports Bra combines sleek styling with technical performance. Offering supportive compression and a comfortable longline cut, this double-layered sports bra is made of eco-friendly recycled fibers that move with your body.",
     "details": [
@@ -46,7 +46,7 @@ const products: Product[] = [
     "id": "glass-whiskey-weather-white",
     "name": "Ryker Boone \"Whiskey Weather\" Rocks Glass (White Logo)",
     "price": "$8.11",
-    "image": "/images/promo-beverage-glass.jpg",
+    "image": "/images/consistent/merch_family_cozy.png",
     "category": "ACCESSORIES",
     "description": "When the nights get cold and the music slows down, it's officially whiskey weather. The Ryker Boone \"Whiskey Weather\" Rocks Glass is built for late-night cabin sessions, porch-sitting, and winding down. Custom printed with a crisp, timeless white logo, this heavy-bottomed glass is a clean and classic fan essential.",
     "details": [
@@ -61,7 +61,7 @@ const products: Product[] = [
     "id": "glass-september-turns-gold",
     "name": "Ryker Boone \"September Turns Gold\" Rocks Glass (Gold Logo)",
     "price": "$8.11",
-    "image": "/images/promo-beverage-glass.jpg",
+    "image": "/images/consistent/merch_family_cozy.png",
     "category": "ACCESSORIES",
     "description": "Pour a double and enjoy the warm glow of the Tennessee hills. The official Ryker Boone \"September Turns Gold\" Rocks Glass is the perfect companion for slow evenings, campfire chats, and acoustic tracks. Featuring his signature branding in a striking UV-printed gold logo, this 10.5 oz tumbler adds a touch of rustic luxury to any home bar.",
     "details": [
@@ -76,7 +76,7 @@ const products: Product[] = [
     "id": "mug-lights-go-gold-gold",
     "name": "Ryker Boone \"When The Lights Go Gold\" Black Glossy Mug (Gold Logo)",
     "price": "$8.95",
-    "image": "/images/promo-camp-mug.png",
+    "image": "/images/consistent/merch_family_cozy.png",
     "category": "ACCESSORIES",
     "description": "Start your day with a touch of Tennessee warmth. Emblazoned with Ryker Boone’s signature branding in a rich gold-colored logo print, this premium black glossy ceramic mug is perfect for early morning coffee on the deck or hot tea during cabin writing sessions.",
     "details": [
@@ -91,7 +91,7 @@ const products: Product[] = [
     "id": "mug-sweet-tea-white",
     "name": "Ryker Boone \"Sweet Tea & Blue Jeans\" Black Glossy Mug (White Logo)",
     "price": "$8.95",
-    "image": "/images/promo-camp-mug.png",
+    "image": "/images/consistent/merch_family_cozy.png",
     "category": "ACCESSORIES",
     "description": "Cozy up with your favorite warm brew. Inspired by early morning deck conversations and rustic cabin songwriting sessions, this classic black glossy ceramic mug features Ryker Boone’s signature branding in a clean, high-contrast white logo design.",
     "details": [
@@ -106,7 +106,7 @@ const products: Product[] = [
     "id": "mug-back-to-gold-gold",
     "name": "Ryker Boone \"Back To Gold\" White Glossy Mug (Gold Logo)",
     "price": "$8.95",
-    "image": "/images/promo-camp-mug.png",
+    "image": "/images/consistent/merch_family_cozy.png",
     "category": "ACCESSORIES",
     "description": "Bring the warmth of the country home. The official Ryker Boone \"Back To Gold\" White Glossy Mug features a clean white ceramic finish decorated with his signature branding in a rich gold-colored logo print. Ideal for sitting on the cabin porch at sunset, enjoying your morning brew, or writing your next favorite song.",
     "details": [
@@ -121,7 +121,7 @@ const products: Product[] = [
     "id": "mug-honky-tonk-black",
     "name": "Ryker Boone \"Honky Tonk Sundown\" White Glossy Mug (Black Logo)",
     "price": "$8.95",
-    "image": "/images/promo-camp-mug.png",
+    "image": "/images/consistent/merch_family_cozy.png",
     "category": "ACCESSORIES",
     "description": "Start your morning off on the right beat. Inspired by Nashville nights, live acoustic stages, and dust-kicking rhythms, the Ryker Boone \"Honky Tonk Sundown\" White Glossy Mug features a clean, high-contrast black logo design printed on durable white ceramic.",
     "details": [
@@ -202,7 +202,7 @@ const products: Product[] = [
     "id": "hat-backroad-black",
     "name": "Ryker Boone \"Backroad Heartbeat\" Richardson Trucker Hat (Black Logo)",
     "price": "$18.89",
-    "image": "/images/consistent/merch_ryker_trucker_hat.png",
+    "image": "/images/consistent/merch_hat_beanie.png",
     "category": "APPAREL",
     "description": "Rugged, low-key, and built for the open road. The Ryker Boone \"Backroad Heartbeat\" Trucker Hat combines a classic structured snapback with a stealthy, tone-on-tone black embroidered logo. The perfect daily cap for working in the stables or driving down gravel roads.",
     "details": [
@@ -217,7 +217,7 @@ const products: Product[] = [
     "id": "hat-lights-go-gold-gold",
     "name": "Ryker Boone \"When The Lights Go Gold\" Richardson Trucker Hat (Gold Logo)",
     "price": "$18.89",
-    "image": "/images/consistent/merch_ryker_trucker_hat.png",
+    "image": "/images/consistent/merch_hat_beanie.png",
     "category": "APPAREL",
     "description": "The ultimate country classic, elevated. The Ryker Boone \"When The Lights Go Gold\" Trucker Hat features a premium Richardson structured snapback design finished with a high-stitch-count gold embroidered logo. Perfect for golden hour drives, outdoor festivals, and sunny ranch days.",
     "details": [
@@ -232,7 +232,7 @@ const products: Product[] = [
     "id": "hat-honky-tonk-white",
     "name": "Ryker Boone \"Honky Tonk Sundown\" Richardson Trucker Hat (White Logo)",
     "price": "$18.89",
-    "image": "/images/consistent/merch_ryker_trucker_hat.png",
+    "image": "/images/consistent/merch_hat_beanie.png",
     "category": "APPAREL",
     "description": "A timeless classic that never goes out of style. The Ryker Boone \"Honky Tonk Sundown\" Trucker Hat features a clean white embroidered logo standing out bold on a premium Richardson snapback. The perfect cap for tailgates, live shows, or simple porch-sitting.",
     "details": [
@@ -247,7 +247,7 @@ const products: Product[] = [
     "id": "blanket-september-gold",
     "name": "Ryker Boone \"September Turns Gold\" Embroidered Premium Sherpa Blanket",
     "price": "$46.50",
-    "image": "/images/consistent/merch_family_blanket.png",
+    "image": "/images/consistent/merch_family_cozy.png",
     "category": "APPAREL",
     "description": "Wrap yourself in the cozy warmth of a Tennessee autumn. The official Ryker Boone \"September Turns Gold\" Embroidered Premium Sherpa Blanket is the perfect companion for chilly evenings on the porch, twilight campfire jams, or relaxing in the living room. Emblazoned with his signature branding in a high-quality gold embroidered logo, it features a sleek, sheeny black fleece exterior on one side and an incredibly soft, cream-colored sherpa lining on the other.",
     "details": [
@@ -262,7 +262,7 @@ const products: Product[] = [
     "id": "beanie-backroad-black",
     "name": "Ryker Boone \"Backroad Heartbeat\" Yupoong Cuffed Beanie (Black Logo)",
     "price": "$13.79",
-    "image": "/images/consistent/merch_joyce_beanie.png",
+    "image": "/images/consistent/merch_hat_beanie.png",
     "category": "APPAREL",
     "description": "Rugged, warm, and low-key. The Ryker Boone \"Backroad Heartbeat\" Yupoong Cuffed Beanie combines a classic knit design with a stealthy, tone-on-tone black embroidered logo. Knitted from premium, stretch-fit fabric, it keeps you warm and insulated while keeping your style clean and understated.",
     "details": [
@@ -277,7 +277,7 @@ const products: Product[] = [
     "id": "beanie-back-to-gold-gold",
     "name": "Ryker Boone \"Back to Gold\" Yupoong Cuffed Beanie (Gold Logo)",
     "price": "$13.79",
-    "image": "/images/consistent/merch_joyce_beanie.png",
+    "image": "/images/consistent/merch_hat_beanie.png",
     "category": "APPAREL",
     "description": "Stay warm as the seasons shift. The Ryker Boone \"Back to Gold\" Cuffed Beanie is knitted from premium, ultra-soft Turbo acrylic fabric for ultimate comfort during chilly weather. Featuring his signature branding in a rich gold embroidered logo on a classic knit design, it’s the perfect cozy addition to your late-autumn and winter wardrobe.",
     "details": [
@@ -292,7 +292,7 @@ const products: Product[] = [
     "id": "beanie-september-white",
     "name": "Ryker Boone \"September Turns Gold\" Yupoong Cuffed Beanie (White Logo)",
     "price": "$13.79",
-    "image": "/images/consistent/merch_joyce_beanie.png",
+    "image": "/images/consistent/merch_hat_beanie.png",
     "category": "APPAREL",
     "description": "A timeless, cozy classic for the cold months. The Ryker Boone \"September Turns Gold\" Cuffed Beanie is made from premium stretch knit fabric, keeping you exceptionally warm through the fall and winter seasons. Emblazoned with a crisp white embroidered logo, it's a bright and classic fan favorite.",
     "details": [
@@ -307,7 +307,7 @@ const products: Product[] = [
     "id": "bra-dust-kicking-black",
     "name": "Ryker Boone \"Dust Kicking Rhythm\" Sports Bra",
     "price": "$24.43",
-    "image": "/images/consistent/ryker_joyce_morning_coffee.png",
+    "image": "/images/consistent/merch_workout.png",
     "category": "APPAREL",
     "description": "Keep your rhythm steady and your movement free. The official Ryker Boone \"Dust Kicking Rhythm\" Sports Bra is designed for low-to-medium intensity activities—perfect for yoga, hiking, daily chores, or backyard two-stepping. Made from a comfortable, moisture-wicking polyester-spandex blend, it features his signature branding in a clean black logo design, keeping you cool, dry, and moving in time with the beat.",
     "details": [
@@ -395,7 +395,7 @@ const products: Product[] = [
     "id": "crop-hoodie-august-white",
     "name": "Ryker Boone \"August Heatwave\" Fleece Crop Hoodie (White Logo)",
     "price": "$33.15",
-    "image": "/images/consistent/merch_joyce_beanie.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "APPAREL",
     "description": "The ultimate cozy layer for cooler nights. The Ryker Boone \"August Heatwave\" Fleece Crop Hoodie features a bold white logo design printed on premium, ultra-soft midweight fleece. With a comfortable regular fit and a raw-edge cropped hem, it's a stylish, high-contrast fan favorite for campfires and late-night drives.",
     "details": [
@@ -417,7 +417,7 @@ const products: Product[] = [
     "id": "crop-hoodie-backroad-black",
     "name": "Ryker Boone \"Backroad Heartbeat\" Fleece Crop Hoodie (Black Logo)",
     "price": "$33.15",
-    "image": "/images/consistent/merch_joyce_beanie.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "APPAREL",
     "description": "Cozy warmth with an understated, low-profile edge. The Ryker Boone \"Backroad Heartbeat\" Fleece Crop Hoodie combines an incredibly soft cotton-poly fleece fabric with a stealthy, tone-on-tone black logo design. Perfect for early morning porch coffee, warm autumn road trips, or just winding down.",
     "details": [
@@ -439,7 +439,7 @@ const products: Product[] = [
     "id": "crop-hoodie-lights-gold",
     "name": "Ryker Boone \"When The Lights Go Gold\" Fleece Crop Hoodie (Gold Logo)",
     "price": "$33.15",
-    "image": "/images/consistent/merch_joyce_beanie.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "APPAREL",
     "description": "Cozy meets chic. The official Ryker Boone \"When The Lights Go Gold\" Fleece Crop Hoodie features an ultra-soft fleece lining with a modern cropped, raw-edge hem. Emblazoned with a premium gold logo, it’s the perfect warm layer for wrapping up after an outdoor festival set or relaxing by the cabin fireplace.",
     "details": [
@@ -461,7 +461,7 @@ const products: Product[] = [
     "id": "tote-honky-tonk-white",
     "name": "Ryker Boone \"Honky Tonk Sundown\" Eco-Friendly Tote Bag (Black/White Logo)",
     "price": "$15.56",
-    "image": "/images/consistent/merch_joyce_tote.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "ACCESSORIES",
     "description": "Sustainable style for the open road. The official Ryker Boone \"Honky Tonk Sundown\" Tote Bag is crafted from 100% certified organic cotton twill. Featuring a clean, high-contrast white logo printed on a durable black canvas bag, it’s a roomy and stylish accessory perfect for carrying vinyl records, groceries, books, or concert gear.",
     "details": [
@@ -476,7 +476,7 @@ const products: Product[] = [
     "id": "tote-back-to-gold-gold",
     "name": "Ryker Boone \"Back To Gold\" Eco-Friendly Tote Bag (Oyster/Gold Logo)",
     "price": "$15.56",
-    "image": "/images/consistent/merch_joyce_tote.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "ACCESSORIES",
     "description": "Natural, warm, and eco-friendly. The Ryker Boone \"Back To Gold\" Tote Bag features his signature branding in a rich gold print on a beautiful oyster-colored organic cotton canvas background. Roomy and highly practical, it brings a touch of rustic elegance to your daily errands, library trips, or beach days.",
     "details": [
@@ -491,7 +491,7 @@ const products: Product[] = [
     "id": "tote-lights-gold",
     "name": "Ryker Boone \"When The Lights Go Gold\" Eco-Friendly Tote Bag (Black/Gold Logo)",
     "price": "$15.56",
-    "image": "/images/consistent/merch_joyce_tote.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "ACCESSORIES",
     "description": "Premium look, eco-friendly feel. The Ryker Boone \"When The Lights Go Gold\" Tote Bag features his signature logo in a striking gold design printed against a deep black organic cotton canvas background. Combining durability with high-end style, it's the perfect daily carryall for your records, books, and everyday essentials.",
     "details": [
@@ -506,7 +506,7 @@ const products: Product[] = [
     "id": "tote-barefoot-black",
     "name": "Ryker Boone \"Barefoot on the Backroad\" Eco-Friendly Tote Bag (Oyster/Black Logo)",
     "price": "$15.56",
-    "image": "/images/consistent/merch_joyce_tote.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "ACCESSORIES",
     "description": "Earthy, organic, and laid-back. Inspired by country backroads and slow living, the Ryker Boone \"Barefoot on the Backroad\" Tote Bag is made from 100% certified organic cotton twill. Emblazoned with a clean black logo design on a natural oyster-colored background, it's a versatile daily essential for beach trips, farmer's markets, or library runs.",
     "details": [
@@ -587,7 +587,7 @@ const products: Product[] = [
     "id": "tee-youth-gold",
     "name": "Ryker Boone Youth \"Gold Logo\" T-Shirt (Black/Gold Logo)",
     "price": "$13.50",
-    "image": "/images/consistent/merch_graham_tee.png",
+    "image": "/images/consistent/merch_graham_playing.png",
     "category": "APPAREL",
     "description": "The perfect tee for the next generation of country music fans. Modeled by Ryker's son Graham, this premium youth shirt features the signature gold Ryker Boone logo printed on a super-soft, lightweight black tee. Crafted from 100% Airlume combed and ring-spun cotton, it provides ultimate comfort for school, play, and family ranch adventures.",
     "details": [
@@ -608,7 +608,7 @@ const products: Product[] = [
     "id": "tee-youth-backroad-black",
     "name": "Ryker Boone Youth \"Backroad Kid\" T-Shirt (White/Black Logo)",
     "price": "$13.50",
-    "image": "/images/consistent/merch_graham_tee.png",
+    "image": "/images/consistent/merch_graham_playing.png",
     "category": "APPAREL",
     "description": "Classic style for active kids. The Ryker Boone Youth \"Backroad Kid\" T-Shirt features a clean, high-contrast black logo printed on a crisp white Bella+Canvas tee. Exceptionally soft and lightweight, it’s a durable everyday staple that keeps kids cool and comfortable from the classroom to backyard play.",
     "details": [
@@ -629,7 +629,7 @@ const products: Product[] = [
     "id": "tee-youth-honky-tonk-white",
     "name": "Ryker Boone Youth \"Honky Tonk Kid\" T-Shirt (Black/White Logo)",
     "price": "$13.50",
-    "image": "/images/consistent/merch_graham_tee.png",
+    "image": "/images/consistent/merch_graham_playing.png",
     "category": "APPAREL",
     "description": "A timeless classic, scaled down for younger fans. Emblazoned with a bold white logo on a solid black background, this Ryker Boone youth tee is printed on a premium, ultra-soft Bella+Canvas cotton shirt. Offering a relaxed unisex fit and ultimate breathability, it's the perfect concert or everyday tee for active kids.",
     "details": [
@@ -779,7 +779,7 @@ const products: Product[] = [
     "id": "tee-womens-classic-sweet-tea",
     "name": "Ryker Boone Women's \"Sweet Tea & Blue Jeans\" Classic Tee (White/Black Logo)",
     "price": "$18.55",
-    "image": "/images/consistent/merch_joyce_beanie.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "APPAREL",
     "description": "A premium, heavy-drape classic for everyday comfort. Inspired by slow southern afternoons and front porch writing sessions, this women’s classic tee features Ryker's signature branding in a bold black logo printed on a crisp white shirt. Crafted from 100% combed cotton, it offers a sturdy but soft feel with a relaxed regular fit and a flattering longer length.",
     "details": [
@@ -801,7 +801,7 @@ const products: Product[] = [
     "id": "tee-womens-classic-lights-gold",
     "name": "Ryker Boone Women's \"When The Lights Go Gold\" Classic Tee (Black/Gold Logo)",
     "price": "$18.55",
-    "image": "/images/consistent/merch_joyce_beanie.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "APPAREL",
     "description": "Bring a touch of golden country style to your everyday look. The official \"When The Lights Go Gold\" women's classic tee features Ryker Boone's signature stamp printed in a rich, vibrant gold against a deep black background. Made from premium, heavyweight combed cotton, it gives you a structured, durable drape that keeps its shape and look.",
     "details": [
@@ -823,7 +823,7 @@ const products: Product[] = [
     "id": "tee-womens-classic-backroad-white",
     "name": "Ryker Boone Women's \"Backroad Heartbeat\" Classic Tee (Black/White Logo)",
     "price": "$18.55",
-    "image": "/images/consistent/merch_joyce_beanie.png",
+    "image": "/images/consistent/merch_joyce_shopping.png",
     "category": "APPAREL",
     "description": "Classic styling built for the country roads. Emblazoned with a crisp white logo on a sleek black background, the \"Backroad Heartbeat\" classic tee is a premium, everyday basic for fans. Heavyweight but exceptionally soft, this combed cotton tee offers a clean drape and a longer length for casual, comfortable wear.",
     "details": [

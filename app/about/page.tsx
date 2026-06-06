@@ -5,9 +5,14 @@ import DigitalArtistProfile from "@/components/DigitalArtistProfile";
 export default function ArtistLibrary() {
   const backstoryImages = [
     {
-      src: "/images/consistent/ryker_as_boy.png",
+      src: "/images/consistent/young-ryker-roots.jpg",
       title: "Heartland Roots",
       desc: "Young Ryker practicing on a small acoustic guitar in Columbia, Tennessee."
+    },
+    {
+      src: "/images/consistent/ryker_teaching_graham.png",
+      title: "Teaching Graham",
+      desc: "Teaching his son Graham how to form chords on his first junior acoustic guitar."
     },
     {
       src: "/images/consistent/ryker_writing_lyrics.png",
@@ -90,11 +95,6 @@ export default function ArtistLibrary() {
       desc: "Quiet early hours talking and laughing with Joyce over warm mugs of coffee."
     },
     {
-      src: "/images/consistent/ryker_teaching_graham.png",
-      title: "Teaching Graham",
-      desc: "Teaching his son Graham how to form chords on his first junior acoustic guitar."
-    },
-    {
       src: "/images/consistent/ryker_grooming_horse.png",
       title: "Ranch Horse Grooming",
       desc: "Working side by side with Graham brushing down their chestnut horse, Poppy, in the stables."
@@ -123,6 +123,11 @@ export default function ArtistLibrary() {
       product: "Canvas Logo Tote Bag"
     },
     {
+      src: "/images/consistent/merch_joyce tote_black.png",
+      model: "Joyce Boone",
+      product: "Black Canvas Logo Tote Bag"
+    },
+    {
       src: "/images/consistent/merch_graham_playing.png",
       model: "Graham Boone",
       product: "Youth Gold Logo Tee"
@@ -136,6 +141,11 @@ export default function ArtistLibrary() {
       src: "/images/consistent/merch_family_blanket.png",
       model: "Joyce Boone",
       product: "Embroidered Camp Blanket"
+    },
+    {
+      src: "/images/consistent/merch_family_cozy.png",
+      model: "Ryker & Joyce Boone",
+      product: "Signature Ceramic Mugs"
     }
   ];
 

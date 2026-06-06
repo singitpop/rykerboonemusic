@@ -134,7 +134,7 @@ export default function ArtistLibrary() {
     },
     {
       src: "/images/consistent/merch_family_blanket.png",
-      model: "The Boone Family",
+      model: "Joyce Boone",
       product: "Embroidered Camp Blanket"
     }
   ];

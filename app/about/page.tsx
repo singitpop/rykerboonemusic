@@ -110,7 +110,7 @@ export default function ArtistLibrary() {
     {
       src: "/images/consistent/merch_hat_beanie.png",
       model: "Ryker & Joyce Boone",
-      product: "Signature Trucker Hat & Knit Beanie"
+      product: "Ryker Boone - Signature Trucker Hat & Joyce Boone - Cozy Logo Knit Beanie"
     },
     {
       src: "/images/consistent/merch_workout.png",

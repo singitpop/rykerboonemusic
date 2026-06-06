@@ -108,7 +108,7 @@ export default function ArtistLibrary() {
 
   const merchImages = [
     {
-      src: "/images/consistent/merch_ryker_trucker_hat.png",
+      src: "/images/consistent/merch_hat_beanie.png",
       model: "Ryker Boone",
       product: "Signature Trucker Hat"
     },

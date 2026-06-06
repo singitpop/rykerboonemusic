@@ -91,9 +91,9 @@ export default function DigitalArtistProfile() {
         borderBottom: '1px solid rgba(255,255,255,0.05)'
       }}>
         {[
-          '/images/consistent/ryker_writing_lyrics.png',
+          '/images/consistent/merch_family_group.png',
           '/images/consistent/family_campfire_jam.png',
-          '/images/consistent/ryker_singing_grit.png',
+          '/images/consistent/family_ranch_picnic.png',
           '/images/ryker_joyce_bettie_porch.png'
         ].map((img, i) => (
           <div key={i} style={{ aspectRatio: '1', position: 'relative', overflow: 'hidden' }}>

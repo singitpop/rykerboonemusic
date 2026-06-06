@@ -51,6 +51,7 @@ export default function Footer() {
         <div>
           <h5 style={{ color: 'white', marginBottom: '1.5rem', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Social</h5>
           <ul style={{ display: 'grid', gap: '1rem', fontSize: '0.9rem' }}>
+            <li><a href="https://www.tiktok.com/@ryker.boone1" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>TikTok</a></li>
             <li><a href="#" style={{ color: 'var(--text-secondary)' }}>Instagram</a></li>
             <li><a href="#" style={{ color: 'var(--text-secondary)' }}>YouTube</a></li>
             <li><a href="#" style={{ color: 'var(--text-secondary)' }}>Spotify</a></li>

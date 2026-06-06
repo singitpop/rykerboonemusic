@@ -28,12 +28,12 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/store",
-        destination: "https://ryker-boone-shop.fourthwall.com",
+        destination: "https://shop.rykerboonemusic.website",
         permanent: false,
       },
       {
         source: "/store/:path*",
-        destination: "https://ryker-boone-shop.fourthwall.com",
+        destination: "https://shop.rykerboonemusic.website",
         permanent: false,
       },
     ];

@@ -10,7 +10,7 @@ const lookbookItems = [
     description: "Premium black & gold Stage Hoodies, Sherpa blankets, beanies, and custom accessories.",
     image: "/images/consistent/merch_family_group.png",
     cta: "SHOP GOLD RECORD",
-    link: "https://ryker-boone-shop.fourthwall.com/collections/the-gold-record-collection"
+    link: "https://shop.rykerboonemusic.website/collections/the-gold-record-collection"
   },
   {
     title: "The Backroad Collection",
@@ -18,7 +18,7 @@ const lookbookItems = [
     description: "Stealth activewear, sports bras, crop hoodies, beanies, and custom aprons.",
     image: "/images/consistent/merch_workout.png",
     cta: "SHOP ACTIVEWEAR",
-    link: "https://ryker-boone-shop.fourthwall.com/collections/the-backroad-collection"
+    link: "https://shop.rykerboonemusic.website/collections/the-backroad-collection"
   },
   {
     title: "The Honky Tonk Collection",
@@ -26,7 +26,7 @@ const lookbookItems = [
     description: "Bella+Canvas supersoft t-shirts, tote bags, snapback trucker hats, and classic merch.",
     image: "/images/consistent/merch_joyce_shopping.png",
     cta: "SHOP TEES & TOTES",
-    link: "https://ryker-boone-shop.fourthwall.com/collections/the-honky-tonk-collection"
+    link: "https://shop.rykerboonemusic.website/collections/the-honky-tonk-collection"
   },
   {
     title: "Home & Kitchen",
@@ -34,7 +34,7 @@ const lookbookItems = [
     description: "Custom rocks glasses, double-sided glossy ceramic mugs, and cozy cabin blankets.",
     image: "/images/consistent/merch_family_cozy.png",
     cta: "SHOP HOME & DECOR",
-    link: "https://ryker-boone-shop.fourthwall.com/collections/grahams-youth-home-collection"
+    link: "https://shop.rykerboonemusic.website/collections/grahams-youth-home-collection"
   },
   {
     title: "Graham's Kids Collection",
@@ -42,7 +42,7 @@ const lookbookItems = [
     description: "Bella+Canvas premium youth tees and Gildan heavyweight youth hoodies built child-safe.",
     image: "/images/consistent/merch_graham_playing.png",
     cta: "SHOP KIDS APPAREL",
-    link: "https://ryker-boone-shop.fourthwall.com/collections/grahams-youth-home-collection"
+    link: "https://shop.rykerboonemusic.website/collections/grahams-youth-home-collection"
   }
 ];
 
@@ -159,7 +159,7 @@ export default function ShopPreview() {
           <span className="subtitle">Official Catalog</span>
           <h2 className="section-title">LIFESTYLE <br /> <span style={{ color: 'var(--accent-gold)' }}>LOOKBOOK</span></h2>
         </div>
-        <Link href="https://ryker-boone-shop.fourthwall.com" target="_blank" rel="noopener noreferrer">
+        <Link href="https://shop.rykerboonemusic.website" target="_blank" rel="noopener noreferrer">
           <button style={{
             border: '1px solid rgba(226, 179, 90, 0.3)',
             color: 'var(--accent-gold)',

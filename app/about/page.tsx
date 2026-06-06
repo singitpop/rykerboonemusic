@@ -265,7 +265,17 @@ export default function ArtistLibrary() {
                 <div style={{ marginTop: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                   <div>
                     <span style={{ color: 'var(--accent-gold)', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: '0.25rem' }}>{img.model}</span>
-                    <span style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#f5f0e1' }}>{img.product}</span>
+                    <span style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#f5f0e1', display: 'block' }}>
+                      {img.product.includes(' & ') ? (
+                        img.product.split(' & ').map((part, idx) => (
+                          <span key={idx} style={{ display: 'block', marginTop: idx > 0 ? '0.15rem' : 0 }}>
+                            {idx > 0 ? '& ' : ''}{part}
+                          </span>
+                        ))
+                      ) : (
+                        img.product
+                      )}
+                    </span>
                   </div>
                 </div>
               </div>

@@ -123,7 +123,7 @@ export default function ArtistLibrary() {
       product: "Canvas Logo Tote Bag"
     },
     {
-      src: "/images/consistent/merch_graham_tee.png",
+      src: "/images/consistent/merch_graham_playing.png",
       model: "Graham Boone",
       product: "Youth Gold Logo Tee"
     },

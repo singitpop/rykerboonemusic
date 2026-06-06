@@ -109,13 +109,13 @@ export default function ArtistLibrary() {
   const merchImages = [
     {
       src: "/images/consistent/merch_hat_beanie.png",
-      model: "Ryker Boone",
-      product: "Signature Trucker Hat"
+      model: "Ryker & Joyce Boone",
+      product: "Signature Trucker Hat & Knit Beanie"
     },
     {
-      src: "/images/consistent/merch_hat_beanie.png",
-      model: "Joyce Boone",
-      product: "Cozy Logo Knit Beanie"
+      src: "/images/consistent/merch_workout.png",
+      model: "Ryker & Joyce Boone",
+      product: "Midnight Motion Activewear"
     },
     {
       src: "/images/consistent/merch_joyce_shopping.png",

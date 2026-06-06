@@ -90,7 +90,7 @@ export default function ArtistLibrary() {
       desc: "Performing an acoustic set for local friends and family in Columbia."
     },
     {
-      src: "/images/consistent/ryker_joyce_morning_coffee.png",
+      src: "/images/consistent/merch_family_cozy.png",
       title: "Morning Deck Coffee",
       desc: "Quiet early hours talking and laughing with Joyce over warm mugs of coffee."
     },

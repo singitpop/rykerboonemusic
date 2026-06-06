@@ -113,19 +113,14 @@ export default function ArtistLibrary() {
       product: "Signature Trucker Hat"
     },
     {
-      src: "/images/consistent/merch_joyce_beanie.png",
+      src: "/images/consistent/merch_hat_beanie.png",
       model: "Joyce Boone",
       product: "Cozy Logo Knit Beanie"
     },
     {
-      src: "/images/consistent/merch_joyce_tote.png",
+      src: "/images/consistent/merch_joyce_shopping.png",
       model: "Joyce Boone",
       product: "Canvas Logo Tote Bag"
-    },
-    {
-      src: "/images/consistent/merch_graham_hoodie.png",
-      model: "Graham Boone",
-      product: "Youth Brand Hoodie"
     },
     {
       src: "/images/consistent/merch_graham_tee.png",

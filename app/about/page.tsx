@@ -15,9 +15,9 @@ export default function ArtistLibrary() {
       desc: "Teaching his son Graham how to form chords on his first junior acoustic guitar."
     },
     {
-      src: "/images/consistent/artist-signing.jpg",
-      title: "Signing the Contract",
-      desc: "Signing his official contract with record label SINGIT POP."
+      src: "/images/consistent/family_chopping_wood.png",
+      title: "Autumn Harvest",
+      desc: "Ryker and Graham stacking firewood outside their cabin in late autumn."
     },
     {
       src: "/images/consistent/ryker_playing_bar.png",
@@ -75,9 +75,9 @@ export default function ArtistLibrary() {
       desc: "Singing together around the upright piano in a local rural Tennessee chapel."
     },
     {
-      src: "/images/consistent/family_chopping_wood.png",
-      title: "Autumn Harvest",
-      desc: "Ryker and Graham stacking firewood outside their cabin in late autumn."
+      src: "/images/consistent/artist-signing.jpg",
+      title: "Signing the Contract",
+      desc: "Signing his official contract with record label SINGIT POP."
     },
     {
       src: "/images/consistent/ryker_recording_studio.png",

@@ -15,9 +15,9 @@ export default function ArtistLibrary() {
       desc: "Teaching his son Graham how to form chords on his first junior acoustic guitar."
     },
     {
-      src: "/images/consistent/ryker_writing_lyrics.png",
-      title: "Cabin Sessions",
-      desc: "Writing early song lyrics at a rustic wooden table by natural window light."
+      src: "/images/consistent/artist-signing.jpg",
+      title: "Signing the Contract",
+      desc: "Signing his official contract with record label SINGIT POP."
     },
     {
       src: "/images/consistent/ryker_playing_bar.png",

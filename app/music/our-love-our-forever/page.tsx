@@ -145,7 +145,7 @@ export default function OurLoveOurForeverPage() {
               zIndex: 10,
               boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
             }}>
-              COMING FEB 12 2027
+              IN THE STUDIO
             </div>
           </div>
 

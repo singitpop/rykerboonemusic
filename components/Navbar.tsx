@@ -47,7 +47,7 @@ export default function Navbar() {
       backdropFilter: scrolled ? 'blur(10px)' : 'none',
       transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
       display: 'grid',
-      gridTemplateColumns: '1.2fr 1fr',
+      gridTemplateColumns: '1.4fr 1fr',
       alignItems: 'center',
       borderBottom: scrolled ? '1px solid rgba(226, 179, 90, 0.1)' : '1px solid transparent'
     }}>
@@ -74,7 +74,7 @@ export default function Navbar() {
             }}
           />
         </Link>
-        <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+        <div className="nav-links" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
           <Link 
             href="/" 
             className="nav-link" 
@@ -162,7 +162,7 @@ export default function Navbar() {
               </Link>
             </div>
           ) : (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
               <Link 
                 href="/sign-in" 
                 className="nav-link"

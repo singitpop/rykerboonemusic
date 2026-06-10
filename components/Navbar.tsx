@@ -32,6 +32,7 @@ export default function Navbar() {
   const isMusicActive = pathname === "/music" || pathname.startsWith("/music/");
   const isStoryActive = pathname === "/about";
   const isSupportActive = pathname === "/support";
+  const isSignInActive = pathname === "/sign-in";
   
   const isAdmin = isLoaded && session && ['LABEL', 'ADMIN'].includes((session.role || '').toUpperCase());
 
@@ -73,7 +74,7 @@ export default function Navbar() {
             }}
           />
         </Link>
-        <div className="nav-links" style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
+        <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
           <Link 
             href="/" 
             className="nav-link" 
@@ -144,56 +145,56 @@ export default function Navbar() {
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                   cursor: 'pointer',
-                  transition: 'var(--transition-smooth)'
-                }}>
+                  transition: 'var(--transition-smooth)',
+                  whiteSpace: 'nowrap'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'white';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'var(--accent-gold)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+                >
                   Lounge
                 </button>
               </Link>
             </div>
           ) : (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <Link href="/sign-in">
-                <button style={{
-                  background: 'transparent',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  borderRadius: '24px',
-                  color: 'white',
-                  padding: '0.6rem 1.2rem',
-                  fontSize: '0.65rem',
-                  fontWeight: '900',
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'var(--transition-smooth)'
+            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+              <Link 
+                href="/sign-in" 
+                className="nav-link"
+                style={{ 
+                  color: isSignInActive ? 'var(--accent-gold)' : 'var(--text-secondary)',
+                  whiteSpace: 'nowrap'
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'white';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.background = 'transparent';
-                }}
-                >
-                  Sign In
-                </button>
+              >
+                Sign In
               </Link>
               <Link href="/club">
                 <button style={{
                   background: 'var(--accent-gold)',
                   color: 'black',
-                  padding: '0.6rem 1.2rem',
+                  padding: '0.7rem 1.5rem',
                   border: 'none',
-                  borderRadius: '24px',
                   fontSize: '0.65rem',
                   fontWeight: '900',
-                  letterSpacing: '0.1em',
+                  letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                   cursor: 'pointer',
-                  transition: 'var(--transition-smooth)'
+                  transition: 'var(--transition-smooth)',
+                  whiteSpace: 'nowrap'
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'white';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'var(--accent-gold)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
                 >
                   Join Club Ryker
                 </button>

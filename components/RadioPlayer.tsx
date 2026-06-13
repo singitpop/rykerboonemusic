@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import KaraokeLyrics from "./KaraokeLyrics";
+
 
 // A flat list of all tracks we can stream from the vault
 const ALL_TRACKS = [
@@ -70,7 +70,7 @@ export default function RadioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [showLyrics, setShowLyrics] = useState(false);
+
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -162,39 +162,35 @@ export default function RadioPlayer() {
       />
 
       {/* Main View Area */}
-      {showLyrics ? (
-        <KaraokeLyrics trackTitle={currentTrack.title} />
-      ) : (
+      <div style={{
+        width: "300px",
+        height: "300px",
+        borderRadius: "50%",
+        overflow: "hidden",
+        border: "4px solid rgba(226,179,90,0.5)",
+        boxShadow: "0 0 30px rgba(226,179,90,0.2)",
+        animation: isPlaying ? "spin 20s linear infinite" : "none",
+        marginBottom: "2rem",
+        position: "relative"
+      }}>
+        <Image 
+          src={currentTrack.cover}
+          alt="Album Cover"
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="300px"
+        />
+        {/* Vinyl Center Hole */}
         <div style={{
-          width: "300px",
-          height: "300px",
+          position: "absolute",
+          top: "50%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "30px", height: "30px",
+          background: "#111",
           borderRadius: "50%",
-          overflow: "hidden",
-          border: "4px solid rgba(226,179,90,0.5)",
-          boxShadow: "0 0 30px rgba(226,179,90,0.2)",
-          animation: isPlaying ? "spin 20s linear infinite" : "none",
-          marginBottom: "2rem",
-          position: "relative"
-        }}>
-          <Image 
-            src={currentTrack.cover}
-            alt="Album Cover"
-            fill
-            style={{ objectFit: "cover" }}
-            sizes="300px"
-          />
-          {/* Vinyl Center Hole */}
-          <div style={{
-            position: "absolute",
-            top: "50%", left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "30px", height: "30px",
-            background: "#111",
-            borderRadius: "50%",
-            border: "2px solid rgba(255,255,255,0.1)"
-          }}></div>
-        </div>
-      )}
+          border: "2px solid rgba(255,255,255,0.1)"
+        }}></div>
+      </div>
 
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes spin {
@@ -203,27 +199,8 @@ export default function RadioPlayer() {
         }
       `}} />
 
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", padding: "0 2rem", marginBottom: "2rem" }}>
-        <button 
-          onClick={() => setShowLyrics(!showLyrics)}
-          style={{
-            background: "none",
-            border: "1px solid rgba(226,179,90,0.4)",
-            color: showLyrics ? "var(--accent-gold)" : "rgba(255,255,255,0.6)",
-            padding: "0.5rem 1rem",
-            borderRadius: "20px",
-            cursor: "pointer",
-            fontSize: "0.8rem",
-            fontWeight: "bold",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            transition: "all 0.2s"
-          }}
-        >
-          {showLyrics ? "Show Vinyl" : "Karaoke Mode"}
-        </button>
-
-        <div style={{ textAlign: "right" }}>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", padding: "0 2rem", marginBottom: "2rem" }}>
+        <div style={{ textAlign: "center" }}>
           <h2 style={{ fontSize: "1.5rem", margin: "0 0 0.2rem 0" }}>
             {currentTrack.title}
           </h2>

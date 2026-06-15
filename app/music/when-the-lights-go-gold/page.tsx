@@ -264,9 +264,9 @@ export default function WhenTheLightsGoGoldPage() {
             }}>
               <span style={{ fontSize: '1.2rem' }}>🎵</span>
               <span style={{ color: 'var(--text-primary)', lineHeight: '1.5' }}>
-                Want to listen? 30-second previews and high-res Premium downloads are available.{' '}
+                Want to listen? Join as a free Fan to hear 30-second previews, or become a VIP Member for just £2.99 to listen to all albums and future releases in full.{' '}
                 <Link href="/club" style={{ color: 'var(--accent-gold)', fontWeight: 'bold', textDecoration: 'underline' }}>
-                  Play 30s Preview in Vault
+                  Join Now
                 </Link>
               </span>
             </div>

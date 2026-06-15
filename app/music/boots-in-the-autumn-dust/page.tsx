@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRykerSession } from "@/components/AuthProvider";
+import { RYKER_ALBUM_LINKS } from "@/data/streamingLinks";
 
 export default function BootsAlbumPage() {
   const { session, isLoaded } = useRykerSession();
@@ -166,46 +167,124 @@ export default function BootsAlbumPage() {
             </p>
 
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-              <button style={{
-                background: 'var(--accent-gold)',
-                color: 'black',
-                padding: '1rem 2.5rem',
-                fontSize: '0.75rem',
-                fontWeight: '900',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
+              <a 
+                href={RYKER_ALBUM_LINKS.bootsInTheAutumnDust.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: 'var(--accent-gold)',
+                  color: 'black',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
               >
                 LISTEN ON SPOTIFY
-              </button>
-              <button style={{
-                border: '1px solid rgba(255,255,255,0.2)',
-                background: 'transparent',
-                color: 'white',
-                padding: '1rem 2.5rem',
-                fontSize: '0.75rem',
-                fontWeight: '900',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'white';
-                e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                e.currentTarget.style.background = 'transparent';
-              }}
+              </a>
+              <a 
+                href={RYKER_ALBUM_LINKS.bootsInTheAutumnDust.appleMusic}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'transparent',
+                  color: 'white',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
               >
                 APPLE MUSIC
-              </button>
+              </a>
+              <a 
+                href={RYKER_ALBUM_LINKS.bootsInTheAutumnDust.amazonMusic}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'transparent',
+                  color: 'white',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                AMAZON MUSIC
+              </a>
+              <a 
+                href={RYKER_ALBUM_LINKS.bootsInTheAutumnDust.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'transparent',
+                  color: 'white',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                YOUTUBE
+              </a>
             </div>
           </div>
         </div>

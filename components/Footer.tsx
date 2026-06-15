@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import Image from "next/image";
+import { RYKER_ARTIST_LINKS } from "@/data/streamingLinks";
 
 export default function Footer() {
   return (
@@ -53,9 +54,10 @@ export default function Footer() {
           <ul style={{ display: 'grid', gap: '1rem', fontSize: '0.9rem' }}>
             <li><a href="https://www.tiktok.com/@ryker.boone1" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>TikTok</a></li>
             <li><a href="#" style={{ color: 'var(--text-secondary)' }}>Instagram</a></li>
-            <li><a href="#" style={{ color: 'var(--text-secondary)' }}>YouTube</a></li>
-            <li><a href="#" style={{ color: 'var(--text-secondary)' }}>Spotify</a></li>
-            <li><a href="#" style={{ color: 'var(--text-secondary)' }}>Apple Music</a></li>
+            <li><a href={RYKER_ARTIST_LINKS.youtube} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>YouTube</a></li>
+            <li><a href={RYKER_ARTIST_LINKS.spotify} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>Spotify</a></li>
+            <li><a href={RYKER_ARTIST_LINKS.appleMusic} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>Apple Music</a></li>
+            <li><a href={RYKER_ARTIST_LINKS.amazonMusic} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>Amazon Music</a></li>
           </ul>
         </div>
 

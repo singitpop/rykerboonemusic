@@ -3,7 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const albums = [
+interface AlbumItem {
+  title: string;
+  tagline: string;
+  image: string;
+  description: string;
+  link: string;
+  releaseDate: string;
+  status?: string;
+}
+
+const albums: AlbumItem[] = [
   {
     title: "Boots in the Autumn Dust",
     tagline: "The Full Length Album",
@@ -18,7 +28,7 @@ const albums = [
     image: "/images/september turns gold - album.png",
     description: "A cinematic journey through heartland storytelling and modern country grit.",
     link: "/music/september-turns-gold",
-    releaseDate: "2026-08-01T00:00:00"
+    releaseDate: "2026-06-05T00:00:00"
   },
   {
     title: "When The Lights Go Gold",
@@ -26,8 +36,7 @@ const albums = [
     image: "/images/when the lights go gold - album.png",
     description: "A cinematic modern country pop album built for cold-night drives and neon reflections.",
     link: "/music/when-the-lights-go-gold",
-    releaseDate: "2026-10-01T00:00:00",
-    status: "IN THE STUDIO"
+    releaseDate: "2026-06-10T00:00:00"
   },
   {
     title: "Our Love Our Forever – Country Wedding Edition",
@@ -35,7 +44,7 @@ const albums = [
     image: "/images/our love our forever - album.png",
     description: "A high-energy, modern Nashville pop-country wedding album driven by polished 130 BPM country-pop production, upbeat rhythms, and celebratory wedding energy.",
     link: "/music/our-love-our-forever",
-    releaseDate: "2027-02-12T00:00:00"
+    releaseDate: "2026-06-12T00:00:00"
   }
 ];
 

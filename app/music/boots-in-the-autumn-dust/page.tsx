@@ -254,37 +254,6 @@ export default function BootsAlbumPage() {
               >
                 AMAZON MUSIC
               </a>
-              <a 
-                href={RYKER_ALBUM_LINKS.bootsInTheAutumnDust.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  background: 'transparent',
-                  color: 'white',
-                  padding: '1rem 2.5rem',
-                  fontSize: '0.75rem',
-                  fontWeight: '900',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'white';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.background = 'transparent';
-                }}
-              >
-                YOUTUBE
-              </a>
             </div>
           </div>
         </div>

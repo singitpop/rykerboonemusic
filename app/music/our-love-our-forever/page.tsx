@@ -134,7 +134,7 @@ export default function OurLoveOurForeverPage() {
               zIndex: 10,
               boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
             }}>
-              OUT NOW
+              IN THE STUDIO
             </div>
           </div>
 
@@ -171,9 +171,9 @@ export default function OurLoveOurForeverPage() {
               paddingBottom: '1rem',
               flexWrap: 'wrap'
             }}>
-              <div>RELEASED: <strong style={{ color: 'white' }}>JUNE 2026</strong></div>
+              <div>RELEASE DATE: <strong style={{ color: 'white' }}>12 FEBRUARY 2027</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGIT POP</a></strong></div>
-              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>OUT NOW</strong></div>
+              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>PRE-SAVE</strong></div>
               <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL</strong></div>
             </div>
 
@@ -211,124 +211,46 @@ export default function OurLoveOurForeverPage() {
             </div>
 
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-              <a 
-                href={RYKER_ALBUM_LINKS.ourLoveOurForever.spotify}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  background: 'var(--accent-gold)',
-                  color: 'black',
-                  padding: '1rem 2.5rem',
-                  fontSize: '0.75rem',
-                  fontWeight: '900',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
-                onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
+              <button style={{
+                background: 'var(--accent-gold)',
+                color: 'black',
+                padding: '1rem 2.5rem',
+                fontSize: '0.75rem',
+                fontWeight: '900',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
               >
-                LISTEN ON SPOTIFY
-              </a>
-              <a 
-                href={RYKER_ALBUM_LINKS.ourLoveOurForever.appleMusic}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  background: 'transparent',
-                  color: 'white',
-                  padding: '1rem 2.5rem',
-                  fontSize: '0.75rem',
-                  fontWeight: '900',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'white';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.background = 'transparent';
-                }}
+                PRE-SAVE ON SPOTIFY
+              </button>
+              <button style={{
+                border: '1px solid rgba(255,255,255,0.2)',
+                background: 'transparent',
+                color: 'white',
+                padding: '1rem 2.5rem',
+                fontSize: '0.75rem',
+                fontWeight: '900',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'white';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                e.currentTarget.style.background = 'transparent';
+              }}
               >
-                APPLE MUSIC
-              </a>
-              <a 
-                href={RYKER_ALBUM_LINKS.ourLoveOurForever.amazonMusic}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  background: 'transparent',
-                  color: 'white',
-                  padding: '1rem 2.5rem',
-                  fontSize: '0.75rem',
-                  fontWeight: '900',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'white';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.background = 'transparent';
-                }}
-              >
-                AMAZON MUSIC
-              </a>
-              <a 
-                href={RYKER_ALBUM_LINKS.ourLoveOurForever.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  background: 'transparent',
-                  color: 'white',
-                  padding: '1rem 2.5rem',
-                  fontSize: '0.75rem',
-                  fontWeight: '900',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'white';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.background = 'transparent';
-                }}
-              >
-                YOUTUBE
-              </a>
+                PRE-ADD ON APPLE MUSIC
+              </button>
             </div>
           </div>
         </div>

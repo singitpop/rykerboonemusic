@@ -32,5 +32,17 @@ export const RYKER_ALBUM_LINKS = {
     appleMusic: "#",
     amazonMusic: "#",
     youtube: "#"
+  },
+  christmasAllYearLong: {
+    spotify: "#",
+    appleMusic: "#",
+    amazonMusic: "#",
+    youtube: "#"
+  },
+  backroadsInBloom: {
+    spotify: "#",
+    appleMusic: "#",
+    amazonMusic: "#",
+    youtube: "#"
   }
 };

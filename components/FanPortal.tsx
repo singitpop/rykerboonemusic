@@ -140,6 +140,7 @@ export default function FanPortal() {
   const [isCheckoutLoading, setIsCheckoutLoading] = useState<boolean>(false);
   const [messages, setMessages] = useState<any[]>([]);
   const [activeTab, setActiveTab] = useState<'vault' | 'ringtones' | 'bts'>('vault');
+  const [showHoldingPage, setShowHoldingPage] = useState<boolean>(true);
   
   const router = useRouter();
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -275,10 +276,321 @@ export default function FanPortal() {
       setLockedModal(true);
       return;
     }
-    // Stream endpoint with format=wav and download=true to trigger S3 attachment download
     const downloadUrl = `/api/vault/stream?album=${selectedAlbum.id}&track=${currentTrack.id}&format=wav&download=true`;
     window.open(downloadUrl, "_blank");
   };
+
+  const displayHolding = isLoaded && !isPremium && showHoldingPage;
+
+
+  if (displayHolding) {
+    return (
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1rem 6rem", color: "#f5f0e1" }}>
+        {/* Clerk Account Status Badge */}
+        <div style={{
+          position: "fixed",
+          top: "100px",
+          right: "20px",
+          background: "rgba(10, 10, 10, 0.8)",
+          border: "1px solid rgba(255,255,255,0.1)",
+          borderRadius: "30px",
+          padding: "0.5rem 1.25rem",
+          zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          gap: "0.75rem",
+          backdropFilter: "blur(10px)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.5)"
+        }}>
+          <span style={{ fontSize: "0.6rem", fontWeight: "900", color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            Role:
+          </span>
+          <span style={{
+            background: "rgba(255,255,255,0.05)",
+            color: "white",
+            borderRadius: "20px",
+            padding: "0.3rem 0.8rem",
+            fontSize: "0.65rem",
+            fontWeight: "900",
+            letterSpacing: "0.05em",
+          }}>
+            {session ? "FREE FAN" : "GUEST"}
+          </span>
+        </div>
+
+        <div style={{ textAlign: "center", marginBottom: "5rem" }}>
+          <span style={{ color: "var(--accent-gold)", fontSize: "0.75rem", fontWeight: "900", letterSpacing: "0.3em", textTransform: "uppercase" }}>
+            Club Ryker Membership
+          </span>
+          <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(2rem, 5vw, 3.5rem)", marginTop: "1rem", marginBottom: "1.5rem", textTransform: "uppercase" }}>
+            Choose Your <span style={{ color: "var(--accent-gold)" }}>Access Level</span>
+          </h2>
+          <p style={{ color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto", fontSize: "0.95rem", lineHeight: "1.8" }}>
+            Join the inner circle. Select a tier below to unlock unreleased studio vaults, lossless streaming, and high-fidelity downloads.
+          </p>
+        </div>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          gap: "3rem",
+          maxWidth: "900px",
+          margin: "0 auto 4rem",
+          alignItems: "stretch"
+        }}>
+          {/* Card 1: Free Fan */}
+          <div style={{
+            background: "rgba(255,255,255,0.01)",
+            border: "1px solid rgba(255,255,255,0.03)",
+            borderRadius: "20px",
+            padding: "3rem 2.5rem",
+            display: "flex",
+            flexDirection: "column",
+            boxShadow: "0 15px 35px rgba(0,0,0,0.4)",
+            position: "relative",
+            transition: "all 0.3s"
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.03)';
+          }}
+          >
+            <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", margin: "0 0 0.5rem 0", color: "white" }}>Free Fan</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", margin: "0 0 2rem 0" }}>Get basic access to the Ryker Boone experience.</p>
+            
+            <div style={{ fontSize: "2.5rem", fontWeight: "900", color: "white", marginBottom: "2.5rem" }}>
+              £0.00 <span style={{ fontSize: "1rem", color: "var(--text-secondary)", fontWeight: "normal" }}>/ forever</span>
+            </div>
+
+            <ul style={{
+              listStyle: "none",
+              padding: 0,
+              margin: "0 0 3rem 0",
+              display: "grid",
+              gap: "1rem",
+              fontSize: "0.9rem",
+              color: "rgba(255,255,255,0.7)",
+              flex: 1
+            }}>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ color: "var(--accent-gold)" }}>✓</span> 30-second audio previews in vault
+              </li>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ color: "var(--accent-gold)" }}>✓</span> View backstory chapters & timeline
+              </li>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ color: "var(--accent-gold)" }}>✓</span> View official family lookbooks
+              </li>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem", opacity: 0.4 }}>
+                <span style={{ color: "rgba(255,255,255,0.3)" }}>✗</span> Lossless full-track streaming
+              </li>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem", opacity: 0.4 }}>
+                <span style={{ color: "rgba(255,255,255,0.3)" }}>✗</span> High-fidelity WAV downloads
+              </li>
+            </ul>
+
+            {session ? (
+              <button 
+                disabled
+                style={{
+                  width: "100%",
+                  padding: "1rem",
+                  borderRadius: "8px",
+                  background: "rgba(255,255,255,0.05)",
+                  color: "rgba(255,255,255,0.4)",
+                  border: "none",
+                  fontWeight: "bold",
+                  fontSize: "0.85rem",
+                  cursor: "default"
+                }}
+              >
+                YOUR CURRENT PLAN
+              </button>
+            ) : (
+              <Link href="/sign-up" style={{ textDecoration: "none" }}>
+                <button 
+                  style={{
+                    width: "100%",
+                    padding: "1rem",
+                    borderRadius: "8px",
+                    background: "rgba(255,255,255,0.08)",
+                    color: "white",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    fontWeight: "bold",
+                    fontSize: "0.85rem",
+                    cursor: "pointer",
+                    transition: "all 0.3s"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                    e.currentTarget.style.borderColor = 'white';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                  }}
+                >
+                  JOIN AS FREE FAN
+                </button>
+              </Link>
+            )}
+          </div>
+
+          {/* Card 2: VIP Member */}
+          <div style={{
+            background: "rgba(226, 179, 90, 0.02)",
+            border: "1px solid rgba(226, 179, 90, 0.3)",
+            borderRadius: "20px",
+            padding: "3rem 2.5rem",
+            display: "flex",
+            flexDirection: "column",
+            boxShadow: "0 20px 45px rgba(226, 179, 90, 0.05)",
+            position: "relative",
+            transition: "all 0.3s"
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = '0 25px 50px rgba(226, 179, 90, 0.08)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '0 20px 45px rgba(226, 179, 90, 0.05)';
+          }}
+          >
+            <div style={{
+              position: "absolute",
+              top: "1.5rem",
+              right: "1.5rem",
+              background: "var(--accent-gold)",
+              color: "black",
+              padding: "0.3rem 0.8rem",
+              borderRadius: "30px",
+              fontSize: "0.6rem",
+              fontWeight: "900",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase"
+            }}>
+              RECOMMENDED
+            </div>
+
+            <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", margin: "0 0 0.5rem 0", color: "var(--accent-gold)" }}>VIP Member</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", margin: "0 0 2rem 0" }}>Unlock full lossless audio vaults and digital assets.</p>
+            
+            <div style={{ fontSize: "2.5rem", fontWeight: "900", color: "white", marginBottom: "2.5rem" }}>
+              £2.99 <span style={{ fontSize: "1rem", color: "var(--text-secondary)", fontWeight: "normal" }}>/ month</span>
+            </div>
+
+            <ul style={{
+              listStyle: "none",
+              padding: 0,
+              margin: "0 0 3rem 0",
+              display: "grid",
+              gap: "1rem",
+              fontSize: "0.9rem",
+              color: "rgba(255,255,255,0.85)",
+              flex: 1
+            }}>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ color: "var(--accent-gold)" }}>★</span> Unlimited full-length lossless streaming
+              </li>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ color: "var(--accent-gold)" }}>★</span> High-fidelity studio WAV downloads
+              </li>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ color: "var(--accent-gold)" }}>★</span> Exclusive unreleased vault recordings
+              </li>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ color: "var(--accent-gold)" }}>★</span> iPhone & Android ringtone downloads
+              </li>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ color: "var(--accent-gold)" }}>★</span> Behind-the-scenes logs & photo sketches
+              </li>
+              <li style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ color: "var(--accent-gold)" }}>★</span> Access to 24/7 premium live radio stream
+              </li>
+            </ul>
+
+            {session ? (
+              <button 
+                onClick={handleCheckout}
+                disabled={isCheckoutLoading}
+                style={{
+                  width: "100%",
+                  padding: "1rem",
+                  borderRadius: "8px",
+                  background: "var(--accent-gold)",
+                  color: "black",
+                  border: "none",
+                  fontWeight: "900",
+                  fontSize: "0.85rem",
+                  letterSpacing: "0.05em",
+                  cursor: isCheckoutLoading ? "not-allowed" : "pointer",
+                  transition: "all 0.3s"
+                }}
+                onMouseEnter={(e) => { if (!isCheckoutLoading) e.currentTarget.style.background = '#f5c66b'; }}
+                onMouseLeave={(e) => { if (!isCheckoutLoading) e.currentTarget.style.background = 'var(--accent-gold)'; }}
+              >
+                {isCheckoutLoading ? "REDIRECTING..." : "UNLOCK VIP ACCESS NOW"}
+              </button>
+            ) : (
+              <a 
+                href={`${PLATFORM_URL}/api/auth-bridge?return_url=${typeof window !== 'undefined' ? encodeURIComponent(`${window.location.origin}/api/auth/callback`) : ''}`}
+                style={{ textDecoration: "none" }}
+              >
+                <button 
+                  style={{
+                    width: "100%",
+                    padding: "1rem",
+                    borderRadius: "8px",
+                    background: "var(--accent-gold)",
+                    color: "black",
+                    border: "none",
+                    fontWeight: "900",
+                    fontSize: "0.85rem",
+                    letterSpacing: "0.05em",
+                    cursor: "pointer",
+                    transition: "all 0.3s"
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
+                >
+                  GET VIP ACCESS
+                </button>
+              </a>
+            )}
+          </div>
+        </div>
+
+        <div style={{ textAlign: "center" }}>
+          <button 
+            onClick={() => setShowHoldingPage(false)}
+            style={{
+              background: "transparent",
+              color: "rgba(255,255,255,0.4)",
+              border: "none",
+              fontSize: "0.9rem",
+              textDecoration: "underline",
+              cursor: "pointer",
+              transition: "color 0.2s"
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
+          >
+            {session ? "Or, continue to Preview Lounge (30s previews only) →" : "Explore the Vault as Guest (30s previews only) →"}
+          </button>
+        </div>
+
+        {!session && (
+          <div style={{ textAlign: "center", marginTop: "3rem", color: "var(--text-secondary)", fontSize: "0.85rem" }}>
+            Already have an account?{" "}
+            <Link href="/sign-in" style={{ color: "var(--accent-gold)", textDecoration: "underline", fontWeight: "bold" }}>
+              Sign in here
+            </Link>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <section style={{ padding: "4rem 8% 8rem", background: "#050505", position: "relative" }}>

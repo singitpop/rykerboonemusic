@@ -36,8 +36,15 @@ const albums: AlbumItem[] = [
     image: "/images/when the lights go gold - album.png",
     description: "A cinematic modern country pop album built for cold-night drives and neon reflections.",
     link: "/music/when-the-lights-go-gold",
-    releaseDate: "2026-10-01T00:00:00",
-    status: "IN THE STUDIO"
+    releaseDate: "2026-10-01T00:00:00"
+  },
+  {
+    title: "Christmas All Year Long",
+    tagline: "Country Holiday Collection",
+    image: "/images/christmas-all-year-long-album.png",
+    description: "A heartwarming collection of country holiday songs, blending festive steel strings, acoustic warmth, and cozy cabin stories.",
+    link: "/music/christmas-all-year-long",
+    releaseDate: "2026-11-27T00:00:00"
   },
   {
     title: "Our Love Our Forever – Country Wedding Edition",
@@ -46,6 +53,14 @@ const albums: AlbumItem[] = [
     description: "A high-energy, modern Nashville pop-country wedding album driven by polished 130 BPM country-pop production, upbeat rhythms, and celebratory wedding energy.",
     link: "/music/our-love-our-forever",
     releaseDate: "2027-02-12T00:00:00"
+  },
+  {
+    title: "Backroads in Bloom",
+    tagline: "Spring Americana Journey",
+    image: "/images/backroads-in-bloom-album.png",
+    description: "A fresh spring Americana record celebrating new beginnings, roadside wildflowers, and the open country highways.",
+    link: "/music/backroads-in-bloom",
+    releaseDate: "2027-03-20T00:00:00"
   }
 ];
 

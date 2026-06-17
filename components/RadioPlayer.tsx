@@ -61,7 +61,35 @@ const ALL_TRACKS = [
   { album: "love-forever", track: "09", title: "Forever Starts With You", albumName: "Our Love Our Forever", cover: "/images/our love our forever - album.png" },
   { album: "love-forever", track: "10", title: "Hold This Moment", albumName: "Our Love Our Forever", cover: "/images/our love our forever - album.png" },
   { album: "love-forever", track: "11", title: "One Lifetime More", albumName: "Our Love Our Forever", cover: "/images/our love our forever - album.png" },
-  { album: "love-forever", track: "12", title: "The Last Song We’ll Ever Need", albumName: "Our Love Our Forever", cover: "/images/our love our forever - album.png" }
+  { album: "love-forever", track: "12", title: "The Last Song We’ll Ever Need", albumName: "Our Love Our Forever", cover: "/images/our love our forever - album.png" },
+
+  // Christmas All Year Long
+  { album: "christmas-year", track: "01", title: "Where We Belong", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "02", title: "Beneath the Lights", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "03", title: "Sleigh Ride Saturday Night", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "04", title: "Wrapped Up in Red", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "05", title: "Highway Home for the Holidays", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "06", title: "One More Round of Mistletoe", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "07", title: "Midnight Church Bells", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "08", title: "Santa's Got a Pickup Truck", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "09", title: "Grandpa's Old Christmas Tree", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "10", title: "Snow on the Dance Floor", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "11", title: "Christmas All Year Long", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+  { album: "christmas-year", track: "12", title: "Christmas Ain't Over Yet", albumName: "Christmas All Year Long", cover: "/images/christmas-all-year-long-album.png" },
+
+  // Backroads in Bloom
+  { album: "backroads-bloom", track: "01", title: "Spring Came Early", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "02", title: "Backroads in Bloom", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "03", title: "Friday Night Fireflies", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "04", title: "Polaroids on the Dashboard", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "05", title: "Nobody Since You", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "06", title: "Right Where We Left Off", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "07", title: "One More Time Around", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "08", title: "Better Than We Were", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "09", title: "Easy As Breathing", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "10", title: "Front Porch Lights", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "11", title: "When It's You", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" },
+  { album: "backroads-bloom", track: "12", title: "A Hundred Summers", albumName: "Backroads in Bloom", cover: "/images/backroads-in-bloom-album.png" }
 ];
 
 export default function RadioPlayer() {

@@ -23,6 +23,8 @@ const albumFolders: Record<string, string> = {
   "boots-autumn": "boots-in-the-autumn-dust",
   "september-gold": "september-turns-gold",
   "love-forever": "our-love-our-forever",
+  "backroads-bloom": "backroads-in-bloom",
+  "christmas-year": "christmas-all-year-long",
 };
 
 // Explicit mappings of track indices -> S3 file base names
@@ -88,6 +90,34 @@ const trackFiles: Record<string, Record<string, string>> = {
     "15": "Two Roads One Heart Wedding Version",
     "16": "Bound to You Wedding Version",
     "17": "Before I Knew Your Name Wedding Version",
+  },
+  "backroads-bloom": {
+    "01": "Spring Came Early",
+    "02": "Backroads in Bloom",
+    "03": "Friday Night Fireflies",
+    "04": "Polaroids on the Dashboard",
+    "05": "Nobody Since You",
+    "06": "Right Where We Left Off",
+    "07": "One More Time Around",
+    "08": "Better Than We Were",
+    "09": "Easy As Breathing",
+    "10": "Front Porch Lights",
+    "11": "When It's You",
+    "12": "A Hundred Summers",
+  },
+  "christmas-year": {
+    "01": "Where We Belong",
+    "02": "Beneath the Lights",
+    "03": "Sleigh Ride Saturday Night",
+    "04": "Wrapped Up in Red",
+    "05": "Highway Home for the Holidays",
+    "06": "One More Round of Mistletoe",
+    "07": "Midnight Church Bells",
+    "08": "Santa's Got a Pickup Truck",
+    "09": "Grandpa's Old Christmas Tree",
+    "10": "Snow on the Dance Floor",
+    "11": "Christmas All Year Long",
+    "12": "Christmas Ain't Over Yet",
   },
 };
 

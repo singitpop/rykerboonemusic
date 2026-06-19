@@ -110,6 +110,46 @@ const albumsData: Album[] = [
       { id: "16", title: "Bound to You (Wedding Remix)", duration: "3:20", file: "Bound to You Wedding Version" },
       { id: "17", title: "Before I Knew Your Name (Wedding Remix)", duration: "4:24", file: "Before I Knew Your Name Wedding Version" }
     ]
+  },
+  {
+    id: "backroads-bloom",
+    title: "Backroads in Bloom",
+    year: "2027",
+    cover: "/images/backroads-in-bloom-album.png",
+    tracks: [
+      { id: "01", title: "Spring Came Early", duration: "3:28", file: "Spring Came Early" },
+      { id: "02", title: "Backroads in Bloom", duration: "3:45", file: "Backroads in Bloom" },
+      { id: "03", title: "Friday Night Fireflies", duration: "3:12", file: "Friday Night Fireflies" },
+      { id: "04", title: "Polaroids on the Dashboard", duration: "3:55", file: "Polaroids on the Dashboard" },
+      { id: "05", title: "Nobody Since You", duration: "3:34", file: "Nobody Since You" },
+      { id: "06", title: "Right Where We Left Off", duration: "3:40", file: "Right Where We Left Off" },
+      { id: "07", title: "One More Time Around", duration: "3:18", file: "One More Time Around" },
+      { id: "08", title: "Better Than We Were", duration: "3:29", file: "Better Than We Were" },
+      { id: "09", title: "Easy As Breathing", duration: "3:15", file: "Easy As Breathing" },
+      { id: "10", title: "Front Porch Lights", duration: "4:02", file: "Front Porch Lights" },
+      { id: "11", title: "When It's You", duration: "3:50", file: "When It's You" },
+      { id: "12", title: "A Hundred Summers", duration: "4:12", file: "A Hundred Summers" }
+    ]
+  },
+  {
+    id: "christmas-year",
+    title: "Christmas All Year Long",
+    year: "2026",
+    cover: "/images/christmas-all-year-long-album.png",
+    tracks: [
+      { id: "01", title: "Where We Belong", duration: "3:32", file: "Where We Belong" },
+      { id: "02", title: "Beneath the Lights", duration: "3:45", file: "Beneath the Lights" },
+      { id: "03", title: "Sleigh Ride Saturday Night", duration: "3:18", file: "Sleigh Ride Saturday Night" },
+      { id: "04", title: "Wrapped Up in Red", duration: "3:55", file: "Wrapped Up in Red" },
+      { id: "05", title: "Highway Home for the Holidays", duration: "3:40", file: "Highway Home for the Holidays" },
+      { id: "06", title: "One More Round of Mistletoe", duration: "3:28", file: "One More Round of Mistletoe" },
+      { id: "07", title: "Midnight Church Bells", duration: "4:12", file: "Midnight Church Bells" },
+      { id: "08", title: "Santa's Got a Pickup Truck", duration: "3:15", file: "Santa's Got a Pickup Truck" },
+      { id: "09", title: "Grandpa's Old Christmas Tree", duration: "4:02", file: "Grandpa's Old Christmas Tree" },
+      { id: "10", title: "Snow on the Dance Floor", duration: "3:34", file: "Snow on the Dance Floor" },
+      { id: "11", title: "Christmas All Year Long", duration: "3:50", file: "Christmas All Year Long" },
+      { id: "12", title: "Christmas Ain't Over Yet", duration: "3:48", file: "Christmas Ain't Over Yet" }
+    ]
   }
 ];
 

@@ -124,31 +124,59 @@ const trackFiles: Record<string, Record<string, string>> = {
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
+    const key = searchParams.get("key");
     const album = searchParams.get("album");
     const track = searchParams.get("track");
     const format = searchParams.get("format") || "mp3"; // mp3 or wav
     const download = searchParams.get("download") === "true";
 
-    if (!album || !track) {
+    if (!key && (!album || !track)) {
       return NextResponse.json(
-        { error: "Missing parameters 'album' or 'track'" },
+        { error: "Missing parameters 'album', 'track' or 'key'" },
         { status: 400 }
       );
     }
 
     const session = await getRykerSession();
     
+    // Check Premium status
+    const isPremium = session && (
+      (session.rykerTier || '').toUpperCase() === 'PREMIUM' ||
+      (session.rykerTier || '').toUpperCase() === 'VIP' ||
+      ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes((session.tier || '').toUpperCase()) ||
+      ['LABEL', 'ADMIN'].includes((session.role || '').toUpperCase())
+    );
+
+    // Handle direct key downloads (e.g., ringtones)
+    if (key) {
+      if (!isPremium) {
+        return NextResponse.json(
+          { error: "Premium membership required for digital downloads" },
+          { status: 403 }
+        );
+      }
+
+      console.log(`[Vault API] Generating signed URL for key: ${key}`);
+
+      const fileBaseName = key.split('/').pop() || "ringtone";
+      const safeFilename = fileBaseName.replace(/[^a-zA-Z0-9.-]/g, "_");
+
+      const command = new GetObjectCommand({
+        Bucket: BUCKET_NAME,
+        Key: key,
+        ResponseContentDisposition: download
+          ? `attachment; filename="${safeFilename}"`
+          : undefined,
+      });
+
+      const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
+      return NextResponse.redirect(signedUrl, { status: 302 });
+    }
+    
     // Check Premium status for WAV files
     const fileExt = format.toLowerCase() === "wav" ? "wav" : "mp3";
     
     if (fileExt === "wav") {
-      const isPremium = session && (
-        (session.rykerTier || '').toUpperCase() === 'PREMIUM' ||
-        (session.rykerTier || '').toUpperCase() === 'VIP' ||
-        ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes((session.tier || '').toUpperCase()) ||
-        ['LABEL', 'ADMIN'].includes((session.role || '').toUpperCase())
-      );
-      
       if (!isPremium) {
         return NextResponse.json(
           { error: "Premium membership required for high-fidelity WAV downloads" },
@@ -157,8 +185,8 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    const folder = albumFolders[album];
-    const trackDict = trackFiles[album];
+    const folder = albumFolders[album!];
+    const trackDict = trackFiles[album!];
 
     if (!folder || !trackDict) {
       return NextResponse.json(
@@ -167,7 +195,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const fileBaseName = trackDict[track];
+    const fileBaseName = trackDict[track!];
     if (!fileBaseName) {
       return NextResponse.json(
         { error: "Invalid track ID" },

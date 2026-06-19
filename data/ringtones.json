@@ -1,5 +1,41 @@
 [
     {
+        "title": "Spring Came Early",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/spring-came-early.mp3",
+        "m4r_key": "ringtones/spring-came-early.m4r",
+        "release_date": "2027-03-20"
+    },
+    {
+        "title": "Nobody Since You",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/nobody-since-you.mp3",
+        "m4r_key": "ringtones/nobody-since-you.m4r",
+        "release_date": "2027-03-20"
+    },
+    {
+        "title": "Better Than We Were",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/better-than-we-were.mp3",
+        "m4r_key": "ringtones/better-than-we-were.m4r",
+        "release_date": "2027-03-20"
+    },
+    {
+        "title": "Easy As Breathing",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/easy-as-breathing.mp3",
+        "m4r_key": "ringtones/easy-as-breathing.m4r",
+        "release_date": "2027-03-20"
+    },
+    {
         "title": "Here Comes the Light",
         "price": 0.99,
         "duration": 29,
@@ -43,6 +79,42 @@
         "mp3_key": "ringtones/before-i-knew-your-name.mp3",
         "m4r_key": "ringtones/before-i-knew-your-name.m4r",
         "release_date": "2027-02-12"
+    },
+    {
+        "title": "Where We Belong",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/where-we-belong.mp3",
+        "m4r_key": "ringtones/where-we-belong.m4r",
+        "release_date": "2026-11-27"
+    },
+    {
+        "title": "Beneath The Lights",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/beneath-the-lights.mp3",
+        "m4r_key": "ringtones/beneath-the-lights.m4r",
+        "release_date": "2026-11-27"
+    },
+    {
+        "title": "Santa's Got a Pickup Truck",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/santas-got-a-pickup-truck.mp3",
+        "m4r_key": "ringtones/santas-got-a-pickup-truck.m4r",
+        "release_date": "2026-11-27"
+    },
+    {
+        "title": "Christmas All Year Long",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/christmas-all-year-long.mp3",
+        "m4r_key": "ringtones/christmas-all-year-long.m4r",
+        "release_date": "2026-11-27"
     },
     {
         "title": "Friday Again",
@@ -97,5 +169,68 @@
         "mp3_key": "ringtones/one-more-summer.mp3",
         "m4r_key": "ringtones/one-more-summer.m4r",
         "release_date": "2026-10-02"
+    },
+    {
+        "title": "September Turns Gold",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/september-turns-gold.mp3",
+        "m4r_key": "ringtones/september-turns-gold.m4r",
+        "release_date": "2026-09-18"
+    },
+    {
+        "title": "Highway On Fire",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/highway-on-fire.mp3",
+        "m4r_key": "ringtones/highway-on-fire.m4r",
+        "release_date": "2026-09-18"
+    },
+    {
+        "title": "Southern Steel",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/southern-steel.mp3",
+        "m4r_key": "ringtones/southern-steel.m4r",
+        "release_date": "2026-09-18"
+    },
+    {
+        "title": "Honky Tonk Sundown",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/honky-tonk-sundown.mp3",
+        "m4r_key": "ringtones/honky-tonk-sundown.m4r",
+        "release_date": "2026-06-03"
+    },
+    {
+        "title": "August Heatwave",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/august-heatwave.mp3",
+        "m4r_key": "ringtones/august-heatwave.m4r",
+        "release_date": "2026-06-03"
+    },
+    {
+        "title": "Dust Kicking Rhythm",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/dust-kicking-rhythm.mp3",
+        "m4r_key": "ringtones/dust-kicking-rhythm.m4r",
+        "release_date": "2026-06-03"
+    },
+    {
+        "title": "Sunburnt Memories",
+        "price": 0.99,
+        "duration": 29,
+        "genre": "Country",
+        "mp3_key": "ringtones/sunburnt-memories.mp3",
+        "m4r_key": "ringtones/sunburnt-memories.m4r",
+        "release_date": "2026-06-03"
     }
 ]

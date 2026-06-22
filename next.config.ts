@@ -5,11 +5,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "www.rykerboonemusic.website",
+        hostname: "www.rykerboone.com",
       },
       {
         protocol: "https",
-        hostname: "rykerboonemusic.website",
+        hostname: "rykerboone.com",
       },
       {
         protocol: "https",
@@ -28,12 +28,12 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/store",
-        destination: "https://shop.rykerboonemusic.website",
+        destination: "https://shop.rykerboone.com",
         permanent: false,
       },
       {
         source: "/store/:path*",
-        destination: "https://shop.rykerboonemusic.website",
+        destination: "https://shop.rykerboone.com",
         permanent: false,
       },
     ];

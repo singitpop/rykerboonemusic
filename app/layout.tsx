@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ryker Boone | Official Music Artist Site",
     description: "Experience the journey of Ryker Boone. New music and exclusive fan portal now live.",
-    url: "https://www.rykerboonemusic.website",
+    url: "https://www.rykerboone.com",
     siteName: "Ryker Boone Official",
     images: [
       {

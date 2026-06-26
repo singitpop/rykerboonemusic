@@ -3,6 +3,7 @@ import { getRykerSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import AdminMessaging from "./AdminMessaging";
 import AdminUserList from "./AdminUserList";
+import AdminAnalytics from "./AdminAnalytics";
 import Link from "next/link";
 
 export default async function AdminDashboard() {
@@ -50,6 +51,17 @@ export default async function AdminDashboard() {
 
         <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           
+          {/* Analytics Section */}
+          <section style={{
+            background: "rgba(255,255,255,0.03)", border: "1px solid rgba(226,179,90,0.2)",
+            borderRadius: "24px", padding: "2rem"
+          }}>
+            <h2 style={{ fontSize: "1.5rem", marginBottom: "1.5rem", color: "var(--accent-gold)" }}>
+              Site Analytics & Visitor Traffic
+            </h2>
+            <AdminAnalytics />
+          </section>
+
           {/* Messaging Section */}
           <section style={{
             background: "rgba(255,255,255,0.03)", border: "1px solid rgba(226,179,90,0.2)",

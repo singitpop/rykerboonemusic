@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { AuthProvider } from "@/components/AuthProvider";
 import { getRykerSession } from "@/lib/auth";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -72,6 +73,7 @@ export default async function RootLayout({
           <AuthProvider session={session}>
             {children}
             <CookieConsent />
+            <AnalyticsTracker />
           </AuthProvider>
         </ClerkProvider>
       </body>

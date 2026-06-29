@@ -157,6 +157,7 @@ export default function ArtistLibrary() {
     { src: "/images/september turns gold - album.png", title: "September Turns Gold" },
     { src: "/images/when the lights go gold - album.png", title: "When The Lights Go Gold" },
     { src: "/images/christmas-all-year-long-album.png", title: "Christmas All Year Long" },
+    { src: "/images/the-way-you-love-me-album.png", title: "The Way You Love Me" },
     { src: "/images/our love our forever - album.png", title: "Our Love Our Forever" },
     { src: "/images/backroads-in-bloom-album.png", title: "Backroads in Bloom" }
   ];
@@ -289,6 +290,39 @@ export default function ArtistLibrary() {
         { src: "/images/press/christmas_press_1.png", title: "Ryker Boone - Cozy fireside guitar jam (Official Press Photo)" },
         { src: "/images/press/christmas_press_2.png", title: "Ryker Boone - Log cabin winter portrait (Official Press Photo)" },
         { src: "/images/press/christmas_press_3.png", title: "Ryker Boone - Vintage holiday green truck (Official Press Photo)" }
+      ]
+    },
+    {
+      title: "The Way You Love Me",
+      cover: "/images/the-way-you-love-me-album.png",
+      releaseDate: "January 2027",
+      label: "SINGIT POP",
+      genre: "Heartland Country / Country-Pop",
+      formats: "Digital Streaming & Lossless WAV",
+      headline: "RYKER BOONE BRINGS DEEP DEVOTION AND SOULFUL COUNTRY STORYTELLING IN NEW ALBUM 'THE WAY YOU LOVE ME'",
+      leadParagraph: "NASHVILLE, TN – JANUARY 2027 – Heartland country artist Ryker Boone has officially released his highly anticipated studio album, 'The Way You Love Me', via independent record label SINGIT POP.",
+      bodyText: "Focusing on themes of personal devotion, growth, and warm domestic reflection, this record combines acoustic guitars, sweeping steel strings, and rich baritone vocals. Recorded in Columbia, Tennessee, the album delivers a live-session country-pop vibe built for cold nights and long highways.",
+      quote: "\"This record is all about the quiet, solid foundations of everyday partnership and love. We captured a live pickers groove in the studio, and I think that raw, honest energy shines through in every track.\" — Ryker Boone",
+      tracklist: [
+        { title: "Still Makes Me Nervous", duration: "3:44" },
+        { title: "The Way You Love Me", duration: "3:52" },
+        { title: "Saturday Morning Kind of Love", duration: "4:01" },
+        { title: "Every Little Thing", duration: "3:34" },
+        { title: "First Name Basis", duration: "3:23" },
+        { title: "Someday Starts Tonight", duration: "3:39" },
+        { title: "Even on the Hard Days", duration: "4:18" },
+        { title: "Best Part of My Day", duration: "3:29" },
+        { title: "No Doubt About It", duration: "3:43" },
+        { title: "I'd Do It All Again", duration: "4:04" },
+        { title: "Home in Your Heart", duration: "3:49" },
+        { title: "Joyce", duration: "4:32" },
+        { title: "Front Seat", duration: "3:34" }
+      ],
+      singles: ["Still Makes Me Nervous", "The Way You Love Me", "Every Little Thing", "Front Seat"],
+      pressPhotos: [
+        { src: "/images/still-makes-me-nervous-single.jpg", title: "Ryker Boone - Lead Single Studio Portrait (Official Press Photo)" },
+        { src: "/images/the-way-you-love-me-single.jpg", title: "Ryker Boone - Title Track Session (Official Press Photo)" },
+        { src: "/images/every-little-thing-single.jpg", title: "Ryker Boone - Radio Single Cover (Official Press Photo)" }
       ]
     },
     {

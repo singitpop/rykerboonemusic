@@ -198,48 +198,7 @@ export default function ChristmasAllYearLongPage() {
               </p>
             </div>
 
-            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-              <button style={{
-                background: 'var(--accent-gold)',
-                color: 'black',
-                padding: '1rem 2.5rem',
-                fontSize: '0.75rem',
-                fontWeight: '900',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
-              >
-                PRE-SAVE ON SPOTIFY
-              </button>
-              <button style={{
-                border: '1px solid rgba(255,255,255,0.2)',
-                background: 'transparent',
-                color: 'white',
-                padding: '1rem 2.5rem',
-                fontSize: '0.75rem',
-                fontWeight: '900',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'white';
-                e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                e.currentTarget.style.background = 'transparent';
-              }}
-              >
-                PRE-ADD ON APPLE MUSIC
-              </button>
-            </div>
+            
           </div>
         </div>
       </section>

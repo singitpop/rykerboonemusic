@@ -6,27 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRykerSession } from "@/components/AuthProvider";
-import { RYKER_ALBUM_LINKS } from "@/data/streamingLinks";
 
-export default function BackroadsInBloomPage() {
+export default function TheWayYouLoveMePage() {
   const { session, isLoaded } = useRykerSession();
-  const isPremium = isLoaded && session && (
-    session.rykerTier === 'PREMIUM' ||
-    session.rykerTier === 'VIP' ||
-    ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes(session.tier)
-  );
-  
-  const isLabel = isLoaded && session && (
-    session.tier === 'LABEL' ||
-    session.tier === 'ADMIN' ||
-    session.tier === 'LIFETIME' ||
-    session.rykerTier === 'PREMIUM'
-  );
-
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
-  const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean; isLabelAccess?: boolean } | null>(null);
+  const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean } | null>(null);
 
-  const RELEASE_DATE = new Date("2027-03-20T00:00:00");
+  const RELEASE_DATE = new Date("2027-01-22T00:00:00");
 
   const handleTrackClick = (track: { id: string; title: string; duration: string; badge?: string }) => {
     setSelectedTrackLyrics({
@@ -37,44 +23,45 @@ export default function BackroadsInBloomPage() {
   };
 
   const tracks = [
-    { id: "01", title: "Spring Came Early", duration: "3:28", badge: "SINGLE" },
-    { id: "02", title: "Backroads in Bloom", duration: "3:45" },
-    { id: "03", title: "Friday Night Fireflies", duration: "3:12" },
-    { id: "04", title: "Polaroids on the Dashboard", duration: "3:55" },
-    { id: "05", title: "Nobody Since You", duration: "3:34", badge: "SINGLE" },
-    { id: "06", title: "Right Where We Left Off", duration: "3:40" },
-    { id: "07", title: "One More Time Around", duration: "3:18" },
-    { id: "08", title: "Better Than We Were", duration: "3:29", badge: "SINGLE" },
-    { id: "09", title: "Easy As Breathing", duration: "3:15", badge: "SINGLE" },
-    { id: "10", title: "Front Porch Lights", duration: "4:02" },
-    { id: "11", title: "When It's You", duration: "3:50" },
-    { id: "12", title: "A Hundred Summers", duration: "4:12" }
+    { id: "01", title: "Still Makes Me Nervous", duration: "3:44", badge: "SINGLE" },
+    { id: "02", title: "The Way You Love Me", duration: "3:52", badge: "SINGLE" },
+    { id: "03", title: "Saturday Morning Kind of Love", duration: "4:01" },
+    { id: "04", title: "Every Little Thing", duration: "3:34", badge: "SINGLE" },
+    { id: "05", title: "First Name Basis", duration: "3:23" },
+    { id: "06", title: "Someday Starts Tonight", duration: "3:39" },
+    { id: "07", title: "Even on the Hard Days", duration: "4:18" },
+    { id: "08", title: "Best Part of My Day", duration: "3:29" },
+    { id: "09", title: "No Doubt About It", duration: "3:43" },
+    { id: "10", title: "I'd Do It All Again", duration: "4:04" },
+    { id: "11", title: "Home in Your Heart", duration: "3:49" },
+    { id: "12", title: "Joyce", duration: "4:32" },
+    { id: "13", title: "Front Seat", duration: "3:34", badge: "SINGLE" }
   ];
 
   const singles = [
     {
-      title: "Spring Came Early",
-      image: "/images/spring-came-early-single.png",
+      title: "Still Makes Me Nervous",
+      image: "/images/still-makes-me-nervous-single.jpg",
       tagline: "Lead Single",
-      description: "A vibrant country-Americana acoustic anthem welcoming the warm sunshine and early blossoms of spring."
+      description: "A heartfelt acoustic-country single capturing the electric excitement of long-lasting love."
     },
     {
-      title: "Nobody Since You",
-      image: "/images/nobody-since-you-single.png",
-      tagline: "Acoustic Crossover",
-      description: "A tender, nostalgic look at a love that remains unmatched, driving rhythm and rich harmonies."
+      title: "The Way You Love Me",
+      image: "/images/the-way-you-love-me-single.jpg",
+      tagline: "Title Track",
+      description: "A powerful, romantic country-pop ballad celebrating devotion and daily partnership."
     },
     {
-      title: "Better Than We Were",
-      image: "/images/better-than-we-were-single.png",
-      tagline: "Heartland Track",
-      description: "A storytelling masterpiece celebrating personal recovery, country values, and growing stronger together."
-    },
-    {
-      title: "Easy As Breathing",
-      image: "/images/easy-as-breathing-single.png",
+      title: "Every Little Thing",
+      image: "/images/every-little-thing-single.jpg",
       tagline: "Radio Single",
-      description: "An upbeat summer-ready single detailing how natural true love is, driven by bright guitars and fiddles."
+      description: "An upbeat, feel-good Nashville country anthem about appreciating the small details in a relationship."
+    },
+    {
+      title: "Front Seat",
+      image: "/images/front-seat-single.jpg",
+      tagline: "Nostalgic Single",
+      description: "A mid-tempo country road song tracing memories made side-by-side in the front seat."
     }
   ];
 
@@ -118,8 +105,8 @@ export default function BackroadsInBloomPage() {
             border: '1px solid rgba(226, 179, 90, 0.2)'
           }}>
             <Image 
-              src="/images/backroads-in-bloom-album.png" 
-              alt="Backroads in Bloom Album Cover" 
+              src="/images/the-way-you-love-me-album.png" 
+              alt="The Way You Love Me Album Cover" 
               fill 
               style={{ objectFit: 'cover' }}
               priority
@@ -153,16 +140,16 @@ export default function BackroadsInBloomPage() {
               display: 'block',
               marginBottom: '1rem'
             }}>
-              Spring Americana Journey
+              Official Studio Album
             </span>
             <h1 style={{ 
-              fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
+              fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', 
               fontFamily: 'var(--font-playfair)', 
               fontWeight: 'bold', 
               lineHeight: '1.1',
               marginBottom: '1.5rem'
             }}>
-              BACKROADS <span style={{ color: 'var(--accent-gold)' }}>IN BLOOM</span>
+              THE WAY <span style={{ color: 'var(--accent-gold)' }}>YOU LOVE ME</span>
             </h1>
             
             <div style={{ 
@@ -175,7 +162,7 @@ export default function BackroadsInBloomPage() {
               paddingBottom: '1rem',
               flexWrap: 'wrap'
             }}>
-              <div>RELEASE DATE: <strong style={{ color: 'white' }}>20 MARCH 2027</strong></div>
+              <div>RELEASE DATE: <strong style={{ color: 'white' }}>22 JANUARY 2027</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGIT POP</a></strong></div>
               <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>PRE-SAVE</strong></div>
               <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL & Lossless WAV</strong></div>
@@ -191,14 +178,12 @@ export default function BackroadsInBloomPage() {
               gap: '1.25rem'
             }}>
               <p>
-                *Backroads in Bloom* is a fresh spring Americana journey, charting themes of growth, personal recovery, new beginnings, and the freedom of the open road. Following a cold country winter, the album bursts into life with driving acoustic guitars, soaring twin fiddles, bright telecaster lines, and Ryker Boone's signature deep baritone vocals.
+                *The Way You Love Me* is a deeply personal, soulful country-pop journey. Built on acoustic warmth, authentic storytelling, and modern Nashville production, the album explores themes of love, family, and home.
               </p>
               <p>
-                Recorded entirely in Columbia, Tennessee, the record captures a vibrant, live-room pickers vibe, providing the perfect soundtrack for scenic drives, front-porch listening, and sunlit spring afternoons.
+                Recorded in Columbia, Tennessee, the album features soaring steel guitar, twin fiddles, and Ryker Boone's signature baritone vocals, capturing a rich, live-session feel.
               </p>
             </div>
-
-            
           </div>
         </div>
       </section>
@@ -214,7 +199,7 @@ export default function BackroadsInBloomPage() {
           <div>
             <span className="subtitle">Official Release</span>
             <h2 className="section-title" style={{ marginBottom: '0.5rem' }}>THE <span style={{ color: 'var(--accent-gold)' }}>TRACKLIST</span></h2>
-                        <div style={{ display: 'grid', gap: '0.25rem' }}>
+            <div style={{ display: 'grid', gap: '0.25rem' }}>
               {tracks.map((track) => (
                 <div 
                   key={track.id}
@@ -311,7 +296,7 @@ export default function BackroadsInBloomPage() {
                   <div style={{ flex: 1, minWidth: '200px' }}>
                     <span style={{
                       color: 'var(--accent-gold)',
-                      fontSize: '0.6rem',
+                      fontSize: '0.65rem',
                       fontWeight: '900',
                       letterSpacing: '0.15em',
                       textTransform: 'uppercase',
@@ -331,110 +316,6 @@ export default function BackroadsInBloomPage() {
           </div>
         </div>
       </section>
-
-      {/* Lyrics Modal */}
-      {selectedTrackLyrics && (
-        <div 
-          onClick={() => setSelectedTrackLyrics(null)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(0,0,0,0.85)',
-            backdropFilter: 'blur(8px)',
-            zIndex: 1000,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '2rem'
-          }}
-        >
-          <div 
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              background: 'rgba(10, 10, 10, 0.97)',
-              border: '1px solid rgba(226, 179, 90, 0.2)',
-              borderRadius: '16px',
-              padding: '3.5rem 3rem',
-              width: '100%',
-              maxWidth: '680px',
-              maxHeight: '90vh',
-              overflowY: 'auto',
-              position: 'relative',
-              boxShadow: '0 40px 80px rgba(0,0,0,0.9)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}
-          >
-            <button 
-              onClick={() => setSelectedTrackLyrics(null)}
-              style={{
-                position: 'absolute',
-                top: '1.5rem',
-                right: '1.5rem',
-                background: 'transparent',
-                border: 'none',
-                color: 'rgba(255,255,255,0.4)',
-                cursor: 'pointer',
-                fontSize: '1.5rem',
-                lineHeight: '1',
-                padding: '0.2rem',
-                transition: 'color 0.2s'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
-            >
-              &times;
-            </button>
-
-            <span style={{ 
-              color: 'var(--accent-gold)', 
-              fontSize: '0.65rem', 
-              fontWeight: '900', 
-              letterSpacing: '0.25em', 
-              textTransform: 'uppercase',
-              marginBottom: '0.5rem'
-            }}>
-              BACKROADS IN BLOOM
-            </span>
-            <h3 style={{ 
-              fontSize: 'clamp(2rem, 5vw, 3.25rem)', 
-              fontWeight: '900', 
-              fontFamily: 'var(--font-playfair)', 
-              color: 'white',
-              textAlign: 'center',
-              textTransform: 'uppercase',
-              lineHeight: '1.1',
-              letterSpacing: '0.02em',
-              marginBottom: '2.5rem'
-            }}>
-              {selectedTrackLyrics.title}
-            </h3>
-
-            <div style={{ 
-              width: '100%',
-              color: 'rgba(255, 255, 255, 0.88)', 
-              fontSize: '1.1rem', 
-              lineHeight: '2.0', 
-              textAlign: 'center',
-              whiteSpace: 'pre-line',
-              fontFamily: 'inherit',
-              letterSpacing: '0.01em'
-            }}>
-              {selectedTrackLyrics.lyrics}
-            </div>
-
-            <div style={{ 
-              marginTop: '2.5rem', 
-              fontSize: '0.75rem', 
-              color: 'rgba(255,255,255,0.3)',
-              letterSpacing: '0.05em' 
-            }}>
-              Click outside or close to exit
-            </div>
-          </div>
-        </div>
-      )}
 
       <Footer />
     </main>

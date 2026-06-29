@@ -47,6 +47,14 @@ const albums: AlbumItem[] = [
     releaseDate: "2026-11-27T00:00:00"
   },
   {
+    title: "The Way You Love Me",
+    tagline: "Official Studio Album",
+    image: "/images/the-way-you-love-me-album.png",
+    description: "A soulful, heartfelt country-pop album exploring deep personal growth, family values, and the power of love.",
+    link: "/music/the-way-you-love-me",
+    releaseDate: "2027-01-22T00:00:00"
+  },
+  {
     title: "Our Love Our Forever – Country Wedding Edition",
     tagline: "Country Wedding Edition",
     image: "/images/our love our forever - album.png",

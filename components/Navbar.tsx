@@ -111,13 +111,6 @@ export default function Navbar() {
           >
             Support
           </Link>
-          <Link 
-            href="/radio" 
-            className="nav-link"
-            style={{ color: pathname === "/radio" ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
-          >
-            Radio
-          </Link>
           <Link href="https://shop.rykerboone.com" className="nav-link">Store</Link>
           {isAdmin && (
             <Link 

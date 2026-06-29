@@ -164,7 +164,7 @@ export default function AlbumShowcase() {
                         fontSize: '0.7rem',
                         cursor: 'pointer'
                      }}>
-                        STREAM NOW
+                        VIEW ALBUM
                      </button>
                    ) : (
                      <button style={{

@@ -137,53 +137,23 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const session = await getRykerSession();
-    
-    // Check Premium status
-    const isPremium = session && (
-      (session.rykerTier || '').toUpperCase() === 'PREMIUM' ||
-      (session.rykerTier || '').toUpperCase() === 'VIP' ||
-      ['PREMIUM', 'VIP', 'INSIDER', 'LABEL', 'ADMIN'].includes((session.tier || '').toUpperCase()) ||
-      ['LABEL', 'ADMIN'].includes((session.role || '').toUpperCase())
-    );
+    // 1. Block downloads
+    if (download) {
+      return NextResponse.json(
+        { error: "Downloads are no longer supported on this platform" },
+        { status: 403 }
+      );
+    }
 
-    // Handle direct key downloads (e.g., ringtones)
+    // 2. Block direct S3 key requests (e.g. ringtones/zips)
     if (key) {
-      if (!isPremium) {
-        return NextResponse.json(
-          { error: "Premium membership required for digital downloads" },
-          { status: 403 }
-        );
-      }
-
-      console.log(`[Vault API] Generating signed URL for key: ${key}`);
-
-      const fileBaseName = key.split('/').pop() || "ringtone";
-      const safeFilename = fileBaseName.replace(/[^a-zA-Z0-9.-]/g, "_");
-
-      const command = new GetObjectCommand({
-        Bucket: BUCKET_NAME,
-        Key: key,
-        ResponseContentDisposition: download
-          ? `attachment; filename="${safeFilename}"`
-          : undefined,
-      });
-
-      const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
-      return NextResponse.redirect(signedUrl, { status: 302 });
+      return NextResponse.json(
+        { error: "Direct key downloads are disabled" },
+        { status: 403 }
+      );
     }
-    
-    // Check Premium status for WAV files
+
     const fileExt = format.toLowerCase() === "wav" ? "wav" : "mp3";
-    
-    if (fileExt === "wav") {
-      if (!isPremium) {
-        return NextResponse.json(
-          { error: "Premium membership required for high-fidelity WAV downloads" },
-          { status: 403 }
-        );
-      }
-    }
 
     const folder = albumFolders[album!];
     const trackDict = trackFiles[album!];

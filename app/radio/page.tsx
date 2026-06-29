@@ -1,30 +1,10 @@
 import React from "react";
 import RadioPlayer from "@/components/RadioPlayer";
-import { getRykerSession } from "@/lib/auth";
-import { redirect } from "next/navigation";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 export default async function RadioPage() {
-  const session = await getRykerSession();
-
-  if (!session) {
-    redirect("/sign-in");
-  }
-
-  const isPremium =
-    (session.rykerTier || "").toUpperCase() === "PREMIUM" ||
-    (session.rykerTier || "").toUpperCase() === "VIP" ||
-    ["PREMIUM", "VIP", "INSIDER", "LABEL", "ADMIN"].includes(
-      (session.tier || "").toUpperCase()
-    ) ||
-    ["LABEL", "ADMIN"].includes((session.role || "").toUpperCase());
-
-  if (!isPremium) {
-    redirect("/club");
-  }
-
   return (
     <div style={{
       minHeight: "100vh",
@@ -44,13 +24,13 @@ export default async function RadioPage() {
               color: "var(--accent-gold)",
               margin: "0 0 0.5rem 0"
             }}>
-              Premium Radio
+              Ryker Boone Radio
             </h1>
             <p style={{ color: "rgba(255,255,255,0.7)", margin: 0, fontSize: "1.1rem" }}>
               Continuous, ad-free streaming of the entire Ryker Boone catalog.
             </p>
           </div>
-          <Link href="/club">
+          <Link href="/music">
             <button style={{
               background: "rgba(255,255,255,0.1)",
               border: "1px solid rgba(255,255,255,0.2)",
@@ -60,7 +40,7 @@ export default async function RadioPage() {
               cursor: "pointer",
               transition: "all 0.2s"
             }}>
-              Back to Club
+              Back to Music
             </button>
           </Link>
         </div>

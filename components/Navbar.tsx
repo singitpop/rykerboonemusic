@@ -111,6 +111,13 @@ export default function Navbar() {
           >
             Support
           </Link>
+          <Link 
+            href="/radio" 
+            className="nav-link"
+            style={{ color: pathname === "/radio" ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
+          >
+            Radio
+          </Link>
           <Link href="https://shop.rykerboone.com" className="nav-link">Store</Link>
           {isAdmin && (
             <Link 
@@ -121,8 +128,8 @@ export default function Navbar() {
               Admin Portal
             </Link>
           )}
-          {isLoaded && session ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+          {isLoaded && session && (
+            <div style={{ display: 'flex', alignItems: 'center', marginLeft: '1.5rem' }}>
               <UserButton 
                 appearance={{
                   elements: {
@@ -134,71 +141,6 @@ export default function Navbar() {
                   }
                 }}
               />
-              <Link href="/club">
-                <button style={{
-                  background: 'var(--accent-gold)',
-                  color: 'black',
-                  padding: '0.7rem 1.5rem',
-                  border: 'none',
-                  fontSize: '0.65rem',
-                  fontWeight: '900',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'var(--transition-smooth)',
-                  whiteSpace: 'nowrap'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'white';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'var(--accent-gold)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-                >
-                  Lounge
-                </button>
-              </Link>
-            </div>
-          ) : (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-              <Link 
-                href="/sign-in" 
-                className="nav-link"
-                style={{ 
-                  color: isSignInActive ? 'var(--accent-gold)' : 'var(--text-secondary)',
-                  whiteSpace: 'nowrap'
-                }}
-              >
-                Sign In
-              </Link>
-              <Link href="/club">
-                <button style={{
-                  background: 'var(--accent-gold)',
-                  color: 'black',
-                  padding: '0.7rem 1.5rem',
-                  border: 'none',
-                  fontSize: '0.65rem',
-                  fontWeight: '900',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'var(--transition-smooth)',
-                  whiteSpace: 'nowrap'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'white';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'var(--accent-gold)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-                >
-                  Join Club Ryker
-                </button>
-              </Link>
             </div>
           )}
         </div>

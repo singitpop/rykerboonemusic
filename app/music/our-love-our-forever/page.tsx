@@ -271,27 +271,7 @@ export default function OurLoveOurForeverPage() {
               CLICK ANY TRACK TO VIEW LYRICS
             </p>
             
-            <div style={{
-              background: 'linear-gradient(to right, rgba(226, 179, 90, 0.1), rgba(0, 0, 0, 0))',
-              borderLeft: '4px solid var(--accent-gold)',
-              padding: '1.25rem 1.5rem',
-              borderRadius: '0 8px 8px 0',
-              marginBottom: '2rem',
-              fontSize: '0.9rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.75rem'
-            }}>
-              <span style={{ fontSize: '1.2rem' }}>🎵</span>
-              <span style={{ color: 'var(--text-primary)', lineHeight: '1.5' }}>
-                Want to listen? Join as a free Fan to hear 30-second previews, or become a VIP Member for just £2.99 to listen to all albums and future releases in full.{' '}
-                <Link href="/club" style={{ color: 'var(--accent-gold)', fontWeight: 'bold', textDecoration: 'underline' }}>
-                  Join Now
-                </Link>
-              </span>
-            </div>
-            
-            <div style={{ display: 'grid', gap: '0.25rem' }}>
+                        <div style={{ display: 'grid', gap: '0.25rem' }}>
               {tracks.map((track) => (
                 <div 
                   key={track.id}

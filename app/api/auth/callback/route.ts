@@ -26,7 +26,9 @@ export async function GET(req: Request) {
             role: payload.role
         };
 
-        const res = NextResponse.redirect(new URL("/club", req.url));
+        const role = (payload.role || '').toUpperCase();
+        const redirectUrl = ["LABEL", "ADMIN"].includes(role) ? "/admin" : "/";
+        const res = NextResponse.redirect(new URL(redirectUrl, req.url));
         
         // Set the secure cookie
         res.cookies.set("ryker_session", JSON.stringify(sessionData), {

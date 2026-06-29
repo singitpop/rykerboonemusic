@@ -63,7 +63,7 @@ export default function Footer() {
 
         <div>
           <h5 style={{ color: 'white', marginBottom: '1.5rem', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Newsletter</h5>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>Join the fan club for early access to exclusive releases and vinyl drops.</p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>Subscribe for early access to vinyl drops and new releases.</p>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <input type="email" placeholder="Email" style={{
               background: 'rgba(255,255,255,0.02)',

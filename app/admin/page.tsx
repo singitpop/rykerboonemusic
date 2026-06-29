@@ -11,7 +11,7 @@ export default async function AdminDashboard() {
 
   // Strict role-based protection
   if (!session || !["LABEL", "ADMIN"].includes(session.role.toUpperCase())) {
-    redirect("/club");
+    redirect("/");
   }
 
   return (
@@ -39,12 +39,12 @@ export default async function AdminDashboard() {
               Manage users and broadcast messages to the Fan Portal.
             </p>
           </div>
-          <Link href="/club">
+          <Link href="/">
             <button style={{
               background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
               color: "white", padding: "0.8rem 1.5rem", borderRadius: "30px", cursor: "pointer"
             }}>
-              Back to App
+              Back to Site
             </button>
           </Link>
         </div>

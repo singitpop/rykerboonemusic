@@ -236,17 +236,10 @@ export default function SeptemberAlbumPage() {
           <div>
             <span className="subtitle">Official Release</span>
             <h2 className="section-title" style={{ marginBottom: '0.5rem' }}>THE <span style={{ color: 'var(--accent-gold)' }}>TRACKLIST</span></h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '2.5rem', letterSpacing: '0.05em' }}>
-              CLICK ANY TRACK TO VIEW LYRICS
-            </p>
-            
                         <div style={{ display: 'grid', gap: '0.25rem' }}>
               {tracks.map((track) => (
                 <div 
                   key={track.id}
-                  onMouseEnter={() => setActiveTrack(track.id)}
-                  onMouseLeave={() => setActiveTrack(null)}
-                  onClick={() => handleTrackClick(track)}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -254,14 +247,10 @@ export default function SeptemberAlbumPage() {
                     padding: '0.9rem 1.5rem',
                     borderBottom: '1px solid rgba(255,255,255,0.02)',
                     borderLeft: track.badge ? '3px solid var(--accent-gold)' : '3px solid transparent',
-                    background: activeTrack === track.id 
-                      ? 'rgba(226, 179, 90, 0.08)' 
-                      : track.badge 
-                        ? 'rgba(226, 179, 90, 0.03)' 
-                        : 'transparent',
+                    background: track.badge ? 'rgba(226, 179, 90, 0.03)' : 'transparent',
                     borderRadius: '6px',
                     transition: 'all 0.3s ease',
-                    cursor: 'pointer'
+                    cursor: 'default'
                   }}
                 >
                   <div style={{
@@ -276,14 +265,10 @@ export default function SeptemberAlbumPage() {
                     fontSize: '0.65rem',
                     background: track.badge ? 'rgba(226, 179, 90, 0.1)' : 'transparent'
                   }}>
-                    {activeTrack === track.id ? (
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    ) : track.id}
+                    {track.id}
                   </div>
                   <span style={{ 
-                    color: activeTrack === track.id ? 'var(--accent-gold)' : 'white', 
+                    color: 'white', 
                     fontWeight: track.badge ? '700' : '500',
                     fontSize: '0.95rem',
                     transition: 'color 0.3s ease' 

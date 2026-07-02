@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: "The official website of Ryker Boone. Experience the latest music, exclusive digital artbooks, and the journey of Nashville's newest voice.",
   keywords: ["Ryker Boone", "Country Music", "Nashville", "SingIt Pop", "Music Artist", "Boots in the Autumn Dust", "Club Ryker"],
   verification: {
-    google: "T3triH4voDMpatdHyU7Va6HZjjckhG0B0zyrTwQYU7g",
+    google: "DXGtHAwYrfgQ2h2Dy-rozNgEfEoA7haiA_S2yB",
   },
   openGraph: {
     title: "Ryker Boone | Official Music Artist Site",

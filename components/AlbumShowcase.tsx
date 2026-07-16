@@ -94,6 +94,13 @@ export default function AlbumShowcase() {
     const now = new Date();
     
     if (now >= releaseDate) {
+      const releasedAlbums = albums
+        .filter(a => new Date(a.releaseDate) <= now)
+        .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
+        
+      if (releasedAlbums.length > 0 && releasedAlbums[0].title === album.title) {
+        return "LATEST RELEASE";
+      }
       return null;
     }
     

@@ -53,5 +53,31 @@ export const LYRICS_DATA: Record<string, string> = {
   "Too Close To Midnight": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
   "What We Were": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
   "Stay Till Sunday": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
-  "One More Summer": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`
+  "One More Summer": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  // Golden Hour State of Mind
+  "Backroad Paradise": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Cold Beer And Carolina Blue": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Fireworks In July": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "One More Sunset": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Small Town Skyline": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Boots In The Sand": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Good Times Grow Here": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Your Name Sounds Like Summer": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Better On The Lake": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "What We Almost Had": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "American Summer Nights": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Golden Hour State Of Mind": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  // Wide Open Roads
+  "Wide Open Roads": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Half Tank of Gas": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Better in Boots": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Fireflies and Tail Lights": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "County Line Kisses": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Lucky Me": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "River Runs Slow": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Back Porch Radio": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Everybody Knows Your Name": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Blue Sky State": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Stay Awhile": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`,
+  "Summers Not Over": `Lyrics are temporarily unavailable to protect copyright and intellectual property.`
 };

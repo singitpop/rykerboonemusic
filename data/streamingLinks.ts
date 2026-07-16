@@ -44,5 +44,17 @@ export const RYKER_ALBUM_LINKS = {
     appleMusic: "#",
     amazonMusic: "#",
     youtube: "#"
+  },
+  goldenHourStateOfMind: {
+    spotify: "#",
+    appleMusic: "#",
+    amazonMusic: "#",
+    youtube: "#"
+  },
+  wideOpenRoads: {
+    spotify: "#",
+    appleMusic: "#",
+    amazonMusic: "#",
+    youtube: "#"
   }
 };

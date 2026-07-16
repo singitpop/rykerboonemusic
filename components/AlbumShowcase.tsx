@@ -23,6 +23,14 @@ const albums: AlbumItem[] = [
     releaseDate: "2026-06-01T00:00:00"
   },
   {
+    title: "Golden Hour State of Mind",
+    tagline: "Official Studio Album",
+    image: "/images/golden hour state of mind - album.png",
+    description: "A sunset-drenched collection of country-pop stories, celebrating life, love, and the good times.",
+    link: "/music/golden-hour-state-of-mind",
+    releaseDate: "2026-07-27T00:00:00"
+  },
+  {
     title: "September Turns Gold",
     tagline: "The Barn & Festival Sessions",
     image: "/images/september turns gold - album.png",
@@ -69,6 +77,14 @@ const albums: AlbumItem[] = [
     description: "A fresh spring Americana record celebrating new beginnings, roadside wildflowers, and the open country highways.",
     link: "/music/backroads-in-bloom",
     releaseDate: "2027-03-20T00:00:00"
+  },
+  {
+    title: "Wide Open Roads",
+    tagline: "Official Studio Album",
+    image: "/images/wide open roads - album.jpg",
+    description: "An energetic Nashville country-pop journey built for open highways and clear blue skies.",
+    link: "/music/wide-open-roads",
+    releaseDate: "2027-04-23T00:00:00"
   }
 ];
 

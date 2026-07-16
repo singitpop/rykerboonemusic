@@ -97,10 +97,7 @@ export default function AlbumShowcase() {
       return null;
     }
     
-    const diffTime = releaseDate.getTime() - now.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    if (diffDays <= 30) {
+    if (releaseDate.getMonth() === now.getMonth() && releaseDate.getFullYear() === now.getFullYear()) {
       return "COMING SOON";
     }
     

@@ -118,22 +118,24 @@ export default function WideOpenRoadsAlbumPage() {
               style={{ objectFit: 'cover' }}
               priority
             />
-            <div style={{
-              position: 'absolute',
-              top: '1.5rem',
-              right: '1.5rem',
-              background: 'var(--accent-gold)',
-              color: 'black',
-              padding: '0.5rem 1rem',
-              fontSize: '0.7rem',
-              fontWeight: '900',
-              letterSpacing: '0.2em',
-              borderRadius: '4px',
-              zIndex: 10,
-              boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
-            }}>
-              COMING SOON
-            </div>
+            {new Date() < RELEASE_DATE && (
+              <div style={{
+                position: 'absolute',
+                top: '1.5rem',
+                right: '1.5rem',
+                background: 'var(--accent-gold)',
+                color: 'black',
+                padding: '0.5rem 1rem',
+                fontSize: '0.7rem',
+                fontWeight: '900',
+                letterSpacing: '0.2em',
+                borderRadius: '4px',
+                zIndex: 10,
+                boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
+              }}>
+                COMING SOON
+              </div>
+            )}
           </div>
 
           {/* Right: Info */}

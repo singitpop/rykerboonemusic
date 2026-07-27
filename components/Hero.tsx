@@ -45,7 +45,7 @@ const heroAlbums: HeroAlbum[] = [
   {
     title: "September Roads",
     tagline: "Official Studio Album",
-    image: "/images/september roads - album.jpg",
+    image: "/images/september roads - album v2.jpg",
     description: "A sunset-drenched heartland country album driven by stories of open roads, county lines, and small-town autumn nights.",
     link: "/music/september-roads",
     releaseDate: "2026-09-26T00:00:00",

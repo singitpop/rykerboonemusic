@@ -49,61 +49,61 @@ export default function SeptemberRoadsAlbumPage() {
   const singles = [
     {
       title: "September Roads",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Lead Single",
       description: "A driving, high-energy country-pop anthem about embarking on a journey through the changing seasons."
     },
     {
       title: "Friday Night Lights",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Second Single",
       description: "A nostalgic stadium-sized country rock track capturing the electricity of high school football and young love."
     },
     {
       title: "Wide Open",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Third Single",
       description: "A soaring highway anthem celebrating the thrill of the open road and endless possibilities."
     },
     {
       title: "Harvest Sunset",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Fourth Single",
       description: "A warm, steel-guitar-laced ballad about finding peace in the simple beauty of a rural autumn evening."
     },
     {
       title: "Cornfield Kisses",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Fifth Single",
       description: "An upbeat, playful country love song filled with acoustic hooks and sweet memories."
     },
     {
       title: "Small Town September",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Sixth Single",
       description: "A heartfelt storytelling track that captures the changing leaves and warm communities of the heartland."
     },
     {
       title: "Windows Down",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Seventh Single",
       description: "A breezy, care-free country track celebrating sunset drives and late-night highway breezes."
     },
     {
       title: "One Last Summer",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Eighth Single",
       description: "A wistful acoustic ballad holding onto the final days of warm weather and transient memories."
     },
     {
       title: "County Line",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Ninth Single",
       description: "A powerful heartland country track about crossing borders, leaving home, and chasing dreams."
     },
     {
       title: "Autumn Always Comes",
-      image: "/images/september roads - album.jpg",
+      image: "/images/september roads - album v2.jpg",
       tagline: "Latest Single",
       description: "A cinematic, emotional ballad about the inevitability of change, reflection, and new beginnings."
     }
@@ -149,7 +149,7 @@ export default function SeptemberRoadsAlbumPage() {
             border: '1px solid rgba(226, 179, 90, 0.2)'
           }}>
             <Image 
-              src="/images/september roads - album.jpg" 
+              src="/images/september roads - album v2.jpg" 
               alt="September Roads Cover" 
               fill 
               style={{ objectFit: 'cover' }}

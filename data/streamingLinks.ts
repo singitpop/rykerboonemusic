@@ -46,8 +46,8 @@ export const RYKER_ALBUM_LINKS = {
     youtube: "#"
   },
   goldenHourStateOfMind: {
-    spotify: "#",
-    appleMusic: "#",
+    spotify: "https://open.spotify.com/album/3aiY1Z4JoKOmhh9FyChLRm?si=qySHFkOnSZ2sGwVDzzfiIw",
+    appleMusic: "https://music.apple.com/gb/album/golden-hour-state-of-mind/6791812209",
     amazonMusic: "#",
     youtube: "#"
   },

@@ -33,8 +33,8 @@ export default function GoldenHourAlbumPage() {
   const tracks = [
     { id: "01", title: "Backroad Paradise", duration: "3:23", badge: "SINGLE" },
     { id: "02", title: "Cold Beer And Carolina Blue", duration: "3:09", badge: "SINGLE" },
-    { id: "03", title: "Fireworks In July", duration: "3:34" },
-    { id: "04", title: "One More Sunset", duration: "3:34" },
+    { id: "03", title: "Fireworks In July", duration: "3:34", badge: "SINGLE" },
+    { id: "04", title: "One More Sunset", duration: "3:34", badge: "SINGLE" },
     { id: "05", title: "Small Town Skyline", duration: "3:58", badge: "SINGLE" },
     { id: "06", title: "Boots In The Sand", duration: "3:11" },
     { id: "07", title: "Good Times Grow Here", duration: "3:27" },
@@ -59,9 +59,21 @@ export default function GoldenHourAlbumPage() {
       description: "A nostalgic honky-tonk ballad looking back at lost love in the Tar Heel State."
     },
     {
-      title: "Small Town Skyline",
+      title: "Fireworks In July",
       image: "/images/golden hour state of mind - album.png",
       tagline: "Third Single",
+      description: "An explosive summer anthem about small-town romance, starry nights, and young love that burns bright."
+    },
+    {
+      title: "One More Sunset",
+      image: "/images/golden hour state of mind - album.png",
+      tagline: "Fourth Single",
+      description: "A heartfelt, reflective acoustic ballad chasing the last light of summer and holding onto precious memories."
+    },
+    {
+      title: "Small Town Skyline",
+      image: "/images/golden hour state of mind - album.png",
+      tagline: "Fifth Single",
       description: "A powerful country anthem celebrating rural pride, tight-knit communities, and simple horizons."
     },
     {
@@ -171,9 +183,9 @@ export default function GoldenHourAlbumPage() {
               paddingBottom: '1rem',
               flexWrap: 'wrap'
             }}>
-              <div>RELEASE DATE: <strong style={{ color: 'white' }}>JULY 2026</strong></div>
+              <div>RELEASE DATE: <strong style={{ color: 'white' }}>JULY 27, 2026</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGIT POP</a></strong></div>
-              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>PRE-SAVE</strong></div>
+              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>OUT NOW</strong></div>
               <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL</strong></div>
             </div>
 
@@ -210,7 +222,7 @@ export default function GoldenHourAlbumPage() {
                 onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
                 onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
               >
-                PRE-SAVE ON SPOTIFY
+                LISTEN ON SPOTIFY
               </a>
               <a 
                 href={RYKER_ALBUM_LINKS.goldenHourStateOfMind.appleMusic}
@@ -241,7 +253,7 @@ export default function GoldenHourAlbumPage() {
                   e.currentTarget.style.background = 'transparent';
                 }}
               >
-                APPLE MUSIC
+                LISTEN ON APPLE MUSIC
               </a>
             </div>
           </div>

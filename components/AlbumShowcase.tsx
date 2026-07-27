@@ -39,6 +39,14 @@ const albums: AlbumItem[] = [
     releaseDate: "2026-08-01T00:00:00"
   },
   {
+    title: "September Roads",
+    tagline: "Official Studio Album",
+    image: "/images/september roads - album.jpg",
+    description: "A sunset-drenched heartland country album driven by stories of open roads, county lines, and small-town autumn nights.",
+    link: "/music/september-roads",
+    releaseDate: "2026-09-26T00:00:00"
+  },
+  {
     title: "When The Lights Go Gold",
     tagline: "Modern Country Pop",
     image: "/images/when the lights go gold - album.png",

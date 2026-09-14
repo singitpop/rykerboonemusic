@@ -22,10 +22,10 @@ export const RYKER_ALBUM_LINKS = {
     youtube: "#"
   },
   septemberRoads: {
-    spotify: "#",
-    appleMusic: "#",
-    amazonMusic: "#",
-    youtube: "#"
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
   },
   whenTheLightsGoGold: {
     spotify: "#",

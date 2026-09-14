@@ -1231,7 +1231,7 @@ export default function FanPortal() {
                   Unlock Your Premium Experience
                 </h3>
                 <p style={{ color: "var(--text-secondary)", maxWidth: "500px", margin: "0 auto" }}>
-                  Choose the plan that's right for you. Get access to the Ryker Boone Vault, or unlock everything across the entire Singitpop label.
+                  Choose the plan that's right for you. Get access to the Ryker Boone Vault, or unlock everything across the entire SINGITPOP RECORDS label.
                 </p>
               </div>
 
@@ -1283,11 +1283,11 @@ export default function FanPortal() {
                 </div>
               </div>
 
-              {/* Sign In Link for existing Singitpop Members */}
+              {/* Sign In Link for existing SINGITPOP RECORDS Members */}
               {!session && (
                 <div style={{ textAlign: "center", marginTop: "2rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                   <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
-                    Already have a Singitpop account?{" "}
+                    Already have a SINGITPOP RECORDS account?{" "}
                     <Link href="/sign-in">
                       <span style={{ color: "var(--accent-gold)", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>
                         Sign in here

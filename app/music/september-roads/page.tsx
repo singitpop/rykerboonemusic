@@ -20,7 +20,7 @@ export default function SeptemberRoadsAlbumPage() {
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean; isLabelAccess?: boolean } | null>(null);
 
-  const RELEASE_DATE = new Date("2026-09-26T00:00:00");
+  const RELEASE_DATE = new Date("2026-09-04T00:00:00");
 
   const handleTrackClick = (track: { id: string; title: string; duration: string; badge?: string }) => {
     setSelectedTrackLyrics({
@@ -208,9 +208,9 @@ export default function SeptemberRoadsAlbumPage() {
               paddingBottom: '1rem',
               flexWrap: 'wrap'
             }}>
-              <div>RELEASE DATE: <strong style={{ color: 'white' }}>SEPTEMBER 26, 2026</strong></div>
-              <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGIT POP</a></strong></div>
-              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>PRE-SAVE</strong></div>
+              <div>RELEASE DATE: <strong style={{ color: 'white' }}>SEPTEMBER 4, 2026</strong></div>
+              <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGITPOP RECORDS</a></strong></div>
+              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>OUT NOW</strong></div>
               <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL</strong></div>
             </div>
 
@@ -247,7 +247,7 @@ export default function SeptemberRoadsAlbumPage() {
                 onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
                 onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
               >
-                PRE-SAVE ON SPOTIFY
+                LISTEN ON SPOTIFY
               </a>
               <a 
                 href={RYKER_ALBUM_LINKS.septemberRoads?.appleMusic || "#"}
@@ -278,8 +278,41 @@ export default function SeptemberRoadsAlbumPage() {
                   e.currentTarget.style.background = 'transparent';
                 }}
               >
-                APPLE MUSIC
+                LISTEN ON APPLE MUSIC
               </a>
+              {RYKER_ALBUM_LINKS.septemberRoads?.amazonMusic && RYKER_ALBUM_LINKS.septemberRoads?.amazonMusic !== "#" && (
+                <a 
+                  href={RYKER_ALBUM_LINKS.septemberRoads.amazonMusic}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    background: 'transparent',
+                    color: 'white',
+                    padding: '1rem 2.5rem',
+                    fontSize: '0.75rem',
+                    fontWeight: '900',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'white';
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                    e.currentTarget.style.background = 'transparent';
+                  }}
+                >
+                  AMAZON MUSIC
+                </a>
+              )}
             </div>
           </div>
         </div>

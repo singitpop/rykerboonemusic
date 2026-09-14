@@ -7,13 +7,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const albumSlugs = [
     'boots-in-the-autumn-dust',
     'golden-hour-state-of-mind',
-    'wide-open-roads',
     'september-turns-gold',
+    'september-roads',
     'when-the-lights-go-gold',
-    'christmas-all-year-long',
-    'the-way-you-love-me',
-    'our-love-our-forever',
-    'backroads-in-bloom',
   ];
 
   const albumUrls: MetadataRoute.Sitemap = albumSlugs.map((slug) => ({

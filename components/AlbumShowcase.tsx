@@ -2,6 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { RYKER_ALBUM_LINKS } from "@/data/streamingLinks";
+
+const getStreamingLinksForAlbum = (link: string) => {
+  const slug = link.replace("/music/", "");
+  const camelCaseSlug = slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+  return RYKER_ALBUM_LINKS[camelCaseSlug as keyof typeof RYKER_ALBUM_LINKS];
+};
+
+const hasStreamingLinks = (link: string) => {
+  const links = getStreamingLinksForAlbum(link);
+  if (!links) return false;
+  return Object.values(links).some(url => url && url !== "#");
+};
 
 interface AlbumItem {
   title: string;
@@ -44,7 +57,7 @@ const albums: AlbumItem[] = [
     image: "/images/september roads - album v2.jpg",
     description: "A sunset-drenched heartland country album driven by stories of open roads, county lines, and small-town autumn nights.",
     link: "/music/september-roads",
-    releaseDate: "2026-09-26T00:00:00"
+    releaseDate: "2026-09-04T00:00:00"
   },
   {
     title: "When The Lights Go Gold",
@@ -97,38 +110,39 @@ const albums: AlbumItem[] = [
 ];
 
 export default function AlbumShowcase() {
+  const now = new Date();
+  
+  // Sort albums chronologically
+  const sortedAlbums = [...albums].sort((a, b) => new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime());
+  
+  // Only show released albums plus the single next upcoming album to protect future album concepts
+  const releasedAlbums = sortedAlbums.filter(a => new Date(a.releaseDate) <= now);
+  const futureAlbums = sortedAlbums.filter(a => new Date(a.releaseDate) > now);
+  const nextUpcomingAlbum = futureAlbums[0];
+  
+  const visibleAlbums = nextUpcomingAlbum 
+    ? [...releasedAlbums, nextUpcomingAlbum] 
+    : releasedAlbums;
+
   const getBadgeStatus = (album: typeof albums[0]) => {
     const releaseDate = new Date(album.releaseDate);
-    const now = new Date();
     
-    if (now >= releaseDate) {
-      const releasedAlbums = albums
-        .filter(a => new Date(a.releaseDate) <= now)
+    if (now >= releaseDate && hasStreamingLinks(album.link)) {
+      const released = albums
+        .filter(a => new Date(a.releaseDate) <= now && hasStreamingLinks(a.link))
         .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
         
-      if (releasedAlbums.length > 0 && releasedAlbums[0].title === album.title) {
+      if (released.length > 0 && released[0].title === album.title) {
         return "LATEST RELEASE";
       }
       return null;
     }
     
-    if (releaseDate.getMonth() === now.getMonth() && releaseDate.getFullYear() === now.getFullYear()) {
+    if (releaseDate > now) {
       return "COMING SOON";
     }
     
-    if (album.status === "IN THE STUDIO") {
-      return "IN THE STUDIO";
-    }
-    
-    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-    const month = months[releaseDate.getMonth()];
-    const day = releaseDate.getDate();
-    const year = releaseDate.getFullYear();
-    
-    if (day === 1) {
-      return `COMING ${month} ${year}`;
-    }
-    return `COMING ${month} ${day} ${year}`;
+    return null;
   };
 
   return (
@@ -143,7 +157,7 @@ export default function AlbumShowcase() {
         gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', 
         gap: '4rem' 
       }}>
-        {albums.map((album, index) => {
+        {visibleAlbums.map((album, index) => {
           const statusBadge = getBadgeStatus(album);
           return (
             <Link key={index} href={album.link} style={{ textDecoration: 'none', display: 'block' }}>

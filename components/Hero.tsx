@@ -3,6 +3,19 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { RYKER_ALBUM_LINKS } from "@/data/streamingLinks";
+
+const getStreamingLinksForAlbum = (link: string) => {
+  const slug = link.replace("/music/", "");
+  const camelCaseSlug = slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+  return RYKER_ALBUM_LINKS[camelCaseSlug as keyof typeof RYKER_ALBUM_LINKS];
+};
+
+const hasStreamingLinks = (link: string) => {
+  const links = getStreamingLinksForAlbum(link);
+  if (!links) return false;
+  return Object.values(links).some(url => url && url !== "#");
+};
 
 interface HeroAlbum {
   title: string;
@@ -48,7 +61,7 @@ const heroAlbums: HeroAlbum[] = [
     image: "/images/september roads - album v2.jpg",
     description: "A sunset-drenched heartland country album driven by stories of open roads, county lines, and small-town autumn nights.",
     link: "/music/september-roads",
-    releaseDate: "2026-09-26T00:00:00",
+    releaseDate: "2026-09-04T00:00:00",
     singles: [
       "September Roads",
       "Friday Night Lights",
@@ -120,15 +133,36 @@ const heroAlbums: HeroAlbum[] = [
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(1); // Defaults to "Golden Hour State of Mind" (Out Today!)
+  const now = new Date();
+
+  // Sort and filter: only show released albums and the immediate next upcoming album to protect future album concepts
+  const sortedHero = [...heroAlbums].sort((a, b) => new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime());
+  const releasedHero = sortedHero.filter(a => new Date(a.releaseDate) <= now);
+  const futureHero = sortedHero.filter(a => new Date(a.releaseDate) > now);
+  const nextHero = futureHero[0];
+  const visibleHeroAlbums = nextHero ? [...releasedHero, nextHero] : releasedHero;
+
+  const [activeIndex, setActiveIndex] = useState(() => {
+    let latestIdx = 0;
+    let latestReleaseTime = -Infinity;
+    for (let i = 0; i < visibleHeroAlbums.length; i++) {
+      const releaseTime = new Date(visibleHeroAlbums[i].releaseDate).getTime();
+      if (releaseTime <= now.getTime() && releaseTime > latestReleaseTime) {
+        latestReleaseTime = releaseTime;
+        latestIdx = i;
+      }
+    }
+    return latestIdx;
+  });
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const activeAlbum = heroAlbums[activeIndex];
+  const safeIndex = Math.min(activeIndex, visibleHeroAlbums.length - 1);
+  const activeAlbum = visibleHeroAlbums[safeIndex] || visibleHeroAlbums[0];
 
-  const getReleaseStatus = (releaseDateStr: string) => {
+  const getReleaseStatus = (releaseDateStr: string, link: string) => {
     const releaseDate = new Date(releaseDateStr);
     const now = new Date();
     
@@ -136,10 +170,12 @@ export default function Hero() {
     const releaseDateMidnight = new Date(releaseDate.getFullYear(), releaseDate.getMonth(), releaseDate.getDate());
     const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     
+    const streamable = hasStreamingLinks(link);
+    
     if (nowMidnight.getTime() === releaseDateMidnight.getTime()) {
-      return "NEW ALBUM OUT NOW";
+      return streamable ? "NEW ALBUM OUT NOW" : "COMING SOON";
     } else if (nowMidnight > releaseDateMidnight) {
-      return "RELEASED";
+      return streamable ? "RELEASED" : "COMING SOON";
     } else {
       return "COMING SOON";
     }
@@ -162,7 +198,7 @@ export default function Hero() {
     return `${m} ${d}, ${y}`;
   };
 
-  const status = getReleaseStatus(activeAlbum.releaseDate);
+  const status = getReleaseStatus(activeAlbum.releaseDate, activeAlbum.link);
 
   return (
     <section className="hero-section" style={{
@@ -374,14 +410,14 @@ export default function Hero() {
             <div className="timeline-line">
               <div 
                 className="timeline-progress" 
-                style={{ width: `${(activeIndex / (heroAlbums.length - 1)) * 100}%` }}
+                style={{ width: visibleHeroAlbums.length > 1 ? `${(safeIndex / (visibleHeroAlbums.length - 1)) * 100}%` : '0%' }}
               />
             </div>
 
             {/* List of clickable release node circles */}
             <div className="timeline-nodes">
-              {heroAlbums.map((album, idx) => {
-                const isActive = idx === activeIndex;
+              {visibleHeroAlbums.map((album, idx) => {
+                const isActive = idx === safeIndex;
                 const label = getTimelineLabel(album.releaseDate);
 
                 return (

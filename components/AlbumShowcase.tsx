@@ -44,20 +44,20 @@ const albums: AlbumItem[] = [
     releaseDate: "2026-07-28T00:00:00"
   },
   {
+    title: "September Turns Gold",
+    tagline: "The Barn & Festival Sessions",
+    image: "/images/september turns gold - album.png",
+    description: "A cinematic journey through heartland storytelling and modern country grit.",
+    link: "/music/september-turns-gold",
+    releaseDate: "2026-08-07T00:00:00"
+  },
+  {
     title: "September Roads",
     tagline: "Official Studio Album",
     image: "/images/september roads - album v2.jpg",
     description: "A sunset-drenched heartland country album driven by stories of open roads, county lines, and small-town autumn nights.",
     link: "/music/september-roads",
     releaseDate: "2026-09-04T00:00:00"
-  },
-  {
-    title: "September Turns Gold",
-    tagline: "The Barn & Festival Sessions",
-    image: "/images/september turns gold - album.png",
-    description: "A cinematic journey through heartland storytelling and modern country grit.",
-    link: "/music/september-turns-gold",
-    releaseDate: "2026-09-18T00:00:00"
   },
   {
     title: "When The Lights Go Gold",

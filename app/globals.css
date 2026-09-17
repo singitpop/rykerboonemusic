@@ -286,7 +286,7 @@ button {
   justify-content: space-between;
   height: 100%;
   width: 100%;
-  padding: 3rem;
+  padding: clamp(5.5rem, 8vh, 6.5rem) 3rem 2.5rem;
   background: var(--bg-secondary);
   border-left: 1px solid rgba(226, 179, 90, 0.15);
   position: relative;

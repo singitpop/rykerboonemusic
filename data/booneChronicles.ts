@@ -429,6 +429,16 @@ export const REAL_PROJECT_EVENTS: ChronicleEvent[] = [
     badge: "STUDIO RELEASE"
   },
   {
+    year: "AUG 2026",
+    date: "2026-08-07",
+    title: "Studio Album: September Turns Gold",
+    description: "'September Turns Gold' (13 tracks) released August 7, 2026, featuring acoustic warmth and rustic country picking.",
+    type: "REAL_PROJECT_EVENT",
+    status: "VERIFIED",
+    source: "Distributor release record (August 7, 2026)",
+    badge: "STUDIO RELEASE"
+  },
+  {
     year: "SEP 2026",
     date: "2026-09-04",
     title: "Studio Album: September Roads",
@@ -437,16 +447,6 @@ export const REAL_PROJECT_EVENTS: ChronicleEvent[] = [
     status: "VERIFIED",
     source: "Distributor release record (September 4, 2026)",
     badge: "STUDIO RELEASE"
-  },
-  {
-    year: "SEP 2026",
-    date: "2026-09-18",
-    title: "Studio Album: September Turns Gold",
-    description: "'September Turns Gold' (13 tracks) released September 18, 2026, featuring acoustic warmth and rustic country picking.",
-    type: "REAL_PROJECT_EVENT",
-    status: "CURRENT",
-    source: "Distributor release record (September 18, 2026)",
-    badge: "CURRENT RELEASE"
   },
   {
     year: "OCT 2026",
@@ -613,8 +613,8 @@ export const PRESS_KIT_DATA = {
     discography: [
       { title: "Boots in the Autumn Dust", releaseDate: "June 3, 2026", tracks: 12, label: "SINGITPOP RECORDS", status: "VERIFIED" },
       { title: "Golden Hour State of Mind", releaseDate: "July 28, 2026", tracks: 12, label: "SINGITPOP RECORDS", status: "VERIFIED" },
+      { title: "September Turns Gold", releaseDate: "August 7, 2026", tracks: 13, label: "SINGITPOP RECORDS", status: "VERIFIED" },
       { title: "September Roads", releaseDate: "September 4, 2026", tracks: 13, label: "SINGITPOP RECORDS", status: "VERIFIED" },
-      { title: "September Turns Gold", releaseDate: "September 18, 2026", tracks: 13, label: "SINGITPOP RECORDS", status: "CURRENT" },
       { title: "When The Lights Go Gold", releaseDate: "October 2, 2026", tracks: 12, label: "SINGITPOP RECORDS", status: "PLANNED" },
       { title: "Christmas All Year Long", releaseDate: "November 27, 2026", tracks: 12, label: "SINGITPOP RECORDS", status: "PLANNED" },
       { title: "The Way You Love Me", releaseDate: "January 2027", tracks: 13, label: "SINGITPOP RECORDS", status: "PLANNED" },

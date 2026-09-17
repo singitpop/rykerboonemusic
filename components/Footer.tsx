@@ -33,16 +33,16 @@ export default function Footer() {
             />
           </div>
           <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', fontSize: '0.9rem' }}>
-            Real Songs. Real Stories. <br />
-            Forged in the heart of Nashville.
+            Country Songs. Cinematic Stories. <br />
+            Built from the heart of modern country.
           </p>
         </div>
 
         <div>
           <h5 style={{ color: 'white', marginBottom: '1.5rem', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Navigation</h5>
           <ul style={{ display: 'grid', gap: '1rem', fontSize: '0.9rem' }}>
-            <li><Link href="#music" style={{ color: 'var(--text-secondary)' }}>Music</Link></li>
-            <li><Link href="#story" style={{ color: 'var(--text-secondary)' }}>Our Story</Link></li>
+            <li><Link href="/music" style={{ color: 'var(--text-secondary)' }}>Music</Link></li>
+            <li><Link href="/about" style={{ color: 'var(--text-secondary)' }}>Our Story</Link></li>
             <li><Link href="https://shop.rykerboone.com" style={{ color: 'var(--text-secondary)' }}>Shop</Link></li>
             <li><Link href="/about" style={{ color: 'var(--text-secondary)' }}>Artist Library</Link></li>
             <li><Link href="/support" style={{ color: 'var(--accent-gold)' }}>Support the Journey</Link></li>

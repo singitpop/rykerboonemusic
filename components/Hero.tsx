@@ -24,8 +24,9 @@ interface HeroAlbum {
   description: string;
   link: string;
   releaseDate: string;
-  displayDate?: string;
+  displayDate: string;
   singles: string[];
+  status?: "RELEASED" | "NEW ALBUM OUT NOW" | "COMING SOON";
 }
 
 const heroAlbums: HeroAlbum[] = [
@@ -33,7 +34,7 @@ const heroAlbums: HeroAlbum[] = [
     title: "Boots in the Autumn Dust",
     tagline: "The Full Length Album",
     image: "/images/boots in the autumn dust - album.jpg",
-    description: "Deep, authentic Nashville soul rooted in blue-collar pride and lost love.",
+    description: "Modern country storytelling rooted in blue-collar pride, open roads, love and loss.",
     link: "/music/boots-in-the-autumn-dust",
     releaseDate: "2026-06-03T00:00:00",
     displayDate: "June 3, 2026",
@@ -48,6 +49,16 @@ const heroAlbums: HeroAlbum[] = [
     releaseDate: "2026-07-28T00:00:00",
     displayDate: "July 28, 2026",
     singles: ["Backroad Paradise", "Cold Beer And Carolina Blue", "Fireworks In July", "One More Sunset", "Small Town Skyline", "Golden Hour State Of Mind"]
+  },
+  {
+    title: "September Turns Gold",
+    tagline: "The Barn & Festival Sessions",
+    image: "/images/september turns gold - album.png",
+    description: "A rustic acoustic-led journey through heartland storytelling and modern country grit.",
+    link: "/music/september-turns-gold",
+    releaseDate: "2026-08-07T00:00:00",
+    displayDate: "August 7, 2026",
+    singles: ["September Turns Gold", "Highway On Fire", "Southern Steel"]
   },
   {
     title: "September Roads",
@@ -69,16 +80,6 @@ const heroAlbums: HeroAlbum[] = [
       "County Line",
       "Autumn Always Comes"
     ]
-  },
-  {
-    title: "September Turns Gold",
-    tagline: "The Barn & Festival Sessions",
-    image: "/images/september turns gold - album.png",
-    description: "A rustic acoustic-led journey through heartland storytelling and modern country grit.",
-    link: "/music/september-turns-gold",
-    releaseDate: "2026-09-18T00:00:00",
-    displayDate: "September 18, 2026",
-    singles: ["September Turns Gold", "Highway On Fire", "Southern Steel"]
   },
   {
     title: "When The Lights Go Gold",
@@ -146,7 +147,7 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const now = new Date();
 
-  // Sort and filter: only show released albums and the immediate next upcoming album to protect future album concepts
+  // Sort and filter: strictly calculate ordering using releaseDate
   const sortedHero = [...heroAlbums].sort((a, b) => new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime());
   const releasedHero = sortedHero.filter(a => new Date(a.releaseDate) <= now);
   const futureHero = sortedHero.filter(a => new Date(a.releaseDate) > now);
@@ -173,20 +174,19 @@ export default function Hero() {
   const safeIndex = Math.min(activeIndex, visibleHeroAlbums.length - 1);
   const activeAlbum = visibleHeroAlbums[safeIndex] || visibleHeroAlbums[0];
 
-  const getReleaseStatus = (releaseDateStr: string, link: string) => {
-    const releaseDate = new Date(releaseDateStr);
+  const getReleaseStatus = (album: HeroAlbum) => {
+    if (album.status) return album.status;
+    const releaseDate = new Date(album.releaseDate);
     const now = new Date();
     
     // Normalize dates to midnight to check for "Released today"
     const releaseDateMidnight = new Date(releaseDate.getFullYear(), releaseDate.getMonth(), releaseDate.getDate());
     const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     
-    const streamable = hasStreamingLinks(link);
-    
     if (nowMidnight.getTime() === releaseDateMidnight.getTime()) {
-      return streamable ? "NEW ALBUM OUT NOW" : "COMING SOON";
+      return "NEW ALBUM OUT NOW";
     } else if (nowMidnight > releaseDateMidnight) {
-      return streamable ? "RELEASED" : "COMING SOON";
+      return "RELEASED";
     } else {
       return "COMING SOON";
     }
@@ -213,7 +213,7 @@ export default function Hero() {
     return `${m} ${d}, ${y}`;
   };
 
-  const status = getReleaseStatus(activeAlbum.releaseDate, activeAlbum.link);
+  const status = getReleaseStatus(activeAlbum);
 
   return (
     <section className="hero-section" style={{

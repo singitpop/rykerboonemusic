@@ -47,7 +47,7 @@ export default function Navbar() {
       backdropFilter: scrolled ? 'blur(10px)' : 'none',
       transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
       display: 'grid',
-      gridTemplateColumns: '1.4fr 1fr',
+      gridTemplateColumns: '1.2fr 1fr',
       alignItems: 'center',
       borderBottom: scrolled ? '1px solid rgba(226, 179, 90, 0.1)' : '1px solid transparent'
     }}>
@@ -60,7 +60,8 @@ export default function Navbar() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
+        paddingRight: '2.5rem'
       }}>
         <Link href="/" className="boone-logo-container">
           <Image 

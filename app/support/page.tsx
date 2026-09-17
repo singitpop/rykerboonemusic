@@ -38,7 +38,7 @@ export default function SupportPage() {
             
             <p>Over the past year, we've built something special together.</p>
             
-            <p>From the release of <em>Boots In The Autumn Dust</em> to the upcoming <em>When September Turns Gold</em>, you've supported every step of this journey. What began as a handful of songs has grown into a community of listeners who believe in real music, real stories, and real connections.</p>
+            <p>From the release of <em>Boots In The Autumn Dust</em> and <em>September Turns Gold</em> to every single and story along the way, you've supported every step of this journey. What began as a handful of songs has grown into a community of listeners who believe in real music, real stories, and real connections.</p>
             
             <p>Now it's time to take the next step.</p>
             

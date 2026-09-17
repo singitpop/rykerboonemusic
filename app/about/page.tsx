@@ -103,12 +103,12 @@ export default function ArtistLibrary() {
     {
       title: "September Turns Gold",
       cover: "/images/september turns gold - album.png",
-      releaseDate: "September 2026",
+      releaseDate: "August 2026",
       label: "SINGITPOP RECORDS",
       genre: "Rustic Country / Heartland Folk",
       formats: "Digital Streaming & Lossless WAV",
       headline: "RYKER BOONE REFLECTS ON TIMELESS HARVESTS AND LOST LOVE IN SOPHOMORE ALBUM 'SEPTEMBER TURNS GOLD'",
-      leadParagraph: "NASHVILLE, TN – SEPTEMBER 2026 – Country sensation Ryker Boone returns with his rustic, acoustic-led sophomore album, 'September Turns Gold', detailing seasons of transition and romance in rural Tennessee.",
+      leadParagraph: "NASHVILLE, TN – AUGUST 2026 – Country sensation Ryker Boone returns with his rustic, acoustic-led sophomore album, 'September Turns Gold', detailing seasons of transition and romance in rural Tennessee.",
       bodyText: "Recorded entirely in a historic timber-frame barn in Columbia, Tennessee, the record bridges the gap between front-porch picking and high-energy festival stages. Defining acoustic warmth, soaring pedal steel solos, and intimate stories of blue-collar endurance, the project showcases Boone's signature songwriting depth.",
       quote: "\"This album is all about transitions. It's about how the seasons change, and how we change with them. We kept the recordings warm and close to the wood to capture that rustic Tennessee twilight feel.\" — Ryker Boone, The Boone Chronicles",
       tracklist: [

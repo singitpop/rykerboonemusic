@@ -47,8 +47,8 @@ export default function SupportPage() {
             <p>Your support will help fund:</p>
             
             <ul style={{ listStyleType: 'none', padding: '0 0 0 1rem', display: 'flex', flexDirection: 'column', gap: '1rem', color: 'rgba(245, 240, 225, 0.9)' }}>
-              <li>🎙️ Professional studio recording sessions</li>
-              <li>🎸 Session musicians and instrumental performances</li>
+              <li>🎙️ Professional recording sessions</li>
+              <li>🎸 Songwriting and instrumental development</li>
               <li>🎛️ Mixing and mastering of new singles and albums</li>
               <li>🎥 Music videos and visual storytelling projects</li>
               <li>📸 Professional photography and promotional content</li>
@@ -87,7 +87,7 @@ export default function SupportPage() {
             <p>See you down the road.</p>
             
             <div style={{ marginTop: '2rem' }}>
-              <p style={{ fontWeight: 'bold', fontSize: '1.2rem', color: '#f5f0e1', margin: '0 0 0.5rem 0' }}>— Ryker Boone</p>
+              <p style={{ fontWeight: 'bold', fontSize: '1.2rem', color: '#f5f0e1', margin: '0 0 0.5rem 0' }}>— Ryker Boone, The Boone Chronicles</p>
               <p style={{ color: 'var(--accent-gold)', fontStyle: 'italic', margin: 0 }}>Real Songs. Real Stories.</p>
             </div>
           </div>

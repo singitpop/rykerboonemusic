@@ -14,22 +14,22 @@ export default function ArtistLibrary() {
   const merchImages = [
     {
       src: "/images/consistent/merch_hat_beanie.png",
-      model: "Ryker & Joyce Boone",
-      product: "Ryker Boone - Signature Trucker Hat & Joyce Boone - Cozy Logo Knit Beanie"
+      model: "Ryker & Kate",
+      product: "Ryker Boone - Signature Trucker Hat & Kate - Cozy Logo Knit Beanie"
     },
     {
       src: "/images/consistent/merch_workout.png",
-      model: "Ryker & Joyce Boone",
+      model: "Ryker & Kate",
       product: "Midnight Motion Activewear"
     },
     {
       src: "/images/consistent/merch_joyce_shopping.png",
-      model: "Joyce Boone",
+      model: "Kate",
       product: "Canvas Logo Tote Bag"
     },
     {
       src: "/images/consistent/merch_joyce tote_black.png",
-      model: "Joyce Boone",
+      model: "Kate",
       product: "Black Canvas Logo Tote Bag"
     },
     {
@@ -39,17 +39,17 @@ export default function ArtistLibrary() {
     },
     {
       src: "/images/consistent/merch_family_group.png",
-      model: "The Boone Family",
+      model: "Ryker & Kate with Graham",
       product: "Coordinated Family Hoodies"
     },
     {
       src: "/images/consistent/merch_family_blanket.png",
-      model: "Joyce Boone",
+      model: "Kate",
       product: "Embroidered Camp Blanket"
     },
     {
       src: "/images/consistent/merch_family_cozy.png",
-      model: "Ryker & Joyce Boone",
+      model: "Ryker & Kate",
       product: "Signature Ceramic Mugs"
     }
   ];
@@ -77,8 +77,8 @@ export default function ArtistLibrary() {
       formats: "Digital Streaming & Lossless WAV",
       headline: "RYKER BOONE BRINGS AUTHENTIC HEARTLAND SOUL IN NEW STUDIO ALBUM 'BOOTS IN THE AUTUMN DUST'",
       leadParagraph: "NASHVILLE, TN – JUNE 2026 – Critically acclaimed singer-songwriter Ryker Boone has officially released his highly anticipated debut studio album, 'Boots in the Autumn Dust', via independent record label SINGITPOP RECORDS.",
-      bodyText: "Recorded at the historic Blackbird Studio in Nashville, this album represents a raw and authentic country narrative, celebrating blue-collar pride, resilience, and personal struggles. Fusing warm acoustic arrangements, Twin Nashville fiddles, driving telecasters, and Ryker's deep baritone vocals, the project captures the true spirit of small-town America.",
-      quote: "\"I wanted to make something that feels real. These songs are written about working-class pride and the challenges we face on a daily basis. Blackbird Studio gave us the perfect space to capture that organic, live-room energy.\" — Ryker Boone",
+      bodyText: "This debut studio album represents a raw and authentic country narrative, celebrating blue-collar pride, resilience, and personal struggles. Fusing warm acoustic arrangements, Twin Nashville fiddles, driving telecasters, and Ryker's deep baritone vocals, the project captures the true spirit of small-town America. Modern country production combining original creative direction, songwriting development and AI-assisted production tools.",
+      quote: "\"I wanted to make something that feels real. These songs are written about working-class pride and the challenges we face on a daily basis, capturing that organic, live-room energy.\" — Ryker Boone, The Boone Chronicles",
       tracklist: [
         { title: "Honky Tonk Sundown", duration: "3:42" },
         { title: "August Heatwave", duration: "4:05" },
@@ -110,7 +110,7 @@ export default function ArtistLibrary() {
       headline: "RYKER BOONE REFLECTS ON TIMELESS HARVESTS AND LOST LOVE IN SOPHOMORE ALBUM 'SEPTEMBER TURNS GOLD'",
       leadParagraph: "NASHVILLE, TN – SEPTEMBER 2026 – Country sensation Ryker Boone returns with his rustic, acoustic-led sophomore album, 'September Turns Gold', detailing seasons of transition and romance in rural Tennessee.",
       bodyText: "Recorded entirely in a historic timber-frame barn in Columbia, Tennessee, the record bridges the gap between front-porch picking and high-energy festival stages. Defining acoustic warmth, soaring pedal steel solos, and intimate stories of blue-collar endurance, the project showcases Boone's signature songwriting depth.",
-      quote: "\"This album is all about transitions. It's about how the seasons change, and how we change with them. We kept the recordings warm and close to the wood to capture that rustic Tennessee twilight feel.\" — Ryker Boone",
+      quote: "\"This album is all about transitions. It's about how the seasons change, and how we change with them. We kept the recordings warm and close to the wood to capture that rustic Tennessee twilight feel.\" — Ryker Boone, The Boone Chronicles",
       tracklist: [
         { title: "Whiskey In The Headlights", duration: "3:38" },
         { title: "Dust On The Blacktop", duration: "3:47" },
@@ -143,7 +143,7 @@ export default function ArtistLibrary() {
       headline: "RYKER BOONE MERGES NEON GLOW AND ROOT-LEVEL TRADITION IN 'WHEN THE LIGHTS GO GOLD'",
       leadParagraph: "NASHVILLE, TN – OCTOBER 2026 – Ryker Boone has officially released his chart-bound third studio album, 'When The Lights Go Gold', showcasing an upbeat country-pop drive and commercial-crossover sound.",
       bodyText: "Recorded with a polished modern edge, this record balances traditional heartland country elements with driving pop rhythms, clean radio-ready hooks, and dark, atmospheric ballads. From weekend party anthems like 'Friday Again' to deep, emotional low-end tracks like 'Blue Flame', Boone captures the late-night magic of local highways and summer nostalgia.",
-      quote: "\"We wanted to bring in more tempo and energy on this one—reflecting those hot summer festival nights and neon dashboards. It's country pop with a heartbeat and real dirt on the tires.\" — Ryker Boone",
+      quote: "\"We wanted to bring in more tempo and energy on this one—reflecting those hot summer festival nights and neon dashboards. It's country pop with a heartbeat and real dirt on the tires.\" — Ryker Boone, The Boone Chronicles",
       tracklist: [
         { title: "Friday Again", duration: "2:44" },
         { title: "Midnight Motion", duration: "3:03" },
@@ -175,7 +175,7 @@ export default function ArtistLibrary() {
       headline: "RYKER BOONE DELIVERS COZY HOLIDAY WARMTH IN NEW ALBUM 'CHRISTMAS ALL YEAR LONG'",
       leadParagraph: "NASHVILLE, TN – NOVEMBER 2026 – Acclaimed country storyteller Ryker Boone has officially released his heartwarming studio holiday album, 'Christmas All Year Long', via independent record label SINGITPOP RECORDS.",
       bodyText: "Blending festive steel strings, acoustic warmth, and intimate cabin stories, the album captures the true spirit of the holidays in the heartland. Recorded live in Columbia, Tennessee, the project ranges from energetic seasonal line-dance tracks to tender fireside ballads.",
-      quote: "\"Christmas has always been about family and coming home. I wanted to record an album that brings that exact feeling of walking through a snowy ranch or gathering around a warm stone fireplace. It's country music wrapped up in holiday gold.\" — Ryker Boone",
+      quote: "\"Christmas has always been about family and coming home. I wanted to record an album that brings that exact feeling of walking through a snowy ranch or gathering around a warm stone fireplace. It's country music wrapped up in holiday gold.\" — Ryker Boone, The Boone Chronicles",
       tracklist: [
         { title: "Where We Belong", duration: "3:32" },
         { title: "Beneath the Lights", duration: "3:45" },
@@ -207,7 +207,7 @@ export default function ArtistLibrary() {
       headline: "RYKER BOONE BRINGS DEEP DEVOTION AND SOULFUL COUNTRY STORYTELLING IN NEW ALBUM 'THE WAY YOU LOVE ME'",
       leadParagraph: "NASHVILLE, TN – JANUARY 2027 – Heartland country artist Ryker Boone has officially released his highly anticipated studio album, 'The Way You Love Me', via independent record label SINGITPOP RECORDS.",
       bodyText: "Focusing on themes of personal devotion, growth, and warm domestic reflection, this record combines acoustic guitars, sweeping steel strings, and rich baritone vocals. Recorded in Columbia, Tennessee, the album delivers a live-session country-pop vibe built for cold nights and long highways, highlighted by the deeply emotional acoustic tribute song 'Joyce', honoring the memory of his late wife.",
-      quote: "\"This record is all about the quiet, solid foundations of everyday partnership and love. We captured a live pickers groove in the studio, and I think that raw, honest energy shines through in every track.\" — Ryker Boone",
+      quote: "\"This record is all about the quiet, solid foundations of everyday partnership and love. We captured a live pickers groove in the studio, and I think that raw, honest energy shines through in every track.\" — Ryker Boone, The Boone Chronicles",
       tracklist: [
         { title: "Still Makes Me Nervous", duration: "3:44" },
         { title: "The Way You Love Me", duration: "3:52" },
@@ -240,7 +240,7 @@ export default function ArtistLibrary() {
       headline: "RYKER BOONE CELEBRATES ENDURING DEVOTION IN POWERFUL TRIBUTE ALBUM 'OUR LOVE OUR FOREVER'",
       leadParagraph: "NASHVILLE, TN – FEBRUARY 2027 – Dedicated to love, dedication, and lifelong commitment, country artist Ryker Boone has released his romantic masterwork, 'Our Love Our Forever'.",
       bodyText: "Written in celebration of finding lifelong love again with his fiancée Kate, the album features sweeping string sections, warm grand piano chords, and tender acoustic guitars. Released in February 2027 following their January wedding, the project contains five custom ceremony-ready Wedding Remixes reimagined specifically for first dances, aisle walks, and reception celebrations.",
-      quote: "\"This album is my celebration of new beginnings and finding the love that leads you home. After everything we've walked through, waking up next to Kate and watching her love Graham has given me a second chance at forever.\" — Ryker Boone",
+      quote: "\"This album is my celebration of new beginnings and finding the love that leads you home. After everything we've walked through, waking up next to Kate and watching her love Graham has given me a second chance at forever.\" — Ryker Boone, The Boone Chronicles",
       tracklist: [
         { title: "Here Comes the Light", duration: "3:45" },
         { title: "I Choose You", duration: "3:28" },
@@ -277,7 +277,7 @@ export default function ArtistLibrary() {
       headline: "RYKER BOONE CELEBRATES NEW BEGINNINGS AND COUNTRY HIGHWAYS IN ALBUM 'BACKROADS IN BLOOM'",
       leadParagraph: "NASHVILLE, TN – MARCH 2027 – Heartland country artist Ryker Boone has officially released his highly anticipated spring Americana album, 'Backroads in Bloom', via independent record label SINGITPOP RECORDS.",
       bodyText: "Focusing on themes of growth, recovery, and the freedom of the open road, this record combines acoustic warmth, driving percussion, and rich baritone harmonies. Fusing twin fiddles and telecasters, the album provides a perfect soundscape for warm spring road trips and local backroad reflections.",
-      quote: "\"This album is about the change of seasons—specifically how things grow back after a long, cold winter. It's about finding hope on those dusty backroads, and seeing the wildflowers bloom where you least expect it.\" — Ryker Boone",
+      quote: "\"This album is about the change of seasons—specifically how things grow back after a long, cold winter. It's about finding hope on those dusty backroads, and seeing the wildflowers bloom where you least expect it.\" — Ryker Boone, The Boone Chronicles",
       tracklist: [
         { title: "Spring Came Early", duration: "3:28" },
         { title: "Backroads in Bloom", duration: "3:45" },
@@ -569,7 +569,7 @@ export default function ArtistLibrary() {
 
                 <div style={{ marginBottom: '1.5rem' }}>
                   <span style={{ display: 'block', color: 'var(--accent-gold)', fontSize: '0.65rem', fontWeight: '900', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.35rem' }}>
-                    Verified Production &amp; Distribution
+                    Production &amp; Distribution
                   </span>
                   <p style={{ fontSize: '0.82rem', lineHeight: '1.6', color: 'rgba(255,255,255,0.7)', margin: 0 }}>
                     {PRESS_KIT_DATA.artistProject.longDescription}
@@ -748,7 +748,7 @@ export default function ArtistLibrary() {
 
           <div style={{ textAlign: 'center' }}>
             <p style={{ color: 'rgba(245, 240, 225, 0.45)', fontSize: '0.8rem', marginBottom: '1rem' }}>
-              Are you a representative from a media or booking outlet?
+              Media, press and industry enquiries
             </p>
             <a href="mailto:media@singitpop.com">
               <button style={{

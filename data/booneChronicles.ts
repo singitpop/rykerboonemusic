@@ -35,7 +35,7 @@ export interface StoryPhase {
 }
 
 export type EventType = 'FICTIONAL_STORY_EVENT' | 'REAL_PROJECT_EVENT';
-export type StoryEventStatus = 'CANON' | 'PROPOSED' | 'LEGACY';
+export type StoryEventStatus = 'FICTIONAL CANON' | 'CANON' | 'PROPOSED' | 'LEGACY';
 export type RealProjectStatus = 'VERIFIED' | 'CURRENT' | 'PLANNED';
 
 export interface ChronicleEvent {
@@ -231,7 +231,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Ryker begins playing acoustic sets in local bars and honky-tonks around Columbia, Tennessee.",
     phaseId: "phase-1",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     location: "Columbia, TN"
   },
@@ -241,7 +241,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Nashville stages become part of his musical ambitions as he hones his songwriting craft.",
     phaseId: "phase-1",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     location: "Nashville, TN"
   },
@@ -251,7 +251,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Working-class years in Middle Tennessee industries shape his blue-collar pride and musical voice.",
     phaseId: "phase-1",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible"
   },
   {
@@ -260,7 +260,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Returns seriously to writing songs rooted in real small-town stories and personal perseverance.",
     phaseId: "phase-1",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible"
   },
   {
@@ -269,7 +269,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Early Nashville performances lead to meeting his future wife, Joyce, who becomes his greatest muse.",
     phaseId: "phase-1",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker", "Joyce"]
   },
@@ -279,7 +279,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Ryker and Joyce marry on their rustic Middle Tennessee ranch, welcoming Bettie into their home.",
     phaseId: "phase-1",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker", "Joyce", "Bettie"]
   },
@@ -289,7 +289,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Welcomes son Graham; family life on the ranch becomes Ryker's greatest pride and priority.",
     phaseId: "phase-1",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker", "Joyce", "Graham"]
   },
@@ -299,7 +299,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "The Boone family enters its most difficult chapter with the tragic loss of Joyce and faithful dog Bettie.",
     phaseId: "phase-2",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker", "Joyce", "Bettie", "Graham"]
   },
@@ -309,7 +309,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Ryker focuses wholeheartedly on raising young Graham alone, rebuilding life through hard work and quiet courage.",
     phaseId: "phase-2",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker", "Graham"]
   },
@@ -319,7 +319,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Songwriting gradually returns as an emotional outlet, giving voice to survival, loss, and quiet hope.",
     phaseId: "phase-2",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker"]
   },
@@ -329,7 +329,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Penny, a cream English miniature Dachshund puppy, arrives and brings playful energy and laughter back to the household.",
     phaseId: "phase-3",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker", "Graham", "Penny"]
   },
@@ -339,7 +339,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "A new musical chapter begins as Ryker channels years of lived experience into a rich catalog of songs.",
     phaseId: "phase-3",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible"
   },
   {
@@ -348,7 +348,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Ryker meets Kate; an honest, warm relationship develops naturally with deep respect for his family history.",
     phaseId: "phase-4",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker", "Kate", "Graham"]
   },
@@ -358,7 +358,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Ryker and Kate become engaged; family ranch life with Graham and Penny thrives with renewed joy.",
     phaseId: "phase-4",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker", "Kate", "Graham", "Penny"]
   },
@@ -368,7 +368,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "Ryker and Kate marry on the Tennessee ranch, opening a beautiful new family chapter together.",
     phaseId: "phase-4",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     characters: ["Ryker", "Kate", "Graham", "Penny"]
   },
@@ -378,7 +378,7 @@ export const BOONE_CHRONICLES_STORY_EVENTS: ChronicleEvent[] = [
     description: "The wedding-era album 'Our Love Our Forever' accompanies the beginning of their married chapter.",
     phaseId: "phase-4",
     type: "FICTIONAL_STORY_EVENT",
-    status: "CANON",
+    status: "FICTIONAL CANON",
     source: "Boone Chronicles Story Bible",
     badge: "WEDDING ALBUM"
   }
@@ -397,16 +397,16 @@ export const REAL_PROJECT_EVENTS: ChronicleEvent[] = [
     type: "REAL_PROJECT_EVENT",
     status: "VERIFIED",
     source: "SingIt Pop Project Records (EST. 2024)",
-    badge: "VERIFIED ORIGIN"
+    badge: "PROJECT ORIGIN"
   },
   {
     year: "2025",
     title: "Catalog Production & Visual Storytelling",
-    description: "Full-scale recording, mixing, and mastering of the initial multi-album Ryker Boone discography, character visual archives, and high-fidelity lossless masters.",
+    description: "Production of the initial multi-album Ryker Boone catalogue, digital character visual archives, and high-fidelity audio masters combining original songwriting development with modern digital audio and AI-assisted production tools.",
     type: "REAL_PROJECT_EVENT",
     status: "VERIFIED",
     source: "Studio Master Production Archive",
-    badge: "VERIFIED PRODUCTION"
+    badge: "CATALOG PRODUCTION"
   },
   {
     year: "JUN 2026",
@@ -608,9 +608,9 @@ export const PRESS_KIT_DATA = {
     label: "SINGITPOP RECORDS",
     genre: "Country / Americana / Heartland Pop",
     officialWebsite: "https://www.rykerboone.com",
-    shortDescription: "Ryker Boone is an independent country recording artist project established in 2024 by SingIt Pop. The project combines modern country songwriting, high-fidelity studio production, and the immersive story-world of The Boone Chronicles.",
-    longDescription: "Established in 2024, the Ryker Boone recording project represents a contemporary synthesis of country music storytelling and cinematic digital worldbuilding. Released via independent label SINGITPOP RECORDS, the catalog spans heartland country, modern crossover pop, festive Americana, and acoustic wedding collections, anchored by character-driven lyricism and authentic Nashville-style instrumentation.",
-    verifiedDiscography: [
+    shortDescription: "Ryker Boone is a fictional country recording artist and creative character project established in 2024, created and managed by SingIt Pop. The project combines modern country songwriting, visual worldbuilding, and the immersive story-world of The Boone Chronicles.",
+    longDescription: "Established in 2024 by SingIt Pop, the Ryker Boone recording project represents a contemporary synthesis of country music storytelling and cinematic digital worldbuilding. Released via independent label SINGITPOP RECORDS, the catalogue spans heartland country, modern crossover pop, festive Americana, and acoustic wedding collections. Modern country production combining original creative direction, songwriting development and AI-assisted production tools.",
+    discography: [
       { title: "Boots in the Autumn Dust", releaseDate: "June 3, 2026", tracks: 12, label: "SINGITPOP RECORDS", status: "VERIFIED" },
       { title: "Golden Hour State of Mind", releaseDate: "July 28, 2026", tracks: 12, label: "SINGITPOP RECORDS", status: "VERIFIED" },
       { title: "September Roads", releaseDate: "September 4, 2026", tracks: 13, label: "SINGITPOP RECORDS", status: "VERIFIED" },

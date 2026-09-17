@@ -207,7 +207,7 @@ export default function DigitalArtistProfile() {
             textTransform: 'uppercase', 
             margin: '0 0 1rem' 
           }}>
-            {timelineMode === 'story' ? 'THE BOONE CHRONICLES STORY TIMELINE' : 'BEHIND THE MUSIC'}
+            {timelineMode === 'story' ? 'THE BOONE CHRONICLES — FICTIONAL STORY TIMELINE' : 'RYKER BOONE — REAL PROJECT HISTORY (ESTABLISHED 2024)'}
           </h3>
           <p style={{ 
             color: 'rgba(245, 240, 225, 0.65)', 
@@ -249,7 +249,7 @@ export default function DigitalArtistProfile() {
                 transition: 'all 0.3s ease'
               }}
             >
-              1. The Boone Chronicles (Story Timeline)
+              1. The Boone Chronicles (Fictional Story Timeline)
             </button>
             <button
               onClick={() => setTimelineMode('realWorld')}
@@ -267,7 +267,7 @@ export default function DigitalArtistProfile() {
                 transition: 'all 0.3s ease'
               }}
             >
-              2. Real Project History (EST. 2024)
+              2. Ryker Boone (Real Project History – Established 2024)
             </button>
           </div>
         </div>
@@ -424,7 +424,7 @@ export default function DigitalArtistProfile() {
       }}>
         <div style={{ textAlign: 'center', fontStyle: 'italic', fontFamily: 'var(--font-playfair)', fontSize: '1.2rem' }}>
           &ldquo;I write songs about the people like me and the places that raised me. If it&apos;s real, it&apos;s worth singing.&rdquo;
-          <span style={{ display: 'block', marginTop: '1rem', fontSize: '0.7rem', textTransform: 'uppercase', fontStyle: 'normal', letterSpacing: '0.2em', color: 'var(--accent-gold)' }}>— Ryker Boone</span>
+          <span style={{ display: 'block', marginTop: '1rem', fontSize: '0.7rem', textTransform: 'uppercase', fontStyle: 'normal', letterSpacing: '0.2em', color: 'var(--accent-gold)' }}>— Ryker Boone, The Boone Chronicles</span>
         </div>
 
         <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>

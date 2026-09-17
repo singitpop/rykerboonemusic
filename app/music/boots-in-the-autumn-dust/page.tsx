@@ -163,7 +163,7 @@ export default function BootsAlbumPage() {
               fontSize: '0.95rem',
               marginBottom: '2.5rem'
             }}>
-              Deep, authentic Nashville soul rooted in blue-collar pride and lost love. Recorded at the historic Blackbird Studio in Nashville, this album captures the true essence of heartland country storytelling. With raw guitar licks, soaring steel guitar, and Ryker's warm whiskey baritone, it chronicles the struggles and triumphs of working-class American life.
+              Deep, authentic heartland soul rooted in blue-collar pride and lost love. Capturing the true essence of heartland country storytelling, this debut album fuses raw guitar licks, soaring steel guitar, and Ryker's warm whiskey baritone to chronicle the struggles and triumphs of working-class American life.
             </p>
 
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>

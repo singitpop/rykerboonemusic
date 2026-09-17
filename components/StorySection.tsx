@@ -80,7 +80,7 @@ export default function StorySection() {
             Ryker Boone was raised in a small town outside Willow Creek, Tennessee. His dad worked construction, his mom taught school, and their house was always filled with classic country, rock, and the sounds of real life. He picked up a guitar at 12 and never put it down. 
           </p>
           <p style={{ color: 'var(--text-secondary)', marginTop: '1.5rem', lineHeight: '1.8' }}>
-            By 18 he was playing local bars, writing songs that weren't just about life—they were about living it. Today, his music is still built on that same truth and grit. When he's not on the road, you'll find him at home with his wife, his son, and his loyal dog, Betty. He's not here for the fame; he's here for the music, the fans, and the road that never stops calling.
+            By 18 he was playing local bars, writing songs that weren't just about life—they were about living it. Today, his music is still built on that same truth and grit. When he's not on the road, you'll find him at home with his fiancée Kate, his son Graham, and his loyal dachshund Penny. He's not here for the fame; he's here for the music, the fans, and the road that never stops calling.
           </p>
           <div style={{ marginTop: '2rem', fontFamily: 'var(--font-playfair)', color: 'var(--accent-gold)', fontSize: '1.2rem', fontStyle: 'italic' }}>
             This isn't just his story. It's yours too.
@@ -97,7 +97,7 @@ export default function StorySection() {
             }}>
               <Image 
                 src="/images/family-jessie-betty.jpg" 
-                alt="Ryker, Jessie, and Betty" 
+                alt="Ryker Boone and family" 
                 fill 
                 style={{ objectFit: 'cover' }}
               />

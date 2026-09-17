@@ -33,7 +33,7 @@ const albums: AlbumItem[] = [
     image: "/images/boots in the autumn dust - album.jpg",
     description: "Deep, authentic Nashville soul rooted in blue-collar pride and lost love.",
     link: "/music/boots-in-the-autumn-dust",
-    releaseDate: "2026-06-01T00:00:00"
+    releaseDate: "2026-06-03T00:00:00"
   },
   {
     title: "Golden Hour State of Mind",
@@ -41,15 +41,7 @@ const albums: AlbumItem[] = [
     image: "/images/golden hour state of mind - album.png",
     description: "A sunset-drenched collection of country-pop stories, celebrating life, love, and the good times.",
     link: "/music/golden-hour-state-of-mind",
-    releaseDate: "2026-07-27T00:00:00"
-  },
-  {
-    title: "September Turns Gold",
-    tagline: "The Barn & Festival Sessions",
-    image: "/images/september turns gold - album.png",
-    description: "A cinematic journey through heartland storytelling and modern country grit.",
-    link: "/music/september-turns-gold",
-    releaseDate: "2026-08-01T00:00:00"
+    releaseDate: "2026-07-28T00:00:00"
   },
   {
     title: "September Roads",
@@ -60,12 +52,20 @@ const albums: AlbumItem[] = [
     releaseDate: "2026-09-04T00:00:00"
   },
   {
+    title: "September Turns Gold",
+    tagline: "The Barn & Festival Sessions",
+    image: "/images/september turns gold - album.png",
+    description: "A cinematic journey through heartland storytelling and modern country grit.",
+    link: "/music/september-turns-gold",
+    releaseDate: "2026-09-18T00:00:00"
+  },
+  {
     title: "When The Lights Go Gold",
     tagline: "Modern Country Pop",
     image: "/images/when the lights go gold - album.png",
     description: "A cinematic modern country pop album built for cold-night drives and neon reflections.",
     link: "/music/when-the-lights-go-gold",
-    releaseDate: "2026-10-01T00:00:00"
+    releaseDate: "2026-10-02T00:00:00"
   },
   {
     title: "Christmas All Year Long",
@@ -81,7 +81,7 @@ const albums: AlbumItem[] = [
     image: "/images/the-way-you-love-me-album.png",
     description: "A soulful, heartfelt country-pop album exploring deep personal growth, family values, and the power of love.",
     link: "/music/the-way-you-love-me",
-    releaseDate: "2027-01-22T00:00:00"
+    releaseDate: "2027-01-01T00:00:00"
   },
   {
     title: "Our Love Our Forever – Country Wedding Edition",
@@ -89,7 +89,7 @@ const albums: AlbumItem[] = [
     image: "/images/our love our forever - album.png",
     description: "A high-energy, modern Nashville pop-country wedding album driven by polished 130 BPM country-pop production, upbeat rhythms, and celebratory wedding energy.",
     link: "/music/our-love-our-forever",
-    releaseDate: "2027-02-12T00:00:00"
+    releaseDate: "2027-02-01T00:00:00"
   },
   {
     title: "Backroads in Bloom",
@@ -97,7 +97,7 @@ const albums: AlbumItem[] = [
     image: "/images/backroads-in-bloom-album.png",
     description: "A fresh spring Americana record celebrating new beginnings, roadside wildflowers, and the open country highways.",
     link: "/music/backroads-in-bloom",
-    releaseDate: "2027-03-20T00:00:00"
+    releaseDate: "2027-03-01T00:00:00"
   },
   {
     title: "Wide Open Roads",
@@ -105,7 +105,7 @@ const albums: AlbumItem[] = [
     image: "/images/wide open roads - album.jpg",
     description: "An energetic Nashville country-pop journey built for open highways and clear blue skies.",
     link: "/music/wide-open-roads",
-    releaseDate: "2027-04-23T00:00:00"
+    releaseDate: "2027-04-01T00:00:00"
   }
 ];
 

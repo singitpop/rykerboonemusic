@@ -1,113 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DigitalArtistProfile from "@/components/DigitalArtistProfile";
-import { useState } from "react";
+import StoryPhases from "@/components/StoryPhases";
+import VisualJourney from "@/components/VisualJourney";
+import MusicStoryConnections from "@/components/MusicStoryConnections";
+import { PRESS_KIT_DATA } from "@/data/booneChronicles";
 
 export default function ArtistLibrary() {
-  const backstoryImages = [
-    {
-      src: "/images/consistent/young-ryker-roots.jpg",
-      title: "Heartland Roots",
-      desc: "Young Ryker practicing on a small acoustic guitar in Columbia, Tennessee."
-    },
-    {
-      src: "/images/consistent/ryker_teaching_graham.png",
-      title: "Teaching Graham",
-      desc: "Teaching his son Graham how to form chords on his first junior acoustic guitar."
-    },
-    {
-      src: "/images/consistent/family_chopping_wood.png",
-      title: "Autumn Harvest",
-      desc: "Ryker and Graham stacking firewood outside their cabin in late autumn."
-    },
-    {
-      src: "/images/consistent/ryker_playing_bar.png",
-      title: "Local Stage Days",
-      desc: "Honing his voice in intimate country bars around Nashville."
-    },
-    {
-      src: "/images/ryker_joyce_bettie_porch.png",
-      title: "Wife Joyce & Bettie",
-      desc: "Quiet twilight moments on the cabin porch with Joyce and their dog Bettie."
-    },
-    {
-      src: "/images/consistent/ryker_family_quiet_time.png",
-      title: "Cabin Quiet Time",
-      desc: "Unwinding together in the family log cabin living room."
-    },
-    {
-      src: "/images/consistent/ryker_riding_poppy.png",
-      title: "Riding Poppy",
-      desc: "Ryker and his son Graham riding their chestnut horse Poppy."
-    },
-    {
-      src: "/images/consistent/family_ranch_garden.png",
-      title: "Harvesting the Garden",
-      desc: "Ryker, Joyce, and Graham picking fresh vegetables on their ranch."
-    },
-    {
-      src: "/images/consistent/family_ranch_picnic.png",
-      title: "Family Sunday Picnic",
-      desc: "Relaxing under a giant oak tree in the open ranch fields."
-    },
-    {
-      src: "/images/consistent/family_fishing_grandpas_lake.png",
-      title: "Sunset Fishing",
-      desc: "Sitting on the wooden dock fishing at Grandpa's lake."
-    },
-    {
-      src: "/images/consistent/tailgate_singing.png",
-      title: "Tailgate Songs",
-      desc: "Singing acoustic favorites from the open tailgate of the vintage truck."
-    },
-    {
-      src: "/images/consistent/ryker_singing_grit.png",
-      title: "Live With Grit",
-      desc: "Performing with raw emotion and power under the festival spotlights."
-    },
-    {
-      src: "/images/consistent/ryker_on_the_road_hat.png",
-      title: "The Open Road",
-      desc: "Heading to the next show with Bettie and his signature guitar case."
-    },
-    {
-      src: "/images/consistent/family_chapel_singing.png",
-      title: "Chapel Harmony",
-      desc: "Singing together around the upright piano in a local rural Tennessee chapel."
-    },
-    {
-      src: "/images/consistent/artist-signing.jpg",
-      title: "Signing the Contract",
-      desc: "Signing his official contract with record label SINGITPOP RECORDS."
-    },
-    {
-      src: "/images/consistent/ryker_recording_studio.png",
-      title: "Nashville Echoes",
-      desc: "Recording his debut tracks in a professional Nashville studio."
-    },
-    {
-      src: "/images/consistent/ryker_homecoming_concert.png",
-      title: "Homecoming Lights",
-      desc: "Performing an acoustic set for local friends and family in Columbia."
-    },
-    {
-      src: "/images/consistent/merch_family_cozy.png",
-      title: "Morning Deck Coffee",
-      desc: "Quiet early hours talking and laughing with Joyce over warm mugs of coffee."
-    },
-    {
-      src: "/images/consistent/ryker_grooming_horse.png",
-      title: "Ranch Horse Grooming",
-      desc: "Working side by side with Graham brushing down their chestnut horse, Poppy, in the stables."
-    },
-    {
-      src: "/images/consistent/family_campfire_jam.png",
-      title: "Campfire Jam",
-      desc: "Gathered around the warm fire pit at twilight, sharing stories and songs under the stars."
-    }
-  ];
 
   const merchImages = [
     {
@@ -154,12 +56,15 @@ export default function ArtistLibrary() {
 
   const albums = [
     { src: "/images/boots in the autumn dust - album.jpg", title: "Boots in the Autumn Dust" },
+    { src: "/images/golden hour state of mind - album.png", title: "Golden Hour State of Mind" },
+    { src: "/images/september roads - album v2.jpg", title: "September Roads" },
     { src: "/images/september turns gold - album.png", title: "September Turns Gold" },
     { src: "/images/when the lights go gold - album.png", title: "When The Lights Go Gold" },
     { src: "/images/christmas-all-year-long-album.png", title: "Christmas All Year Long" },
     { src: "/images/the-way-you-love-me-album.png", title: "The Way You Love Me" },
     { src: "/images/our love our forever - album.png", title: "Our Love Our Forever" },
-    { src: "/images/backroads-in-bloom-album.png", title: "Backroads in Bloom" }
+    { src: "/images/backroads-in-bloom-album.png", title: "Backroads in Bloom" },
+    { src: "/images/wide open roads - album.jpg", title: "Wide Open Roads" }
   ];
 
   const pressKits = [
@@ -198,12 +103,12 @@ export default function ArtistLibrary() {
     {
       title: "September Turns Gold",
       cover: "/images/september turns gold - album.png",
-      releaseDate: "August 2026",
+      releaseDate: "September 2026",
       label: "SINGITPOP RECORDS",
       genre: "Rustic Country / Heartland Folk",
       formats: "Digital Streaming & Lossless WAV",
       headline: "RYKER BOONE REFLECTS ON TIMELESS HARVESTS AND LOST LOVE IN SOPHOMORE ALBUM 'SEPTEMBER TURNS GOLD'",
-      leadParagraph: "NASHVILLE, TN – AUGUST 2026 – Country sensation Ryker Boone returns with his rustic, acoustic-led sophomore album, 'September Turns Gold', detailing seasons of transition and romance in rural Tennessee.",
+      leadParagraph: "NASHVILLE, TN – SEPTEMBER 2026 – Country sensation Ryker Boone returns with his rustic, acoustic-led sophomore album, 'September Turns Gold', detailing seasons of transition and romance in rural Tennessee.",
       bodyText: "Recorded entirely in a historic timber-frame barn in Columbia, Tennessee, the record bridges the gap between front-porch picking and high-energy festival stages. Defining acoustic warmth, soaring pedal steel solos, and intimate stories of blue-collar endurance, the project showcases Boone's signature songwriting depth.",
       quote: "\"This album is all about transitions. It's about how the seasons change, and how we change with them. We kept the recordings warm and close to the wood to capture that rustic Tennessee twilight feel.\" — Ryker Boone",
       tracklist: [
@@ -301,7 +206,7 @@ export default function ArtistLibrary() {
       formats: "Digital Streaming & Lossless WAV",
       headline: "RYKER BOONE BRINGS DEEP DEVOTION AND SOULFUL COUNTRY STORYTELLING IN NEW ALBUM 'THE WAY YOU LOVE ME'",
       leadParagraph: "NASHVILLE, TN – JANUARY 2027 – Heartland country artist Ryker Boone has officially released his highly anticipated studio album, 'The Way You Love Me', via independent record label SINGITPOP RECORDS.",
-      bodyText: "Focusing on themes of personal devotion, growth, and warm domestic reflection, this record combines acoustic guitars, sweeping steel strings, and rich baritone vocals. Recorded in Columbia, Tennessee, the album delivers a live-session country-pop vibe built for cold nights and long highways.",
+      bodyText: "Focusing on themes of personal devotion, growth, and warm domestic reflection, this record combines acoustic guitars, sweeping steel strings, and rich baritone vocals. Recorded in Columbia, Tennessee, the album delivers a live-session country-pop vibe built for cold nights and long highways, highlighted by the deeply emotional acoustic tribute song 'Joyce', honoring the memory of his late wife.",
       quote: "\"This record is all about the quiet, solid foundations of everyday partnership and love. We captured a live pickers groove in the studio, and I think that raw, honest energy shines through in every track.\" — Ryker Boone",
       tracklist: [
         { title: "Still Makes Me Nervous", duration: "3:44" },
@@ -334,8 +239,8 @@ export default function ArtistLibrary() {
       formats: "Digital Streaming & Lossless WAV",
       headline: "RYKER BOONE CELEBRATES ENDURING DEVOTION IN POWERFUL TRIBUTE ALBUM 'OUR LOVE OUR FOREVER'",
       leadParagraph: "NASHVILLE, TN – FEBRUARY 2027 – Dedicated to love, dedication, and lifelong commitment, country artist Ryker Boone has released his romantic masterwork, 'Our Love Our Forever'.",
-      bodyText: "Written as a direct tribute to his wife Joyce, the album features sweeping string sections, warm grand piano chords, and tender acoustic guitars. In a special bonus addition for fans worldwide, the album contains five custom ceremony-ready Wedding Remixes reimagined specifically for first dances, aisle walks, and reception celebrations.",
-      quote: "\"This album is my love letter to Joyce. It's about finding that one person you want to walk down the road with forever. We also recorded special acoustic wedding versions so fans can make these tracks part of their own special days.\" — Ryker Boone",
+      bodyText: "Written in celebration of finding lifelong love again with his fiancée Kate, the album features sweeping string sections, warm grand piano chords, and tender acoustic guitars. Released in February 2027 following their January wedding, the project contains five custom ceremony-ready Wedding Remixes reimagined specifically for first dances, aisle walks, and reception celebrations.",
+      quote: "\"This album is my celebration of new beginnings and finding the love that leads you home. After everything we've walked through, waking up next to Kate and watching her love Graham has given me a second chance at forever.\" — Ryker Boone",
       tracklist: [
         { title: "Here Comes the Light", duration: "3:45" },
         { title: "I Choose You", duration: "3:28" },
@@ -427,21 +332,59 @@ export default function ArtistLibrary() {
     <main style={{ background: '#050505', color: '#f5f0e1', minHeight: '100vh' }}>
       <Navbar />
       
-      {/* 1. HERO HEADER */}
+      {/* 1. HERO HEADER (SECTION 1 SPECIFICATION) */}
       <section style={{ 
-        padding: '12rem 2rem 5rem', 
+        padding: '12rem 2rem 4rem', 
         textAlign: 'center', 
-        background: 'linear-gradient(to bottom, #0a0a0a, #050505)' 
+        background: 'linear-gradient(to bottom, #0c0c0c, #050505)' 
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <span style={{ color: 'var(--accent-gold)', letterSpacing: '0.8em', textTransform: 'uppercase', fontSize: '0.7rem', display: 'block', marginBottom: '1.5rem' }}>Digital Documentary</span>
-          <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6.5rem)', fontWeight: '900', letterSpacing: '-0.04em', textTransform: 'uppercase', lineHeight: '0.95', margin: 0 }}>
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+          <span style={{ color: 'var(--accent-gold)', letterSpacing: '0.6em', textTransform: 'uppercase', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '1.25rem' }}>
+            DIGITAL DOCUMENTARY
+          </span>
+          <h1 style={{ fontSize: 'clamp(3rem, 7.5vw, 5.8rem)', fontWeight: '900', letterSpacing: '-0.03em', textTransform: 'uppercase', lineHeight: '0.95', margin: 0 }}>
             THE BOONE <br />
             <span style={{ color: 'var(--accent-gold)' }}>CHRONICLES</span>
           </h1>
-          <p style={{ marginTop: '2rem', color: 'rgba(245, 240, 225, 0.6)', maxWidth: '650px', margin: '2rem auto 0', lineHeight: '1.7', fontSize: '1rem' }}>
-            Explore the authentic, visual journey of Ryker Boone's life—from Columbia, Tennessee roots to Nashville stages, family ranch days, and life on the road.
+          <p style={{ marginTop: '2rem', color: 'rgba(245, 240, 225, 0.85)', maxWidth: '780px', margin: '2rem auto 0', lineHeight: '1.8', fontSize: '1.1rem' }}>
+            Step inside The Boone Chronicles — the story-world behind Ryker Boone. A cinematic country narrative of family, love, loss, fatherhood, second chances and the roads that shape the songs.
           </p>
+
+          <div style={{
+            marginTop: '1.5rem',
+            color: 'var(--accent-gold)',
+            fontSize: '0.75rem',
+            letterSpacing: '0.3em',
+            fontWeight: '800',
+            textTransform: 'uppercase',
+            opacity: 0.95
+          }}>
+            THE FICTIONAL STORY-WORLD BEHIND THE MUSIC
+          </div>
+
+          {/* Creative Universe Transparency Card */}
+          <div style={{
+            marginTop: '2.5rem',
+            background: 'linear-gradient(135deg, rgba(226, 179, 90, 0.08) 0%, rgba(20, 20, 20, 0.6) 100%)',
+            border: '1px solid rgba(226, 179, 90, 0.25)',
+            borderRadius: '16px',
+            padding: '1.5rem 2rem',
+            maxWidth: '780px',
+            margin: '2.5rem auto 0',
+            backdropFilter: 'blur(10px)',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
+            textAlign: 'center'
+          }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-gold)' }}></span>
+              <span style={{ color: 'var(--accent-gold)', fontSize: '0.7rem', fontWeight: 900, letterSpacing: '0.25em', textTransform: 'uppercase' }}>
+                Creative Provenance &amp; Transparency
+              </span>
+            </div>
+            <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.95rem', lineHeight: '1.7', margin: 0 }}>
+              Ryker Boone is a fictional recording artist and creative character, established in 2024. His music, imagery and ongoing story combine modern country songwriting with a cinematic fictional universe.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -452,60 +395,37 @@ export default function ArtistLibrary() {
         </div>
       </section>
 
-      {/* 3. VISUAL LIFE CHAPTERS (Q1: IMAGE FIRST NARRATIVE) */}
-      <section style={{ padding: '8rem 2rem', background: '#080808', borderTop: '1px solid rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
+      {/* 3. FOUR NARRATIVE PHASES (SECTION 4 SPECIFICATION) */}
+      <section style={{ 
+        padding: '8rem 2rem', 
+        background: '#070707', 
+        borderTop: '1px solid rgba(255,255,255,0.03)', 
+        borderBottom: '1px solid rgba(255,255,255,0.03)' 
+      }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-            <h2 style={{ fontSize: '0.65rem', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--accent-gold)', marginBottom: '1rem' }}>A Life in Pictures</h2>
-            <p style={{ fontSize: '2.5rem', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '-0.02em', margin: 0 }}>The Storytelling Archive</p>
-            <div style={{ width: '60px', height: '2px', background: 'var(--accent-gold)', margin: '1.5rem auto 0' }}></div>
-          </div>
+          <StoryPhases />
+        </div>
+      </section>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', 
-            gap: '3rem 2.5rem' 
-          }}>
-            {backstoryImages.map((img, i) => (
-              <div key={i}>
-                <div style={{ 
-                  borderRadius: '16px', 
-                  overflow: 'hidden', 
-                  aspectRatio: '1',
-                  background: '#121212',
-                  border: '1px solid rgba(255,255,255,0.05)',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
-                  position: 'relative'
-                }}>
-                  <img 
-                    src={img.src} 
-                    alt={img.title} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
-                  />
-                  <div style={{
-                    position: 'absolute',
-                    top: '1.5rem',
-                    left: '1.5rem',
-                    background: 'rgba(5, 5, 5, 0.85)',
-                    padding: '0.4rem 1rem',
-                    borderRadius: '30px',
-                    border: '1px solid rgba(226, 179, 90, 0.3)',
-                    color: 'var(--accent-gold)',
-                    fontSize: '0.65rem',
-                    fontWeight: 'bold',
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase'
-                  }}>
-                    {`Chapter 0${i + 1}`}
-                  </div>
-                </div>
-                <div style={{ marginTop: '1.5rem' }}>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', textTransform: 'uppercase', color: '#f5f0e1', margin: '0 0 0.5rem' }}>{img.title}</h3>
-                  <p style={{ color: 'rgba(245, 240, 225, 0.65)', fontSize: '0.85rem', lineHeight: '1.6', margin: 0 }}>{img.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* 4. CHRONOLOGICAL VISUAL JOURNEY (SECTION 10 SPECIFICATION) */}
+      <section style={{ 
+        padding: '8rem 2rem', 
+        background: '#050505', 
+        borderBottom: '1px solid rgba(255,255,255,0.03)' 
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <VisualJourney />
+        </div>
+      </section>
+
+      {/* 5. MUSIC & STORY CONNECTIONS (SECTION 9 SPECIFICATION) */}
+      <section style={{ 
+        padding: '8rem 2rem', 
+        background: '#080808', 
+        borderBottom: '1px solid rgba(255,255,255,0.03)' 
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <MusicStoryConnections />
         </div>
       </section>
 
@@ -588,15 +508,149 @@ export default function ArtistLibrary() {
         </div>
       </section>
 
-      {/* 6. DOWNLOAD CTA */}
-      <section style={{ padding: '6rem 2rem', borderTop: '1px solid rgba(255,255,255,0.03)', background: '#080808' }}>
+      {/* 8. PROFESSIONAL PRESS KITS (SECTION 14 SPECIFICATION) */}
+      <section style={{ padding: '6rem 2rem 8rem', borderTop: '1px solid rgba(255,255,255,0.03)', background: '#080808' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <h3 style={{ fontSize: '1.8rem', fontWeight: '900', textTransform: 'uppercase', marginBottom: '1.25rem', letterSpacing: '0.05em' }}>
-              Professional Press Kits
+            <span style={{ color: 'var(--accent-gold)', fontSize: '0.65rem', letterSpacing: '0.35em', textTransform: 'uppercase', fontWeight: '900', display: 'block', marginBottom: '0.75rem' }}>
+              Media Resources &amp; Provenance
+            </span>
+            <h3 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: '900', textTransform: 'uppercase', marginBottom: '1.25rem', letterSpacing: '-0.01em' }}>
+              Official Press Kit
             </h3>
-            <p style={{ color: 'rgba(245, 240, 225, 0.55)', maxWidth: '600px', margin: '0 auto', fontSize: '0.9rem', lineHeight: '1.6' }}>
-              Select an album to access high-resolution covers, official press release copy, metadata, and promotional materials.
+            <p style={{ color: 'rgba(245, 240, 225, 0.65)', maxWidth: '680px', margin: '0 auto', fontSize: '0.92rem', lineHeight: '1.6' }}>
+              Press materials are strictly divided between verified real-world artist project information and canonical Boone Chronicles narrative lore.
+            </p>
+          </div>
+
+          {/* Section 14: Two Distinct Press Information Blocks */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gap: '2.5rem',
+            marginBottom: '5rem'
+          }}>
+            {/* Card 1: Artist Project Information (Real-World) */}
+            <div style={{
+              background: 'linear-gradient(180deg, rgba(20, 20, 20, 0.8) 0%, rgba(12, 12, 12, 0.95) 100%)',
+              border: '1px solid rgba(74, 144, 226, 0.3)',
+              borderRadius: '16px',
+              padding: '2.5rem 2rem',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}>
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                  <span style={{ color: '#70b5ff', fontSize: '0.65rem', fontWeight: '900', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+                    ✓ Real-World Project Information
+                  </span>
+                  <span style={{ background: 'rgba(74, 144, 226, 0.1)', color: '#70b5ff', border: '1px solid rgba(74, 144, 226, 0.3)', padding: '0.2rem 0.6rem', borderRadius: '12px', fontSize: '0.65rem', fontWeight: 'bold' }}>
+                    EST. 2024
+                  </span>
+                </div>
+
+                <h4 style={{ fontSize: '1.35rem', color: 'white', fontWeight: 'bold', textTransform: 'uppercase', margin: '0 0 0.5rem', letterSpacing: '0.02em' }}>
+                  {PRESS_KIT_DATA.artistProject.title}
+                </h4>
+                <span style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', marginBottom: '1.25rem' }}>
+                  {PRESS_KIT_DATA.artistProject.nature} • {PRESS_KIT_DATA.artistProject.label}
+                </span>
+
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <span style={{ display: 'block', color: 'var(--accent-gold)', fontSize: '0.65rem', fontWeight: '900', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.35rem' }}>
+                    Project Overview
+                  </span>
+                  <p style={{ fontSize: '0.85rem', lineHeight: '1.7', color: 'rgba(255,255,255,0.8)', margin: 0 }}>
+                    {PRESS_KIT_DATA.artistProject.shortDescription}
+                  </p>
+                </div>
+
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <span style={{ display: 'block', color: 'var(--accent-gold)', fontSize: '0.65rem', fontWeight: '900', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.35rem' }}>
+                    Verified Production &amp; Distribution
+                  </span>
+                  <p style={{ fontSize: '0.82rem', lineHeight: '1.6', color: 'rgba(255,255,255,0.7)', margin: 0 }}>
+                    {PRESS_KIT_DATA.artistProject.longDescription}
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.25rem', marginTop: '1.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>
+                  <span>Website: <strong style={{ color: 'white' }}>rykerboone.com</strong></span>
+                  <span>Contact: <strong style={{ color: 'white' }}>media@singitpop.com</strong></span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Boone Chronicles Character Biography (Story-World Lore) */}
+            <div style={{
+              background: 'linear-gradient(180deg, rgba(20, 20, 20, 0.8) 0%, rgba(12, 12, 12, 0.95) 100%)',
+              border: '1px solid rgba(226, 179, 90, 0.25)',
+              borderRadius: '16px',
+              padding: '2.5rem 2rem',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}>
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                  <span style={{ color: 'var(--accent-gold)', fontSize: '0.65rem', fontWeight: '900', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+                    ★ Fictional Story-World Canon
+                  </span>
+                  <span style={{ background: 'rgba(226, 179, 90, 0.1)', color: 'var(--accent-gold)', border: '1px solid rgba(226, 179, 90, 0.3)', padding: '0.2rem 0.6rem', borderRadius: '12px', fontSize: '0.65rem', fontWeight: 'bold' }}>
+                    NARRATIVE LORE
+                  </span>
+                </div>
+
+                <h4 style={{ fontSize: '1.35rem', color: 'white', fontWeight: 'bold', textTransform: 'uppercase', margin: '0 0 0.5rem', letterSpacing: '0.02em', fontFamily: 'var(--font-playfair)' }}>
+                  {PRESS_KIT_DATA.booneChronicles.title}
+                </h4>
+                <span style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', marginBottom: '1.25rem' }}>
+                  {PRESS_KIT_DATA.booneChronicles.nature}
+                </span>
+
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <span style={{ display: 'block', color: 'var(--accent-gold)', fontSize: '0.65rem', fontWeight: '900', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.35rem' }}>
+                    Narrative Universe Synopsis
+                  </span>
+                  <p style={{ fontSize: '0.85rem', lineHeight: '1.7', color: 'rgba(255,255,255,0.8)', margin: 0 }}>
+                    {PRESS_KIT_DATA.booneChronicles.synopsis}
+                  </p>
+                </div>
+
+                <div style={{ marginBottom: '1rem' }}>
+                  <span style={{ display: 'block', color: 'var(--accent-gold)', fontSize: '0.65rem', fontWeight: '900', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+                    Core Story-World Themes
+                  </span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                    {PRESS_KIT_DATA.booneChronicles.coreThemes.map((theme, i) => (
+                      <span key={i} style={{ background: 'rgba(226, 179, 90, 0.08)', border: '1px solid rgba(226, 179, 90, 0.2)', padding: '0.25rem 0.65rem', borderRadius: '20px', fontSize: '0.72rem', color: '#f5f0e1' }}>
+                        {theme}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.25rem', marginTop: '1.5rem' }}>
+                <p style={{ fontSize: '0.72rem', color: 'rgba(245, 240, 225, 0.5)', fontStyle: 'italic', margin: 0 }}>
+                  Note for press &amp; media: Events within The Boone Chronicles are fictional narrative elements designed to provide an emotional soundtrack universe.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Subheading for Individual Album Media Packages */}
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <h4 style={{ fontSize: '1.4rem', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'white', margin: '0 0 0.5rem' }}>
+              Album Press Releases &amp; Media Packages
+            </h4>
+            <p style={{ color: 'rgba(245, 240, 225, 0.55)', fontSize: '0.85rem', margin: 0 }}>
+              Select an official release to download high-resolution cover artwork, official press release copy, and tracklist metadata.
             </p>
           </div>
 

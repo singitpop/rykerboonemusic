@@ -12,7 +12,7 @@ export default function TheWayYouLoveMePage() {
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean } | null>(null);
 
-  const RELEASE_DATE = new Date("2027-01-22T00:00:00");
+  const RELEASE_DATE = new Date("2027-01-01T00:00:00");
 
   const handleTrackClick = (track: { id: string; title: string; duration: string; badge?: string }) => {
     setSelectedTrackLyrics({
@@ -162,7 +162,7 @@ export default function TheWayYouLoveMePage() {
               paddingBottom: '1rem',
               flexWrap: 'wrap'
             }}>
-              <div>RELEASE DATE: <strong style={{ color: 'white' }}>22 JANUARY 2027</strong></div>
+              <div>RELEASE DATE: <strong style={{ color: 'white' }}>JANUARY 2027</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGITPOP RECORDS</a></strong></div>
               <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>PRE-SAVE</strong></div>
               <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL & Lossless WAV</strong></div>
@@ -181,7 +181,7 @@ export default function TheWayYouLoveMePage() {
                 *The Way You Love Me* is a deeply personal, soulful country-pop journey. Built on acoustic warmth, authentic storytelling, and modern Nashville production, the album explores themes of love, family, and home.
               </p>
               <p>
-                Recorded in Columbia, Tennessee, the album features soaring steel guitar, twin fiddles, and Ryker Boone's signature baritone vocals, capturing a rich, live-session feel.
+                Recorded in Columbia, Tennessee, the album features soaring steel guitar, twin fiddles, and Ryker Boone's signature baritone vocals, capturing a rich, live-session feel—anchored by the poignant acoustic tribute &ldquo;Joyce&rdquo;, honoring the memory of his late first wife.
               </p>
             </div>
           </div>

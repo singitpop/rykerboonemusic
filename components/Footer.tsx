@@ -78,11 +78,28 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Section 12: Creative Transparency */}
+      <div style={{
+        padding: '2rem 0',
+        borderTop: '1px solid rgba(255,255,255,0.04)',
+        textAlign: 'center'
+      }}>
+        <p style={{
+          color: 'rgba(245, 240, 225, 0.45)',
+          fontSize: '0.78rem',
+          lineHeight: '1.6',
+          maxWidth: '780px',
+          margin: '0 auto'
+        }}>
+          Ryker Boone is a fictional recording artist and visual character. The project combines original music, digital production, AI-assisted creative tools and cinematic visual storytelling.
+        </p>
+      </div>
+
       <div style={{ 
         display: 'flex', 
         justifyContent: 'space-between', 
         alignItems: 'center', 
-        paddingTop: '3rem', 
+        paddingTop: '2.5rem', 
         borderTop: '1px solid rgba(255,255,255,0.03)',
         color: 'var(--text-secondary)',
         fontSize: '0.75rem',

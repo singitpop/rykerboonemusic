@@ -24,6 +24,7 @@ interface HeroAlbum {
   description: string;
   link: string;
   releaseDate: string;
+  displayDate?: string;
   singles: string[];
 }
 
@@ -34,7 +35,8 @@ const heroAlbums: HeroAlbum[] = [
     image: "/images/boots in the autumn dust - album.jpg",
     description: "Deep, authentic Nashville soul rooted in blue-collar pride and lost love.",
     link: "/music/boots-in-the-autumn-dust",
-    releaseDate: "2026-06-01T00:00:00",
+    releaseDate: "2026-06-03T00:00:00",
+    displayDate: "June 3, 2026",
     singles: ["Honky Tonk Sundown", "Dust Kicking Rhythm", "Sunburnt Memories"]
   },
   {
@@ -43,17 +45,9 @@ const heroAlbums: HeroAlbum[] = [
     image: "/images/golden hour state of mind - album.png",
     description: "A sunset-drenched collection of country-pop stories, celebrating life, love, and the good times.",
     link: "/music/golden-hour-state-of-mind",
-    releaseDate: "2026-07-27T00:00:00",
+    releaseDate: "2026-07-28T00:00:00",
+    displayDate: "July 28, 2026",
     singles: ["Backroad Paradise", "Cold Beer And Carolina Blue", "Fireworks In July", "One More Sunset", "Small Town Skyline", "Golden Hour State Of Mind"]
-  },
-  {
-    title: "September Turns Gold",
-    tagline: "The Barn & Festival Sessions",
-    image: "/images/september turns gold - album.png",
-    description: "A rustic acoustic-led journey through heartland storytelling and modern country grit.",
-    link: "/music/september-turns-gold",
-    releaseDate: "2026-08-01T00:00:00",
-    singles: ["September Turns Gold", "Highway On Fire", "Southern Steel"]
   },
   {
     title: "September Roads",
@@ -62,6 +56,7 @@ const heroAlbums: HeroAlbum[] = [
     description: "A sunset-drenched heartland country album driven by stories of open roads, county lines, and small-town autumn nights.",
     link: "/music/september-roads",
     releaseDate: "2026-09-04T00:00:00",
+    displayDate: "September 4, 2026",
     singles: [
       "September Roads",
       "Friday Night Lights",
@@ -76,12 +71,23 @@ const heroAlbums: HeroAlbum[] = [
     ]
   },
   {
+    title: "September Turns Gold",
+    tagline: "The Barn & Festival Sessions",
+    image: "/images/september turns gold - album.png",
+    description: "A rustic acoustic-led journey through heartland storytelling and modern country grit.",
+    link: "/music/september-turns-gold",
+    releaseDate: "2026-09-18T00:00:00",
+    displayDate: "September 18, 2026",
+    singles: ["September Turns Gold", "Highway On Fire", "Southern Steel"]
+  },
+  {
     title: "When The Lights Go Gold",
     tagline: "Modern Country Pop",
     image: "/images/when the lights go gold - album.png",
     description: "A cinematic modern country pop album built for cold-night drives and neon reflections.",
     link: "/music/when-the-lights-go-gold",
-    releaseDate: "2026-10-01T00:00:00",
+    releaseDate: "2026-10-02T00:00:00",
+    displayDate: "October 2, 2026",
     singles: ["Friday Again", "Blue Flame", "When The Lights Go Gold", "Too Close To Midnight"]
   },
   {
@@ -91,6 +97,7 @@ const heroAlbums: HeroAlbum[] = [
     description: "A heartwarming collection of country holiday songs, blending festive steel strings and cozy cabin stories.",
     link: "/music/christmas-all-year-long",
     releaseDate: "2026-11-27T00:00:00",
+    displayDate: "November 27, 2026",
     singles: ["Where We Belong", "Beneath the Lights", "Santa's Got a Pickup Truck", "Christmas All Year Long"]
   },
   {
@@ -99,7 +106,8 @@ const heroAlbums: HeroAlbum[] = [
     image: "/images/the-way-you-love-me-album.png",
     description: "A soulful, heartfelt country-pop album exploring deep personal growth, family values, and the power of love.",
     link: "/music/the-way-you-love-me",
-    releaseDate: "2027-01-22T00:00:00",
+    releaseDate: "2027-01-01T00:00:00",
+    displayDate: "January 2027",
     singles: ["Still Makes Me Nervous", "The Way You Love Me", "Every Little Thing", "Front Seat"]
   },
   {
@@ -108,7 +116,8 @@ const heroAlbums: HeroAlbum[] = [
     image: "/images/our love our forever - album.png",
     description: "A high-energy, modern Nashville pop-country wedding album driven by upbeat rhythms and celebratory energy.",
     link: "/music/our-love-our-forever",
-    releaseDate: "2027-02-12T00:00:00",
+    releaseDate: "2027-02-01T00:00:00",
+    displayDate: "February 2027",
     singles: ["Here Comes the Light", "I Choose You", "Two Roads One Heart"]
   },
   {
@@ -117,7 +126,8 @@ const heroAlbums: HeroAlbum[] = [
     image: "/images/backroads-in-bloom-album.png",
     description: "A fresh spring Americana record celebrating new beginnings, roadside wildflowers, and open highways.",
     link: "/music/backroads-in-bloom",
-    releaseDate: "2027-03-20T00:00:00",
+    releaseDate: "2027-03-01T00:00:00",
+    displayDate: "Spring 2027",
     singles: ["Spring Came Early", "Nobody Since You", "Better Than We Were", "Easy As Breathing"]
   },
   {
@@ -126,7 +136,8 @@ const heroAlbums: HeroAlbum[] = [
     image: "/images/wide open roads - album.jpg",
     description: "An energetic Nashville country-pop journey built for open highways and clear blue skies.",
     link: "/music/wide-open-roads",
-    releaseDate: "2027-04-23T00:00:00",
+    releaseDate: "2027-04-01T00:00:00",
+    displayDate: "Spring 2027",
     singles: ["Wide Open Roads", "Backroad Run", "Tailgate Sunset"]
   }
 ];
@@ -181,16 +192,20 @@ export default function Hero() {
     }
   };
 
-  const getTimelineLabel = (dateStr: string) => {
-    const date = new Date(dateStr);
+  const getTimelineLabel = (album: HeroAlbum) => {
+    if (album.displayDate && album.displayDate.startsWith("Spring")) {
+      return `Spring '27`;
+    }
+    const date = new Date(album.releaseDate);
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const m = months[date.getMonth()];
     const y = date.getFullYear().toString().substring(2);
     return `${m} '${y}`;
   };
 
-  const formatDateLabel = (dateStr: string) => {
-    const date = new Date(dateStr);
+  const formatDateLabel = (album: HeroAlbum) => {
+    if (album.displayDate) return album.displayDate;
+    const date = new Date(album.releaseDate);
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const m = months[date.getMonth()];
     const d = date.getDate();
@@ -344,7 +359,7 @@ export default function Hero() {
                   {status}
                 </span>
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold' }}>
-                  {formatDateLabel(activeAlbum.releaseDate)}
+                  {formatDateLabel(activeAlbum)}
                 </span>
               </div>
 
@@ -418,7 +433,7 @@ export default function Hero() {
             <div className="timeline-nodes">
               {visibleHeroAlbums.map((album, idx) => {
                 const isActive = idx === safeIndex;
-                const label = getTimelineLabel(album.releaseDate);
+                const label = getTimelineLabel(album);
 
                 return (
                   <div 

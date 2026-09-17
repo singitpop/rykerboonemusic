@@ -20,7 +20,7 @@ export default function WideOpenRoadsAlbumPage() {
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean; isLabelAccess?: boolean } | null>(null);
 
-  const RELEASE_DATE = new Date("2027-04-23T00:00:00");
+  const RELEASE_DATE = new Date("2027-04-01T00:00:00");
 
   const handleTrackClick = (track: { id: string; title: string; duration: string; badge?: string }) => {
     setSelectedTrackLyrics({

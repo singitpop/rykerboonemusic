@@ -94,7 +94,7 @@ const heroAlbums: HeroAlbum[] = [
   {
     title: "Christmas All Year Long",
     tagline: "Country Holiday Collection",
-    image: "/images/christmas-all-year-long-album.png",
+    image: "/images/christmas-all-year-long-album.jpg",
     description: "A heartwarming collection of country holiday songs, blending festive steel strings and cozy cabin stories.",
     link: "/music/christmas-all-year-long",
     releaseDate: "2026-11-27T00:00:00",
@@ -104,42 +104,62 @@ const heroAlbums: HeroAlbum[] = [
   {
     title: "The Way You Love Me",
     tagline: "Official Studio Album",
-    image: "/images/the-way-you-love-me-album.png",
+    image: "/images/the-way-you-love-me-album.jpg",
     description: "A soulful, heartfelt country-pop album exploring deep personal growth, family values, and the power of love.",
     link: "/music/the-way-you-love-me",
-    releaseDate: "2027-01-01T00:00:00",
-    displayDate: "January 2027",
+    releaseDate: "2027-01-22T00:00:00",
+    displayDate: "January 22, 2027",
     singles: ["Still Makes Me Nervous", "The Way You Love Me", "Every Little Thing", "Front Seat"]
   },
   {
     title: "Our Love Our Forever",
     tagline: "Country Wedding Edition",
-    image: "/images/our love our forever - album.png",
+    image: "/images/our-love-our-forever-album.jpg",
     description: "A high-energy, modern Nashville pop-country wedding album driven by upbeat rhythms and celebratory energy.",
     link: "/music/our-love-our-forever",
-    releaseDate: "2027-02-01T00:00:00",
-    displayDate: "February 2027",
+    releaseDate: "2027-02-12T00:00:00",
+    displayDate: "February 12, 2027",
     singles: ["Here Comes the Light", "I Choose You", "Two Roads One Heart"]
   },
   {
-    title: "Backroads in Bloom",
+    title: "Backroads In Bloom",
     tagline: "Spring Americana Journey",
-    image: "/images/backroads-in-bloom-album.png",
+    image: "/images/backroads-in-bloom-album.jpg",
     description: "A fresh spring Americana record celebrating new beginnings, roadside wildflowers, and open highways.",
     link: "/music/backroads-in-bloom",
-    releaseDate: "2027-03-01T00:00:00",
-    displayDate: "Spring 2027",
+    releaseDate: "2027-03-20T00:00:00",
+    displayDate: "March 20, 2027",
     singles: ["Spring Came Early", "Nobody Since You", "Better Than We Were", "Easy As Breathing"]
+  },
+  {
+    title: "April Roads",
+    tagline: "Spring Heartland Collection",
+    image: "/images/april-roads-album.jpg",
+    description: "An evocative spring heartland journey through winding country roads, rolling green hills, and golden sunsets.",
+    link: "/music/april-roads",
+    releaseDate: "2027-04-02T00:00:00",
+    displayDate: "April 2, 2027",
+    singles: ["April Roads", "Golden Prairie Sunset", "Springtime in Tennessee", "Rolling Hill Horizon"]
   },
   {
     title: "Wide Open Roads",
     tagline: "Official Studio Album",
-    image: "/images/wide open roads - album.jpg",
+    image: "/images/wide-open-roads-album.jpg",
     description: "An energetic Nashville country-pop journey built for open highways and clear blue skies.",
     link: "/music/wide-open-roads",
-    releaseDate: "2027-04-01T00:00:00",
-    displayDate: "Spring 2027",
-    singles: ["Wide Open Roads", "Backroad Run", "Tailgate Sunset"]
+    releaseDate: "2027-04-23T00:00:00",
+    displayDate: "April 23, 2027",
+    singles: ["Wide Open Roads", "Half Tank of Gas", "Better in Boots", "Fireflies and Tail Lights"]
+  },
+  {
+    title: "Forever Starts",
+    tagline: "Official Studio Album",
+    image: "/images/forever-starts-album.jpg",
+    description: "A landmark country album celebrating new chapters, lifelong devotion, and the dawn of a lasting future together under the summer skies.",
+    link: "/music/forever-starts",
+    releaseDate: "2027-06-04T00:00:00",
+    displayDate: "June 4, 2027",
+    singles: ["Forever Starts", "Windows Down Forever", "Weekend Starts Now", "Kiss Me Like You Mean It"]
   }
 ];
 

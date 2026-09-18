@@ -6,9 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRykerSession } from "@/components/AuthProvider";
-import { RYKER_ALBUM_LINKS, RYKER_ARTIST_LINKS } from "@/data/streamingLinks";
+import { RYKER_ARTIST_LINKS } from "@/data/streamingLinks";
 
-export default function WideOpenRoadsAlbumPage() {
+export default function AprilRoadsAlbumPage() {
   const { session, isLoaded } = useRykerSession();
   const isLabel = isLoaded && session && (
     session.tier === 'LABEL' ||
@@ -20,7 +20,7 @@ export default function WideOpenRoadsAlbumPage() {
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean; isLabelAccess?: boolean } | null>(null);
 
-  const RELEASE_DATE = new Date("2027-04-23T00:00:00");
+  const RELEASE_DATE = new Date("2027-04-02T00:00:00");
 
   const handleTrackClick = (track: { id: string; title: string; duration: string; badge?: string }) => {
     setSelectedTrackLyrics({
@@ -31,44 +31,44 @@ export default function WideOpenRoadsAlbumPage() {
   };
 
   const tracks = [
-    { id: "01", title: "Wide Open Roads", duration: "3:21", badge: "SINGLE" },
-    { id: "02", title: "Half Tank of Gas", duration: "3:43", badge: "SINGLE" },
-    { id: "03", title: "Better in Boots", duration: "3:24", badge: "SINGLE" },
-    { id: "04", title: "Fireflies and Tail Lights", duration: "3:28", badge: "SINGLE" },
-    { id: "05", title: "County Line Kisses", duration: "3:37" },
-    { id: "06", title: "Lucky Me", duration: "2:58", badge: "SINGLE" },
-    { id: "07", title: "River Runs Slow", duration: "3:14", badge: "SINGLE" },
-    { id: "08", title: "Back Porch Radio", duration: "3:03" },
-    { id: "09", title: "Everybody Knows Your Name", duration: "3:14" },
-    { id: "10", title: "Blue Sky State", duration: "3:08" },
-    { id: "11", title: "Stay Awhile", duration: "3:18", badge: "SINGLE" },
-    { id: "12", title: "Summers Not Over", duration: "3:23", badge: "SINGLE" }
+    { id: "01", title: "April Roads", duration: "3:35", badge: "SINGLE" },
+    { id: "02", title: "Sunflower Highway", duration: "3:48" },
+    { id: "03", title: "Golden Prairie Sunset", duration: "4:02", badge: "SINGLE" },
+    { id: "04", title: "Where the Fenceline Ends", duration: "3:24" },
+    { id: "05", title: "Springtime in Tennessee", duration: "3:52", badge: "SINGLE" },
+    { id: "06", title: "Dust Behind the Wheels", duration: "3:18" },
+    { id: "07", title: "Wildflowers by the Creek", duration: "3:44" },
+    { id: "08", title: "Rolling Hill Horizon", duration: "4:10", badge: "SINGLE" },
+    { id: "09", title: "Gravel Road Gospel", duration: "3:30" },
+    { id: "10", title: "Clear Sky Mornings", duration: "3:56" },
+    { id: "11", title: "Chasing the Golden Hour", duration: "4:15" },
+    { id: "12", title: "Until the Road Runs Out", duration: "4:28" }
   ];
 
   const singles = [
     {
-      title: "Wide Open Roads",
-      image: "/images/wide open roads - album.jpg",
-      tagline: "Title Track Anthem",
-      description: "A driving, high-octane road anthem featuring soaring steel guitar, country fiddle, and a roadmap to freedom."
+      title: "April Roads",
+      image: "/images/april-roads-album.jpg",
+      tagline: "Title Track Single",
+      description: "An evocative, driving heartland acoustic anthem celebrating freedom, fresh starts, and the promise of open roads."
     },
     {
-      title: "Half Tank of Gas",
-      image: "/images/wide open roads - album.jpg",
-      tagline: "Radio Single",
-      description: "An upbeat country-pop track about running low on fuel but having plenty of love to go the distance."
+      title: "Golden Prairie Sunset",
+      image: "/images/april-roads-album.jpg",
+      tagline: "Sunset Anthem",
+      description: "Warm pedal steel guitar and rich acoustic strumming paint an unforgettable sunset across the Tennessee hills."
     },
     {
-      title: "Better in Boots",
-      image: "/images/wide open roads - album.jpg",
-      tagline: "Dance Single",
-      description: "A boot-stomping, feel-good Nashville jam designed for country line dancing under neon lights."
+      title: "Springtime in Tennessee",
+      image: "/images/april-roads-album.jpg",
+      tagline: "Heartland Single",
+      description: "A lively country-pop celebration of home, blooming fencelines, and the arrival of warm spring weather."
     },
     {
-      title: "Fireflies and Tail Lights",
-      image: "/images/wide open roads - album.jpg",
+      title: "Rolling Hill Horizon",
+      image: "/images/april-roads-album.jpg",
       tagline: "Acoustic Single",
-      description: "A nostalgic, guitar-driven ballad looking back at summer nights, tailgate stories, and first loves."
+      description: "A tender, reflective ballad highlighting Ryker's signature warm baritone and intricate fingerpicked guitar."
     }
   ];
 
@@ -112,8 +112,8 @@ export default function WideOpenRoadsAlbumPage() {
             border: '1px solid rgba(226, 179, 90, 0.2)'
           }}>
             <Image 
-              src="/images/wide-open-roads-album.jpg" 
-              alt="Wide Open Roads Cover" 
+              src="/images/april-roads-album.jpg" 
+              alt="April Roads Album Cover" 
               fill 
               style={{ objectFit: 'cover' }}
               priority
@@ -149,7 +149,7 @@ export default function WideOpenRoadsAlbumPage() {
               display: 'block',
               marginBottom: '1rem'
             }}>
-              Official Studio Album
+              Spring Heartland Collection
             </span>
             <h1 style={{ 
               fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
@@ -158,7 +158,7 @@ export default function WideOpenRoadsAlbumPage() {
               lineHeight: '1.1',
               marginBottom: '1.5rem'
             }}>
-              WIDE OPEN <span style={{ color: 'var(--accent-gold)' }}>ROADS</span>
+              APRIL <span style={{ color: 'var(--accent-gold)' }}>ROADS</span>
             </h1>
             
             <div style={{ 
@@ -171,7 +171,7 @@ export default function WideOpenRoadsAlbumPage() {
               paddingBottom: '1rem',
               flexWrap: 'wrap'
             }}>
-              <div>RELEASE DATE: <strong style={{ color: 'white' }}>23 APRIL 2027</strong></div>
+              <div>RELEASE DATE: <strong style={{ color: 'white' }}>2 APRIL 2027</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGITPOP RECORDS</a></strong></div>
               <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>PRE-SAVE</strong></div>
               <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL</strong></div>
@@ -183,7 +183,7 @@ export default function WideOpenRoadsAlbumPage() {
               fontSize: '0.95rem',
               marginBottom: '2.5rem'
             }}>
-              &apos;Wide Open Roads&apos; is a powerful modern Nashville country-pop album built for cold-night drives and open country highways. Featuring soaring electric guitars, traditional twin fiddles, and Ryker&apos;s signature whiskey baritone, this record takes you on a 12-song journey through heartland freedom, blue-collar pride, and road-trip reflections.
+              *April Roads* is a sun-drenched spring Americana journey through rolling green hills, winding country dirt roads, and golden Tennessee sunsets. Pairing organic acoustic guitars, soaring fiddle, and pedal steel textures with Ryker Boone&apos;s warm whiskey baritone, this 12-track album celebrates renewal, heartland freedom, and the adventures waiting just over the next rise.
             </p>
 
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
@@ -314,39 +314,48 @@ export default function WideOpenRoadsAlbumPage() {
                     width: '30px',
                     height: '30px',
                     borderRadius: '50%',
-                    border: track.badge ? '1px solid var(--accent-gold)' : '1px solid rgba(226, 179, 90, 0.3)',
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.08)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--accent-gold)',
-                    fontSize: '0.65rem',
-                    background: track.badge ? 'rgba(226, 179, 90, 0.1)' : 'transparent'
+                    fontSize: '0.75rem',
+                    fontWeight: 'bold',
+                    color: 'var(--accent-gold)'
                   }}>
                     {track.id}
                   </div>
+                  
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ 
+                        fontWeight: '600', 
+                        fontSize: '0.95rem',
+                        color: 'white'
+                      }}>
+                        {track.title}
+                      </span>
+                      {track.badge && (
+                        <span style={{
+                          fontSize: '0.55rem',
+                          background: 'var(--accent-gold)',
+                          color: 'black',
+                          padding: '0.1rem 0.4rem',
+                          fontWeight: '900',
+                          letterSpacing: '0.05em',
+                          borderRadius: '2px'
+                        }}>
+                          {track.badge}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
                   <span style={{ 
-                    color: 'white', 
-                    fontWeight: track.badge ? '700' : '500',
-                    fontSize: '0.95rem',
-                    transition: 'color 0.3s ease' 
+                    fontSize: '0.8rem', 
+                    color: 'var(--text-secondary)',
+                    fontVariantNumeric: 'tabular-nums' 
                   }}>
-                    {track.title}
-                  </span>
-                  {track.badge && (
-                    <span style={{
-                      fontSize: '0.5rem',
-                      background: 'var(--accent-gold)',
-                      color: 'black',
-                      padding: '0.2rem 0.5rem',
-                      fontWeight: '900',
-                      borderRadius: '2px',
-                      marginLeft: '0.5rem',
-                      letterSpacing: '0.05em'
-                    }}>
-                      {track.badge}
-                    </span>
-                  )}
-                  <span style={{ marginLeft: 'auto', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                     {track.duration}
                   </span>
                 </div>
@@ -354,30 +363,32 @@ export default function WideOpenRoadsAlbumPage() {
             </div>
           </div>
 
-          {/* Right: Featured Singles */}
+          {/* Right: Singles Showcase */}
           <div>
-            <span className="subtitle">Promotional Singles</span>
-            <h2 className="section-title" style={{ marginBottom: '3rem' }}>RELEASED <span style={{ color: 'var(--accent-gold)' }}>SINGLES</span></h2>
+            <span className="subtitle">Featured Releases</span>
+            <h2 className="section-title" style={{ marginBottom: '2.5rem' }}>KEY <span style={{ color: 'var(--accent-gold)' }}>SINGLES</span></h2>
             
-            <div style={{ display: 'grid', gap: '3rem' }}>
-              {singles.map((single, index) => (
-                <div key={index} style={{
-                  display: 'flex',
-                  gap: '1.5rem',
-                  alignItems: 'center',
-                  background: 'rgba(255,255,255,0.01)',
-                  padding: '1.5rem',
-                  borderRadius: '8px',
-                  border: '1px solid rgba(255,255,255,0.03)'
-                }}>
+            <div style={{ display: 'grid', gap: '1.5rem' }}>
+              {singles.map((single, i) => (
+                <div 
+                  key={i}
+                  style={{
+                    display: 'flex',
+                    gap: '1.5rem',
+                    background: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.05)',
+                    padding: '1.25rem',
+                    borderRadius: '8px',
+                    alignItems: 'center'
+                  }}
+                >
                   <div style={{
                     position: 'relative',
-                    width: '100px',
-                    height: '100px',
-                    borderRadius: '6px',
-                    overflow: 'hidden',
+                    width: '80px',
+                    height: '80px',
                     flexShrink: 0,
-                    border: '1px solid rgba(226, 179, 90, 0.1)'
+                    borderRadius: '4px',
+                    overflow: 'hidden'
                   }}>
                     <Image 
                       src={single.image} 
@@ -388,20 +399,18 @@ export default function WideOpenRoadsAlbumPage() {
                   </div>
                   <div>
                     <span style={{ 
-                      color: 'var(--accent-gold)', 
                       fontSize: '0.65rem', 
-                      fontWeight: '900', 
-                      letterSpacing: '0.15em', 
-                      textTransform: 'uppercase',
-                      display: 'block',
-                      marginBottom: '0.25rem'
+                      color: 'var(--accent-gold)', 
+                      fontWeight: 'bold', 
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase'
                     }}>
                       {single.tagline}
                     </span>
-                    <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', fontFamily: 'var(--font-playfair)' }}>
+                    <h3 style={{ fontSize: '1.1rem', margin: '0.2rem 0 0.4rem', fontFamily: 'var(--font-playfair)' }}>
                       {single.title}
-                    </h4>
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', lineHeight: '1.5' }}>
+                    </h3>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', margin: 0, lineHeight: '1.4' }}>
                       {single.description}
                     </p>
                   </div>

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRykerSession } from "@/components/AuthProvider";
-import { RYKER_ALBUM_LINKS } from "@/data/streamingLinks";
+import { RYKER_ALBUM_LINKS, RYKER_ARTIST_LINKS } from "@/data/streamingLinks";
 
 export default function ChristmasAllYearLongPage() {
   const { session, isLoaded } = useRykerSession();
@@ -118,7 +118,7 @@ export default function ChristmasAllYearLongPage() {
             border: '1px solid rgba(226, 179, 90, 0.2)'
           }}>
             <Image 
-              src="/images/christmas-all-year-long-album.png" 
+              src="/images/christmas-all-year-long-album.jpg" 
               alt="Christmas All Year Long Album Cover" 
               fill 
               style={{ objectFit: 'cover' }}
@@ -194,11 +194,102 @@ export default function ChristmasAllYearLongPage() {
                 *Christmas All Year Long* is a heartwarming collection of country holiday songs, blending festive steel strings, acoustic warmth, and cozy cabin stories. Bridging the gap between timeless seasonal traditions and modern country-pop rhythms, the album paints a nostalgic picture of holidays in the rural heartland.
               </p>
               <p>
-                From fun and lighthearted tracks like “Santa's Got a Pickup Truck” to emotional fireside numbers like the title track, Ryker Boone shares the deep joy, family values, and cozy winter magic of Columbia, Tennessee.
+                From fun and lighthearted tracks like “Santa&apos;s Got a Pickup Truck” to emotional fireside numbers like the title track, Ryker Boone shares the deep joy, family values, and cozy winter magic of Columbia, Tennessee.
               </p>
             </div>
 
-            
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <a 
+                href={RYKER_ARTIST_LINKS.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: 'var(--accent-gold)',
+                  color: 'black',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '2px'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
+              >
+                LISTEN ON SPOTIFY
+              </a>
+              <a 
+                href={RYKER_ARTIST_LINKS.appleMusic}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'transparent',
+                  color: 'white',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '2px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                APPLE MUSIC
+              </a>
+              <a 
+                href={RYKER_ARTIST_LINKS.amazonMusic}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'transparent',
+                  color: 'white',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '2px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                AMAZON MUSIC
+              </a>
+            </div>
           </div>
         </div>
       </section>

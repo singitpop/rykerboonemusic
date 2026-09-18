@@ -6,13 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRykerSession } from "@/components/AuthProvider";
+import { RYKER_ARTIST_LINKS } from "@/data/streamingLinks";
 
 export default function TheWayYouLoveMePage() {
   const { session, isLoaded } = useRykerSession();
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean } | null>(null);
 
-  const RELEASE_DATE = new Date("2027-01-01T00:00:00");
+  const RELEASE_DATE = new Date("2027-01-22T00:00:00");
 
   const handleTrackClick = (track: { id: string; title: string; duration: string; badge?: string }) => {
     setSelectedTrackLyrics({
@@ -105,7 +106,7 @@ export default function TheWayYouLoveMePage() {
             border: '1px solid rgba(226, 179, 90, 0.2)'
           }}>
             <Image 
-              src="/images/the-way-you-love-me-album.png" 
+              src="/images/the-way-you-love-me-album.jpg" 
               alt="The Way You Love Me Album Cover" 
               fill 
               style={{ objectFit: 'cover' }}
@@ -162,7 +163,7 @@ export default function TheWayYouLoveMePage() {
               paddingBottom: '1rem',
               flexWrap: 'wrap'
             }}>
-              <div>RELEASE DATE: <strong style={{ color: 'white' }}>JANUARY 2027</strong></div>
+              <div>RELEASE DATE: <strong style={{ color: 'white' }}>22 JANUARY 2027</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGITPOP RECORDS</a></strong></div>
               <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>PRE-SAVE</strong></div>
               <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL & Lossless WAV</strong></div>
@@ -181,8 +182,101 @@ export default function TheWayYouLoveMePage() {
                 *The Way You Love Me* is a deeply personal, soulful country-pop journey. Built on acoustic warmth, authentic storytelling, and modern Nashville production, the album explores themes of love, family, and home.
               </p>
               <p>
-                Recorded in Columbia, Tennessee, the album features soaring steel guitar, twin fiddles, and Ryker Boone's signature baritone vocals, capturing a rich, live-session feel—anchored by the poignant acoustic tribute &ldquo;Joyce&rdquo;, honoring the memory of his late first wife.
+                Recorded in Columbia, Tennessee, the album features soaring steel guitar, twin fiddles, and Ryker Boone&apos;s signature baritone vocals, capturing a rich, live-session feel—anchored by the poignant acoustic tribute &ldquo;Joyce&rdquo;, honoring the memory of his late first wife.
               </p>
+            </div>
+
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <a 
+                href={RYKER_ARTIST_LINKS.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: 'var(--accent-gold)',
+                  color: 'black',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '2px'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
+              >
+                LISTEN ON SPOTIFY
+              </a>
+              <a 
+                href={RYKER_ARTIST_LINKS.appleMusic}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'transparent',
+                  color: 'white',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '2px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                APPLE MUSIC
+              </a>
+              <a 
+                href={RYKER_ARTIST_LINKS.amazonMusic}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'transparent',
+                  color: 'white',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '2px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                AMAZON MUSIC
+              </a>
             </div>
           </div>
         </div>

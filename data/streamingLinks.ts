@@ -1,5 +1,5 @@
 // Streaming links for Ryker Boone
-// Replace "#" with the actual URLs once they are created/generated in TooLost.
+// All releases link to official Ryker Boone artist profiles on Spotify, Apple Music, Amazon Music, and YouTube.
 
 export const RYKER_ARTIST_LINKS = {
   spotify: "https://open.spotify.com/artist/7uVi07Hems7bQenFB5ouu6?si=DQ0GSkmKSLSRfhyFlLY8MA",
@@ -34,33 +34,51 @@ export const RYKER_ALBUM_LINKS = {
     youtube: RYKER_ARTIST_LINKS.youtube
   },
   whenTheLightsGoGold: {
-    spotify: "#",
-    appleMusic: "#",
-    amazonMusic: "#",
-    youtube: "#"
-  },
-  ourLoveOurForever: {
-    spotify: "#",
-    appleMusic: "#",
-    amazonMusic: "#",
-    youtube: "#"
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
   },
   christmasAllYearLong: {
-    spotify: "#",
-    appleMusic: "#",
-    amazonMusic: "#",
-    youtube: "#"
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
+  },
+  theWayYouLoveMe: {
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
+  },
+  ourLoveOurForever: {
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
   },
   backroadsInBloom: {
-    spotify: "#",
-    appleMusic: "#",
-    amazonMusic: "#",
-    youtube: "#"
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
+  },
+  aprilRoads: {
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
   },
   wideOpenRoads: {
-    spotify: "#",
-    appleMusic: "#",
-    amazonMusic: "#",
-    youtube: "#"
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
+  },
+  foreverStarts: {
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
   }
 };

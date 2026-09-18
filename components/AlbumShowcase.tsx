@@ -130,6 +130,10 @@ export default function AlbumShowcase() {
   // Display all albums in the discography showcase
   const visibleAlbums = sortedAlbums;
 
+  const isAlbumReleased = (album: AlbumItem) => {
+    return now >= new Date(album.releaseDate);
+  };
+
   const getBadgeStatus = (album: AlbumItem) => {
     const releaseDate = new Date(album.releaseDate);
     
@@ -161,44 +165,45 @@ export default function AlbumShowcase() {
       }}>
         {visibleAlbums.map((album, index) => {
           const statusBadge = getBadgeStatus(album);
-          return (
-            <Link key={index} href={album.link} style={{ textDecoration: 'none', display: 'block' }}>
-              <div style={{
+          const released = isAlbumReleased(album);
+
+          const cardContent = (
+            <div style={{
+              position: 'relative',
+              cursor: released ? 'pointer' : 'default'
+            }}>
+              <div className="reveal-img" style={{ 
+                aspectRatio: '1/1', 
+                borderRadius: '12px',
+                boxShadow: '0 30px 60px rgba(0,0,0,0.5)',
+                border: '1px solid rgba(255,255,255,0.05)',
                 position: 'relative',
-                cursor: 'pointer'
+                overflow: 'hidden'
               }}>
-                <div className="reveal-img" style={{ 
-                  aspectRatio: '1/1', 
-                  borderRadius: '12px',
-                  boxShadow: '0 30px 60px rgba(0,0,0,0.5)',
-                  border: '1px solid rgba(255,255,255,0.05)',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}>
-                  <Image 
-                    src={album.image} 
-                    alt={album.title} 
-                    fill 
-                    style={{ objectFit: 'cover' }}
-                  />
-                  {statusBadge && (
-                    <div style={{
-                      position: 'absolute',
-                      top: '1rem',
-                      right: '1rem',
-                      background: 'var(--accent-gold)',
-                      color: 'black',
-                      padding: '0.4rem 0.8rem',
-                      fontSize: '0.65rem',
-                      fontWeight: '900',
-                      letterSpacing: '0.2em',
-                      borderRadius: '4px',
-                      zIndex: 10
-                    }}>
-                      {statusBadge}
-                    </div>
-                  )}
-                 <div style={{
+                <Image 
+                  src={album.image} 
+                  alt={album.title} 
+                  fill 
+                  style={{ objectFit: 'cover' }}
+                />
+                {statusBadge && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    background: 'var(--accent-gold)',
+                    color: 'black',
+                    padding: '0.4rem 0.8rem',
+                    fontSize: '0.65rem',
+                    fontWeight: '900',
+                    letterSpacing: '0.2em',
+                    borderRadius: '4px',
+                    zIndex: 10
+                  }}>
+                    {statusBadge}
+                  </div>
+                )}
+                <div style={{
                   position: 'absolute',
                   inset: 0,
                   background: 'linear-gradient(to top, rgba(10,10,10,0.5), transparent 40%)',
@@ -208,7 +213,8 @@ export default function AlbumShowcase() {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }} className="hover-overlay">
-                   <button style={{
+                  {released ? (
+                    <button style={{
                       background: 'var(--accent-gold)',
                       color: 'black',
                       padding: '1rem 2.25rem',
@@ -219,9 +225,26 @@ export default function AlbumShowcase() {
                       border: 'none',
                       borderRadius: '4px',
                       boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-                   }}>
+                    }}>
                       VIEW ALBUM
-                   </button>
+                    </button>
+                  ) : (
+                    <div style={{
+                      background: 'rgba(10, 10, 10, 0.85)',
+                      border: '1px solid var(--accent-gold)',
+                      color: 'var(--accent-gold)',
+                      padding: '0.9rem 2rem',
+                      fontWeight: '900',
+                      letterSpacing: '0.2em',
+                      fontSize: '0.75rem',
+                      borderRadius: '4px',
+                      boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
+                      userSelect: 'none',
+                      textTransform: 'uppercase'
+                    }}>
+                      COMING SOON
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -247,7 +270,16 @@ export default function AlbumShowcase() {
                 </span>
               </div>
             </div>
-          </Link>
+          );
+
+          return released ? (
+            <Link key={index} href={album.link} style={{ textDecoration: 'none', display: 'block' }}>
+              {cardContent}
+            </Link>
+          ) : (
+            <div key={index} style={{ textDecoration: 'none', display: 'block' }}>
+              {cardContent}
+            </div>
           );
         })}
       </div>

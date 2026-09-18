@@ -167,12 +167,9 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const now = new Date();
 
-  // Sort and filter: strictly calculate ordering using releaseDate
+  // Sort albums chronologically and display full discography on the release timeline
   const sortedHero = [...heroAlbums].sort((a, b) => new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime());
-  const releasedHero = sortedHero.filter(a => new Date(a.releaseDate) <= now);
-  const futureHero = sortedHero.filter(a => new Date(a.releaseDate) > now);
-  const nextHero = futureHero[0];
-  const visibleHeroAlbums = nextHero ? [...releasedHero, nextHero] : releasedHero;
+  const visibleHeroAlbums = sortedHero;
 
   const [activeIndex, setActiveIndex] = useState(() => {
     let latestIdx = 0;
@@ -213,13 +210,15 @@ export default function Hero() {
   };
 
   const getTimelineLabel = (album: HeroAlbum) => {
-    if (album.displayDate && album.displayDate.startsWith("Spring")) {
-      return `Spring '27`;
-    }
     const date = new Date(album.releaseDate);
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const m = months[date.getMonth()];
     const y = date.getFullYear().toString().substring(2);
+    
+    // For April 2027 which has two releases (Apr 2 and Apr 23), distinguish by day
+    if (m === "Apr" && y === "27") {
+      return `Apr ${date.getDate()}`;
+    }
     return `${m} '${y}`;
   };
 
@@ -390,7 +389,7 @@ export default function Hero() {
               <div className="timeline-singles-box">
                 <span className="timeline-singles-title">KEY SINGLES & TRACKS</span>
                 <div className="timeline-singles-list">
-                  {activeAlbum.singles.map((single, i) => (
+                  {activeAlbum.singles.slice(0, 4).map((single, i) => (
                     <div key={i} className="timeline-single-item">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--accent-gold)" style={{ flexShrink: 0 }}>
                         <path d="M8 5v14l11-7z" />
@@ -403,38 +402,44 @@ export default function Hero() {
 
               {/* CTA Link */}
               <div style={{ marginTop: '0.5rem' }}>
-                <Link href={activeAlbum.link} style={{ display: 'inline-block' }}>
-                  <button style={{
-                    background: status === "NEW ALBUM OUT NOW" || status === "RELEASED" ? 'var(--accent-gold)' : 'transparent',
-                    color: status === "NEW ALBUM OUT NOW" || status === "RELEASED" ? 'black' : 'var(--accent-gold)',
-                    border: status === "NEW ALBUM OUT NOW" || status === "RELEASED" ? 'none' : '1px solid var(--accent-gold)',
+                {status === "NEW ALBUM OUT NOW" || status === "RELEASED" ? (
+                  <Link href={activeAlbum.link} style={{ display: 'inline-block' }}>
+                    <button style={{
+                      background: 'var(--accent-gold)',
+                      color: 'black',
+                      border: 'none',
+                      padding: '0.8rem 2.2rem',
+                      fontWeight: '900',
+                      letterSpacing: '0.15em',
+                      fontSize: '0.7rem',
+                      borderRadius: '4px',
+                      transition: 'var(--transition-smooth)',
+                      boxShadow: '0 10px 25px rgba(226, 179, 90, 0.25)',
+                      cursor: 'pointer'
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.filter = 'brightness(1.1)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.filter = 'none'; }}
+                    >
+                      LISTEN NOW
+                    </button>
+                  </Link>
+                ) : (
+                  <div style={{
+                    display: 'inline-block',
+                    background: 'rgba(226, 179, 90, 0.05)',
+                    color: 'var(--accent-gold)',
+                    border: '1px solid rgba(226, 179, 90, 0.3)',
                     padding: '0.8rem 2.2rem',
                     fontWeight: '900',
                     letterSpacing: '0.15em',
                     fontSize: '0.7rem',
                     borderRadius: '4px',
-                    transition: 'var(--transition-smooth)',
-                    boxShadow: status === "NEW ALBUM OUT NOW" ? '0 10px 25px rgba(226, 179, 90, 0.25)' : 'none',
-                    cursor: 'pointer'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (status !== "NEW ALBUM OUT NOW" && status !== "RELEASED") {
-                      e.currentTarget.style.background = 'rgba(226, 179, 90, 0.08)';
-                    } else {
-                      e.currentTarget.style.filter = 'brightness(1.1)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (status !== "NEW ALBUM OUT NOW" && status !== "RELEASED") {
-                      e.currentTarget.style.background = 'transparent';
-                    } else {
-                      e.currentTarget.style.filter = 'none';
-                    }
-                  }}
-                  >
-                    {status === "NEW ALBUM OUT NOW" || status === "RELEASED" ? "LISTEN NOW" : "PRE-SAVE ALBUM"}
-                  </button>
-                </Link>
+                    cursor: 'default',
+                    userSelect: 'none'
+                  }}>
+                    COMING SOON
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -460,6 +465,7 @@ export default function Hero() {
                     key={idx} 
                     className={`timeline-node ${isActive ? "active" : ""}`}
                     onClick={() => setActiveIndex(idx)}
+                    title={`${album.title} (${formatDateLabel(album)})`}
                   >
                     <div className="timeline-dot" />
                     <span className="timeline-node-label">{label}</span>

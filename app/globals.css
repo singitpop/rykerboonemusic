@@ -286,7 +286,7 @@ button {
   justify-content: space-between;
   height: 100%;
   width: 100%;
-  padding: clamp(5.5rem, 8vh, 6.5rem) 3rem 2.5rem;
+  padding: clamp(4.5rem, 6.5vh, 5.5rem) clamp(1.5rem, 2.5vw, 2.75rem) 2rem;
   background: var(--bg-secondary);
   border-left: 1px solid rgba(226, 179, 90, 0.15);
   position: relative;
@@ -409,15 +409,16 @@ button {
 .timeline-nav-wrapper {
   margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   position: relative;
+  width: 100%;
 }
 
 .timeline-line {
   position: absolute;
-  left: 1rem;
-  right: 1rem;
-  top: calc(2rem + 6px); /* Center relative to the dot */
+  left: 12px;
+  right: 12px;
+  top: calc(1.5rem + 4px); /* Center relative to the 8px dot */
   height: 2px;
   background: rgba(255, 255, 255, 0.08);
   z-index: 1;
@@ -432,9 +433,10 @@ button {
 .timeline-nodes {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .timeline-node {
@@ -442,15 +444,19 @@ button {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 1px;
 }
 
 .timeline-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.35);
   transition: all 0.3s ease;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  flex-shrink: 0;
 }
 
 .timeline-node:hover .timeline-dot {
@@ -459,18 +465,22 @@ button {
 }
 
 .timeline-node.active .timeline-dot {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
+  margin-top: -2px;
+  margin-bottom: calc(0.4rem - 2px);
   background: var(--accent-gold);
-  border: 3px solid #000;
+  border: 2px solid #000;
   box-shadow: 0 0 12px var(--accent-gold);
 }
 
 .timeline-node-label {
-  font-size: 0.6rem;
+  font-size: 0.52rem;
+  letter-spacing: 0.02em;
   color: var(--text-muted);
   white-space: nowrap;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .timeline-node.active .timeline-node-label {
@@ -479,9 +489,16 @@ button {
 }
 
 /* Timeline Responsiveness */
+@media (max-width: 1280px) {
+  .timeline-node-label {
+    font-size: 0.46rem;
+    letter-spacing: 0;
+  }
+}
+
 @media (max-width: 1024px) {
   .timeline-container {
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     border-left: none;
     border-top: 1px solid rgba(226, 179, 90, 0.15);
   }
@@ -514,10 +531,26 @@ button {
   
   .timeline-nav-wrapper {
     padding-top: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(226, 179, 90, 0.2) transparent;
   }
   
   .timeline-line {
-    top: calc(1.5rem + 6px);
+    top: calc(1.5rem + 4px);
+    left: 14px;
+    right: 14px;
+    min-width: 580px;
+  }
+
+  .timeline-nodes {
+    min-width: 600px;
+  }
+
+  .timeline-node-label {
+    font-size: 0.55rem;
   }
 }
 
@@ -529,20 +562,17 @@ button {
   .timeline-title {
     font-size: 1.5rem;
   }
-  
-  .timeline-node-label {
-    display: none; /* Hide timeline labels on very small screens to avoid clutter */
+
+  .timeline-nodes {
+    min-width: 520px;
   }
-  
-  .timeline-node.active .timeline-node-label {
-    display: block;
-    position: absolute;
-    top: 18px;
-    background: #0a0a0a;
-    padding: 2px 6px;
-    border-radius: 3px;
-    border: 1px solid rgba(226, 179, 90, 0.2);
-    z-index: 10;
+
+  .timeline-line {
+    min-width: 500px;
+  }
+
+  .timeline-node-label {
+    font-size: 0.52rem;
   }
 }
 

@@ -72,6 +72,7 @@ export default function ArtistLibrary() {
       title: "Boots in the Autumn Dust",
       cover: "/images/boots in the autumn dust - album.jpg",
       releaseDate: "June 2026",
+      isoDate: "2026-06-03T00:00:00",
       label: "SINGITPOP RECORDS",
       genre: "Americana / Heartland Country",
       formats: "Digital Streaming & Lossless WAV",
@@ -104,6 +105,7 @@ export default function ArtistLibrary() {
       title: "September Turns Gold",
       cover: "/images/september turns gold - album.png",
       releaseDate: "August 2026",
+      isoDate: "2026-08-07T00:00:00",
       label: "SINGITPOP RECORDS",
       genre: "Rustic Country / Heartland Folk",
       formats: "Digital Streaming & Lossless WAV",
@@ -137,6 +139,7 @@ export default function ArtistLibrary() {
       title: "When The Lights Go Gold",
       cover: "/images/when the lights go gold - album.png",
       releaseDate: "October 2026",
+      isoDate: "2026-10-02T00:00:00",
       label: "SINGITPOP RECORDS",
       genre: "Modern Country Pop",
       formats: "Digital Streaming & Lossless WAV",
@@ -167,8 +170,9 @@ export default function ArtistLibrary() {
     },
     {
       title: "Christmas All Year Long",
-      cover: "/images/christmas-all-year-long-album.png",
+      cover: "/images/christmas-all-year-long-album.jpg",
       releaseDate: "November 2026",
+      isoDate: "2026-11-27T00:00:00",
       label: "SINGITPOP RECORDS",
       genre: "Country Holiday / Festive Americana",
       formats: "Digital Streaming & Lossless WAV",
@@ -199,8 +203,9 @@ export default function ArtistLibrary() {
     },
     {
       title: "The Way You Love Me",
-      cover: "/images/the-way-you-love-me-album.png",
+      cover: "/images/the-way-you-love-me-album.jpg",
       releaseDate: "January 2027",
+      isoDate: "2027-01-22T00:00:00",
       label: "SINGITPOP RECORDS",
       genre: "Heartland Country / Country-Pop",
       formats: "Digital Streaming & Lossless WAV",
@@ -232,8 +237,9 @@ export default function ArtistLibrary() {
     },
     {
       title: "Our Love Our Forever",
-      cover: "/images/our love our forever - album.png",
+      cover: "/images/our-love-our-forever-album.jpg",
       releaseDate: "February 2027",
+      isoDate: "2027-02-12T00:00:00",
       label: "SINGITPOP RECORDS",
       genre: "Romantic Americana / Wedding Edition",
       formats: "Digital Streaming & Lossless WAV",
@@ -269,8 +275,9 @@ export default function ArtistLibrary() {
     },
     {
       title: "Backroads in Bloom",
-      cover: "/images/backroads-in-bloom-album.png",
+      cover: "/images/backroads-in-bloom-album.jpg",
       releaseDate: "March 2027",
+      isoDate: "2027-03-20T00:00:00",
       label: "SINGITPOP RECORDS",
       genre: "Spring Americana / Heartland Country",
       formats: "Digital Streaming & Lossless WAV",
@@ -300,6 +307,15 @@ export default function ArtistLibrary() {
       ]
     }
   ];
+
+  const now = new Date();
+  const ONE_MONTH_MS = 30 * 24 * 60 * 60 * 1000;
+
+  // Music PR Industry standard: only display press kits for released albums or upcoming albums within 1 month (30 days) of release
+  const visiblePressKits = pressKits.filter(kit => {
+    const releaseTime = new Date(kit.isoDate).getTime();
+    return now.getTime() >= (releaseTime - ONE_MONTH_MS);
+  });
 
   const [selectedKit, setSelectedKit] = useState<any>(null);
   const [copied, setCopied] = useState<boolean>(false);
@@ -660,7 +676,7 @@ export default function ArtistLibrary() {
             gap: '2.5rem',
             marginBottom: '4rem'
           }}>
-            {pressKits.map((kit, i) => (
+            {visiblePressKits.map((kit, i) => (
               <div 
                 key={i} 
                 onClick={() => { setSelectedKit(kit); setActivePhotoIndex(0); }}
@@ -738,10 +754,16 @@ export default function ArtistLibrary() {
                   fontSize: '0.85rem', 
                   fontWeight: 'bold', 
                   textTransform: 'uppercase', 
-                  letterSpacing: '0.05em' 
+                  letterSpacing: '0.05em',
+                  marginBottom: '0.25rem'
                 }}>
                   {kit.title}
                 </h4>
+                <div style={{ textAlign: 'center' }}>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--accent-gold)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: '600' }}>
+                    {kit.releaseDate}
+                  </span>
+                </div>
               </div>
             ))}
           </div>

@@ -47,17 +47,16 @@ export default function SupportPage() {
             <p>Your support will help fund:</p>
             
             <ul style={{ listStyleType: 'none', padding: '0 0 0 1rem', display: 'flex', flexDirection: 'column', gap: '1rem', color: 'rgba(245, 240, 225, 0.9)' }}>
-              <li>🎙️ Professional recording sessions</li>
-              <li>🎸 Songwriting and instrumental development</li>
-              <li>🎛️ Mixing and mastering of new singles and albums</li>
-              <li>🎥 Music videos and visual storytelling projects</li>
-              <li>📸 Professional photography and promotional content</li>
-              <li>🎤 Live performances and festival appearances</li>
-              <li>🚐 Travel and touring expenses</li>
-              <li>🎵 Songwriting and production development</li>
-              <li>💿 Physical CD and vinyl production</li>
+              <li>🎵 Songwriting and music development</li>
+              <li>🎚️ Mixing and mastering of new singles and albums</li>
+              <li>🎬 Music videos and cinematic visual storytelling</li>
+              <li>🎨 Album artwork and promotional creative</li>
+              <li>📱 Digital marketing and promotion</li>
+              <li>🌐 Website and digital platform development</li>
               <li>👕 New merchandise and fan experiences</li>
-              <li>📱 Marketing and promotion to help the music reach new listeners around the world</li>
+              <li>🎧 Music distribution and release costs</li>
+              <li>📖 Development of The Boone Chronicles story-world</li>
+              <li>⚖️ Music rights, publishing and administration</li>
             </ul>
             
             <p>Every contribution, no matter the size, helps bring these projects to life.</p>
@@ -70,7 +69,7 @@ export default function SupportPage() {
             
             <p>It's about proving that independent country music can still thrive through hard work, passion, and community.</p>
             
-            <p>When you support this campaign, you're not simply funding an artist.</p>
+            <p>When you support this campaign, you're helping fund an independent music and storytelling project.</p>
             
             <p>You're becoming part of the story.</p>
             
@@ -87,7 +86,7 @@ export default function SupportPage() {
             <p>See you down the road.</p>
             
             <div style={{ marginTop: '2rem' }}>
-              <p style={{ fontWeight: 'bold', fontSize: '1.2rem', color: '#f5f0e1', margin: '0 0 0.5rem 0' }}>— Ryker Boone, The Boone Chronicles</p>
+              <p style={{ fontWeight: 'bold', fontSize: '1.2rem', color: '#f5f0e1', margin: '0 0 0.5rem 0' }}>— The Ryker Boone Project</p>
               <p style={{ color: 'var(--accent-gold)', fontStyle: 'italic', margin: 0 }}>Real Songs. Real Stories.</p>
             </div>
           </div>

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRykerSession } from "@/components/AuthProvider";
-import { RYKER_ALBUM_LINKS } from "@/data/streamingLinks";
+import { RYKER_ALBUM_LINKS, RYKER_ARTIST_LINKS } from "@/data/streamingLinks";
 
 export default function SeptemberAlbumPage() {
   const { session, isLoaded } = useRykerSession();
@@ -17,13 +17,10 @@ export default function SeptemberAlbumPage() {
     session.rykerTier === 'PREMIUM'
   );
 
-  const albumLinks = RYKER_ALBUM_LINKS.septemberTurnsGold;
-  const isStreamable = Object.values(albumLinks).some(url => url && url !== "#");
-
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean; isLabelAccess?: boolean } | null>(null);
 
-  const RELEASE_DATE = new Date("2026-08-01T00:00:00");
+  const RELEASE_DATE = new Date("2026-08-07T00:00:00");
 
   const handleTrackClick = (track: { id: string; title: string; duration: string; badge?: string }) => {
     setSelectedTrackLyrics({
@@ -116,24 +113,6 @@ export default function SeptemberAlbumPage() {
               style={{ objectFit: 'cover' }}
               priority
             />
-            {!isStreamable && (
-              <div style={{
-                position: 'absolute',
-                top: '1.5rem',
-                right: '1.5rem',
-                background: 'var(--accent-gold)',
-                color: 'black',
-                padding: '0.5rem 1rem',
-                fontSize: '0.7rem',
-                fontWeight: '900',
-                letterSpacing: '0.2em',
-                borderRadius: '4px',
-                zIndex: 10,
-                boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
-              }}>
-                COMING SOON
-              </div>
-            )}
           </div>
 
           {/* Right: Info */}
@@ -169,9 +148,9 @@ export default function SeptemberAlbumPage() {
               paddingBottom: '1rem',
               flexWrap: 'wrap'
             }}>
-              <div>RELEASE DATE: <strong style={{ color: 'white' }}>AUGUST 7, 2026</strong></div>
+              <div>RELEASED: <strong style={{ color: 'white' }}>AUGUST 7, 2026</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGITPOP RECORDS</a></strong></div>
-              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>{isStreamable ? "OUT NOW" : "PRE-SAVE"}</strong></div>
+              <div>STATUS: <strong style={{ color: 'var(--accent-gold)' }}>OUT NOW</strong></div>
               <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL</strong></div>
             </div>
 
@@ -184,103 +163,95 @@ export default function SeptemberAlbumPage() {
               'September Turns Gold' is a cinematic journey through heartland storytelling and modern country grit. The highly anticipated sophomore album represents a massive step forward in Ryker's evolution as a songwriter. The first 12 tracks were recorded in his barn studio with his backing group, capturing the raw energy of his band and the sweet cry of Southern steel. Track 13 was recorded Live at the Autumn Lights Country Music Festival.
             </p>
 
-            {isStreamable && (
-              <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                {albumLinks.spotify && albumLinks.spotify !== "#" && (
-                  <a 
-                    href={albumLinks.spotify}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      background: 'var(--accent-gold)',
-                      color: 'black',
-                      padding: '1rem 2.5rem',
-                      fontSize: '0.75rem',
-                      fontWeight: '900',
-                      letterSpacing: '0.15em',
-                      textTransform: 'uppercase',
-                      border: 'none',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
-                    onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
-                  >
-                    LISTEN ON SPOTIFY
-                  </a>
-                )}
-                {albumLinks.appleMusic && albumLinks.appleMusic !== "#" && (
-                  <a 
-                    href={albumLinks.appleMusic}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      border: '1px solid rgba(255,255,255,0.2)',
-                      background: 'transparent',
-                      color: 'white',
-                      padding: '1rem 2.5rem',
-                      fontSize: '0.75rem',
-                      fontWeight: '900',
-                      letterSpacing: '0.15em',
-                      textTransform: 'uppercase',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'white';
-                      e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                      e.currentTarget.style.background = 'transparent';
-                    }}
-                  >
-                    APPLE MUSIC
-                  </a>
-                )}
-                {albumLinks.amazonMusic && albumLinks.amazonMusic !== "#" && (
-                  <a 
-                    href={albumLinks.amazonMusic}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      border: '1px solid rgba(255,255,255,0.2)',
-                      background: 'transparent',
-                      color: 'white',
-                      padding: '1rem 2.5rem',
-                      fontSize: '0.75rem',
-                      fontWeight: '900',
-                      letterSpacing: '0.15em',
-                      textTransform: 'uppercase',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'white';
-                      e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                      e.currentTarget.style.background = 'transparent';
-                    }}
-                  >
-                    AMAZON MUSIC
-                  </a>
-                )}
-              </div>
-            )}
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <a 
+                href={RYKER_ARTIST_LINKS.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: 'var(--accent-gold)',
+                  color: 'black',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#f5c66b'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent-gold)'}
+              >
+                LISTEN ON SPOTIFY
+              </a>
+              <a 
+                href={RYKER_ARTIST_LINKS.appleMusic}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'transparent',
+                  color: 'white',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                APPLE MUSIC
+              </a>
+              <a 
+                href={RYKER_ARTIST_LINKS.amazonMusic}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'transparent',
+                  color: 'white',
+                  padding: '1rem 2.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'white';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                AMAZON MUSIC
+              </a>
+            </div>
           </div>
         </div>
       </section>

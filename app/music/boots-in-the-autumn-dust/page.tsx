@@ -26,7 +26,7 @@ export default function BootsAlbumPage() {
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [selectedTrackLyrics, setSelectedTrackLyrics] = useState<{ title: string; lyrics: string; isLocked?: boolean; isLabelAccess?: boolean } | null>(null);
 
-  const RELEASE_DATE = new Date("2026-06-01T00:00:00");
+  const RELEASE_DATE = new Date("2026-06-03T00:00:00");
 
   const handleTrackClick = (track: { id: string; title: string; duration: string; badge?: string }) => {
     setSelectedTrackLyrics({
@@ -152,7 +152,7 @@ export default function BootsAlbumPage() {
               borderBottom: '1px solid rgba(255,255,255,0.05)',
               paddingBottom: '1rem'
             }}>
-              <div>RELEASED: <strong style={{ color: 'white' }}>JUNE 2026</strong></div>
+              <div>RELEASED: <strong style={{ color: 'white' }}>JUNE 3, 2026</strong></div>
               <div>LABEL: <strong style={{ color: 'white' }}><a href="https://www.singitpop.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--accent-gold)'} onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>SINGITPOP RECORDS</a></strong></div>
               <div>FORMATS: <strong style={{ color: 'white' }}>DIGITAL</strong></div>
             </div>

@@ -2,20 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { RYKER_ALBUM_LINKS } from "@/data/streamingLinks";
-
-const getStreamingLinksForAlbum = (link: string) => {
-  const slug = link.replace("/music/", "");
-  const camelCaseSlug = slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
-  return RYKER_ALBUM_LINKS[camelCaseSlug as keyof typeof RYKER_ALBUM_LINKS];
-};
-
-const hasStreamingLinks = (link: string) => {
-  const links = getStreamingLinksForAlbum(link);
-  if (!links) return false;
-  return Object.values(links).some(url => url && url !== "#");
-};
-
 interface AlbumItem {
   title: string;
   tagline: string;
@@ -31,7 +17,7 @@ const albums: AlbumItem[] = [
     title: "Boots in the Autumn Dust",
     tagline: "The Full Length Album",
     image: "/images/boots in the autumn dust - album.jpg",
-    description: "Deep, authentic Nashville soul rooted in blue-collar pride and lost love.",
+    description: "Modern country storytelling rooted in blue-collar pride, open roads, love and loss.",
     link: "/music/boots-in-the-autumn-dust",
     releaseDate: "2026-06-03T00:00:00"
   },
@@ -124,12 +110,16 @@ export default function AlbumShowcase() {
     ? [...releasedAlbums, nextUpcomingAlbum] 
     : releasedAlbums;
 
-  const getBadgeStatus = (album: typeof albums[0]) => {
+  const isAlbumReleased = (album: AlbumItem) => {
+    return now >= new Date(album.releaseDate);
+  };
+
+  const getBadgeStatus = (album: AlbumItem) => {
     const releaseDate = new Date(album.releaseDate);
     
-    if (now >= releaseDate && hasStreamingLinks(album.link)) {
+    if (now >= releaseDate) {
       const released = albums
-        .filter(a => new Date(a.releaseDate) <= now && hasStreamingLinks(a.link))
+        .filter(a => new Date(a.releaseDate) <= now)
         .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
         
       if (released.length > 0 && released[0].title === album.title) {
@@ -138,11 +128,7 @@ export default function AlbumShowcase() {
       return null;
     }
     
-    if (releaseDate > now) {
-      return "COMING SOON";
-    }
-    
-    return null;
+    return "COMING SOON";
   };
 
   return (
@@ -159,6 +145,7 @@ export default function AlbumShowcase() {
       }}>
         {visibleAlbums.map((album, index) => {
           const statusBadge = getBadgeStatus(album);
+          const released = isAlbumReleased(album);
           return (
             <Link key={index} href={album.link} style={{ textDecoration: 'none', display: 'block' }}>
               <div style={{
@@ -204,7 +191,7 @@ export default function AlbumShowcase() {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }} className="hover-overlay">
-                   {!statusBadge ? (
+                   {released ? (
                      <button style={{
                         background: 'var(--accent-gold)',
                         color: 'black',
@@ -212,7 +199,9 @@ export default function AlbumShowcase() {
                         fontWeight: '900',
                         letterSpacing: '0.2em',
                         fontSize: '0.7rem',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        border: 'none',
+                        borderRadius: '4px'
                      }}>
                         VIEW ALBUM
                      </button>
@@ -225,7 +214,8 @@ export default function AlbumShowcase() {
                         fontWeight: '900',
                         letterSpacing: '0.2em',
                         fontSize: '0.7rem',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        borderRadius: '4px'
                      }}>
                         COMING SOON
                      </button>

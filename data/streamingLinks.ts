@@ -10,16 +10,22 @@ export const RYKER_ARTIST_LINKS = {
 
 export const RYKER_ALBUM_LINKS = {
   bootsInTheAutumnDust: {
-    spotify: "https://open.spotify.com/artist/7uVi07Hems7bQenFB5ouu6?si=DQ0GSkmKSLSRfhyFlLY8MA",
-    appleMusic: "https://music.apple.com/gb/artist/ryker-boone/6772410017",
-    amazonMusic: "https://music.amazon.co.uk/artists/B0H2GDF35W/ryker-boone?marketplaceId=A1F83G8C2ARO7P&musicTerritory=GB&ref=dm_sh_662ICdaRsKePkKlKxrJl6L7ss",
-    youtube: "#"
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
+  },
+  goldenHourStateOfMind: {
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
   },
   septemberTurnsGold: {
-    spotify: "#",
-    appleMusic: "#",
-    amazonMusic: "#",
-    youtube: "#"
+    spotify: RYKER_ARTIST_LINKS.spotify,
+    appleMusic: RYKER_ARTIST_LINKS.appleMusic,
+    amazonMusic: RYKER_ARTIST_LINKS.amazonMusic,
+    youtube: RYKER_ARTIST_LINKS.youtube
   },
   septemberRoads: {
     spotify: RYKER_ARTIST_LINKS.spotify,
@@ -48,12 +54,6 @@ export const RYKER_ALBUM_LINKS = {
   backroadsInBloom: {
     spotify: "#",
     appleMusic: "#",
-    amazonMusic: "#",
-    youtube: "#"
-  },
-  goldenHourStateOfMind: {
-    spotify: "https://open.spotify.com/album/3aiY1Z4JoKOmhh9FyChLRm?si=qySHFkOnSZ2sGwVDzzfiIw",
-    appleMusic: "https://music.apple.com/gb/album/golden-hour-state-of-mind/6791812209",
     amazonMusic: "#",
     youtube: "#"
   },

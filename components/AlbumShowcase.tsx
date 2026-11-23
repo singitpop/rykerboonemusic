@@ -63,6 +63,22 @@ const albums: AlbumItem[] = [
     releaseDate: "2026-11-27T00:00:00"
   },
   {
+    title: "PROJECT: RYKER",
+    tagline: "Official Studio Album",
+    image: "/images/project-ryker-album.jpg",
+    description: "Modern country storytelling with a bold edge — soulful vocals, expressive guitars, and unexpected electronic influences.",
+    link: "/music/project-ryker",
+    releaseDate: "2026-12-04T00:00:00"
+  },
+  {
+    title: "New Year's Evening",
+    tagline: "Country • Deep House • Country Dance",
+    image: "/images/new-years-evening-album.jpg",
+    description: "An electrifying 13-track blend of Nashville country soul, fiery fiddles, and modern deep house beats for New Year's Eve.",
+    link: "/music/new-years-evening",
+    releaseDate: "2026-12-04T00:00:00"
+  },
+  {
     title: "The Way You Love Me",
     tagline: "Official Studio Album",
     image: "/images/the-way-you-love-me-album.jpg",
@@ -142,7 +158,7 @@ export default function AlbumShowcase() {
         .filter(a => new Date(a.releaseDate) <= now)
         .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
         
-      if (released.length > 0 && released[0].title === album.title) {
+      if (released.length > 0 && new Date(released[0].releaseDate).getTime() === releaseDate.getTime()) {
         return "LATEST RELEASE";
       }
       return null;

@@ -102,6 +102,39 @@ const heroAlbums: HeroAlbum[] = [
     singles: ["Where We Belong", "Beneath the Lights", "Santa's Got a Pickup Truck", "Christmas All Year Long"]
   },
   {
+    title: "PROJECT: RYKER",
+    tagline: "Official Studio Album",
+    image: "/images/project-ryker-album.jpg",
+    description: "Modern country storytelling with a bold edge — soulful vocals, expressive guitars, and unexpected electronic influences.",
+    link: "/music/project-ryker",
+    releaseDate: "2026-12-04T00:00:00",
+    displayDate: "December 4, 2026",
+    singles: [
+      "Nothing But the Frequency",
+      "Slow Motion Trouble",
+      "Beautifully Unsaid",
+      "Closer Than Goodbye",
+      "Two Step Remedy"
+    ]
+  },
+  {
+    title: "New Year's Evening",
+    tagline: "Country • Deep House • Country Dance",
+    image: "/images/new-years-evening-album.jpg",
+    description: "An electrifying 13-track blend of Nashville country soul, fiery fiddles, and modern deep house beats for New Year's Eve.",
+    link: "/music/new-years-evening",
+    releaseDate: "2026-12-04T00:00:00",
+    displayDate: "December 4, 2026",
+    singles: [
+      "Golden Hour Goodbye",
+      "Six Strings and a Wild Night",
+      "Boots on the Dancefloor",
+      "Last Dance of December",
+      "Fireworks Over Tennessee",
+      "Kiss Me at Midnight"
+    ]
+  },
+  {
     title: "The Way You Love Me",
     tagline: "Official Studio Album",
     image: "/images/the-way-you-love-me-album.jpg",
@@ -215,6 +248,10 @@ export default function Hero() {
     const m = months[date.getMonth()];
     const y = date.getFullYear().toString().substring(2);
     
+    // Distinguish dual December 4, 2026 releases
+    if (m === "Dec" && y === "26") {
+      return album.title === "New Year's Evening" ? "NYE '26" : "Dec '26";
+    }
     // For April 2027 which has two releases (Apr 2 and Apr 23), distinguish by day
     if (m === "Apr" && y === "27") {
       return `Apr ${date.getDate()}`;
@@ -388,7 +425,10 @@ export default function Hero() {
               {/* Singles Box */}
               <div className="timeline-singles-box">
                 <span className="timeline-singles-title">KEY SINGLES & TRACKS</span>
-                <div className="timeline-singles-list">
+                <div
+                  className="timeline-singles-list"
+                  style={activeAlbum.singles.length === 1 ? { gridTemplateColumns: '1fr' } : undefined}
+                >
                   {activeAlbum.singles.slice(0, 4).map((single, i) => (
                     <div key={i} className="timeline-single-item">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--accent-gold)" style={{ flexShrink: 0 }}>

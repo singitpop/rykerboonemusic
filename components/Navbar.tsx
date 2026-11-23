@@ -110,7 +110,7 @@ export default function Navbar() {
             className="nav-link"
             style={{ color: isSupportActive ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
           >
-            Support
+            Featured
           </Link>
           <Link href="https://shop.rykerboone.com" className="nav-link">Store</Link>
           {isAdmin && (

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Featured Releases | Ryker Boone — Nothing But the Frequency",
     description:
       "Explore Ryker Boone's spotlight single 'Nothing But the Frequency' (4 December 2026) and upcoming promotional album releases.",
-    url: "https://www.rykerboone.com/support",
+    url: "https://www.rykerboone.com/featured",
     siteName: "Ryker Boone Official",
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     images: ["/images/nothing-but-the-frequency-single.jpg"],
   },
   alternates: {
-    canonical: "/support",
+    canonical: "/featured",
   },
 };
 

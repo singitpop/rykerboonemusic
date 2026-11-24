@@ -45,7 +45,7 @@ export default function Footer() {
             <li><Link href="/about" style={{ color: 'var(--text-secondary)' }}>Our Story</Link></li>
             <li><Link href="https://shop.rykerboone.com" style={{ color: 'var(--text-secondary)' }}>Shop</Link></li>
             <li><Link href="/about" style={{ color: 'var(--text-secondary)' }}>Artist Library</Link></li>
-            <li><Link href="/support" style={{ color: 'var(--accent-gold)' }}>Featured Releases</Link></li>
+            <li><Link href="/featured" style={{ color: 'var(--accent-gold)' }}>Featured Releases</Link></li>
           </ul>
         </div>
 

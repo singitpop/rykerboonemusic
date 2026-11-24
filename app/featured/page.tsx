@@ -46,7 +46,7 @@ function buildGoogleCalendarUrl(item: FeaturedReleaseItem): string {
 
   const dates = `${formatIcsDate(start)}/${formatIcsDate(end)}`;
   const text = `Ryker Boone — ${item.title} (Release Day)`;
-  const details = `${item.title} (${item.type}) by Ryker Boone releases on ${item.displayDate} via ${item.label}.\n\n${item.summary}\n\nVisit https://www.rykerboone.com/support on release day to stream.`;
+  const details = `${item.title} (${item.type}) by Ryker Boone releases on ${item.displayDate} via ${item.label}.\n\n${item.summary}\n\nVisit https://www.rykerboone.com/featured on release day to stream.`;
 
   const params = new URLSearchParams({
     action: "TEMPLATE",
@@ -78,7 +78,7 @@ function downloadIcsReminder(item: FeaturedReleaseItem): void {
     `DTSTART;VALUE=DATE:${formatIcsDate(start)}`,
     `DTEND;VALUE=DATE:${formatIcsDate(end)}`,
     `SUMMARY:Ryker Boone — ${item.title} (Release Day)`,
-    `DESCRIPTION:${escapedSummary}\\n\\nVisit https://www.rykerboone.com/support on release day to stream.`,
+    `DESCRIPTION:${escapedSummary}\\n\\nVisit https://www.rykerboone.com/featured on release day to stream.`,
     "BEGIN:VALARM",
     "TRIGGER:-PT0M",
     "ACTION:DISPLAY",

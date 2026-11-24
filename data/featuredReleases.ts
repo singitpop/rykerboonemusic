@@ -49,7 +49,7 @@ export function hasVerifiedStreamingLinks(item: FeaturedReleaseItem): boolean {
 }
 
 /**
- * Primary hero spotlight at the top of the Featured Releases page (/support).
+ * Primary hero spotlight at the top of the Featured Releases page (/featured).
  * Rotate this object whenever you want to promote a new lead single or album.
  */
 export const FEATURED_SPOTLIGHT: FeaturedReleaseItem = {

@@ -49,6 +49,16 @@ const nextConfig: NextConfig = {
         destination: "https://shop.rykerboone.com",
         permanent: false,
       },
+      {
+        source: "/support",
+        destination: "/featured",
+        statusCode: 301,
+      },
+      {
+        source: "/support/:path*",
+        destination: "/featured",
+        statusCode: 301,
+      },
     ];
   },
 };

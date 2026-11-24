@@ -31,7 +31,7 @@ export default function Navbar() {
   const isHomeActive = pathname === "/";
   const isMusicActive = pathname === "/music" || pathname.startsWith("/music/");
   const isStoryActive = pathname === "/about";
-  const isSupportActive = pathname === "/support";
+  const isFeaturedActive = pathname === "/featured" || pathname.startsWith("/featured/");
   const isSignInActive = pathname === "/sign-in";
   
   const isAdmin = isLoaded && session && ['LABEL', 'ADMIN'].includes((session.role || '').toUpperCase());
@@ -106,9 +106,9 @@ export default function Navbar() {
             Our Story
           </Link>
           <Link 
-            href="/support" 
+            href="/featured" 
             className="nav-link"
-            style={{ color: isSupportActive ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
+            style={{ color: isFeaturedActive ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
           >
             Featured
           </Link>
